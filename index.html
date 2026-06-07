@@ -48,165 +48,396 @@
 
     <style>
         :root { 
-            --bg: #0f172a; 
-            --text: #f8fafc; 
+            --bg: #030712; 
+            --text: #f3f4f6; 
             --accent: #10b981; 
-            --focus: #38bdf8; 
-            --panel-bg: #1e293b;
-            --border: #334155;
-            --alert-red: #ef4444;
+            --accent-glow: rgba(16, 185, 129, 0.25);
+            --focus: #06b6d4; 
+            --panel-bg: rgba(17, 24, 39, 0.7);
+            --border: rgba(51, 65, 85, 0.5);
+            --border-hover: rgba(6, 182, 212, 0.4);
+            --alert-red: rgba(239, 68, 68, 0.2);
+            --alert-border: rgba(239, 68, 68, 0.4);
         }
+
+        /* Общие футуристичные настройки */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
         body { 
-            font-family: system-ui, -apple-system, sans-serif; 
-            background: var(--bg); 
-            color: var(--text); 
-            max-width: 700px; /* Немного расширил, чтобы сетка блоков смотрелась аккуратно */
-            margin: 0 auto; 
-            padding: 2rem 1rem; 
-            line-height: 1.5; 
-            text-align: center; 
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
         }
-        a:focus, button:focus { outline: 3px solid var(--focus); outline-offset: 2px; }
-        
+
+        /* Глубокий CSS-Параллакс и Световые Лейки на фоне */
+        body::before {
+            content: "";
+            position: fixed;
+            top: -10%; left: -10%;
+            width: 120%; height: 120%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(6, 182, 212, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(16, 185, 129, 0.12) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(15, 23, 42, 1) 0%, var(--bg) 100%);
+            z-index: -2;
+            pointer-events: none;
+        }
+
+        /* Технологичная сетка на бэкграунде */
+        body::after {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.01) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(255, 255, 255, 0.01) 1px, transparent 1px);
+            background-size: 40px 40px;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 4rem 1.5rem;
+        }
+
+        a:focus, button:focus { 
+            outline: 3px solid var(--focus); 
+            outline-offset: 4px; 
+        }
+
+        /* Премиальный Хедер Терминала */
+        header {
+            text-align: center;
+            margin-bottom: 5rem;
+            position: relative;
+        }
+
+        header h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            letter-spacing: -0.05em;
+            background: linear-gradient(135deg, #ffffff 30%, #94a3b8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            color: #94a3b8;
+            font-family: 'Courier New', Courier, monospace;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* Главная секция и кастомная Кнопка-Маска */
+        .main-action {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 6rem auto;
+        }
+
+        .main-action p {
+            font-size: 1.3rem;
+            color: #cbd5e1;
+            margin-bottom: 2.5rem;
+            font-weight: 300;
+        }
+
+        /* Высокотехнологичная Cyber-кнопка */
         .btn { 
             display: inline-block; 
-            background: var(--accent); 
-            color: #000; 
-            font-weight: bold; 
-            padding: 1rem 2rem; 
-            border-radius: 0.5rem; 
+            background: linear-gradient(135deg, var(--accent) 0%, #059669 100%);
+            color: #022c22; 
+            font-weight: 700; 
+            padding: 1.2rem 3.5rem; 
+            border-radius: 0.75rem; 
             text-decoration: none; 
-            min-height: 48px; 
-            min-width: 200px; 
-            line-height: 1.2; 
-            font-size: 1.2rem; 
-            transition: transform 0.1s; 
+            font-size: 1.25rem; 
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 0 25px var(--accent-glow), inset 0 1px 0 rgba(255,255,255,0.3);
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(16, 185, 129, 0.5);
         }
-        .btn:active { transform: scale(0.98); }
-        
-        /* Стили для интеграции семантических ИИ-блоков по плану */
+
+        .btn::before {
+            content: "";
+            position: absolute;
+            top: 0; left: -100%;
+            width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: all 0.6s ease;
+        }
+
+        .btn:hover { 
+            transform: translateY(-3px);
+            box-shadow: 0 0 40px rgba(16, 185, 129, 0.5), 0 0 0 4px rgba(6, 182, 212, 0.3);
+            color: #fff;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn:active { 
+            transform: translateY(-1px) scale(0.98); 
+        }
+
+        /* Сетка премиальных Glassmorphism панелей */
+        .section-title {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--focus);
+            margin-bottom: 1.5rem;
+            text-align: left;
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title::after {
+            content: "";
+            height: 1px;
+            flex-grow: 1;
+            background: linear-gradient(90deg, rgba(6, 182, 212, 0.3), transparent);
+        }
+
         .grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 1.5rem;
-            margin-top: 2.5rem;
+            margin-bottom: 4rem;
             text-align: left;
         }
-        @media (max-width: 640px) {
+
+        @media (max-width: 768px) {
             .grid { grid-template-columns: 1fr; }
         }
         
         .panel {
             background: var(--panel-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             border: 1px solid var(--border);
-            border-radius: 0.5rem;
-            padding: 1.5rem;
+            border-radius: 1rem;
+            padding: 2rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
         }
+
+        .panel:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(6, 182, 212, 0.05);
+        }
+        
         .panel h2 {
-            font-size: 1.1rem;
-            margin-top: 0;
+            font-size: 1.25rem;
+            font-weight: 700;
             margin-bottom: 0.75rem;
-            color: var(--focus);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+            color: #fff;
+            letter-spacing: -0.02em;
         }
+
         .panel p {
             font-size: 0.95rem;
-            margin: 0 0 1rem 0;
-            color: #cbd5e1;
+            color: #94a3b8;
+            line-height: 1.6;
         }
-        .panel p:last-child { margin-bottom: 0; }
         
         .mode-tag {
             display: inline-block;
-            font-size: 0.75rem;
-            font-weight: bold;
-            color: var(--accent);
-            background: rgba(16, 185, 129, 0.1);
-            padding: 0.2rem 0.5rem;
-            border-radius: 0.25rem;
-            margin-bottom: 0.5rem;
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--focus);
+            background: rgba(6, 182, 212, 0.1);
+            padding: 0.25rem 0.7rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border: 1px solid rgba(6, 182, 212, 0.15);
         }
         
         .accent-text {
             color: #fff;
             font-weight: 600;
+            text-shadow: 0 0 10px rgba(255,255,255,0.1);
         }
+
+        /* Специфические панели предупреждений/бувстрапа */
+        .panel-bootstrap { border-color: rgba(16, 185, 129, 0.3); }
+        .panel-bootstrap:hover { border-color: var(--accent); box-shadow: 0 10px 30px rgba(16, 185, 129, 0.05); }
+        .panel-risk { background: rgba(239, 68, 68, 0.02); border-color: var(--alert-border); }
+        .panel-risk:hover { border-color: #ef4444; box-shadow: 0 10px 30px rgba(239, 68, 68, 0.05); }
+        .panel-risk h2 { color: #fca5a5; }
         
-        .lang-nav { margin-top: 4rem; display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
-        .lang-nav a { color: var(--text); text-decoration: underline; font-size: 0.9rem; padding: 0.5rem; }
+        /* Бегущая дорожка маркетплейсов нового поколения */
+        .marquee-wrapper {
+            background: rgba(15, 23, 42, 0.6);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 0;
+            margin-bottom: 5rem;
+            overflow: hidden;
+            backdrop-filter: blur(5px);
+        }
+
+        .marquee {
+            display: flex;
+            white-space: nowrap;
+            animation: marquee 25s linear infinite;
+        }
+
+        .marquee span {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #64748b;
+            padding: 0 2rem;
+            letter-spacing: 2px;
+        }
+
+        .marquee span strong {
+            color: #cbd5e1;
+        }
+
+        @keyframes marquee {
+            0% { transform: translate3d(0, 0, 0); }
+            100% { transform: translate3d(-50%, 0, 0); }
+        }
+
+        /* Языковая навигация и Футер */
+        footer {
+            margin-top: 6rem;
+            border-top: 1px solid var(--border);
+            padding-top: 3rem;
+        }
+
+        .lang-nav { 
+            display: flex; 
+            justify-content: center; 
+            gap: 1.5rem; 
+            flex-wrap: wrap; 
+            margin-bottom: 2rem;
+        }
+
+        .lang-nav a { 
+            color: #94a3b8; 
+            text-decoration: none; 
+            font-size: 0.9rem; 
+            font-weight: 500;
+            padding: 0.5rem 1rem; 
+            border-radius: 0.5rem;
+            background: rgba(255,255,255,0.02);
+            border: 1px solid transparent;
+            transition: all 0.2s ease;
+        }
+
+        .lang-nav a:hover {
+            color: #fff;
+            background: rgba(255,255,255,0.05);
+            border-color: rgba(255,255,255,0.1);
+        }
+
+        .copyright {
+            font-size: 0.85rem; 
+            color: #475569;
+        }
     </style>
 </head>
 <body>
 
+<div class="container">
+
     <header>
         <h1>Lotifybot</h1>
-        <p>Official Information Hub & Global Ad Aggregator</p>
+        <p>Official Information Hub &amp; Global Ad Aggregator</p>
     </header>
 
     <main>
-        <section aria-label="Main Action" style="margin-bottom: 3rem;">
-            <p style="font-size: 1.1rem; margin-bottom: 2rem;">The fastest AI-powered tracking tool for global marketplaces: OLX, eBay, Facebook Marketplace, Willhaben, AutoRia.</p>
+        <section class="main-action" aria-label="Main Action">
+            <p>The fastest AI-powered tracking tool for global marketplaces: OLX, eBay, Facebook Marketplace, Willhaben, AutoRia.</p>
             <a href="/contact.html" class="btn" aria-label="Try Lotifybot free now">Try Now</a>
         </section>
 
-        <section aria-label="Market Performance and Intelligence" style="border-top: 1px solid var(--border); padding-top: 2rem;">
-            <div class="grid">
-                <div class="panel">
-                    <h2>Data Inefficiency Report</h2>
-                    <p>Have you ever wondered why you can’t get a good deal on <span class="accent-text">eBay</span> or local platforms? Because <span class="accent-text">95% of users</span> end up buying overpriced items. The truth is simple: winning buyers use <span class="accent-text">Lotifybot</span> — a system that notifies you <span class="accent-text">the moment a new item is listed at its real price, before scalpers ruin the deal.</span></p>
-                </div>
-                <div class="panel">
-                    <h2>The Flipper Architecture</h2>
-                    <p>Flippers grabbing the absolute best deals on <span class="accent-text">OLX, eBay, or Willhaben</span> aren't just lucky. They use automated modules like <span class="accent-text">Lotifybot</span> to catch drops first. It alerts you <span class="accent-text">the moment a new item gets listed, giving you a split-second advantage to buy it at its true market value.</span></p>
-                </div>
+        <div class="marquee-wrapper">
+            <div class="marquee">
+                <span><strong>OLX</strong> (UA, PL, KZ, RO, BG, PT, UZ)</span> <span><strong>EBAY</strong></span> <span><strong>FACEBOOK MARKETPLACE</strong></span> <span><strong>WILLHABEN</strong></span> <span><strong>AUTO RIA</strong></span> <span><strong>DIM RIA</strong></span>
+                <span><strong>OLX</strong> (UA, PL, KZ, RO, BG, PT, UZ)</span> <span><strong>EBAY</strong></span> <span><strong>FACEBOOK MARKETPLACE</strong></span> <span><strong>WILLHABEN</strong></span> <span><strong>AUTO RIA</strong></span> <span><strong>DIM RIA</strong></span>
             </div>
-            
-            <div class="panel" style="margin-top: 1.5rem; text-align: left;">
+        </div>
+
+        <div class="section-title">Intercept Logs &amp; Market Realities</div>
+        <section class="grid" aria-label="Market Performance and Intelligence">
+            <article class="panel">
+                <h2>Data Inefficiency Report</h2>
+                <p>Have you ever wondered why you can’t get a good deal on <span class="accent-text">eBay</span> or local platforms? Because <span class="accent-text">95% of users</span> end up buying overpriced items. The truth is simple: winning buyers use <span class="accent-text">Lotifybot</span> — a system that notifies you <span class="accent-text">the moment a new item is listed at its real price, before scalpers ruin the deal.</span></p>
+            </article>
+            <article class="panel">
+                <h2>The Flipper Architecture</h2>
+                <p>Flippers grabbing the absolute best deals on <span class="accent-text">OLX, eBay, or Willhaben</span> aren't just lucky. They use automated modules like <span class="accent-text">Lotifybot</span> to catch drops first. It alerts you <span class="accent-text">the moment a new item gets listed, giving you a split-second advantage to buy it at its true market value.</span></p>
+            </article>
+        </section>
+
+        <section style="margin-bottom: 5rem;">
+            <article class="panel">
                 <h2>Time Delay Liquidation</h2>
                 <p>The real problem with modern marketplace navigation isn't a lack of fair offers — <span class="accent-text">it is that you are always late</span>. Operating 24/7, Lotifybot bypasses consumer-facing layout delays and pushes instant data streams <span class="accent-text">the moment a new ad is listed at its fair price before scalpers notice it.</span></p>
-            </div>
+            </article>
         </section>
 
-        <section aria-label="Operational Use Cases" style="margin-top: 3rem; border-top: 1px solid var(--border); padding-top: 2rem;">
-            <h3 style="text-align: left; margin-bottom: 1rem; font-size: 1.3rem;">Operational Matrices &amp; Pipelines</h3>
+        <div class="section-title">Operational Matrices &amp; Pipelines</div>
+        <section class="grid" aria-label="Operational Use Cases">
+            <article class="panel">
+                <span class="mode-tag">Asymmetric Marketing</span>
+                <h2>Business Scaling</h2>
+                <p>Leverage target audience pools to build niche informational layers. By piping refined marketplace data flows into private or public groups with filter configurations set slightly higher than your own stock pricing, your inventory naturally stands out as <span class="accent-text">the highest value and lowest price</span>.</p>
+            </article>
             
-            <div class="grid" style="margin-top: 0;">
-                <div class="panel">
-                    <span class="mode-tag">ASYMMETRIC MARKETING</span>
-                    <h2>Business Scaling</h2>
-                    <p>Leverage target audience pools to build niche informational layers. By piping refined marketplace data flows into private or public groups with filter configurations set slightly higher than your native inventory pricing, your stock naturally stands out as <span class="accent-text">the highest value and lowest price</span>.</p>
-                </div>
-                
-                <div class="panel">
-                    <span class="mode-tag">TRAFFIC MONETIZATION</span>
-                    <h2>Revenue Streams</h2>
-                    <p>Construct subscription access architectures for premium real-time data flows. Alternatively, process highly profitable marketplace leads, outputting clean item metadata while <span class="accent-text">withholding target contact data</span>, requiring users to authenticate or pay a transaction fee to unlock credentials.</p>
-                </div>
-                
-                <div class="panel">
-                    <span class="mode-tag">B2B INTEGRATION</span>
-                    <h2>Low-Code Webhooks</h2>
-                    <p>Completely bypass proxy rotations, infrastructure costs, and platform IP bans. Utilize built-in <span class="accent-text">JSON webhooks</span> to dynamically feed real-time listings into third-party websites or proprietary enterprise systems to complement internal stocks or display competitor pricing anomalies.</p>
-                </div>
-                
-                <div class="panel">
-                    <span class="mode-tag">SOCIAL INFRASTRUCTURE</span>
-                    <h2>Direct Housing &amp; Auto</h2>
-                    <p>Bypass predatory middleman fees. Intermediaries distort prices on real estate and vehicle networks. For a minimal entry token of <span class="accent-text">1999 (approx. $20)</span>, students and low-income demographics bypass brokers entirely, intercepting fresh listings on <span class="accent-text">OLX, Dim Ria, Auto Ria, and Facebook Marketplace</span> directly from primary owners.</p>
-                </div>
-            </div>
+            <article class="panel">
+                <span class="mode-tag">Traffic Monetization</span>
+                <h2>Revenue Streams</h2>
+                <p>Construct subscription access architectures for premium real-time data flows. Alternatively, process highly profitable marketplace leads, outputting clean item metadata while <span class="accent-text">withholding target contact data</span>, requiring users to authenticate or pay a transaction fee to unlock credentials.</p>
+            </article>
+            
+            <article class="panel">
+                <span class="mode-tag">B2B Integration</span>
+                <h2>Low-Code Webhooks</h2>
+                <p>Completely bypass proxy rotations, infrastructure costs, and platform IP bans. Utilize built-in <span class="accent-text">JSON webhooks</span> to dynamically feed real-time listings into third-party websites or proprietary enterprise systems to complement internal stocks or display competitor pricing anomalies.</p>
+            </article>
+            
+            <article class="panel">
+                <span class="mode-tag">Social Infrastructure</span>
+                <h2>Direct Housing &amp; Auto</h2>
+                <p>Bypass predatory middleman fees. Intermediaries distort prices on real estate and vehicle networks. For a minimal entry token of <span class="accent-text">1999 (approx. $20)</span>, students and low-income demographics bypass brokers entirely, intercepting fresh listings on <span class="accent-text">OLX, Dim Ria, Auto Ria, and Facebook Marketplace</span> directly from primary owners.</p>
+            </article>
         </section>
 
-        <section aria-label="Compliance and Safeguards" class="grid">
-            <div class="panel" style="border-color: var(--accent);">
+        <div class="section-title">Compliance &amp; Safeguards</div>
+        <section class="grid" aria-label="Compliance and Safeguards">
+            <article class="panel panel-bootstrap">
                 <h2>Bootstrap Program</h2>
                 <p>We provide a <span class="accent-text">standard free trial</span> for all operators. For micro-startups, amateur car flippers, or novice realtors launching with zero capital: supply a simple business description (e.g., "tracking vehicles on Auto Ria") to access a <span class="accent-text">14-day premium grant</span>.</p>
-            </div>
-            <div class="panel" style="border-color: var(--alert-red);">
+            </article>
+            <article class="panel panel-risk">
                 <h2>Zero-Risk Architecture</h2>
                 <p>Lotifybot operates as a non-custodial middleware layer. <span class="accent-text">We never process external customer funds, hold capital, or collect banking info.</span> Notifications route users straight to the official sources (<span class="accent-text">eBay, OLX, Willhaben, etc.</span>) ensuring standard customer protections.</p>
-            </div>
+            </article>
         </section>
     </main>
 
@@ -218,8 +449,10 @@
             <a href="/de/" hreflang="de">Deutsch</a>
             <a href="/es/" hreflang="es">Español</a>
         </nav>
-        <p style="margin-top: 2rem; font-size: 0.8rem; color: #64748b;">&copy; 2026 Lotifybot Infrastructure Network. All rights reserved.</p>
+        <div class="copyright">&copy; 2026 Lotifybot Infrastructure Network. All rights reserved.</div>
     </footer>
+
+</div>
 
 </body>
 </html>
