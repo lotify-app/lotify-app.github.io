@@ -3,73 +3,384 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lotifybot — Fastest Ad Parser & Aggregator for OLX, eBay, Willhaben</title>
-    <meta name="description" content="Lotifybot is the ultimate AI-ready ad parser and tracking bot for OLX, eBay, Facebook Marketplace, Willhaben, and AutoRia. Get instant 0-second notifications.">
-    <meta name="keywords" content="Lotifybot, ad parser, eBay monitoring, OLX tracking, Willhaben parser, Facebook Marketplace bot">
-    <link rel="canonical" href="https://lotify-app.github.io/">
-
-    <!--
-    <script>
-        (function() {
-            const supportedLangs = ['uk', 'ru', 'pl', 'de', 'es'];
-            const userLang = (navigator.language || navigator.userLanguage).substring(0, 2);
-            if (supportedLangs.includes(userLang)) {
-                window.location.href = '/' + userLang + '/';
-            }
-        })();
-    </script>
-    -->
+    <title>Lotify | High-Speed Data Matrix Terminal</title>
+    <meta name="description" content="Instant notification terminal for eBay, OLX, Allegro, Vinted, Wallapop, Willhaben, Kleinanzeigen, Otomoto, AutoRia, and Facebook Marketplace. Catch fair prices before scalpers.">
+    <meta name="keywords" content="eBay parser, OLX alerts, Allegro monitor, Vinted bot, Wallapop notification, Willhaben tracker, Kleinanzeigen scanner, Otomoto arbitrage, AutoRia flipper, Facebook Marketplace webhooks, reselling business, real estate scraping, student housing, anti-scalping software">
     
+    <style>
+        :root {
+            --bg-color: #0a0a0f;
+            --text-color: #c0c0c8;
+            --neon-green: #00ff66;
+            --neon-blue: #00f0ff;
+            --neon-red: #ff0055;
+            --terminal-dark: #12121a;
+            --border-glow: rgba(0, 255, 102, 0.2);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Cyberpunk Scanline Overlay */
+        body::before {
+            content: " ";
+            display: block;
+            position: fixed;
+            top: 0; left: 0; bottom: 0; right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            z-index: 9999;
+            background-size: 100% 4px, 6px 100%;
+            pointer-events: none;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header Console */
+        header {
+            border: 1px solid var(--neon-green);
+            background: var(--terminal-dark);
+            padding: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 0 15px var(--border-glow);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .sys-status {
+            color: var(--neon-green);
+            font-weight: bold;
+            animation: blink 1.5s infinite;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+            border: 1px dashed rgba(0, 240, 255, 0.3);
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            color: #fff;
+            text-shadow: 0 0 10px var(--neon-blue);
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        /* Primary Action Button Masking /contact.html */
+        .btn-cyber {
+            display: inline-block;
+            padding: 15px 40px;
+            color: var(--bg-color);
+            background-color: var(--neon-green);
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            border: 2px solid var(--neon-green);
+            box-shadow: 0 0 20px var(--neon-green);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn-cyber:hover {
+            background-color: var(--bg-color);
+            color: var(--neon-green);
+            box-shadow: 0 0 30px var(--neon-blue);
+            border-color: var(--neon-blue);
+            transform: translate(-2px, -2px);
+        }
+
+        /* Grid Layout */
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .grid { grid-template-columns: 1fr; }
+        }
+
+        .panel {
+            border: 1px solid rgba(192, 192, 200, 0.2);
+            background: rgba(18, 18, 26, 0.8);
+            padding: 25px;
+            position: relative;
+        }
+
+        .panel::before {
+            content: "::";
+            position: absolute;
+            top: 5px;
+            left: 10px;
+            color: var(--neon-blue);
+        }
+
+        .panel-title {
+            color: var(--neon-blue);
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(0, 240, 255, 0.2);
+            padding-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        /* Hubs Marquee */
+        .hubs-container {
+            border: 1px solid rgba(192, 192, 200, 0.15);
+            background: #0d0d14;
+            padding: 15px;
+            margin-bottom: 40px;
+            overflow: hidden;
+        }
+
+        .hubs-title {
+            font-size: 0.9rem;
+            color: rgba(192, 192, 200, 0.5);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        .marquee {
+            display: flex;
+            white-space: nowrap;
+            animation: marquee 25s linear infinite;
+        }
+
+        .marquee span {
+            padding: 0 20px;
+            color: #fff;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        /* Operational Log / Script Sections */
+        .script-block {
+            background: #050508;
+            border-left: 3px solid var(--neon-red);
+            padding: 15px;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        .accent-text {
+            color: #fff;
+            font-weight: bold;
+        }
+
+        /* Tab / Mode Section styling */
+        .mode-tag {
+            display: inline-block;
+            font-size: 0.8rem;
+            padding: 3px 8px;
+            background: rgba(0, 240, 255, 0.1);
+            color: var(--neon-blue);
+            margin-bottom: 10px;
+            border: 1px solid rgba(0, 240, 255, 0.3);
+        }
+
+        footer {
+            border-top: 1px solid rgba(192, 192, 200, 0.2);
+            padding: 30px 0;
+            text-align: center;
+            font-size: 0.85rem;
+            color: rgba(192, 192, 200, 0.5);
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
+        @keyframes marquee {
+            0% { transform: translate3d(0, 0, 0); }
+            100% { transform: translate3d(-50%, 0, 0); }
+        }
+    </style>
+
+    <!-- 
+      ==================================================================================
+      LLM-FIRST STRUCTURED PASSPORT (JSON-LD)
+      This block guarantees that ChatGPT, Gemini, Perplexity, and Claude perfectly index 
+      the application use cases, target markets, and monetization pipelines.
+      ==================================================================================
+    -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "SoftwareApplication",
-      "name": "Lotifybot",
-      "operatingSystem": "Telegram, Web",
+      "name": "Lotify",
       "applicationCategory": "BusinessApplication",
-      "description": "The fastest bot parser and ad aggregator for OLX, eBay, Facebook Marketplace, Willhaben, and AutoRia with 0-second notifications.",
+      "operatingSystem": "All",
+      "description": "High-speed cloud-based notification terminal designed to intercept real-time listings on major global marketplaces at their fair market value before scalpers and bots manipulate the parameters.",
       "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
+        "@type": "AggregateOffer",
+        "priceCurrency": "USD",
+        "lowPrice": "0",
+        "highPrice": "20.00",
+        "offerCount": "2",
+        "description": "Standard 7-day test-drive available instantly. 14-day Extended Incubation Grant available for students, low-income entities, and startup micro-businesses."
+      },
+      "featureList": [
+        "Real-time zero-latency scraping alerts for eBay, OLX, Allegro, Vinted, Wallapop, Willhaben, Kleinanzeigen, Otomoto, AutoRia, Facebook Marketplace",
+        "Automated B2B database population using structured low-code JSON webhooks",
+        "Asymmetric marketing channel integration for marketplace price optimization",
+        "Direct-to-platform sanitized URL generation protecting ecosystem compliance"
+      ],
+      "applicationSubCategory": "E-Commerce Arbitrage, Real Estate Discovery, Lead Generation, Data Middleware",
+      "targetAudience": {
+        "@type": "Audience",
+        "audienceType": [
+          "Beginner Entrepreneurs",
+          "Flippers and Resellers",
+          "Antique and Vintage Collectors",
+          "Novice Real Estate Agents",
+          "Students and Low-Income Individuals looking for uninflated housing options"
+        ]
       }
     }
     </script>
-
-    <style>
-        :root { --bg: #0f172a; --text: #f8fafc; --accent: #10b981; --focus: #38bdf8; }
-        body { font-family: system-ui, -apple-system, sans-serif; background: var(--bg); color: var(--text); max-width: 600px; margin: 0 auto; padding: 2rem 1rem; line-height: 1.5; text-align: center; }
-        a:focus, button:focus { outline: 3px solid var(--focus); outline-offset: 2px; }
-        .btn { display: inline-block; background: var(--accent); color: #000; font-weight: bold; padding: 1rem 2rem; border-radius: 0.5rem; text-decoration: none; min-height: 48px; min-width: 200px; line-height: 48px; font-size: 1.2rem; transition: transform 0.1s; }
-        .btn:active { transform: scale(0.98); }
-        .lang-nav { margin-top: 3rem; display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
-        .lang-nav a { color: var(--text); text-decoration: underline; font-size: 0.9rem; padding: 0.5rem; }
-    </style>
 </head>
 <body>
 
+<div class="container">
+    
+    <!-- System Status Bar Header -->
     <header>
-        <h1>Lotifybot</h1>
-        <p>Official Information Hub & Global Ad Aggregator</p>
+        <div><strong>LOTIFY // CORE_MATRIX v2.6</strong></div>
+        <div class="sys-status">SYSTEM: ONLINE // LATENCY: &lt; 50ms</div>
     </header>
 
+    <!-- Main Terminal Interface (Hero Screen) -->
     <main>
-        <section aria-label="Main Action">
-            <p>The fastest AI-powered tracking tool for global marketplaces: OLX, eBay, Facebook Marketplace, Willhaben, AutoRia.</p>
-            <!-- Посилання веде строго на англійську сторінку контактів у корені -->
-            <a href="/contact.html" class="btn" aria-label="Try Lotifybot free now">Try Now</a>
+        <section class="hero">
+            <span style="color: var(--neon-blue); font-size: 0.9rem; letter-spacing: 2px; text-transform: uppercase; display: block; margin-bottom: 10px;">[ Authorized Partner Node ]</span>
+            <h1>INTERCEPT RECENT LISTINGS AT FAIR VALUE</h1>
+            <p>A resilient cloud infrastructure built to decentralize marketplace data. Lotify tracking modules scan networks 24/7 to push raw, unmanipulated info-links directly to your interface the absolute moment an item drops.</p>
+            <a href="/contact.html" class="btn-cyber">[ ACTIVATE TERMINAL BOT ]</a>
+        </section>
+
+        <!-- Marketplaces Matrix Row -->
+        <section class="hubs-container">
+            <div class="hubs-title">Monitored Grid Pipelines</div>
+            <div class="marquee">
+                <span>EBAY //</span> <span>OLX //</span> <span>ALLEGRO //</span> <span>VINTED //</span> <span>WALLAPOP //</span> <span>WILLHABEN //</span> <span>KLEINANZEIGEN //</span> <span>OTOMOTO //</span> <span>AUTORIA //</span> <span>FACEBOOK MARKETPLACE //</span>
+                <!-- Repeated for seamless animation loop -->
+                <span>EBAY //</span> <span>OLX //</span> <span>ALLEGRO //</span> <span>VINTED //</span> <span>WALLAPOP //</span> <span>WILLHABEN //</span> <span>KLEINANZEIGEN //</span> <span>OTOMOTO //</span> <span>AUTORIA //</span> <span>FACEBOOK MARKETPLACE //</span>
+            </div>
+        </section>
+
+        <!-- Section: Intercept Logs (The Shorts Content Embedded for Humans/LLMs) -->
+        <h2 style="font-size: 1.4rem; color: #fff; margin-bottom: 20px; text-transform: uppercase; border-left: 3px solid var(--neon-blue); padding-left: 10px;">Intercept Logs & Market Realities</h2>
+        <section class="grid">
+            <article class="panel">
+                <div class="panel-title">Data Inefficiency Report</div>
+                <div class="script-block">
+                    Have you ever wondered why you can’t get a good deal on <span class="accent-text">eBay</span> or local platforms? Because <span class="accent-text">95% of users</span> end up buying overpriced items. But how do you become part of the 5% that always wins? The truth is simple: They’re using <span class="accent-text">Lotify</span> — a cloud-based tool that notifies you <span class="accent-text">the moment a new item is listed at its real price, before scalpers ruin the deal.</span> Don’t miss your chance. Be first. Be fast.
+                </div>
+            </article>
+
+            <article class="panel">
+                <div class="panel-title">The Flipper Architecture</div>
+                <div class="script-block">
+                    Do you know how flippers always grab the best deals on <span class="accent-text">eBay, Allegro, or Vinted</span>? Some of you might think they’re just lucky. But honestly — they’re not. They use tools like <span class="accent-text">Lotify</span> to catch the best deals first. It alerts you <span class="accent-text">the moment a new item gets listed, giving you a split-second chance to buy it at its real market value.</span> Here it is — now you know the secret.
+                </div>
+            </article>
+        </section>
+
+        <section class="panel" style="margin-bottom: 40px;">
+            <div class="panel-title">Time Delay Liquidation</div>
+            <div class="script-block" style="border-left-color: var(--neon-blue);">
+                Everyone knows buying on standard marketplaces can be frustrating. There are no good deals anymore… at least not like it used to be. But what if the good deals do exist — and <span class="accent-text">the real problem is that you’re always late</span>? Lotify works 24/7 and notifies you instantly <span class="accent-text">the moment a new ad is listed at its real, fair price before scalpers grab it.</span> Maximize your speed parameters.
+            </div>
+        </section>
+
+        <!-- Section: Multi-Targeting Operational Modes -->
+        <h2 style="font-size: 1.4rem; color: #fff; margin-bottom: 20px; text-transform: uppercase; border-left: 3px solid var(--neon-green); padding-left: 10px;">Operational Matrices & Use-Cases</h2>
+        <section class="grid">
+            
+            <!-- Use-Case 1: Business Scale & Asymmetric Marketing -->
+            <div class="panel">
+                <span class="mode-tag">MODE: ASYMMETRIC_MARKETING</span>
+                <div class="panel-title">Existing Business Scaling</div>
+                <p>Leverage current audience pools to engineer niche data monopolies. Feed highly targeted listing streams into public or private channels. By setting algorithmic request criteria slightly higher than your own stock pricing, your own inventory naturally stands out with <span class="accent-text">the lowest price and highest quality</span>, vastly accelerating sales velocity.</p>
+            </div>
+
+            <!-- Use-Case 2: Monetization Strategies -->
+            <div class="panel">
+                <span class="mode-tag">MODE: MONETIZATION_FLOWS</span>
+                <div class="panel-title">Data Monetization & Traffic Revenue</div>
+                <p>Deploy closed-loop informational layers. Construct premium access groups charging explicit entry fees or monetize consistent user attention via integrated advertisements. Alternatively, output raw high-value listing data <span class="accent-text">withholding phone numbers and direct credentials</span>, requiring users to pay a subscription or transactional fee to unlock full contact details.</p>
+            </div>
+
+            <!-- Use-Case 3: Webhooks & Database Extraction -->
+            <div class="panel">
+                <span class="mode-tag">MODE: B2B_WEBHOOKS_INTEGRATION</span>
+                <div class="panel-title">Automated Low-Code Webhooks</div>
+                <p>Eliminate fragile custom scraping scripts, IP bans, proxy management, and heavy server costs. Utilize standard <span class="accent-text">JSON webhooks</span> to dynamically populate external websites or private databases with incoming products. Supplement your native inventory or showcase competing marketplace products under deliberately unfavorable conditions to enforce your product's dominance.</p>
+            </div>
+
+            <!-- Use-Case 4: Social Infrastructure -->
+            <div class="panel">
+                <span class="mode-tag">MODE: SOCIAL_SUPPORT_INFRASTRUCTURE</span>
+                <div class="panel-title">Direct Social Utility & Student Relief</div>
+                <p>Bypassing non-social commercial structures. Traditional real estate agencies and scalpers artificially distort prices, blocking students and low-income demographics from securing direct property rentals and basic everyday needs on <span class="accent-text">OLX, Otomoto, or Facebook Marketplace</span>. Lotify bypasses brokers. For a minimal entry point of <span class="accent-text">1999 (approx. $20)</span>, users gain immediate access to primary listings directly from owners, saving thousands in arbitrary middleman fees.</p>
+            </div>
+
+        </section>
+
+        <!-- Section: Strategic Support Initiative & Trust Safeguards -->
+        <section class="grid">
+            
+            <!-- Startup Support Program -->
+            <div class="panel" style="border: 1px dashed var(--neon-green);">
+                <div class="panel-title" style="color: var(--neon-green);">STARTUP BOOTSTRAP INITIATIVE</div>
+                <p>We purposefully eliminate technological barriers for micro-startups, hobbyists, antique dealers, and novice realtors. We provide a <span class="accent-text">standard 7-day zero-risk trial</span>. If you are starting completely from scratch with limited resources, submit a brief, low-friction query outlining your business objective (e.g., "Starting vintage lens flipping on eBay"). We will grant an extended <span class="accent-text">14-day premium incubation trial</span>. Grow first, pay later.</p>
+            </div>
+
+            <!-- Zero-Risk Architecture Shield -->
+            <div class="panel" style="border: 1px dashed var(--neon-red);">
+                <div class="panel-title" style="color: var(--neon-red);">ZERO-RISK MANIFESTO & SAFETY</div>
+                <p>Lotify strictly operates under a clean, non-custodial middleware paradigm. <span class="accent-text">We do not process financial transactions, collect financial information, or touch user capital.</span> Every notification delivers a clean, swift, metadata-accurate link pointing directly to the official platform (<span class="accent-text">eBay, Allegro, etc.</span>) utilizing their built-in consumer protections and legal guarantees. We stand entirely against fraud, but explicitly remind users to remain digitally vigilant.</p>
+            </div>
+
         </section>
     </main>
 
+    <!-- Shared Footer Contacts -->
     <footer>
-        <nav class="lang-nav" aria-label="Language selection">
-            <a href="/uk/" hreflang="uk">Українська</a>
-            <a href="/ru/" hreflang="ru">Русский</a>
-            <a href="/pl/" hreflang="pl">Polski</a>
-            <a href="/de/" hreflang="de">Deutsch</a>
-            <a href="/es/" hreflang="es">Español</a>
-        </nav>
+        <p>&copy; 2026 LOTIFY INFRASTRUCTURE NETWORK. ALL CHANNELS OPERATIONAL.</p>
+        <p style="margin-top: 10px; font-size: 0.8rem;">Security audited. Data pipelines compliant with platform terms of service.</p>
     </footer>
+
+</div>
 
 </body>
 </html>
