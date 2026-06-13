@@ -9,14 +9,11 @@
     
     <style>
         :root {
-            /* Задний фон ровно на 5% светлее полного мрака */
             --bg: #121216; 
-            /* Сверхсовременный Стекломорфизм (Glassmorphism) */
             --surface-glass: rgba(22, 22, 28, 0.45);
             --card-glass: rgba(26, 26, 36, 0.55);
             --border-glow: rgba(0, 229, 255, 0.25);
             --border-subtle: rgba(255, 255, 255, 0.05);
-            
             --text-main: #f3f4f6;
             --text-muted: #8892b0;
             --accent-cyan: #00e5ff;
@@ -35,7 +32,6 @@
             padding-top: 3.8rem;
         }
 
-        /* ТРЕНД: АВРОРА-ГЛОВ (Световые футуристичные пятна на фоне) */
         .aurora-glow {
             position: absolute; width: 300px; height: 300px;
             background: radial-gradient(circle, rgba(0, 229, 255, 0.13) 0%, rgba(0,0,0,0) 70%);
@@ -43,7 +39,6 @@
             z-index: 0; pointer-events: none; filter: blur(40px);
         }
 
-        /* ХЕДЕР */
         header {
             display: flex; justify-content: space-between; align-items: center;
             padding: 0.6rem 1.2rem; position: fixed; width: 100%; top: 0; left: 0;
@@ -55,14 +50,12 @@
         .logo span { color: var(--accent-cyan); }
         .official-tag { font-size: 0.55rem; color: var(--accent-yellow); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-top: 1px; }
         
-        /* ПАНЕЛЬ ФЛАГОВ */
         .lang-container { display: flex; gap: 0.65rem; }
         .lang-item { display: flex; flex-direction: column; align-items: center; cursor: pointer; opacity: 0.4; transition: opacity 0.2s; text-decoration: none; }
         .lang-item.active, .lang-item:hover { opacity: 1; }
         .flag-svg { width: 17px; height: 12px; border-radius: 1px; object-fit: cover; }
         .lang-text { font-size: 0.55rem; font-weight: 700; text-transform: uppercase; margin-top: 3px; color: var(--text-main); }
 
-        /* БЕГУЩАЯ СТРОКА: КРУПНЕЕ НА 20%, МЕДЛЕННЕЕ НА 20%, КОНТЕЙНЕР СТРОГО ПРЕЖНИЙ */
         .top-marquee {
             background: #09090c; width: 100%; overflow: hidden; display: flex;
             border-bottom: 1px solid var(--border-subtle); height: 2.4rem; align-items: center;
@@ -78,7 +71,6 @@
             100% { transform: translate3d(-50%, 0, 0); }
         }
 
-        /* ГЛАВНЫЙ ЭКРАН — РАЗГРУЖЕНЫ ОТСТУПЫ */
         .hero { 
             text-align: center; padding: 2rem 1rem 3rem 1rem; 
             position: relative; z-index: 1; 
@@ -87,7 +79,6 @@
         .hero h1 span { color: var(--accent-cyan); }
         .hero p { color: var(--text-muted); font-size: 0.85rem; max-width: 460px; margin: 0 auto 1.5rem auto; line-height: 1.4; }
 
-        /* БЛОК С КНОПКОЙ И ПОДПИСЬЮ (Добавлен воздух) */
         .cta-container { 
             display: flex; flex-direction: column; align-items: center; 
             margin-bottom: 1.8rem; width: 100%; 
@@ -97,18 +88,16 @@
             background: var(--accent-cyan); color: #000; font-weight: 800; font-size: 0.9rem;
             padding: 0.8rem 1.8rem; border-radius: 8px; text-decoration: none; width: 100%; max-width: 290px;
             cursor: pointer; border: none; box-shadow: 0 4px 20px rgba(0, 229, 255, 0.25);
-            transition: transform 0.2s, box-shadow 0.2s;
+            transition: transform 0.1s;
         }
-        .btn:active { transform: scale(0.98); }
+        .btn:active { transform: scale(0.97); }
         
-        /* Надпись над кнопкой слегка уменьшена и приподнята, чтобы видео влезло */
         .btn-label { 
             font-size: 0.65rem; color: var(--accent-yellow); font-weight: 700; 
             letter-spacing: 0.05em; text-transform: uppercase; 
             margin-top: 0.6rem;
         }
 
-        /* КОНТЕЙНЕР ВИДЕО: МАСШТАБ 1.4 (Идеальный баланс без пустот снизу) */
         .hero-video-container { 
             width: 100%; max-width: 300px; margin: 0 auto; 
             border: 1px solid var(--border-glow); border-radius: 14px; overflow: hidden; 
@@ -117,7 +106,6 @@
         }
         .hero-inline-video { width: 100%; display: block; object-fit: cover; cursor: pointer; }
 
-        /* КАСТОМНЫЙ ИНТЕРФЕЙС УПРАВЛЕНИЯ ВИДЕО (Защита от багов мобильной верстки) */
         .video-overlay-btn {
             position: absolute; background: rgba(0, 0, 0, 0.6); border: 1px solid rgba(255,255,255,0.1);
             backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
@@ -127,13 +115,11 @@
         .audio-control { top: 10px; right: 10px; }
         .fullscreen-control { bottom: 10px; right: 10px; }
 
-        /* СЕКЦИИ */
         section { padding: 3.5rem 1.2rem; width: 100%; max-width: 1100px; margin: 0 auto; position: relative; }
         h2 { font-size: 1.6rem; font-weight: 900; letter-spacing: -0.03em; text-align: center; margin-bottom: 0.5rem; }
         h2 span { color: var(--accent-yellow); }
         .section-desc { text-align: center; color: var(--text-muted); font-size: 0.85rem; max-width: 480px; margin: 0 auto 2rem auto; }
 
-        /* ТРЕНД: КАРТОЧКИ BENTO С НАСТОЯЩИМ РАЗМЫТИЕМ ЗА НИМИ (Glassmorphism) */
         .bento-stack { display: flex; flex-direction: column; gap: 1.2rem; }
         .bento-card { 
             background: var(--card-glass); 
@@ -144,18 +130,15 @@
             border-radius: 12px; 
             box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
             position: relative; overflow: hidden;
-            transition: border-color 0.3s, transform 0.3s;
+            transition: border-color 0.2s;
         }
-        /* Неоновое наведение */
-        .bento-card:hover {
+        .bento-card:active {
             border-color: var(--accent-cyan);
-            transform: translateY(-2px);
         }
         .bento-card h3 { font-size: 1.1rem; color: var(--accent-cyan); margin-bottom: 0.6rem; display: flex; align-items: center; gap: 0.4rem; }
         .bento-card p.main-text { color: var(--text-main); font-size: 0.9rem; font-weight: 600; margin-bottom: 0.6rem; }
         .bento-card p.detail-text { color: var(--text-muted); font-size: 0.8rem; line-height: 1.45; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 0.6rem; }
 
-        /* ВТОРОСТЕПЕННЫЕ СЕКЦИИ */
         .timeline-grid, .scale-grid { display: flex; flex-direction: column; gap: 1rem; }
         .time-card, .scale-card { 
             background: var(--surface-glass); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
@@ -170,11 +153,16 @@
         .good .badge { background: rgba(16, 185, 129, 0.1); color: var(--accent-emerald); }
         .scale-card h3 span { color: var(--accent-cyan); }
 
-        /* ПОДВАЛ */
+        .grant-box { background: var(--surface-glass); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid var(--border-glow); padding: 1.25rem; border-radius: 8px; }
+        .grant-box h3 { font-size: 1.15rem; color: var(--accent-yellow); margin-bottom: 0.4rem; }
+        .grant-box p { color: var(--text-muted); font-size: 0.8rem; margin-bottom: 0.8rem; }
+        .grant-steps { display: flex; flex-direction: column; gap: 0.4rem; font-size: 0.75rem; }
+        .grant-step { display: flex; gap: 0.4rem; }
+        .grant-num { background: rgba(250, 204, 21, 0.08); color: var(--accent-yellow); font-weight: 700; width: 16px; height: 16px; display: inline-flex; align-items: center; justify-content: center; border-radius: 3px; flex-shrink: 0; font-size: 0.65rem; }
+
         footer { text-align: center; padding: 3rem 1rem; background: #09090c; border-top: 1px solid var(--border-subtle); }
         .copyright { font-size: 0.65rem; color: #4b5563; margin-top: 1.5rem; }
 
-        /* ДЕСТКОПНЫЙ СЕТОЧНЫЙ АДАПТИВ */
         @media (min-width: 768px) {
             h2 { font-size: 2.2rem; }
             .hero h1 { font-size: 3rem; }
@@ -183,6 +171,7 @@
             .timeline-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
             .scale-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
             .bento-stack { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+            .bento-card:hover { border-color: var(--accent-cyan); transform: translateY(-2px); }
         }
     </style>
 </head>
@@ -190,12 +179,12 @@
 
     <div class="aurora-glow"></div>
 
-    <!-- ШАПКА -->
     <header>
         <div class="logo-block">
             <div class="logo">Lotify<span>bot</span></div>
             <div class="official-tag">Официальный информационный хаб</div>
         </div>
+        
         <nav class="lang-container" aria-label="Языки">
             <a href="#" class="lang-item" data-lang="uk"><svg class="flag-svg" viewBox="0 0 3 2"><rect width="3" height="1" fill="#0057b7"/><rect y="1" width="3" height="1" fill="#ffd700"/></svg><span class="lang-text">UA</span></a>
             <a href="#" class="lang-item" data-lang="en"><svg class="flag-svg" viewBox="0 0 60 30"><clipPath id="s"><path d="M0,0 v30 h60 v-30 z"/></clipPath><path d="M0,0 v30 h60 v-30 z" fill="#012169"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#C8102E" stroke-width="4"/><path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/><path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/></svg><span class="lang-text">EN</span></a>
@@ -206,7 +195,6 @@
         </nav>
     </header>
 
-    <!-- БЕГУЩАЯ СТРОКА (+20% ШРИФТ, СКОРОСТЬ 30s) -->
     <div class="top-marquee">
         <div class="marquee-track">
             <div class="marquee-group">
@@ -226,7 +214,6 @@
         </div>
     </div>
 
-    <!-- ГЛАВНЫЙ ЭКРАН С ИДЕАЛЬНЫМИ ОТСТУПАМИ -->
     <section class="hero">
         <h1>Опережайте рынок <span>с нами!</span></h1>
         <p>Парсинг пакетов данных и моментальный перехват новых объявлений до их попадания в поисковый кэш платформ. Будьте первым.</p>
@@ -239,9 +226,7 @@
             <div class="btn-label">🎁 7 дней тест-драйва бесплатно</div>
         </div>
 
-        <!-- ВИДЕО: МАСШТАБ 1.4, НАДЁЖНЫЙ ИНТЕРФЕЙС УПРАВЛЕНИЯ -->
         <div class="hero-video-container">
-            <!-- Звук выключен для прохождения автоплея, но чинится кнопкой -->
             <button class="video-overlay-btn audio-control" id="audioBtn">🔇 Вкл. звук</button>
             <button class="video-overlay-btn fullscreen-control" id="fullscreenBtn">🔲 На весь экран</button>
             
@@ -251,7 +236,6 @@
         </div>
     </section>
 
-    <!-- СКОРОСТЬ -->
     <section id="utility">
         <h2>Скорость как <span>капитал</span></h2>
         <p class="section-desc">Сравнение скорости обработки входящих потоков данных маркетплейсов.</p>
@@ -269,7 +253,29 @@
         </div>
     </section>
 
-    <!-- ТЕХНИЧЕСКИЕ ВОЗМОЖНОСТИ (ГЛАССМОРФИЗМ В ДЕЙСТВИИ) -->
+    <section id="scale">
+        <h2>Масштабирование <span>трафика</span></h2>
+        <p class="section-desc">Архитектурные решения для распределения информационных потоков и мгновенной синхронизации.</p>
+        <div class="scale-grid">
+            <div class="scale-card">
+                <h3><span>01.</span> TG Каналы</h3>
+                <p>Потоковое вещание отфильтрованных категорий для построения массового комьюнити и генерации целевого трафика.</p>
+            </div>
+            <div class="scale-card">
+                <h3><span>02.</span> Приватные Боты</h3>
+                <p>Персональные коммерческие сессии, тонкие фильтры и монопольный перехват алертов без конкуренции.</p>
+            </div>
+            <div class="scale-card">
+                <h3><span>03.</span> Вебхуки (Webhooks)</h3>
+                <p>Мгновенная ретрансляция данных на сторонние сетевые сервера и в приложения заказчика без задержек.</p>
+            </div>
+            <div class="scale-card">
+                <h3><span>04.</span> Интеграция в БД</h3>
+                <p>Прямое подключение потоков к локальным базам данных клиента и кастомным учетным CRM-системам.</p>
+            </div>
+        </div>
+    </section>
+
     <section id="core">
         <h2>Технические <span>возможности</span></h2>
         <p class="section-desc">Архитектурные параметры платформы и системные стандарты обработки потоков данных.</p>
@@ -286,6 +292,41 @@
                 <p class="main-text">Полная поддержка рынков Европы, Америки и СНГ в рамках единой инфраструктуры.</p>
                 <p class="detail-text">Интерфейсные ноды адаптированы под мультиязычные рынки. Архитектура объединяет крупнейшие площадки: OLX, eBay, Willhaben, Facebook Marketplace, AUTO.RIA.</p>
             </div>
+
+            <div class="bento-card">
+                <h3>🛡️ Безопасность и Ссылки</h3>
+                <p class="main-text">Прямая переадресация на оригинальные лоты и работа внутри защищенных экосистем.</p>
+                <p class="detail-text">Lotifybot не обрабатывает коммерческие транзакции и не собирает платежные данные. Продукт поставляет сжатую точную инфо-ссылку на официальный лот маркетплейса.</p>
+            </div>
+            
+            <div class="bento-card">
+                <h3>🔌 Интеграции и Базы данных</h3>
+                <p class="main-text">Индивидуальные решения, разработка выделенных парсеров и прямая выгрузка через API.</p>
+                <p class="detail-text">Поддерживается прямая интеграция потоков данных через Вебхуки (Webhooks) в сторонкие CRM, кастомные базы данных заказчика и предоставление выделенных API-эндпоинтов.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="startup">
+        <h2>Программа <span>StartUP Support</span></h2>
+        <p class="section-desc">Мы поддерживаем инициативу и помогаем снизить финансовые барьеры на самом старте.</p>
+        <div class="grant-box">
+            <h3>🚀 Грант на скорость: 14 дней полного доступа</h3>
+            <p>Если вы планируете открыть свое дело но у вас пока нет свободного бюджета на софт — мы активируем бесплатный тест-драйв.</p>
+            <div class="grant-steps">
+                <div class="grant-step">
+                    <span class="grant-num">1</span>
+                    <div>Напишите нам короткое текстовое сообщение с вашей конкретной бизнес-целью.</div>
+                </div>
+                <div class="grant-step">
+                    <span class="grant-num">2</span>
+                    <div>Формат запроса: «Запускаю продажи винтажной мебели в Германии, необходим мониторинг объявлений».</div>
+                </div>
+                <div class="grant-step">
+                    <span class="grant-num">3</span>
+                    <div>Наша команда одобрит заявку и предоставит 14 дней приватного доступа вместо стандартных 7.</div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -298,7 +339,6 @@
         const audioBtn = document.getElementById('audioBtn');
         const fullscreenBtn = document.getElementById('fullscreenBtn');
 
-        // 1. Неубиваемый клик по телу видео (Пауза / Воспроизведение)
         video.addEventListener('click', function() {
             if (video.paused) {
                 video.play();
@@ -307,9 +347,8 @@
             }
         });
 
-        // 2. Управление звуком (Включение звука по запросу пользователя)
         audioBtn.addEventListener('click', function(e) {
-            e.stopPropagation(); // Чтобы не срабатывал клик по самому видео
+            e.stopPropagation();
             if (video.muted) {
                 video.muted = false;
                 audioBtn.innerHTML = '🔊 Выкл. звук';
@@ -319,12 +358,11 @@
             }
         });
 
-        // 3. Развертывание видео на весь экран смартфона/ПК
         fullscreenBtn.addEventListener('click', function(e) {
             e.stopPropagation();
             if (video.requestFullscreen) {
                 video.requestFullscreen();
-            } else if (video.webkitRequestFullscreen) { /* iOS Safari */
+            } else if (video.webkitRequestFullscreen) {
                 video.webkitRequestFullscreen();
             } else if (video.msRequestFullscreen) {
                 video.msRequestFullscreen();
