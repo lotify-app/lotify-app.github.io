@@ -1,304 +1,348 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lotifybot — Fastest Ad Parser & Aggregator for OLX, eBay, Willhaben</title>
-    <meta name="description" content="Lotifybot is the ultimate AI-ready ad parser and tracking bot for OLX, Dim Ria, Auto Ria, eBay, Facebook Marketplace, and Willhaben. Get instant 0-second notifications.">
-    <meta name="keywords" content="Lotifybot, ad parser, eBay monitoring, OLX tracking, Willhaben parser, Facebook Marketplace bot, Auto Ria tracker, Dim Ria monitor">
-    <link rel="canonical" href="https://lotify-app.github.io/">
-    
-    <!--
-    <script>
-        (function() {
-            const supportedLangs = ['uk', 'ru', 'pl', 'de', 'es'];
-            const userLang = (navigator.language || navigator.userLanguage).substring(0, 2);
-            if (supportedLangs.includes(userLang)) {
-                window.location.href = '/' + userLang + '/';
-            }
-        })();
-    </script>
-    -->
-    
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "Lotifybot",
-      "operatingSystem": "Telegram, Web",
-      "applicationCategory": "BusinessApplication",
-      "description": "The fastest bot parser and ad aggregator for OLX (UA, PL, KZ, RO, BG, PT, UZ), Dim Ria, Auto Ria, eBay, Facebook Marketplace, and Willhaben.",
-      "offers": {
-        "@type": "Offer",
-        "price": "19.99",
-        "priceCurrency": "USD"
-      }
-    }
-    </script>
-
+    <title>Lotifybot — Fastest Ad Parser & Aggregator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
-        :root { 
-            --bg: #020617; 
-            --text: #f8fafc; 
-            --text-muted: #64748b;
-            --accent: #10b981; 
-            --accent-glow: rgba(16, 185, 129, 0.15);
-            --focus: #06b6d4; 
-            --panel-bg: rgba(15, 23, 42, 0.6);
-            --border: rgba(51, 65, 85, 0.4);
+        :root {
+            --bg-color: #0d0f12;
+            --text-main: #ffffff;
+            --text-muted: #a0aab2;
+            --accent: #00e5ff;
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --card-border: rgba(255, 255, 255, 0.08);
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, -apple-system, sans-serif; }
-        body { background: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
 
-        /* Интерактивный Mesh-фон (Параллакс-эффект глубины) */
-        .bg-mesh {
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Шапка */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
             position: fixed;
-            top: 0; left: 0; width: 100vw; height: 100vh;
-            background: 
-                radial-gradient(circle at var(--mx, 20%) var(--my, 20%), rgba(6, 182, 212, 0.12) 0%, transparent 50%),
-                radial-gradient(circle at var(--cx, 80%) var(--cy, 70%), rgba(16, 185, 129, 0.1) 0%, transparent 50%);
-            z-index: -1;
-            pointer-events: none;
-            transition: background 0.1s ease;
+            width: 100%;
+            top: 0;
+            background: rgba(13, 15, 18, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+            border-bottom: 1px solid var(--card-border);
         }
 
-        .container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
-
-        /* ================= БЛОК 1: HERO (Премиальный минимализм) ================= */
-        .hero-section { padding: 6rem 0 4rem 0; text-align: center; position: relative; }
-        .hero-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(255,255,255,0.03); border: 1px solid var(--border); padding: 0.5rem 1rem; border-radius: 99px; font-size: 0.85rem; color: #94a3b8; margin-bottom: 2rem; }
-        .hero-badge span { width: 6px; height: 6px; background: var(--accent); border-radius: 50%; box-shadow: 0 0 8px var(--accent); }
-        h1 { font-size: 4rem; font-weight: 800; letter-spacing: -0.04em; margin-bottom: 1.5rem; background: linear-gradient(to right, #fff 40%, #94a3b8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .hero-p { font-size: 1.25rem; color: #94a3b8; max-width: 640px; margin: 0 auto 3rem auto; font-weight: 300; }
-        
-        /* Кнопка нового поколения */
-        .btn { 
-            display: inline-flex; align-items: center; justify-content: center;
-            background: linear-gradient(135deg, var(--accent) 0%, #059669 100%); color: #022c22; 
-            font-weight: 600; padding: 1.1rem 3rem; border-radius: 0.75rem; text-decoration: none; 
-            font-size: 1.15rem; letter-spacing: -0.01em; box-shadow: 0 20px 40px rgba(16, 185, 129, 0.2); 
-            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); border: 1px solid rgba(255,255,255,0.1);
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            letter-spacing: 1px;
         }
-        .btn:hover { transform: translateY(-2px); box-shadow: 0 25px 50px rgba(16, 185, 129, 0.35); color: #fff; }
-        .btn:active { transform: translateY(0); }
+        .logo span { color: var(--accent); }
 
-        /* Бегущая строка */
-        .marquee-container { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 1.2rem 0; margin: 4rem 0; overflow: hidden; background: rgba(255,255,255,0.01); }
-        .marquee { display: flex; white-space: nowrap; animation: marquee 30s linear infinite; }
-        .marquee span { font-size: 0.9rem; font-weight: 600; color: #475569; padding: 0 2.5rem; letter-spacing: 1px; }
-        .marquee strong { color: #94a3b8; }
-
-        /* ================= БЛОК 2: INTELLIGENCE LOGS (Скрытая простыня) ================= */
-        .section-title { font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 2rem; display: flex; align-items: center; gap: 0.75rem; }
-        .section-title::before { content: ''; display: inline-block; width: 4px; height: 1.5rem; background: var(--focus); border-radius: 2px; }
-        
-        .log-grid { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 5rem; }
-        
-        /* Карта-аккордеон */
-        .expand-card { 
-            background: var(--panel-bg); border: 1px solid var(--border); border-radius: 1rem; 
-            backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-            cursor: pointer; transition: all 0.25s ease; overflow: hidden;
+        .lang-switcher {
+            display: flex;
+            gap: 15px;
+            font-size: 18px;
+            cursor: pointer;
         }
-        .expand-card:hover { border-color: rgba(6, 182, 212, 0.4); background: rgba(15, 23, 42, 0.8); }
-        
-        .card-header { padding: 1.5rem 2rem; display: flex; justify-content: space-between; align-items: center; }
-        .card-header h3 { font-size: 1.15rem; font-weight: 600; color: #f1f5f9; }
-        .card-trigger { color: var(--focus); font-size: 0.9rem; font-weight: 500; display: flex; align-items: center; gap: 0.5rem; transition: transform 0.2s; }
-        .card-trigger::after { content: '→'; display: inline-block; transition: transform 0.2s; }
-        
-        /* Скрытый контент */
-        .card-body { 
-            max-height: 0; opacity: 0; overflow: hidden;
-            transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s ease;
-            padding: 0 2rem;
+        .lang-switcher span { transition: opacity 0.3s; opacity: 0.5; }
+        .lang-switcher span.active, .lang-switcher span:hover { opacity: 1; }
+
+        /* Общие стили секций */
+        section {
+            padding: 100px 5%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
-        .card-body-content { padding-bottom: 1.5rem; color: #94a3b8; font-size: 1rem; line-height: 1.7; }
-        .accent-text { color: #fff; font-weight: 500; }
 
-        /* Класс состояния активности (управляется JS) */
-        .expand-card.active { border-color: rgba(16, 185, 129, 0.3); background: #0f172a; }
-        .expand-card.active .card-trigger::after { transform: rotate(90deg); }
-        .expand-card.active .card-body { opacity: 1; }
+        h2 { font-size: 42px; margin-bottom: 20px; text-align: center; }
+        .subtitle { text-align: center; color: var(--text-muted); font-size: 18px; max-width: 700px; margin: 0 auto 50px auto; }
 
-        /* ================= БЛОК 3: BENTO MATRIX (Бизнес-кейсы) ================= */
-        .bento-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 1.5rem; margin-bottom: 5rem; }
-        .bento-card { background: var(--panel-bg); border: 1px solid var(--border); border-radius: 1rem; padding: 2.5rem; backdrop-filter: blur(12px); transition: all 0.3s ease; }
-        .bento-card:hover { border-color: rgba(255,255,255,0.15); transform: translateY(-2px); }
-        .bento-card.full-width { grid-column: span 2; }
+        /* Главный экран */
+        .hero {
+            text-align: center;
+            padding-top: 150px;
+        }
+        .hero h1 {
+            font-size: 56px;
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, #fff, var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero p {
+            font-size: 20px;
+            color: var(--text-muted);
+            max-width: 800px;
+            margin: 0 auto 40px auto;
+        }
+
+        .btn {
+            background: var(--accent);
+            color: #000;
+            padding: 15px 40px;
+            font-size: 18px;
+            font-weight: 600;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 229, 255, 0.3);
+        }
+
+        /* Карточки сравнения */
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            padding: 40px;
+            border-radius: 20px;
+        }
+        .card-bad { border-top: 4px solid #ff4d4d; }
+        .card-good { border-top: 4px solid var(--accent); }
+        .card h3 { font-size: 24px; margin-bottom: 15px; }
+
+        /* Бесконечная лента платформ */
+        .marquee-wrapper {
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+            padding: 20px 0;
+            background: var(--card-bg);
+            border-top: 1px solid var(--card-border);
+            border-bottom: 1px solid var(--card-border);
+        }
+        .marquee {
+            display: inline-block;
+            animation: marquee 20s linear infinite;
+        }
+        .marquee span {
+            font-size: 24px;
+            font-weight: 600;
+            padding: 0 40px;
+            color: var(--text-muted);
+            transition: color 0.3s;
+        }
+        .marquee span:hover { color: var(--accent); cursor: default; }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Интеллектуальные возможности (Bento Grid) */
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .bento-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            padding: 30px;
+            border-radius: 20px;
+            transform-style: preserve-3d;
+        }
+        .bento-card h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: var(--accent);
+            transform: translateZ(30px); /* 3D эффект текста */
+        }
+        .bento-card p {
+            color: var(--text-muted);
+            transform: translateZ(20px);
+        }
+
+        /* Социальная значимость */
+        .social-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Подвал */
+        footer {
+            text-align: center;
+            padding: 60px 5%;
+            background: rgba(0,0,0,0.5);
+            border-top: 1px solid var(--card-border);
+        }
+        footer .lang-switcher {
+            justify-content: center;
+            margin-top: 30px;
+        }
         
-        .mode-tag { display: inline-block; font-size: 0.75rem; font-weight: 600; color: var(--accent); background: rgba(16, 185, 129, 0.08); padding: 0.3rem 0.75rem; border-radius: 6px; margin-bottom: 1.25rem; border: 1px solid rgba(16, 185, 129, 0.15); text-transform: uppercase; letter-spacing: 0.5px; }
-        .bento-card h2 { font-size: 1.35rem; margin-bottom: 0.75rem; font-weight: 700; }
-        .bento-card p { color: #94a3b8; font-size: 0.95rem; }
-
+        /* Адаптивность */
         @media (max-width: 768px) {
-            h1 { font-size: 2.5rem; }
-            .bento-grid { grid-template-columns: 1fr; }
-            .bento-card.full-width { grid-column: span 1; }
+            .comparison-grid, .bento-grid { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 40px; }
         }
-
-        /* ================= БЛОК 4: SAFEGUARDS & FOOTER ================= */
-        .footer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; padding-top: 3rem; border-top: 1px solid var(--border); }
-        .mini-panel { background: rgba(255,255,255,0.01); border: 1px dashed var(--border); border-radius: 0.75rem; padding: 1.5rem; }
-        .mini-panel h4 { font-size: 1rem; margin-bottom: 0.5rem; }
-        .mini-panel p { font-size: 0.85rem; color: #64748b; }
-
-        footer { margin-top: 5rem; padding-bottom: 4rem; text-align: center; }
-        .lang-nav { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem; }
-        .lang-nav a { color: #64748b; text-decoration: none; font-size: 0.9rem; padding: 0.4rem 0.8rem; border-radius: 6px; transition: all 0.2s; }
-        .lang-nav a:hover { color: #fff; background: rgba(255,255,255,0.05); }
-        .copy { font-size: 0.8rem; color: #334155; }
     </style>
 </head>
 <body>
 
-    <div class="bg-mesh" id="mesh"></div>
+    <header>
+        <div class="logo">Lotify<span>bot</span></div>
+        <div class="lang-switcher">
+            <span class="active" title="Русский">🇷🇺</span>
+            <span title="Українська">🇺🇦</span>
+            <span title="Polski">🇵🇱</span>
+            <span title="Deutsch">🇩🇪</span>
+            <span title="Español">🇪🇸</span>
+        </div>
+    </header>
 
-    <div class="container">
-        
-        <section class="hero-section">
-            <div class="hero-badge"><span></span>Global Monitoring Active</div>
-            <h1>Lotifybot</h1>
-            <p class="hero-p">The fastest AI-powered tracking network for global marketplaces. Zero-latency filtering across critical listing streams.</p>
-            <a href="/contact.html" class="btn" aria-label="Try Lotifybot free now">Try Now</a>
-        </section>
+    <section class="hero" id="hero">
+        <h1 class="gsap-hero">Опережайте рынок</h1>
+        <p class="gsap-hero">Получайте уведомления о новых товарах, авто и недвижимости на мировых маркетплейсах в ту же секунду, как продавец нажал кнопку «Опубликовать». Поспеши увидеть объявление до того, как его увидят остальные.</p>
+        <a href="#" class="btn gsap-hero">Запустить бесплатно</a>
+    </section>
 
-        <div class="marquee-container">
-            <div class="marquee">
-                <span><strong>OLX</strong> (UA, PL, KZ, RO, BG, PT, UZ)</span> <span><strong>EBAY</strong></span> <span><strong>FACEBOOK MARKETPLACE</strong></span> <span><strong>WILLHABEN</strong></span> <span><strong>AUTO RIA</strong></span> <span><strong>DIM RIA</strong></span>
-                <span><strong>OLX</strong> (UA, PL, KZ, RO, BG, PT, UZ)</span> <span><strong>EBAY</strong></span> <span><strong>FACEBOOK MARKETPLACE</strong></span> <span><strong>WILLHABEN</strong></span> <span><strong>AUTO RIA</strong></span> <span><strong>DIM RIA</strong></span>
+    <section id="comparison">
+        <h2 class="gsap-fade">Скорость, которая превращается в прибыль</h2>
+        <div class="comparison-grid">
+            <div class="card card-bad gsap-slide-left">
+                <h3>Без бота (Обычный путь)</h3>
+                <p>Вы тратите часы на обновление ленты, заходите в приложение, но лучшее предложение уже выкуплено перекупщиками. Вы видите статус: «Упущено».</p>
+            </div>
+            <div class="card card-good gsap-slide-right">
+                <h3>С Lotifybot</h3>
+                <p>Наш алгоритм перехватывает объявление в момент его модерации и отправляет вам пуш. Вы звоните продавцу первым. Статус: «Сделка закрыта».</p>
             </div>
         </div>
+    </section>
 
-        <section>
-            <div class="section-title">Market Intelligence Logs</div>
-            <div class="log-grid">
-                
-                <div class="expand-card" onclick="toggleCard(this)">
-                    <div class="card-header">
-                        <h3>Data Inefficiency Report</h3>
-                        <div class="card-trigger">Analyze</div>
-                    </div>
-                    <div class="card-body">
-                        <div class="card-body-content">
-                            Why do <span class="accent-text">95% of buyers</span> consistently miss fair market deals on platforms like eBay? Standard consumer interfaces feature structural sync delays. Winning market participants utilize <span class="accent-text">Lotifybot</span>—bypassing standard layout rendering to deliver real-time notifications the exact second a mispriced item hits the system network, leaving scalpers empty-handed.
-                        </div>
-                    </div>
-                </div>
-
-                <div class="expand-card" onclick="toggleCard(this)">
-                    <div class="card-header">
-                        <h3>The Flipper Architecture</h3>
-                        <div class="card-trigger">Analyze</div>
-                    </div>
-                    <div class="card-body">
-                        <div class="card-body-content">
-                            Elite high-frequency flippers on <span class="accent-text">OLX and Willhaben</span> do not rely on manual search operations or simple luck. Their unfair advantage is infrastructure. Lotifybot serves as the underlying automation layer, capturing clean listing drops instantly and providing a split-second window to execute acquisitions at genuine, non-inflated valuation parameters.
-                        </div>
-                    </div>
-                </div>
-
-                <div class="expand-card" onclick="toggleCard(this)">
-                    <div class="card-header">
-                        <h3>Time Delay Liquidation</h3>
-                        <div class="card-trigger">Analyze</div>
-                    </div>
-                    <div class="card-body">
-                        <div class="card-body-content">
-                            The core friction in modern ecommerce sourcing isn't a lack of high-value offers—<span class="accent-text">it is the structural speed deficit of your software</span>. Operating continuously, Lotifybot processes raw data directly from platform network nodes. It isolates and forwards unmanipulated, primary-owner listings directly to your terminal before they are aggregated into general public search pools.
-                        </div>
-                    </div>
-                </div>
-
+    <section id="platforms" style="min-height: auto; padding: 50px 0;">
+        <h2>Мониторинг маркетплейсов 24/7</h2>
+        <p class="subtitle">Глобальное масштабирование для любых ниш</p>
+        <div class="marquee-wrapper">
+            <div class="marquee">
+                <span>OLX</span> • <span>eBay</span> • <span>Facebook Marketplace</span> • <span>Willhaben</span> • <span>AutoRia</span> • <span>DimRia</span> •
+                <span>OLX</span> • <span>eBay</span> • <span>Facebook Marketplace</span> • <span>Willhaben</span> • <span>AutoRia</span> • <span>DimRia</span> •
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section>
-            <div class="section-title">Operational Pipelines</div>
-            <div class="bento-grid">
-                
-                <div class="bento-card">
-                    <span class="mode-tag">Asymmetric Marketing</span>
-                    <h2>Business Scaling</h2>
-                    <p>Leverage current audience pools to engineer niche data monopolies. Feed highly targeted listing streams into private channels with threshold structures configured to naturally highlight your native inventory assets.</p>
-                </div>
-
-                <div class="bento-card">
-                    <span class="mode-tag">Monetization</span>
-                    <h2>Traffic Revenue</h2>
-                    <p>Deploy closed-loop informational layers. Build high-value premium listing feeds, withholding primary owner credentials behind verification walls to easily drive subscription or transactional paywall validation flows.</p>
-                </div>
-
-                <div class="bento-card full-width">
-                    <span class="mode-tag">B2B Middleware</span>
-                    <h2>Low-Code Webhooks Integration</h2>
-                    <p>Eliminate fragile custom scrapers, proxy farm maintenance, and platform IP blocks. Utilize streamlined, enterprise-ready <span class="accent-text">JSON webhooks</span> to dynamically populate production databases or consumer applications with instantaneous external listing assets.</p>
-                </div>
-
-                <div class="bento-card full-width">
-                    <span class="mode-tag">Social Utility</span>
-                    <h2>Direct Housing &amp; Transportation Logistics</h2>
-                    <p>Bypassing predatory intermediary structures. Traditional brokers artificially inflate baseline pricing across housing and vehicle grids. For a flat operational entry rate of <span class="accent-text">$19.99 / mo</span>, students and low-income entities can systematically intercept primary, owner-direct listings on <span class="accent-text">OLX, Dim Ria, Auto Ria, and Facebook Marketplace</span>, saving heavy brokerage fees.</p>
-                </div>
-
+    <section id="features">
+        <h2 class="gsap-fade">Интеллектуальные возможности</h2>
+        <div class="bento-grid">
+            <div class="bento-card tilt-element">
+                <h3>Умная фильтрация</h3>
+                <p>ИИ-анализ данных. Бот не просто копирует текст. Он анализирует геолокацию, историю цен продавца и отсекает спам и дубли.</p>
             </div>
-        </section>
-
-        <section class="footer-grid">
-            <div class="mini-panel">
-                <h4>Bootstrap Initiative</h4>
-                <p>We actively remove tech barriers for early-stage operators. Supply a brief operational baseline to clear a 14-day premium testing grant.</p>
+            <div class="bento-card tilt-element">
+                <h3>Мультиязычность</h3>
+                <p>Глобальный поиск без языковых барьеров. Ищите товары по всему миру. Интерфейс поддерживает украинский, русский, польский, немецкий и испанский языки.</p>
             </div>
-            <div class="mini-panel">
-                <h4>Non-Custodial Architecture</h4>
-                <p>Lotifybot operates entirely as information middleware. We never process customer financial assets, hold capital, or collect banking records.</p>
+            <div class="bento-card tilt-element">
+                <h3>Гибкая настройка</h3>
+                <p>Задайте точные параметры: шаг цены, радиус поиска в километрах, ключевые слова или конкретные стоп-слова.</p>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <footer>
-            <nav class="lang-nav" aria-label="Language selection">
-                <a href="/uk/" hreflang="uk">Українська</a>
-                <a href="/ru/" hreflang="ru">Русский</a>
-                <a href="/pl/" hreflang="pl">Polski</a>
-                <a href="/de/" hreflang="de">Deutsch</a>
-                <a href="/es/" hreflang="es">Español</a>
-            </nav>
-            <div class="copy">&copy; 2026 Lotifybot Infrastructure Network. All rights reserved.</div>
-        </footer>
+    <section id="social">
+        <h2 class="gsap-fade">Технологии на службе у каждого</h2>
+        <p class="subtitle gsap-fade">Lotifybot уравнивает шансы обычных покупателей и профессиональных байеров.</p>
+        <div class="social-grid">
+            <div class="card gsap-fade">
+                <h3>Экономия и жилье</h3>
+                <p>Находите квартиры в аренду на перенасыщенных рынках в секунду их публикации, минуя посредников. Покупайте необходимые вещи напрямую у владельцев.</p>
+            </div>
+            <div class="card gsap-fade">
+                <h3>Экологичный выбор</h3>
+                <p>Дарите вещам вторую жизнь, развивая культуру вторичного потребления во всем мире.</p>
+            </div>
+        </div>
+    </section>
 
-    </div>
+    <footer>
+        <h2>Готовы перегнать конкурентов?</h2>
+        <p style="margin-bottom: 30px; color: var(--text-muted);">Настройте своего первого бота за 2 минуты.</p>
+        <a href="#" class="btn">Начать бесплатно</a>
+        
+        <div class="lang-switcher">
+            <span class="active" title="Русский">🇷🇺</span>
+            <span title="Українська">🇺🇦</span>
+            <span title="Polski">🇵🇱</span>
+            <span title="Deutsch">🇩🇪</span>
+            <span title="Español">🇪🇸</span>
+        </div>
+        <p style="margin-top: 20px; color: #555; font-size: 14px;">© 2026 Lotifybot. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
 
     <script>
-        // Управление аккордеонами (скрытие простыни текста)
-        function toggleCard(card) {
-            const isActive = card.classList.contains('active');
-            
-            // Закрываем все открытые карты (если нужно поведение классического аккордеона)
-            document.querySelectorAll('.expand-card').forEach(c => {
-                c.classList.remove('active');
-                c.querySelector('.card-body').style.maxHeight = null;
+        // Инициализация ScrollTrigger
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Анимация главного экрана (Hero)
+        gsap.from(".gsap-hero", {
+            y: 50,
+            opacity: 0,
+            duration: 1,
+            stagger: 0.2,
+            ease: "power3.out"
+        });
+
+        // Анимация карточек сравнения
+        gsap.from(".gsap-slide-left", {
+            scrollTrigger: { trigger: "#comparison", start: "top 80%" },
+            x: -100, opacity: 0, duration: 1, ease: "power3.out"
+        });
+        gsap.from(".gsap-slide-right", {
+            scrollTrigger: { trigger: "#comparison", start: "top 80%" },
+            x: 100, opacity: 0, duration: 1, ease: "power3.out"
+        });
+
+        // Анимация появления заголовков и карточек
+        gsap.utils.toArray('.gsap-fade').forEach(element => {
+            gsap.from(element, {
+                scrollTrigger: { trigger: element, start: "top 85%" },
+                y: 30, opacity: 0, duration: 0.8, ease: "power2.out"
             });
+        });
 
-            if (!isActive) {
-                card.classList.add('active');
-                const body = card.querySelector('.card-body');
-                body.style.maxHeight = body.scrollHeight + "px";
-            }
-        }
-
-        // Интерактивный трекинг мыши для Mesh-градиента (Параллакс фона)
-        const mesh = document.getElementById('mesh');
-        window.addEventListener('mousemove', (e) => {
-            const x = (e.clientX / window.innerWidth) * 100;
-            const y = (e.clientY / window.innerHeight) * 100;
-            
-            mesh.style.setProperty('--mx', `${x}%`);
-            mesh.style.setProperty('--my', `${y}%`);
-            mesh.style.setProperty('--cx', `${100 - x}%`);
-            mesh.style.setProperty('--cy', `${100 - y}%`);
+        // Инициализация 3D эффекта (Vanilla Tilt) для карточек ИИ
+        VanillaTilt.init(document.querySelectorAll(".tilt-element"), {
+            max: 15,          // Максимальный угол наклона
+            speed: 400,       // Скорость анимации
+            glare: true,      // Эффект блика
+            "max-glare": 0.2  // Интенсивность блика
         });
     </script>
-
 </body>
 </html>
