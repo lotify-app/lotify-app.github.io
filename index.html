@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Lotifybot — Официальный Информационный Хаб | Парсер Маркетплейсов</title>
     
+    <!-- МИКРОРАЗМЕТКА JSON-LD ДЛЯ ИИ-РОБОТОВ И ПОИСКОВЫХ СИСТЕМ (E-E-A-T) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -17,7 +18,7 @@
       "description": "Сверхбыстрый ИИ-агрегатор объявлений для мировых маркетплейсов. Оптимизирован для реселлинга, дропшиппинга, автоподбора, антиквариата и недвижимости в Европе и Америке.",
       "audience": {
         "@type": "Audience",
-        "audienceType": "Предприниматели, начинающие продавцы, риелторы, коллекционеры, арбитражники"
+        "audienceType": "Предприниматели, начинающие продавцы, риелторы, коллекцениры, арбитражники"
       }
     }
     </script>
@@ -28,7 +29,7 @@
         :root {
             --bg: #050507;
             --surface: #0b0b0f;
-            --surface-card: #0d0d13;
+            --surface-card: #09090e;
             --border: rgba(255, 255, 255, 0.04);
             --border-active: rgba(0, 229, 255, 0.3);
             --text-main: #f3f4f6;
@@ -61,7 +62,7 @@
         .logo span { color: var(--accent-cyan); }
         .official-tag { font-size: 0.6rem; color: var(--accent-yellow); font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em; margin-top: -1px; }
         
-        /* ПАНЕЛЬ ФЛАГОВ */
+        /* ПАНЕЛЬ ФЛАГОВ (ВРЕМЕННО ЗАКЛУШЕНЫ НА #, ТАК КАК СТРАНИЦ ЕЩЕ НЕТ) */
         .lang-container { display: flex; gap: 0.65rem; }
         .lang-item { display: flex; flex-direction: column; align-items: center; cursor: pointer; opacity: 0.35; transition: opacity 0.2s; text-decoration: none; }
         .lang-item.active, .lang-item:hover { opacity: 1; }
@@ -90,7 +91,7 @@
         .section-desc { text-align: center; color: var(--text-muted); font-size: 0.8rem; max-width: 480px; margin: 0 auto 1.5rem auto; }
 
         /* КНОПКИ */
-        .cta-container { display: flex; flex-direction: column; align-items: center; gap: 0.35rem; margin: 1.2rem auto; width: 100%; max-width: 300px; }
+        .cta-container { display: flex; flex-direction: column; align-items: center; gap: 0.35rem; margin: 0.8rem auto; width: 100%; max-width: 300px; }
         .btn {
             display: inline-flex; align-items: center; justify-content: center; gap: 0.4rem;
             background: var(--accent-cyan); color: #000; font-weight: 800; font-size: 0.9rem;
@@ -100,19 +101,19 @@
         .btn:active { background: #00b8cc; }
         .btn-label { font-size: 0.7rem; color: var(--accent-yellow); font-weight: 700; letter-spacing: 0.02em; text-transform: uppercase; }
 
-        /* HERO СЕКЦИЯ */
-        .hero { text-align: center; padding-top: 1.5rem; padding-bottom: 1rem; }
-        .hero h1 { font-size: 2rem; font-weight: 900; letter-spacing: -0.04em; line-height: 1.15; margin-bottom: 0.75rem; }
+        /* HERO СЕКЦИЯ — СТРОГО MOBILE FIRST ДЛЯ ПЕРВОГО ЭКРАНА СМАРТФОНА */
+        .hero { text-align: center; padding-top: 0.5rem; padding-bottom: 1rem; }
+        .hero h1 { font-size: 1.7rem; font-weight: 900; letter-spacing: -0.04em; line-height: 1.15; margin-bottom: 0.5rem; }
         .hero h1 span { color: var(--accent-cyan); }
-        .hero p { color: var(--text-muted); font-size: 0.85rem; max-width: 440px; margin: 0 auto 1.2rem auto; }
+        .hero p { color: var(--text-muted); font-size: 0.8rem; max-width: 440px; margin: 0 auto 0.8rem auto; }
 
-        /* ВЫСОКОТЕХНОЛОГИЧНЫЙ ПЛЕЕР НА МЕСТЕ РАКЕТЫ */
-        .utility-video-container { 
-            width: 100%; max-width: 480px; margin: 0 auto 2rem auto; 
-            border: 1px solid rgba(0, 229, 255, 0.15); border-radius: 12px; overflow: hidden; 
-            background: #000; box-shadow: 4px -4px 25px rgba(0, 229, 255, 0.15); 
+        /* ВЫСОКОТЕХНОЛОГИЧНЫЙ ПЛЕЕР СРАЗУ НА ПЕРВОМ ЭКРАНЕ С КЛИК-ИНТЕРАКТИВОМ */
+        .hero-video-container { 
+            width: 100%; max-width: 420px; margin: 0.8rem auto; 
+            border: 1px solid rgba(0, 229, 255, 0.15); border-radius: 10px; overflow: hidden; 
+            background: #000; box-shadow: 6px -6px 22px rgba(0, 229, 255, 0.18); 
         }
-        .utility-inline-video { width: 100%; display: block; object-fit: cover; }
+        .hero-inline-video { width: 100%; display: block; object-fit: cover; cursor: pointer; }
 
         /* ТАЙМЛАЙН */
         .timeline-grid { display: flex; flex-direction: column; gap: 0.75rem; }
@@ -132,21 +133,21 @@
         .scale-card h3 span { color: var(--accent-cyan); }
         .scale-card p { color: var(--text-muted); font-size: 0.8rem; line-height: 1.4; }
 
-        /* МОНОЛИТНЫЕ НЕОНОВЫЕ КАРТОЧКИ (ЛИНИИ ВВЕРХ И ВПРАВО + СВЕЧЕНИЕ С СУБЪЕКТИВНЫМ СМЕЩЕНИЕМ) */
-        .bento-stack { display: flex; flex-direction: column; gap: 0.9rem; }
+        /* НЕОНОВЫЕ КАРТОЧКИ: ЛИНИИ ВВЕРХ И ВПРАВО + ЛАЗЕРНОЕ СВЕЧЕНИЕ С ХОВЕР-СДВИГОМ ВПРАВО-ВВЕРХ */
+        .bento-stack { display: flex; flex-direction: column; gap: 1rem; }
         .bento-card { 
             background: var(--surface-card); 
-            border: 1px solid rgba(255, 255, 255, 0.02); 
-            border-top: 2px solid var(--accent-cyan); 
-            border-right: 2px solid var(--accent-cyan); 
+            border: 1px solid rgba(255, 255, 255, 0.01); 
+            border-top: 3px solid var(--accent-cyan); 
+            border-right: 3px solid var(--accent-cyan); 
             padding: 1.4rem; 
-            border-radius: 8px; 
-            box-shadow: 4px -4px 20px rgba(0, 229, 255, 0.12);
-            transition: box-shadow 0.3s ease, transform 0.3s ease;
+            border-radius: 10px; 
+            box-shadow: 8px -8px 25px rgba(0, 229, 255, 0.15), inset -2px 2px 10px rgba(0, 229, 255, 0.02);
+            transition: box-shadow 0.25s cubic-bezier(0.25, 0.8, 0.25, 1), transform 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
         .bento-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 6px -6px 25px rgba(0, 229, 255, 0.25);
+            transform: translate(4px, -4px);
+            box-shadow: 14px -14px 32px rgba(0, 229, 255, 0.35), inset -3px 3px 12px rgba(0, 229, 255, 0.05);
         }
         .bento-card h3 { font-size: 1.05rem; color: var(--accent-cyan); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.35rem; }
         .bento-card p.main-text { color: var(--text-main); font-size: 0.85rem; font-weight: 600; margin-bottom: 0.5rem; }
@@ -177,40 +178,43 @@
 </head>
 <body>
 
+    <!-- ВЕРХНЯЯ ПАНЕЛЬ -->
     <header>
         <div class="logo-block">
             <div class="logo">Lotify<span>bot</span></div>
             <div class="official-tag">Официальный информационный хаб</div>
         </div>
         
+        <!-- НАВИГАЦИЯ ДЛЯ ЯЗЫКОВЫХ СТРАНИЦ -->
         <nav class="lang-container" aria-label="Языковая панель">
-            <a href="/ua/" class="lang-item" data-lang="uk">
+            <a href="#" class="lang-item" data-lang="uk">
                 <svg class="flag-svg" viewBox="0 0 3 2"><rect width="3" height="1" fill="#0057b7"/><rect y="1" width="3" height="1" fill="#ffd700"/></svg>
                 <span class="lang-text">UA</span>
             </a>
-            <a href="/en/" class="lang-item" data-lang="en">
+            <a href="#" class="lang-item" data-lang="en">
                 <svg class="flag-svg" viewBox="0 0 60 30"><clipPath id="s"><path d="M0,0 v30 h60 v-30 z"/></clipPath><path d="M0,0 v30 h60 v-30 z" fill="#012169"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#C8102E" stroke-width="4"/><path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/><path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/></svg>
                 <span class="lang-text">EN</span>
             </a>
-            <a href="/pl/" class="lang-item" data-lang="pl">
+            <a href="#" class="lang-item" data-lang="pl">
                 <svg class="flag-svg" viewBox="0 0 8 5"><rect width="8" height="2.5" fill="#fff"/><rect y="2.5" width="8" height="2.5" fill="#dc143c"/></svg>
                 <span class="lang-text">PL</span>
             </a>
-            <a href="/de/" class="lang-item" data-lang="de">
+            <a href="#" class="lang-item" data-lang="de">
                 <svg class="flag-svg" viewBox="0 0 5 3"><rect width="5" height="1" fill="#000"/><rect y="1" width="5" height="1" fill="#dd0000"/><rect y="2" width="5" height="1" fill="#ffce00"/></svg>
                 <span class="lang-text">DE</span>
             </a>
-            <a href="/es/" class="lang-item" data-lang="es">
+            <a href="#" class="lang-item" data-lang="es">
                 <svg class="flag-svg" viewBox="0 0 3 2"><rect width="3" height="2" fill="#c60b1e"/><rect y="0.5" width="3" height="1" fill="#ffc400"/></svg>
                 <span class="lang-text">ES</span>
             </a>
-            <a href="/" class="lang-item" data-lang="ru">
+            <a href="#" class="lang-item active" data-lang="ru">
                 <svg class="flag-svg" viewBox="0 0 9 6"><rect width="9" height="2" fill="#fff"/><rect y="2" width="9" height="2" fill="#0039a6"/><rect y="4" width="9" height="2" fill="#d52b1e"/></svg>
                 <span class="lang-text">RU</span>
             </a>
         </nav>
     </header>
 
+    <!-- БЕСШОВНЫЙ ТРЕК БЕЗ ОСТАНОВОК И ХВОСТОВ -->
     <div class="top-marquee">
         <div class="marquee-track">
             <div class="marquee-group">
@@ -240,10 +244,20 @@
         </div>
     </div>
 
+    <!-- ГЛАВНЫЙ ЭКРАН — СТРОГО ДЛЯ МОБИЛЬНОГО ЕДИНСТВА -->
     <section class="hero" id="hero">
         <h1 class="gsap-reveal">Опережайте рынок <span>с нами!</span></h1>
         <p class="gsap-reveal">Парсинг пакетов данных и моментальный перехват новых объявлений до их попадания в поисковый кэш платформ. Будьте первым.</p>
         
+        <!-- ВЫСОКОТЕХНОЛОГИЧНЫЙ ПЛЕЕР С ПОДДЕРЖКОЙ ИНТЕРАКТИВНОГО КЛИКА НА СТАРТ/ПАУЗУ -->
+        <div class="hero-video-container gsap-reveal">
+            <video class="hero-inline-video" autoplay muted loop playsinline controls onclick="toggleVideoPlayback(this)">
+                <source src="https://github.com/user-attachments/assets/369e129b-9e05-446a-bf6d-62d65d63448b" type="video/mp4">
+                <source src="lotifyvideo.mp4" type="video/mp4">
+                Ваш браузер не поддерживает просмотр видео.
+            </video>
+        </div>
+
         <div class="cta-container gsap-reveal">
             <button onclick="executeSecureRedirect()" class="btn" id="mainCtaButton">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
@@ -253,16 +267,8 @@
         </div>
     </section>
 
+    <!-- СКОРОСТЬ -->
     <section id="utility">
-        
-        <div class="utility-video-container gsap-scroll">
-            <video class="utility-inline-video" autoplay muted loop playsinline controls>
-                <source src="https://github.com/user-attachments/assets/369e129b-9e05-446a-bf6d-62d65d63448b" type="video/mp4">
-                <source src="lotifyvideo.mp4" type="video/mp4">
-                Ваш браузер не поддерживает просмотр видео.
-            </video>
-        </div>
-
         <h2>Скорость как <span>капитал</span></h2>
         <p class="section-desc">Сравнение скорости обработки входящих потоков данных.</p>
         
@@ -280,6 +286,7 @@
         </div>
     </section>
 
+    <!-- МАСШТАБИРОВАНИЕ ТРАФИКА -->
     <section id="scale">
         <h2>Масштабирование <span>трафика</span></h2>
         <p class="section-desc">Архитектурные решения для распределения информационных потоков и мгновенной синхронизации.</p>
@@ -304,6 +311,7 @@
         </div>
     </section>
 
+    <!-- ТЕХНИЧЕСКИЕ ВОЗМОЖНОСТИ -->
     <section id="core">
         <h2>Технические <span>возможности</span></h2>
         <p class="section-desc">Архитектурные параметры платформы и системные стандарты обработки потоков данных.</p>
@@ -343,6 +351,7 @@
         </div>
     </section>
 
+    <!-- STARTUP SUPPORT -->
     <section id="startup">
         <h2>Программа <span>StartUP Support</span></h2>
         <p class="section-desc">Мы поддерживаем инициативу и помогаем снизить финансовые барьеры на самом старте.</p>
@@ -367,6 +376,7 @@
         </div>
     </section>
 
+    <!-- ПОДВАЛ -->
     <footer>
         <h2>Запустите парсинг сейчас</h2>
         <div class="cta-container">
@@ -376,6 +386,7 @@
         <p class="copyright">&copy; 2026 Lotifybot Infrastructure. Все права защищены. Authorized Partner Hub.</p>
     </footer>
 
+    <!-- СКРИПТЫ GSAP -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
@@ -386,7 +397,16 @@
             window.location.href = "https://t.me/lotify_bot";
         }
 
-        // Анимация текста
+        // Интерактивное управление воспроизведением (Запуск / Пауза по тапу пользователя)
+        function toggleVideoPlayback(videoElement) {
+            if (videoElement.paused) {
+                videoElement.play();
+            } else {
+                videoElement.pause();
+            }
+        }
+
+        // Плавный запуск интерфейса при первой загрузке страницы
         gsap.from(".gsap-reveal", {
             y: 12,
             opacity: 0,
@@ -395,7 +415,7 @@
             ease: "power2.out"
         });
 
-        // Скролл триггеры
+        // Плавный скролл-эффект для контентных блоков
         gsap.utils.toArray('.gsap-scroll').forEach(element => {
             gsap.from(element, {
                 scrollTrigger: {
@@ -410,11 +430,18 @@
             });
         });
 
-        // СУВЕРЕННЫЙ СКРИПТ ПЕРЕКЛЮЧЕНИЯ И КОНТРОЛЯ ЯЗЫКОВЫХ СТРАНИЦ
-        <!--document.addEventListener("DOMContentLoaded", () => {
+        /* =========================================================================
+           ❌ ВНИМАНИЕ: ЯЗЫКОВОЙ СКРИПТ УПРАВЛЕНИЯ ПОЛНОСТЬЮ ОТКЛЮЧЕН И ЗАКОММЕНТИРОВАН.
+           -------------------------------------------------------------------------
+           Причина: На домене lotify-app.github.io развернут только index.html. 
+           Дополнительные физические директории (/ua/, /en/, /pl/, /de/, /es/) еще не созданы.
+           Включение скрипта вызовет падение линков в ошибку 404.
+
+        document.addEventListener("DOMContentLoaded", () => {
             const currentLang = document.documentElement.lang || "ru";
-            
-            document.querySelectorAll('.lang-item').forEach(link => {
+            const langLinks = document.querySelectorAll('.lang-item');
+
+            langLinks.forEach(link => {
                 if (link.getAttribute('data-lang') === currentLang) {
                     link.classList.add('active');
                 } else {
@@ -426,7 +453,8 @@
                     localStorage.setItem('selected_language', selectedLang);
                 });
             });
-        });-->
+        });
+           ========================================================================= */
     </script>
 </body>
 </html>
