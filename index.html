@@ -51,8 +51,8 @@
         .official-tag { font-size: 0.55rem; color: var(--accent-yellow); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-top: 1px; }
         
         .lang-container { display: flex; gap: 0.65rem; }
-        .lang-item { display: flex; flex-direction: column; align-items: center; cursor: pointer; opacity: 0.4; transition: opacity 0.2s; text-decoration: none; }
-        .lang-item.active, .lang-item:hover { opacity: 1; }
+        .lang-item { display: flex; flex-direction: column; align-items: center; cursor: pointer; opacity: 0.4; text-decoration: none; }
+        .lang-item.active { opacity: 1; }
         .flag-svg { width: 17px; height: 12px; border-radius: 1px; object-fit: cover; }
         .lang-text { font-size: 0.55rem; font-weight: 700; text-transform: uppercase; margin-top: 3px; color: var(--text-main); }
 
@@ -106,14 +106,16 @@
         }
         .hero-inline-video { width: 100%; display: block; object-fit: cover; cursor: pointer; }
 
-        .video-overlay-btn {
-            position: absolute; background: rgba(0, 0, 0, 0.6); border: 1px solid rgba(255,255,255,0.1);
-            backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
-            color: #fff; padding: 6px 10px; border-radius: 20px; font-size: 0.65rem;
-            font-weight: 700; display: flex; align-items: center; gap: 4px; cursor: pointer; z-index: 5;
+        .video-controls-container {
+            position: absolute; bottom: 10px; right: 10px;
+            display: flex; gap: 8px; z-index: 5;
         }
-        .audio-control { top: 10px; right: 10px; }
-        .fullscreen-control { bottom: 10px; right: 10px; }
+        .video-overlay-btn {
+            background: rgba(0, 0, 0, 0.7); border: 1px solid rgba(255,255,255,0.2);
+            backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+            color: #fff; padding: 10px 14px; border-radius: 25px; font-size: 0.8rem;
+            font-weight: 700; display: flex; align-items: center; gap: 6px; cursor: pointer;
+        }
 
         section { padding: 3.5rem 1.2rem; width: 100%; max-width: 1100px; margin: 0 auto; position: relative; }
         h2 { font-size: 1.6rem; font-weight: 900; letter-spacing: -0.03em; text-align: center; margin-bottom: 0.5rem; }
@@ -130,11 +132,8 @@
             border-radius: 12px; 
             box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
             position: relative; overflow: hidden;
-            transition: border-color 0.2s;
         }
-        .bento-card:active {
-            border-color: var(--accent-cyan);
-        }
+        .bento-card:active { border-color: var(--accent-cyan); }
         .bento-card h3 { font-size: 1.1rem; color: var(--accent-cyan); margin-bottom: 0.6rem; display: flex; align-items: center; gap: 0.4rem; }
         .bento-card p.main-text { color: var(--text-main); font-size: 0.9rem; font-weight: 600; margin-bottom: 0.6rem; }
         .bento-card p.detail-text { color: var(--text-muted); font-size: 0.8rem; line-height: 1.45; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 0.6rem; }
@@ -171,7 +170,6 @@
             .timeline-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
             .scale-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
             .bento-stack { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
-            .bento-card:hover { border-color: var(--accent-cyan); transform: translateY(-2px); }
         }
     </style>
 </head>
@@ -227,8 +225,10 @@
         </div>
 
         <div class="hero-video-container">
-            <button class="video-overlay-btn audio-control" id="audioBtn">🔇 Вкл. звук</button>
-            <button class="video-overlay-btn fullscreen-control" id="fullscreenBtn">🔲 На весь экран</button>
+            <div class="video-controls-container">
+                <button class="video-overlay-btn" id="audioBtn">🔇</button>
+                <button class="video-overlay-btn" id="fullscreenBtn">⛶</button>
+            </div>
             
             <video class="hero-inline-video" autoplay muted loop playsinline id="mainVideo">
                 <source src="https://github.com/user-attachments/assets/369e129b-9e05-446a-bf6d-62d65d63448b" type="video/mp4">
@@ -328,46 +328,3 @@
                 </div>
             </div>
         </div>
-    </section>
-
-    <footer>
-        <p class="copyright">&copy; 2026 Lotifybot Infrastructure. Все права защищены.</p>
-    </footer>
-
-    <script>
-        const video = document.getElementById('mainVideo');
-        const audioBtn = document.getElementById('audioBtn');
-        const fullscreenBtn = document.getElementById('fullscreenBtn');
-
-        video.addEventListener('click', function() {
-            if (video.paused) {
-                video.play();
-            } else {
-                video.pause();
-            }
-        });
-
-        audioBtn.addEventListener('click', function(e) {
-            e.stopPropagation();
-            if (video.muted) {
-                video.muted = false;
-                audioBtn.innerHTML = '🔊 Выкл. звук';
-            } else {
-                video.muted = true;
-                audioBtn.innerHTML = '🔇 Вкл. звук';
-            }
-        });
-
-        fullscreenBtn.addEventListener('click', function(e) {
-            e.stopPropagation();
-            if (video.requestFullscreen) {
-                video.requestFullscreen();
-            } else if (video.webkitRequestFullscreen) {
-                video.webkitRequestFullscreen();
-            } else if (video.msRequestFullscreen) {
-                video.msRequestFullscreen();
-            }
-        });
-    </script>
-</body>
-</html>
