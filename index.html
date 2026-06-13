@@ -17,7 +17,7 @@
       "description": "Сверхбыстрый ИИ-агрегатор объявлений для мировых маркетплейсов. Оптимизирован для реселлинга, дропшиппинга, автоподбора, антиквариата и недвижимости в Европе и Америке.",
       "audience": {
         "@type": "Audience",
-        "audienceType": "Предприниматели, начинающие продавцы, риелторы, коллекценируют, арбитражники"
+        "audienceType": "Предприниматели, начинающие продавцы, риелторы, коллекционеры, арбитражники"
       }
     }
     </script>
@@ -49,7 +49,7 @@
             padding-top: 4rem;
         }
 
-        /* ХЕДЕР — ЯЗЫКИ НАХОДЯТСЯ СТРОГО ВВЕРХУ СПРАВА */
+        /* ХЕДЕР — ЯЗЫКИ СТРОГО ВВЕРХУ СПРАВА */
         header {
             display: flex; justify-content: space-between; align-items: center;
             padding: 0.6rem 1rem; position: fixed; width: 100%; top: 0; left: 0;
@@ -68,28 +68,28 @@
         .flag-svg { width: 16px; height: 11px; border-radius: 1px; object-fit: cover; box-shadow: 0 1px 3px rgba(0,0,0,0.3); }
         .lang-text { font-size: 0.55rem; font-weight: 700; text-transform: uppercase; margin-top: 3px; color: var(--text-main); }
 
-        /* ИСПРАВЛЕННЫЙ ТРЕХБЛОЧНЫЙ БЕСШОВНЫЙ ТРЕК БЕЗ ЗАЗОРОВ И ХВОСТОВ */
+        /* ИСПРАВЛЕННАЯ БЕСШОВНАЯ БЕГУЩАЯ СТРОКА (МАТЕМАТИЧЕСКИЙ ЗАЦИКЛЕННЫЙ ЦИКЛ БЕЗ ХВОСТОВ) */
         .top-marquee {
             background: #000; width: 100%; overflow: hidden; display: flex;
-            border-bottom: 1px solid var(--border); height: 2.2rem; align-items: center;
+            border-bottom: 1px solid var(--border); height: 2.4rem; align-items: center;
         }
         .marquee-track { display: flex; width: max-content; animation: runMarquee 25s linear infinite; will-change: transform; }
         .marquee-group { display: flex; align-items: center; flex-shrink: 0; }
-        .marquee-el { display: inline-flex; align-items: center; gap: 0.35rem; font-size: 0.7rem; font-weight: 800; color: var(--text-muted); padding: 0 1.8rem; white-space: nowrap; }
-        .marquee-el span { color: var(--accent-cyan); font-weight: 400; font-size: 0.65rem; }
+        .marquee-el { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.75rem; font-weight: 800; color: var(--text-muted); padding: 0 2.5rem; white-space: nowrap; }
+        .marquee-el span { color: var(--accent-cyan); font-weight: 400; }
 
         @keyframes runMarquee {
             0% { transform: translate3d(0, 0, 0); }
-            100% { transform: translate3d(-33.3333%, 0, 0); }
+            100% { transform: translate3d(-50%, 0, 0); }
         }
 
-        /* ОБЩАЯ СЕТКА */
+        /* СЕТКА И СЕКЦИИ */
         section { padding: 2.5rem 1rem; width: 100%; max-width: 1100px; margin: 0 auto; position: relative; }
         h2 { font-size: 1.5rem; font-weight: 900; letter-spacing: -0.03em; text-align: center; margin-bottom: 0.4rem; }
         h2 span { color: var(--accent-yellow); }
         .section-desc { text-align: center; color: var(--text-muted); font-size: 0.8rem; max-width: 480px; margin: 0 auto 1.5rem auto; }
 
-        /* СТА СТРУКТУРА */
+        /* CTA КНОПКИ */
         .cta-container { display: flex; flex-direction: column; align-items: center; gap: 0.35rem; margin: 1.2rem auto; width: 100%; max-width: 300px; }
         .btn {
             display: inline-flex; align-items: center; justify-content: center; gap: 0.4rem;
@@ -100,21 +100,19 @@
         .btn:active { background: #00b8cc; }
         .btn-label { font-size: 0.7rem; color: var(--accent-yellow); font-weight: 700; letter-spacing: 0.02em; text-transform: uppercase; }
 
-        /* HERO */
-        .hero { text-align: center; padding-top: 1.5rem; padding-bottom: 1rem; }
+        /* HERO СЕКЦИЯ С ВШИТЫМ ВЫСОКОПРОИЗВОДИТЕЛЬНЫМ ПЛЕЕРОМ */
+        .hero { text-align: center; padding-top: 1.5rem; padding-bottom: 2rem; }
         .hero h1 { font-size: 2rem; font-weight: 900; letter-spacing: -0.04em; line-height: 1.15; margin-bottom: 0.75rem; }
         .hero h1 span { color: var(--accent-cyan); }
         .hero p { color: var(--text-muted); font-size: 0.85rem; max-width: 440px; margin: 0 auto 1.2rem auto; }
 
-        /* ИЗОЛИРОВАННЫЙ ТРЕК СТАБИЛЬНОГО ПОЛЕТА РАКЕТЫ */
-        .rocket-flyzone {
-            position: absolute; width: 100%; height: 140px;
-            top: -50px; left: 0; pointer-events: none; z-index: 10; overflow: hidden;
+        /* ПЛЕЕР ВМЕСТО РАКЕТЫ */
+        .hero-video-container { 
+            width: 100%; max-width: 480px; margin: 2rem auto 0 auto; 
+            border: 1px solid var(--border); border-radius: 12px; overflow: hidden; 
+            background: #000; box-shadow: 0 20px 40px rgba(0,0,0,0.6); 
         }
-        .animated-rocket {
-            position: absolute; left: 0; bottom: 0; opacity: 0;
-            width: 28px; height: 28px; will-change: transform, opacity;
-        }
+        .hero-inline-video { width: 100%; display: block; object-fit: cover; }
 
         /* ТАЙМЛАЙН СТАТУСОВ */
         .timeline-grid { display: flex; flex-direction: column; gap: 0.75rem; }
@@ -127,18 +125,14 @@
         .bad .badge { background: rgba(244, 63, 94, 0.08); color: var(--accent-error); }
         .good .badge { background: rgba(16, 185, 129, 0.08); color: var(--accent-emerald); }
 
-        /* МАСШТАБИРОВАНИЕ ТРАФИКА — ВСЕ ЧЕТЫРЕ КАРТОЧКИ В ОДИН РЯД НА ДЕСКТОПЕ */
+        /* МАСШТАБИРОВАНИЕ ТРАФИКА */
         .scale-grid { display: flex; flex-direction: column; gap: 0.75rem; }
         .scale-card { background: var(--surface); border: 1px solid var(--border); padding: 1.1rem; border-radius: 6px; }
         .scale-card h3 { font-size: 1rem; margin-bottom: 0.35rem; display: flex; align-items: center; gap: 0.4rem; }
         .scale-card h3 span { color: var(--accent-cyan); }
         .scale-card p { color: var(--text-muted); font-size: 0.8rem; line-height: 1.4; }
 
-        /* ВЫСОКОПРОИЗВОДИТЕЛЬНЫЙ ДВИЖОК ОРГАНИЧЕСКОГО ВИДЕО (БЕЗ НАГРУЗКИ НА ХОСТ) */
-        .video-container { max-width: 310px; margin: 1.5rem auto; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; background: #000; box-shadow: 0 12px 30px rgba(0,0,0,0.6); }
-        .partner-cdn-video { width: 100%; display: block; max-height: 540px; object-fit: cover; }
-
-        /* СТАТИЧНАЯ ПРЕМИУМ-МАТРИЦА (ВСЕ КАРТОЧКИ ВСЕГДА ОТКРЫТЫ, БЕЗ КОЛХОЗНЫХ КЛИКОВ) */
+        /* МОНОЛИТНЫЕ КАРТОЧКИ (ВСЕГДА ОТКРЫТЫ, БЕЗ СКРЫТОГО ТЕКСТА И КЛИКОВ) */
         .bento-stack { display: flex; flex-direction: column; gap: 0.75rem; }
         .bento-card { background: var(--surface); border: 1px solid var(--border); padding: 1.2rem; border-radius: 6px; border-top: 2px solid var(--accent-cyan); }
         .bento-card h3 { font-size: 1.05rem; color: var(--accent-cyan); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.35rem; }
@@ -220,19 +214,12 @@
                 <div class="marquee-el">🇺🇦 AUTO.RIA / DIM.RIA <span>(Мониторинг авто и недвижимости)</span></div>
                 <div class="marquee-el">🌐 Facebook Marketplace <span>(Глобальный скаутинг)</span></div>
             </div>
-            <div class="marquee-group" aria-hidden="true">
-                <div class="marquee-el">🌐 OLX <span>(ua, kz, pl, ro, bg, pt, uz)</span></div>
-                <div class="marquee-el">🌐 eBay <span>(Глобальные рынки Европы и Америки)</span></div>
-                <div class="marquee-el">🇦🇹 Willhaben <span>(Австрия — все земли)</span></div>
-                <div class="marquee-el">🇺🇦 AUTO.RIA / DIM.RIA <span>(Мониторинг авто и недвижимости)</span></div>
-                <div class="marquee-el">🌐 Facebook Marketplace <span>(Глобальный скаутинг)</span></div>
-            </div>
         </div>
     </div>
 
     <section class="hero" id="hero">
         <h1 class="gsap-reveal">Опережайте рынок <span>с нами!</span></h1>
-        <p class="gsap-reveal">Парсинг пакетов данных и моментальный перехват новых объявлений до их попадания в поисковый кэш платформ. Будьте первым.</p>
+        <p class="gsap-reveal">Моментальный перехват новых объявлений до их попадания в поисковый кэш платформ. Будьте первым.</p>
         
         <div class="cta-container gsap-reveal">
             <button onclick="executeSecureRedirect()" class="btn" id="mainCtaButton">
@@ -241,20 +228,17 @@
             </button>
             <div class="btn-label">🎁 7 дней тест-драйва бесплатно</div>
         </div>
+
+        <div class="hero-video-container gsap-reveal">
+            <video class="hero-inline-video" autoplay muted loop playsinline controls>
+                <source src="https://github.com/user-attachments/assets/369e129b-9e05-446a-bf6d-62d65d63448b" type="video/mp4">
+                <source src="lotifyvideo.mp4" type="video/mp4">
+                Ваш браузер не поддерживает просмотр видео.
+            </video>
+        </div>
     </section>
 
     <section id="utility">
-        
-        <div class="rocket-flyzone">
-            <div class="animated-rocket" id="rocketNode">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
-                    <path d="M12 2s4 4 4 9H8c0-5 4-9 4-9z" fill="var(--accent-cyan)"/>
-                    <path d="M12 11c0 3.5-2 6-2 6h4s-2-2.5-2-6z" fill="var(--accent-yellow)"/>
-                    <path d="M9 12v3H5v-3h4zm10 0v3h-4v-3h4z" fill="var(--text-muted)"/>
-                </svg>
-            </div>
-        </div>
-
         <h2>Скорость как <span>капитал</span></h2>
         <p class="section-desc">Сравнение скорости обработки входящих потоков данных.</p>
         
@@ -296,18 +280,10 @@
         </div>
     </section>
 
-    <section id="partner-review">
-        <h2>Обзор от <span>партнера</span></h2>
-        <p class="section-desc">Демонстрация интерфейса, механики моментальной ловли лотов и реальной скорости работы системы.</p>
-        <div class="video-container gsap-scroll">
-            <video class="partner-cdn-video" controls preload="metadata" playsinline>
-                <source src="https://github.com/user-attachments/assets/369e129b-9e05-446a-bf6d-62d65d63448b" type="video/mp4">
-                Ваш браузер не поддерживает просмотр видео.
-            </video>
-        </div>
-    </section>
-
     <section id="core">
+        <h2>Технические <span>возможности</span></h2>
+        <p class="section-desc">Архитектурные параметры платформы и системные стандарты обработки потоков данных.</p>
+        
         <div class="bento-stack">
             <div class="bento-card gsap-scroll">
                 <h3>📊 Скорость и Фильтрация</h3>
@@ -321,7 +297,7 @@
                 <h3>🌍 Глобальное покрытие</h3>
                 <p class="main-text">Полная поддержка рынков Европы, Америки и СНГ в рамках единой инфраструктуры.</p>
                 <p class="detail-text">
-                    Интерфейсные ноды полностью адаптированы под мультиязычные рынки. Архитектура объединяет крупнейшие локальные и мировые площадки (сеть маркетплейсов OLX (ua, kz, pl, ro, bg, pt, uz), глобальный eBay, Willhaben, Facebook Marketplace, AUTO.RIA, DIM.RIA), помогая находить предложения в любой точке мира.
+                    Интерфейсные ноды полностью адаптированы под мультиязычные рынки. Архитектура объединяет крупнейшие локальные и мировые площадки (сеть маркетплейсов OLX, глобальный eBay, Willhaben, Facebook Marketplace, AUTO.RIA, DIM.RIA), помогая находить предложения в любой точке мира.
                 </p>
             </div>
             
@@ -382,12 +358,11 @@
     <script>
         gsap.registerPlugin(ScrollTrigger);
 
-        // МГНОВЕННЫЙ БЕЗОПАСНЫЙ РЕДИРЕКТ
         function executeSecureRedirect() {
             window.location.href = "https://t.me/lotify_bot";
         }
 
-        // Плавный запуск текстов
+        // Анимация заголовков при загрузке
         gsap.from(".gsap-reveal", {
             y: 12,
             opacity: 0,
@@ -396,25 +371,7 @@
             ease: "power2.out"
         });
 
-        // МОНОЛИТНАЯ МАТЕМАТИЧЕСКАЯ АНИМАЦИЯ ПОЛЕТА РАКЕТЫ К КНОПКЕ СТАРТА
-        gsap.fromTo("#rocketNode", 
-            { x: "0vw", y: 60, opacity: 0, rotation: 30 },
-            {
-                scrollTrigger: {
-                    trigger: "#utility",
-                    start: "top 90%",
-                    end: "top 10%",
-                    scrub: 0.8
-                },
-                x: "80vw",
-                y: -130,
-                rotation: 70,
-                opacity: 1,
-                ease: "power1.out"
-            }
-        );
-
-        // Рендеринг блоков при скролле
+        // Контроль появления блоков при скролле
         gsap.utils.toArray('.gsap-scroll').forEach(element => {
             gsap.from(element, {
                 scrollTrigger: {
@@ -429,10 +386,9 @@
             });
         });
 
-        // ОБРАБОТЧИК КЛИКА ЯЗЫКОВЫХ СТРАНИЦ
+        // Менеджер переключателя языков для независимых СЕО-страниц
         document.querySelectorAll('.lang-item').forEach(link => {
-            link.addEventListener('click', (e) => {
-                // Позволяем браузеру выполнить дефолтный переход по href на отдельную страницу
+            link.addEventListener('click', () => {
                 document.querySelectorAll('.lang-item').forEach(b => b.classList.remove('active'));
                 link.classList.add('active');
             });
