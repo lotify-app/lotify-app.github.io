@@ -17,7 +17,7 @@
       "description": "Сверхбыстрый ИИ-агрегатор объявлений для мировых маркетплейсов. Оптимизирован для реселлинга, дропшиппинга, автоподбора, антиквариата и недвижимости в Европе и Америке.",
       "audience": {
         "@type": "Audience",
-        "audienceType": "Предприниматели, начинающие продавцы, риелторы, коллекционеры, арбитражники"
+        "audienceType": "Предприниматели, начинающие продавцы, риелторы, коллекценируют, арбитражники"
       }
     }
     </script>
@@ -49,7 +49,7 @@
             padding-top: 4rem;
         }
 
-        /* ХЕДЕР С СИСТЕМНОЙ НАВИГАЦИЕЙ */
+        /* ХЕДЕР — ЯЗЫКИ НАХОДЯТСЯ СТРОГО ВВЕРХУ СПРАВА */
         header {
             display: flex; justify-content: space-between; align-items: center;
             padding: 0.6rem 1rem; position: fixed; width: 100%; top: 0; left: 0;
@@ -61,35 +61,35 @@
         .logo span { color: var(--accent-cyan); }
         .official-tag { font-size: 0.6rem; color: var(--accent-yellow); font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em; margin-top: -1px; }
         
-        /* ПОСЛЕДОВАТЕЛЬНОСТЬ ЯЗЫКОВ: УКР, АНГЛ, ПЛ, ГЕР, ЭС, РУ */
+        /* ПОСЛЕДОВАТЕЛЬНОСТЬ ФЛАГОВ: УКР, АНГЛ, ПЛ, ГЕР, ЭС, РУ */
         .lang-container { display: flex; gap: 0.65rem; }
-        .lang-item { display: flex; flex-direction: column; align-items: center; cursor: pointer; opacity: 0.35; transition: opacity 0.2s; }
+        .lang-item { display: flex; flex-direction: column; align-items: center; cursor: pointer; opacity: 0.35; transition: opacity 0.2s; text-decoration: none; }
         .lang-item.active, .lang-item:hover { opacity: 1; }
         .flag-svg { width: 16px; height: 11px; border-radius: 1px; object-fit: cover; box-shadow: 0 1px 3px rgba(0,0,0,0.3); }
         .lang-text { font-size: 0.55rem; font-weight: 700; text-transform: uppercase; margin-top: 3px; color: var(--text-main); }
 
-        /* ИСПРАВЛЕННАЯ БЕСШОВНАЯ БЕГУЩАЯ СТРОКА БЕЗ ТЯНУЩЕГОСЯ ХВОСТА */
+        /* ИСПРАВЛЕННЫЙ ТРЕХБЛОЧНЫЙ БЕСШОВНЫЙ ТРЕК БЕЗ ЗАЗОРОВ И ХВОСТОВ */
         .top-marquee {
             background: #000; width: 100%; overflow: hidden; display: flex;
             border-bottom: 1px solid var(--border); height: 2.2rem; align-items: center;
         }
-        .marquee-track { display: flex; width: max-content; animation: runMarquee 30s linear infinite; will-change: transform; }
+        .marquee-track { display: flex; width: max-content; animation: runMarquee 25s linear infinite; will-change: transform; }
         .marquee-group { display: flex; align-items: center; flex-shrink: 0; }
-        .marquee-el { display: inline-flex; align-items: center; gap: 0.35rem; font-size: 0.7rem; font-weight: 800; color: var(--text-muted); padding: 0 1.5rem; white-space: nowrap; }
+        .marquee-el { display: inline-flex; align-items: center; gap: 0.35rem; font-size: 0.7rem; font-weight: 800; color: var(--text-muted); padding: 0 1.8rem; white-space: nowrap; }
         .marquee-el span { color: var(--accent-cyan); font-weight: 400; font-size: 0.65rem; }
 
         @keyframes runMarquee {
             0% { transform: translate3d(0, 0, 0); }
-            100% { transform: translate3d(-50%, 0, 0); }
+            100% { transform: translate3d(-33.3333%, 0, 0); }
         }
 
-        /* СЕКЦИИ И ВЕРСТКА */
+        /* ОБЩАЯ СЕТКА */
         section { padding: 2.5rem 1rem; width: 100%; max-width: 1100px; margin: 0 auto; position: relative; }
         h2 { font-size: 1.5rem; font-weight: 900; letter-spacing: -0.03em; text-align: center; margin-bottom: 0.4rem; }
         h2 span { color: var(--accent-yellow); }
         .section-desc { text-align: center; color: var(--text-muted); font-size: 0.8rem; max-width: 480px; margin: 0 auto 1.5rem auto; }
 
-        /* СТА КНОПКИ С ЗАЩИТОЙ ССЫЛОК */
+        /* СТА СТРУКТУРА */
         .cta-container { display: flex; flex-direction: column; align-items: center; gap: 0.35rem; margin: 1.2rem auto; width: 100%; max-width: 300px; }
         .btn {
             display: inline-flex; align-items: center; justify-content: center; gap: 0.4rem;
@@ -100,19 +100,19 @@
         .btn:active { background: #00b8cc; }
         .btn-label { font-size: 0.7rem; color: var(--accent-yellow); font-weight: 700; letter-spacing: 0.02em; text-transform: uppercase; }
 
-        /* HERO ЗОНА */
+        /* HERO */
         .hero { text-align: center; padding-top: 1.5rem; padding-bottom: 1rem; }
         .hero h1 { font-size: 2rem; font-weight: 900; letter-spacing: -0.04em; line-height: 1.15; margin-bottom: 0.75rem; }
         .hero h1 span { color: var(--accent-cyan); }
         .hero p { color: var(--text-muted); font-size: 0.85rem; max-width: 440px; margin: 0 auto 1.2rem auto; }
 
-        /* ЗОНА ДЛЯ УСТОЙЧИВОЙ АНИМАЦИИ РАКЕТЫ */
+        /* ИЗОЛИРОВАННЫЙ ТРЕК СТАБИЛЬНОГО ПОЛЕТА РАКЕТЫ */
         .rocket-flyzone {
-            position: absolute; width: 100%; height: 160px;
+            position: absolute; width: 100%; height: 140px;
             top: -50px; left: 0; pointer-events: none; z-index: 10; overflow: hidden;
         }
         .animated-rocket {
-            position: absolute; left: 5%; bottom: 0; opacity: 0;
+            position: absolute; left: 0; bottom: 0; opacity: 0;
             width: 28px; height: 28px; will-change: transform, opacity;
         }
 
@@ -127,29 +127,23 @@
         .bad .badge { background: rgba(244, 63, 94, 0.08); color: var(--accent-error); }
         .good .badge { background: rgba(16, 185, 129, 0.08); color: var(--accent-emerald); }
 
-        /* СЕТКА СЕКЦИИ МАСШТАБИРОВАНИЯ (ВСЁ В ОДИН РЯД НА ДЕСКТОПЕ) */
+        /* МАСШТАБИРОВАНИЕ ТРАФИКА — ВСЕ ЧЕТЫРЕ КАРТОЧКИ В ОДИН РЯД НА ДЕСКТОПЕ */
         .scale-grid { display: flex; flex-direction: column; gap: 0.75rem; }
         .scale-card { background: var(--surface); border: 1px solid var(--border); padding: 1.1rem; border-radius: 6px; }
         .scale-card h3 { font-size: 1rem; margin-bottom: 0.35rem; display: flex; align-items: center; gap: 0.4rem; }
         .scale-card h3 span { color: var(--accent-cyan); }
         .scale-card p { color: var(--text-muted); font-size: 0.8rem; line-height: 1.4; }
 
-        /* ОПТИМИЗИРОВАННЫЙ ВИДЕО-ПЛЕЕР ДЛЯ ПАРТНЕРСКОГО ОРГ ТРАФИКА */
-        .video-wrapper {
-            max-width: 320px; margin: 1.5rem auto; border: 1px solid var(--border);
-            border-radius: 8px; overflow: hidden; background: #000; box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-        }
-        .partner-video { width: 100%; display: block; max-height: 560px; object-fit: cover; }
+        /* ВЫСОКОПРОИЗВОДИТЕЛЬНЫЙ ДВИЖОК ОРГАНИЧЕСКОГО ВИДЕО (БЕЗ НАГРУЗКИ НА ХОСТ) */
+        .video-container { max-width: 310px; margin: 1.5rem auto; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; background: #000; box-shadow: 0 12px 30px rgba(0,0,0,0.6); }
+        .partner-cdn-video { width: 100%; display: block; max-height: 540px; object-fit: cover; }
 
-        /* BENTO МАТРИЦА С ИНТЕРАКТИВНЫМИ ЛОГАМИ */
+        /* СТАТИЧНАЯ ПРЕМИУМ-МАТРИЦА (ВСЕ КАРТОЧКИ ВСЕГДА ОТКРЫТЫ, БЕЗ КОЛХОЗНЫХ КЛИКОВ) */
         .bento-stack { display: flex; flex-direction: column; gap: 0.75rem; }
-        .bento-card { background: var(--surface); border: 1px solid var(--border); padding: 1.1rem; border-radius: 6px; cursor: pointer; }
-        .bento-card h3 { font-size: 1.05rem; color: var(--accent-cyan); margin-bottom: 0.35rem; }
-        .bento-card p.user-summary { color: var(--text-main); font-size: 0.8rem; font-weight: 500; }
-        .extended-data { display: none; margin-top: 0.6rem; padding-top: 0.6rem; border-top: 1px dashed rgba(255,255,255,0.05); color: var(--text-muted); font-size: 0.75rem; line-height: 1.4; }
-        .bento-card.active .extended-data { display: block; }
-        .bento-card.active { border-color: var(--border-active); }
-        .terminal-log { color: var(--accent-yellow); font-size: 0.65rem; font-weight: 700; margin-top: 0.5rem; text-transform: uppercase; display: flex; align-items: center; gap: 0.2rem; }
+        .bento-card { background: var(--surface); border: 1px solid var(--border); padding: 1.2rem; border-radius: 6px; border-top: 2px solid var(--accent-cyan); }
+        .bento-card h3 { font-size: 1.05rem; color: var(--accent-cyan); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.35rem; }
+        .bento-card p.main-text { color: var(--text-main); font-size: 0.85rem; font-weight: 600; margin-bottom: 0.5rem; }
+        .bento-card p.detail-text { color: var(--text-muted); font-size: 0.8rem; line-height: 1.4; border-top: 1px dashed rgba(255,255,255,0.04); padding-top: 0.5rem; }
 
         /* STARTUP SUPPORT */
         .grant-box { background: linear-gradient(135deg, #0b0b0f 0%, #12121a 100%); border: 1px solid var(--border-active); padding: 1.25rem; border-radius: 8px; }
@@ -163,7 +157,7 @@
         footer { text-align: center; padding: 2.5rem 1rem 1.5rem 1rem; background: #000; border-top: 1px solid var(--border); }
         .copyright { font-size: 0.65rem; color: #374151; margin-top: 1.5rem; }
 
-        /* ДЕСКТОПНЫЙ СЛОЙ */
+        /* ДЕСКТОПНЫЙ СЛОЙ ЭКРАНОВ */
         @media (min-width: 768px) {
             body { padding-top: 4.5rem; }
             h2 { font-size: 2rem; }
@@ -181,31 +175,32 @@
             <div class="logo">Lotify<span>bot</span></div>
             <div class="official-tag">Официальный информационный хаб</div>
         </div>
+        
         <nav class="lang-container" aria-label="Языковая панель">
-            <div class="lang-item" data-lang="uk">
+            <a href="/ua/" class="lang-item" data-lang="uk">
                 <svg class="flag-svg" viewBox="0 0 3 2"><rect width="3" height="1" fill="#0057b7"/><rect y="1" width="3" height="1" fill="#ffd700"/></svg>
                 <span class="lang-text">UA</span>
-            </div>
-            <div class="lang-item" data-lang="en">
+            </a>
+            <a href="/en/" class="lang-item" data-lang="en">
                 <svg class="flag-svg" viewBox="0 0 60 30"><clipPath id="s"><path d="M0,0 v30 h60 v-30 z"/></clipPath><path d="M0,0 v30 h60 v-30 z" fill="#012169"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#C8102E" stroke-width="4"/><path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/><path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/></svg>
                 <span class="lang-text">EN</span>
-            </div>
-            <div class="lang-item" data-lang="pl">
+            </a>
+            <a href="/pl/" class="lang-item" data-lang="pl">
                 <svg class="flag-svg" viewBox="0 0 8 5"><rect width="8" height="2.5" fill="#fff"/><rect y="2.5" width="8" height="2.5" fill="#dc143c"/></svg>
                 <span class="lang-text">PL</span>
-            </div>
-            <div class="lang-item" data-lang="de">
+            </a>
+            <a href="/de/" class="lang-item" data-lang="de">
                 <svg class="flag-svg" viewBox="0 0 5 3"><rect width="5" height="1" fill="#000"/><rect y="1" width="5" height="1" fill="#dd0000"/><rect y="2" width="5" height="1" fill="#ffce00"/></svg>
                 <span class="lang-text">DE</span>
-            </div>
-            <div class="lang-item" data-lang="es">
+            </a>
+            <a href="/es/" class="lang-item" data-lang="es">
                 <svg class="flag-svg" viewBox="0 0 3 2"><rect width="3" height="2" fill="#c60b1e"/><rect y="0.5" width="3" height="1" fill="#ffc400"/></svg>
                 <span class="lang-text">ES</span>
-            </div>
-            <div class="lang-item active" data-lang="ru">
+            </a>
+            <a href="/" class="lang-item active" data-lang="ru">
                 <svg class="flag-svg" viewBox="0 0 9 6"><rect width="9" height="2" fill="#fff"/><rect y="2" width="9" height="2" fill="#0039a6"/><rect y="4" width="9" height="2" fill="#d52b1e"/></svg>
                 <span class="lang-text">RU</span>
-            </div>
+            </a>
         </nav>
     </header>
 
@@ -215,14 +210,21 @@
                 <div class="marquee-el">🌐 OLX <span>(ua, kz, pl, ro, bg, pt, uz)</span></div>
                 <div class="marquee-el">🌐 eBay <span>(Глобальные рынки Европы и Америки)</span></div>
                 <div class="marquee-el">🇦🇹 Willhaben <span>(Австрия — все земли)</span></div>
-                <div class="marquee-el">🇺🇦 АвтоРИА / ДомРиа <span>(Мониторинг авто и недвижимости)</span></div>
+                <div class="marquee-el">🇺🇦 AUTO.RIA / DIM.RIA <span>(Мониторинг авто и недвижимости)</span></div>
                 <div class="marquee-el">🌐 Facebook Marketplace <span>(Глобальный скаутинг)</span></div>
             </div>
             <div class="marquee-group" aria-hidden="true">
                 <div class="marquee-el">🌐 OLX <span>(ua, kz, pl, ro, bg, pt, uz)</span></div>
                 <div class="marquee-el">🌐 eBay <span>(Глобальные рынки Европы и Америки)</span></div>
                 <div class="marquee-el">🇦🇹 Willhaben <span>(Австрия — все земли)</span></div>
-                <div class="marquee-el">🇺🇦 АвтоРИА / ДомРиа <span>(Мониторинг авто и недвижимости)</span></div>
+                <div class="marquee-el">🇺🇦 AUTO.RIA / DIM.RIA <span>(Мониторинг авто и недвижимости)</span></div>
+                <div class="marquee-el">🌐 Facebook Marketplace <span>(Глобальный скаутинг)</span></div>
+            </div>
+            <div class="marquee-group" aria-hidden="true">
+                <div class="marquee-el">🌐 OLX <span>(ua, kz, pl, ro, bg, pt, uz)</span></div>
+                <div class="marquee-el">🌐 eBay <span>(Глобальные рынки Европы и Америки)</span></div>
+                <div class="marquee-el">🇦🇹 Willhaben <span>(Австрия — все земли)</span></div>
+                <div class="marquee-el">🇺🇦 AUTO.RIA / DIM.RIA <span>(Мониторинг авто и недвижимости)</span></div>
                 <div class="marquee-el">🌐 Facebook Marketplace <span>(Глобальный скаутинг)</span></div>
             </div>
         </div>
@@ -230,7 +232,7 @@
 
     <section class="hero" id="hero">
         <h1 class="gsap-reveal">Опережайте рынок <span>с нами!</span></h1>
-        <p class="gsap-reveal">Парсинг сырых пакетов данных и моментальный перехват новых объявлений до их попадания в поисковый кэш платформ. Будьте первым.</p>
+        <p class="gsap-reveal">Парсинг пакетов данных и моментальный перехват новых объявлений до их попадания в поисковый кэш платформ. Будьте первым.</p>
         
         <div class="cta-container gsap-reveal">
             <button onclick="executeSecureRedirect()" class="btn" id="mainCtaButton">
@@ -245,7 +247,7 @@
         
         <div class="rocket-flyzone">
             <div class="animated-rocket" id="rocketNode">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
                     <path d="M12 2s4 4 4 9H8c0-5 4-9 4-9z" fill="var(--accent-cyan)"/>
                     <path d="M12 11c0 3.5-2 6-2 6h4s-2-2.5-2-6z" fill="var(--accent-yellow)"/>
                     <path d="M9 12v3H5v-3h4zm10 0v3h-4v-3h4z" fill="var(--text-muted)"/>
@@ -285,7 +287,7 @@
             </div>
             <div class="scale-card gsap-scroll">
                 <h3><span>03.</span> Вебхуки (Webhooks)</h3>
-                <p>Мгновенная ретрансляция сырых данных на сторонние сетевые сервера и в приложения заказчика без задержек.</p>
+                <p>Мгновенная ретрансляция данных на сторонние сетевые сервера и в приложения заказчика без задержек.</p>
             </div>
             <div class="scale-card gsap-scroll">
                 <h3><span>04.</span> Интеграция в БД</h3>
@@ -297,53 +299,46 @@
     <section id="partner-review">
         <h2>Обзор от <span>партнера</span></h2>
         <p class="section-desc">Демонстрация интерфейса, механики моментальной ловли лотов и реальной скорости работы системы.</p>
-        <div class="video-wrapper gsap-scroll">
-            <video class="partner-video" controls preload="metadata" playsinline poster="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 24 24' fill='none' stroke='%2300e5ff'><polygon points='5 3 19 12 5 21 5 3'/></svg>">
-                <source src="placeholder.mp4" type="video/mp4">
-                Ваш браузер не поддерживает видео.
+        <div class="video-container gsap-scroll">
+            <video class="partner-cdn-video" controls preload="metadata" playsinline>
+                <source src="https://github.com/user-attachments/assets/369e129b-9e05-446a-bf6d-62d65d63448b" type="video/mp4">
+                Ваш браузер не поддерживает просмотр видео.
             </video>
         </div>
     </section>
 
     <section id="core">
-        <h2>Интерактивное <span>ядро</span></h2>
-        <p class="section-desc">Кликните на карточку для детализации технических параметров и системных логов.</p>
-        
         <div class="bento-stack">
-            <div class="bento-card gsap-scroll" onclick="this.classList.toggle('active')">
+            <div class="bento-card gsap-scroll">
                 <h3>📊 Скорость и Фильтрация</h3>
-                <p class="user-summary">Бот моментально отсекает дубликаты, очищает цифровой шум и выдает чистый поток лотов.</p>
-                <div class="terminal-log">Развернуть спецификацию ⚙️</div>
-                <div class="extended-data">
+                <p class="main-text">Бот моментально отсекает дубликаты, очищает цифровой шум и выдает чистый поток лотов.</p>
+                <p class="detail-text">
                     Парсер осуществляет непрерывный анализ структуры объявлений во всех востребованных нишах. Система вычисляет аномалии стоимости, сверяет геолокационные паттерны и позволяет выстраивать эффективные бизнес-модели для быстрого старта с минимальным бюджетом.
-                </div>
+                </p>
             </div>
             
-            <div class="bento-card gsap-scroll" onclick="this.classList.toggle('active')">
+            <div class="bento-card gsap-scroll">
                 <h3>🌍 Глобальное покрытие</h3>
-                <p class="user-summary">Полная поддержка рынков Европы, Америки и СНГ в рамках единой инфраструктуры.</p>
-                <div class="terminal-log">Развернуть спецификацию ⚙️</div>
-                <div class="extended-data">
-                    Интерфейсные ноды полностью адаптированы под мультиязычные рынки. Архитектура объединяет крупнейшие локальные и мировые площадки (сеть маркетплейсов OLX (ua, kz, pl, ro, bg, pt, uz), глобальный eBay, Willhaben, Facebook Marketplace, АвтоРИА, ДомРиа), помогая находить предложения в любой точке мира.
-                </div>
+                <p class="main-text">Полная поддержка рынков Европы, Америки и СНГ в рамках единой инфраструктуры.</p>
+                <p class="detail-text">
+                    Интерфейсные ноды полностью адаптированы под мультиязычные рынки. Архитектура объединяет крупнейшие локальные и мировые площадки (сеть маркетплейсов OLX (ua, kz, pl, ro, bg, pt, uz), глобальный eBay, Willhaben, Facebook Marketplace, AUTO.RIA, DIM.RIA), помогая находить предложения в любой точке мира.
+                </p>
             </div>
             
-            <div class="bento-card gsap-scroll" onclick="this.classList.toggle('active')">
+            <div class="bento-card gsap-scroll">
                 <h3>🛡️ Безопасность и Ссылки</h3>
-                <p class="user-summary">Прямая переадресация на оригинальные лоты и работа внутри защищенных экосистем.</p>
-                <div class="terminal-log">Развернуть спецификацию ⚙️</div>
-                <div class="extended-data">
-                    Lotifybot не обрабатывает коммерческие транзакции и не собирает платежные данные. Продукт поставляет сжатую точную инфо-ссылку на официальный лот маркетплейса (сеть OLX, eBay, Willhaben, АвтоРИА, ДомРиа, Facebook Marketplace). Вы совершаете сделки внутри официальных систем защиты платформ.
-                </div>
+                <p class="main-text">Прямая переадресация на оригинальные лоты и работа внутри защищенных экосистем.</p>
+                <p class="detail-text">
+                    Lotifybot не обрабатывает коммерческие транзакции и не собирает платежные данные. Продукт поставляет сжатую точную инфо-ссылку на официальный лот маркетплейса (сеть OLX, eBay, Willhaben, AUTO.RIA, DIM.RIA, Facebook Marketplace). Вы совершаете сделки внутри официальных систем защиты платформ.
+                </p>
             </div>
             
-            <div class="bento-card gsap-scroll" onclick="this.classList.toggle('active')">
+            <div class="bento-card gsap-scroll">
                 <h3>🔌 Интеграции и Базы данных</h3>
-                <p class="user-summary">Индивидуальные решения, разработка выделенных парсеров и прямая выгрузка через API.</p>
-                <div class="terminal-log">Развернуть спецификацию ⚙️</div>
-                <div class="extended-data">
+                <p class="main-text">Индивидуальные решения, разработка выделенных парсеров и прямая выгрузка через API.</p>
+                <p class="detail-text">
                     Для крупных коммерческих структур, корпоративных клиентов и профессиональных команд предусмотрено индивидуальное проектирование инфраструктуры. Поддерживается прямая интеграция потоков данных через Вебхуки (Webhooks) в сторонние CRM, кастомные базы данных заказчика и предоставление выделенных API-эндпоинтов для сквозного масштабирования.
-                </div>
+                </p>
             </div>
         </div>
     </section>
@@ -387,40 +382,39 @@
     <script>
         gsap.registerPlugin(ScrollTrigger);
 
-        // СКРЫТЫЙ ИИ-ФРЕНДЛИ РЕДИРЕКТ НА ТЕЛЕГРАМ БОТА
+        // МГНОВЕННЫЙ БЕЗОПАСНЫЙ РЕДИРЕКТ
         function executeSecureRedirect() {
-            const targetGateway = "https://t.me/lotify_bot";
-            window.location.href = targetGateway;
+            window.location.href = "https://t.me/lotify_bot";
         }
 
-        // Анимация текста в начале
+        // Плавный запуск текстов
         gsap.from(".gsap-reveal", {
-            y: 15,
+            y: 12,
             opacity: 0,
-            duration: 0.4,
-            stagger: 0.08,
+            duration: 0.35,
+            stagger: 0.05,
             ease: "power2.out"
         });
 
-        // СТАБИЛЬНЫЙ ИСПРАВЛЕННЫЙ ВЗЛЕТ РАКЕТЫ ПОД УГЛОМ 70 ГРАДУСОВ СЛЕВА НАПРАВО
+        // МОНОЛИТНАЯ МАТЕМАТИЧЕСКАЯ АНИМАЦИЯ ПОЛЕТА РАКЕТЫ К КНОПКЕ СТАРТА
         gsap.fromTo("#rocketNode", 
-            { x: "5vw", y: 80, opacity: 0, rotation: 35 },
+            { x: "0vw", y: 60, opacity: 0, rotation: 30 },
             {
                 scrollTrigger: {
                     trigger: "#utility",
-                    start: "top 85%",
-                    end: "top 15%",
-                    scrub: 1
+                    start: "top 90%",
+                    end: "top 10%",
+                    scrub: 0.8
                 },
-                x: "75vw",
-                y: -140,
+                x: "80vw",
+                y: -130,
                 rotation: 70,
                 opacity: 1,
                 ease: "power1.out"
             }
         );
 
-        // Скролл-менеджер появления блоков
+        // Рендеринг блоков при скролле
         gsap.utils.toArray('.gsap-scroll').forEach(element => {
             gsap.from(element, {
                 scrollTrigger: {
@@ -428,69 +422,21 @@
                     start: "top 95%",
                     toggleActions: "play none none none"
                 },
-                y: 12,
+                y: 10,
                 opacity: 0,
                 duration: 0.3,
                 ease: "power1.out"
             });
         });
 
-        /* =========================================================================
-           ЗАКОМЕНТИРОВАННЫЙ СКРИПТ ЛОКАЛИЗАЦИИ ДЛЯ МУЛЬТИЯЗЫЧНОГО ПЕРЕКЛЮЧЕНИЯ
-           (Для активации удалите теги комментариев вокруг кода ниже и добавьте id/data-i18n)
-           
-        const translations = {
-            uk: {
-                title: "Випереджайте ринок з нами!",
-                desc: "Парсинг сирих пакетів даних та моментальне перехоплення нових оголошень.",
-                btn: "Запустити бота",
-                speedTitle: "Швидкість як капітал"
-            },
-            en: {
-                title: "Outpace the market with us!",
-                desc: "Raw data packet parsing and instant intercept of new listings.",
-                btn: "Launch Bot",
-                speedTitle: "Speed as Capital"
-            },
-            pl: {
-                title: "Wyprzedź rynek z nami!",
-                desc: "Parsowanie surowych pakietów danych i natychmiastowe przechwytywanie ogłoszeń.",
-                btn: "Uruchom bota",
-                speedTitle: "Prędkość jako kapitał"
-            },
-            de: {
-                title: "Seien Sie dem Markt einen Schritt voraus!",
-                desc: "Parsing von Rohdatenpaketen und sofortiges Abfangen neuer Anzeigen.",
-                btn: "Bot starten",
-                speedTitle: "Geschwindigkeit als Kapital"
-            },
-            es: {
-                title: "¡Adelántese al mercado con nosotros!",
-                desc: "Análisis de paquetes de datos sin procesar e intercepción instantánea de anuncios.",
-                btn: "Iniciar Bot",
-                speedTitle: "Velocidad como capital"
-            },
-            ru: {
-                title: "Опережайте рынок с нами!",
-                desc: "Парсинг сырых пакетов данных и моментальный перехват новых объявлений.",
-                btn: "Запустить бота",
-                speedTitle: "Скорость как капитал"
-            }
-        };
-
-        document.querySelectorAll('.lang-item').forEach(btn => {
-            btn.addEventListener('click', () => {
+        // ОБРАБОТЧИК КЛИКА ЯЗЫКОВЫХ СТРАНИЦ
+        document.querySelectorAll('.lang-item').forEach(link => {
+            link.addEventListener('click', (e) => {
+                // Позволяем браузеру выполнить дефолтный переход по href на отдельную страницу
                 document.querySelectorAll('.lang-item').forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                const lang = btn.getAttribute('data-lang');
-                
-                // Пример изменения элементов на странице:
-                // document.querySelector('.hero h1').innerHTML = translations[lang].title;
-                // document.querySelector('.hero p').innerText = translations[lang].desc;
-                // document.querySelector('#mainCtaButton').innerText = translations[lang].btn;
+                link.classList.add('active');
             });
         });
-        ========================================================================= */
     </script>
 </body>
 </html>
