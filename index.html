@@ -392,32 +392,13 @@
         </div>
     </footer>
 
-    <script>
+<script>
         document.addEventListener("DOMContentLoaded", () => {
-            const supportedLangs = ["uk", "en", "pl", "de", "es", "ru"];
-            const defaultLang = "en";
-            
-            function getBrowserLang() {
-                const navLang = navigator.language || navigator.userLanguage;
-                if (!navLang) return defaultLang;
-                const shortLang = navLang.split("-")[0].toLowerCase();
-                return supportedLangs.includes(shortLang) ? shortLang : defaultLang;
-            }
-
             function initLanguage() {
-                let savedLang = localStorage.getItem("lotify_lang");
-                if (!savedLang) {
-                    savedLang = getBrowserLang();
-                    localStorage.setItem("lotify_lang", savedLang);
-                    if (savedLang !== "en" && supportedLangs.includes(savedLang)) {
-                        window.location.replace(`./${savedLang}/index.html`);
-                    }
-                } else if (savedLang !== "en" && supportedLangs.includes(savedLang)) {
-                    window.location.replace(`./${savedLang}/index.html`);
-                }
+                const currentLang = document.documentElement.lang || "en";
                 
                 document.querySelectorAll(".lang-item").forEach(item => {
-                    if(item.getAttribute("data-lang") === "en") {
+                    if(item.getAttribute("data-lang") === currentLang) {
                         item.classList.add("active");
                     } else {
                         item.classList.remove("active");
@@ -429,13 +410,12 @@
                 button.addEventListener("click", (e) => {
                     e.preventDefault();
                     const selectedLang = button.getAttribute("data-lang");
-                    localStorage.setItem("lotify_lang", selectedLang);
+                    const currentLang = document.documentElement.lang || "en";
                     
-                    if (selectedLang === "en") {
-                        window.scrollTo(0, 0);
-                    } else {
-                        window.location.href = `./${selectedLang}/index.html`;
-                    }
+                    if (selectedLang === currentLang) return;
+                    
+                    localStorage.setItem("lotify_lang", selectedLang);
+                    window.location.href = `../${selectedLang}/index.html`;
                 });
             });
 
