@@ -9,7 +9,7 @@
     
     <style>
         :root {
-            --bg: #07070a; 
+            --bg: #050508; 
             --surface-glass: rgba(18, 18, 26, 0.65);
             --card-glass: rgba(22, 22, 32, 0.75);
             --border-glow: rgba(0, 240, 255, 0.3);
@@ -20,16 +20,13 @@
             --accent-yellow: #fff500;
             --accent-emerald: #00ffaa;
             --accent-error: #ff3366;
+            --glow-shadow: rgba(0, 240, 255, 0.18);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; -webkit-tap-highlight-color: transparent; }
         
         body { 
             background-color: var(--bg); 
-            background-image: 
-                linear-gradient(rgba(255, 255, 255, 0.01) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.01) 1px, transparent 1px);
-            background-size: 40px 40px;
             color: var(--text-main); 
             overflow-x: hidden; 
             line-height: 1.4;
@@ -37,16 +34,16 @@
         }
 
         .aurora-glow {
-            position: absolute; width: 450px; height: 450px;
-            background: radial-gradient(circle, rgba(0, 240, 255, 0.15) 0%, rgba(0,0,0,0) 70%);
-            top: 10%; left: 50%; transform: translate(-50%, -50%);
+            position: absolute; width: 50vw; height: 50vw; max-width: 600px; max-height: 600px;
+            background: radial-gradient(circle, rgba(0, 240, 255, 0.08) 0%, rgba(0,0,0,0) 70%);
+            top: 0; left: 50%; transform: translate(-50%, -20%);
             z-index: 0; pointer-events: none; filter: blur(60px);
         }
 
         header {
             display: flex; justify-content: space-between; align-items: center;
             padding: 0.6rem 1.2rem; position: fixed; width: 100%; top: 0; left: 0;
-            background: rgba(7, 7, 10, 0.85); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px);
+            background: rgba(5, 5, 8, 0.85); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px);
             z-index: 100; border-bottom: 1px solid var(--border-subtle);
         }
         .logo-block { display: flex; flex-direction: column; }
@@ -54,7 +51,6 @@
         .logo span { color: var(--accent-cyan); text-shadow: 0 0 15px rgba(0, 240, 255, 0.4); }
         .official-tag { font-size: 0.55rem; color: var(--accent-yellow); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-top: 1px; }
         
-        /* [ВРЕМЕННЫЙ РЕЗЕРВНЫЙ НАВИГАЦИОННЫЙ БЛОК ДЛЯ МУЛЬТИЯЗЫЧНЫХ СТРАНИЦ] */
         .lang-container { display: flex; gap: 0.65rem; }
         .lang-item { display: flex; flex-direction: column; align-items: center; cursor: pointer; opacity: 0.35; text-decoration: none; }
         .lang-item.active { opacity: 1; }
@@ -62,7 +58,7 @@
         .lang-text { font-size: 0.55rem; font-weight: 700; text-transform: uppercase; margin-top: 3px; color: var(--text-main); }
 
         .top-marquee {
-            background: #040406; width: 100%; overflow: hidden; display: flex;
+            background: #020203; width: 100%; overflow: hidden; display: flex;
             border-bottom: 1px solid var(--border-subtle); height: 2.4rem; align-items: center;
             position: relative; z-index: 2;
         }
@@ -99,9 +95,16 @@
             width: 100%; max-width: 310px; margin: 2.5rem auto 0 auto; 
             border: 1px solid var(--border-glow); border-radius: 16px; overflow: hidden; 
             background: #000; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 30px rgba(0, 240, 255, 0.1);
-            position: relative;
+            position: relative; display: flex; align-items: center; justify-content: center;
         }
-        .hero-inline-video { width: 100%; display: block; object-fit: cover; cursor: pointer; }
+        
+        .hero-video-container:-webkit-full-screen { width: 100vw; height: 100vh; max-width: 100%; border-radius: 0; border: none; }
+        .hero-video-container:fullscreen { width: 100vw; height: 100vh; max-width: 100%; border-radius: 0; border: none; }
+
+        .hero-inline-video { width: 100%; height: auto; display: block; object-fit: cover; cursor: pointer; }
+        
+        .hero-video-container:-webkit-full-screen .hero-inline-video { height: 100%; object-fit: contain; }
+        .hero-video-container:fullscreen .hero-inline-video { height: 100%; object-fit: contain; }
 
         .video-overlay-btn {
             position: absolute; background: rgba(4, 4, 6, 0.75); border: 1px solid rgba(255,255,255,0.15);
@@ -119,25 +122,28 @@
         h2 span { background: linear-gradient(135deg, #fff500 0%, #ffaa00 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .section-desc { text-align: center; color: var(--text-muted); font-size: 0.85rem; max-width: 480px; margin: 0 auto 2.5rem auto; }
 
-        .bento-stack { display: flex; flex-direction: column; gap: 1.2rem; }
-        .bento-card { 
+        /* ВАУ ДИЗАЙН: Неоновое свечение со смещением вправо и вниз */
+        .neon-card {
             background: var(--card-glass); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
             border: 1px solid var(--border-subtle); padding: 1.6rem; border-radius: 14px; 
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4); position: relative; overflow: hidden;
+            box-shadow: 15px 15px 35px -5px var(--glow-shadow); 
+            position: relative; overflow: hidden;
+            transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
         }
-        .bento-card:active { border-color: var(--accent-cyan); }
+        .neon-card:active {
+            transform: translate(3px, 3px);
+            box-shadow: 8px 8px 20px -5px var(--glow-shadow);
+            border-color: var(--accent-cyan);
+        }
+
+        .bento-stack { display: flex; flex-direction: column; gap: 1.5rem; }
         .bento-card h3 { font-size: 1.15rem; color: var(--accent-cyan); margin-bottom: 0.6rem; display: flex; align-items: center; gap: 0.4rem; }
         .bento-card p.main-text { color: var(--text-main); font-size: 0.95rem; font-weight: 600; margin-bottom: 0.6rem; }
         .bento-card p.detail-text { color: var(--text-muted); font-size: 0.8rem; line-height: 1.5; border-top: 1px solid rgba(255,255,255,0.04); padding-top: 0.6rem; }
 
-        .timeline-grid, .scale-grid { display: flex; flex-direction: column; gap: 1rem; }
-        .time-card, .scale-card { 
-            background: var(--surface-glass); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
-            border: 1px solid var(--border-subtle); padding: 1.3rem; border-radius: 10px; 
-        }
-        .time-card:active, .scale-card:active { border-color: var(--accent-cyan); }
+        .timeline-grid, .scale-grid { display: flex; flex-direction: column; gap: 1.5rem; }
         .time-card.bad { border-left: 4px solid var(--accent-error); }
-        .time-card.good { border-left: 4px solid var(--accent-emerald); box-shadow: inset 0 0 15px rgba(0, 255, 170, 0.03); }
+        .time-card.good { border-left: 4px solid var(--accent-emerald); }
         .time-card h3, .scale-card h3 { font-size: 1.05rem; margin-bottom: 0.4rem; }
         .time-card p, .scale-card p { color: var(--text-muted); font-size: 0.8rem; line-height: 1.45; }
         .badge { display: inline-block; font-size: 0.6rem; font-weight: 800; text-transform: uppercase; padding: 0.2rem 0.5rem; border-radius: 4px; margin-top: 0.6rem; }
@@ -145,7 +151,6 @@
         .good .badge { background: rgba(0, 255, 170, 0.1); color: var(--accent-emerald); }
         .scale-card h3 span { color: var(--accent-cyan); }
 
-        .grant-box { background: var(--surface-glass); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid var(--border-glow); padding: 1.5rem; border-radius: 10px; }
         .grant-box h3 { font-size: 1.2rem; color: var(--accent-yellow); margin-bottom: 0.5rem; }
         .grant-box p { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem; }
         .grant-steps { display: flex; flex-direction: column; gap: 0.6rem; font-size: 0.8rem; }
@@ -177,9 +182,9 @@
             .hero h1 { font-size: 3.4rem; }
             .hero p { font-size: 1.05rem; max-width: 580px; }
             .hero-video-container { max-width: 350px; }
-            .timeline-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
-            .scale-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
-            .bento-stack { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+            .timeline-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+            .scale-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+            .bento-stack { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
             .partner-links-spread { flex-direction: row; justify-content: space-between; }
         }
         @media (max-width: 680px) {
@@ -238,7 +243,7 @@
             <div class="btn-label">🎁 7 дней тест-драйва бесплатно</div>
         </div>
 
-        <div class="hero-video-container">
+        <div class="hero-video-container" id="videoWrapper">
             <button class="video-overlay-btn audio-control" id="audioBtn">🔇</button>
             <button class="video-overlay-btn fullscreen-control" id="fullscreenBtn">⛶</button>
             
@@ -252,12 +257,12 @@
         <h2>Скорость как <span>капитал</span></h2>
         <p class="section-desc">Сравнение скорости обработки входящих потоков данных маркетплейсов.</p>
         <div class="timeline-grid">
-            <div class="time-card bad">
+            <div class="time-card neon-card bad">
                 <h3>🚫 Ручной мониторинг листинга</h3>
                 <p>Бесконечное обновление страниц. Задержка кэширования маркетплейсов составляет от 2 до 15 минут. Ликвидные позиции уходят перекупщикам.</p>
                 <div class="badge">Статус: Потеря прибыли</div>
             </div>
-            <div class="time-card good">
+            <div class="time-card neon-card good">
                 <h3>⚡ Поток Lotifybot</h3>
                 <p>Прямой перехват метаданных в момент публикации. Доставка целевого уведомления в ваш Telegram за доли секунды.</p>
                 <div class="badge">Статус: Сделка закрыта первой</div>
@@ -269,19 +274,19 @@
         <h2>Масштабирование <span>трафика</span></h2>
         <p class="section-desc">Архитектурные решения для распределения информационных потоков и мгновенной синхронизации.</p>
         <div class="scale-grid">
-            <div class="scale-card">
+            <div class="scale-card neon-card">
                 <h3><span>01.</span> TG Каналы</h3>
                 <p>Потоковое вещание отфильтрованных категорий для построения массового комьюнити и генерации целевого трафика.</p>
             </div>
-            <div class="scale-card">
+            <div class="scale-card neon-card">
                 <h3><span>02.</span> Приватные Боты</h3>
                 <p>Персональные коммерческие сессии, тонкие фильтры и монопольный перехват алертов без конкуренции.</p>
             </div>
-            <div class="scale-card">
+            <div class="scale-card neon-card">
                 <h3><span>03.</span> Вебхуки (Webhooks)</h3>
                 <p>Мгновенная ретрансляция данных на сторонние сетевые сервера и в приложения заказчика без задержек.</p>
             </div>
-            <div class="scale-card">
+            <div class="scale-card neon-card">
                 <h3><span>04.</span> Интеграция в БД</h3>
                 <p>Прямое подключение потоков к локальным базам данных клиента и кастомным учетным CRM-системам.</p>
             </div>
@@ -293,25 +298,25 @@
         <p class="section-desc">Архитектурные параметры платформы и системные стандарты обработки потоков данных.</p>
         
         <div class="bento-stack">
-            <div class="bento-card">
+            <div class="bento-card neon-card">
                 <h3>📊 Скорость и Фильтрация</h3>
                 <p class="main-text">Бот моментально отсекает дубликаты, очищает цифровой шум и выдает чистый поток лотов.</p>
                 <p class="detail-text">Парсер осуществляет непрерывный анализ структуры объявлений. Система вычисляет аномалии стоимости и сверяет геолокационные паттерны.</p>
             </div>
             
-            <div class="bento-card">
+            <div class="bento-card neon-card">
                 <h3>🌍 Глобальное покрытие</h3>
                 <p class="main-text">Полная поддержка рынков Европы, Америки и СНГ в рамках единой инфраструктуры.</p>
                 <p class="detail-text">Интерфейсные ноды адаптированы под мультиязычные рынки. Архитектура объединяет крупнейшие площадки: OLX, eBay, Willhaben, Facebook Marketplace, AUTO.RIA.</p>
             </div>
 
-            <div class="bento-card">
+            <div class="bento-card neon-card">
                 <h3>🛡️ Безопасность и Ссылки</h3>
                 <p class="main-text">Прямая переадресация на оригинальные лоты и работа внутри защищенных экосистем.</p>
                 <p class="detail-text">Lotifybot не обрабатывает коммерческие транзакции и не собирает платежные данные. Продукт поставляет сжатую точную инфо-ссылку на официальный лот маркетплейса.</p>
             </div>
             
-            <div class="bento-card">
+            <div class="bento-card neon-card">
                 <h3>🔌 Интеграции и Базы данных</h3>
                 <p class="main-text">Индивидуальные решения, разработка выделенных парсеров и прямая выгрузка через API.</p>
                 <p class="detail-text">Поддерживается прямая интеграция потоков данных через Вебхуки (Webhooks) в сторонкие CRM, кастомные базы данных заказчика и предоставление выделенных API-эндпоинтов.</p>
@@ -322,7 +327,7 @@
     <section id="startup">
         <h2>Программа <span>StartUP Support</span></h2>
         <p class="section-desc">Мы поддерживаем инициативу и помогаем снизить финансовые барьеры на самом старте.</p>
-        <div class="grant-box">
+        <div class="grant-box neon-card">
             <h3>🚀 Грант на скорость: 14 дней полного доступа</h3>
             <p>Если вы планируете открыть свое дело но у вас пока нет свободного бюджета на софт — мы активируем бесплатный тест-драйв.</p>
             <div class="grant-steps">
@@ -366,10 +371,12 @@
 
     <script>
         const video = document.getElementById('mainVideo');
+        const videoWrapper = document.getElementById('videoWrapper');
         const audioBtn = document.getElementById('audioBtn');
         const fullscreenBtn = document.getElementById('fullscreenBtn');
 
-        video.addEventListener('click', function() {
+        video.addEventListener('click', function(e) {
+            e.preventDefault();
             if (video.paused) {
                 video.play();
             } else {
@@ -390,12 +397,18 @@
 
         fullscreenBtn.addEventListener('click', function(e) {
             e.stopPropagation();
-            if (video.requestFullscreen) {
-                video.requestFullscreen();
-            } else if (video.webkitRequestFullscreen) {
-                video.webkitRequestFullscreen();
-            } else if (video.msRequestFullscreen) {
-                video.msRequestFullscreen();
+            if (!document.fullscreenElement && !document.webkitFullscreenElement) {
+                if (videoWrapper.requestFullscreen) {
+                    videoWrapper.requestFullscreen();
+                } else if (videoWrapper.webkitRequestFullscreen) {
+                    videoWrapper.webkitRequestFullscreen();
+                }
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if (document.webkitExitFullscreen) {
+                    document.webkitExitFullscreen();
+                }
             }
         });
 
@@ -421,8 +434,6 @@
                     localStorage.setItem("lotify_lang", savedLang);
                 }
                 
-                console.log(`[i18n Core] Active language configuration initialized: ${savedLang}`);
-                
                 document.querySelectorAll(".lang-item").forEach(item => {
                     if(item.getAttribute("data-lang") === savedLang) {
                         item.classList.add("active");
@@ -437,9 +448,6 @@
                     e.preventDefault();
                     const selectedLang = button.getAttribute("data-lang");
                     localStorage.setItem("lotify_lang", selectedLang);
-                    console.log(`[i18n Core] User manually switched language to: ${selectedLang}`);
-                    
-                    // window.location.href = `/${selectedLang}/index.html`;
                     location.reload();
                 });
             });
