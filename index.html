@@ -394,32 +394,28 @@
 
 <script>
         document.addEventListener("DOMContentLoaded", () => {
-            function initLanguage() {
-                const currentLang = document.documentElement.lang || "en";
-                
-                document.querySelectorAll(".lang-item").forEach(item => {
-                    if(item.getAttribute("data-lang") === currentLang) {
-                        item.classList.add("active");
-                    } else {
-                        item.classList.remove("active");
-                    }
-                });
+            const supported = ["uk", "en", "pl", "de", "es", "ru"];
+            
+            function getLang() {
+                const saved = localStorage.getItem("lotify_lang");
+                if (saved && supported.includes(saved)) return saved;
+                const browser = (navigator.language || navigator.userLanguage).split("-")[0].toLowerCase();
+                return supported.includes(browser) ? browser : "en";
+            }
+
+            const target = getLang();
+            if (target !== "en") {
+                window.location.replace(`./${target}/index.html`);
             }
 
             document.querySelectorAll(".lang-item").forEach(button => {
                 button.addEventListener("click", (e) => {
                     e.preventDefault();
-                    const selectedLang = button.getAttribute("data-lang");
-                    const currentLang = document.documentElement.lang || "en";
-                    
-                    if (selectedLang === currentLang) return;
-                    
-                    localStorage.setItem("lotify_lang", selectedLang);
-                    window.location.href = `../${selectedLang}/index.html`;
+                    const lang = button.getAttribute("data-lang");
+                    localStorage.setItem("lotify_lang", lang);
+                    window.location.href = (lang === "en") ? "./index.html" : `./${lang}/index.html`;
                 });
             });
-
-            initLanguage();
         });
     </script>
 </body>
