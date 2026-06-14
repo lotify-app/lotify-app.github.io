@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Lotifybot — Premium Ad Parsing Infrastructure</title>
+    <meta name="description" content="Lotifybot: Premium Ad Parsing Infrastructure. Fast marketplace data stream processing and instant interception of new listings for OLX, eBay, Willhaben, AUTO.RIA, and Facebook Marketplace.">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Lotifybot — Premium Ad Parsing Infrastructure">
+    <meta property="og:description" content="Data packet parsing and instant interception of new listings before they hit platform search caches. Be the first.">
+    <meta property="og:type" content="website">
     
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Lotifybot",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Any",
+      "description": "Premium Ad Parsing Infrastructure for global marketplace monitoring.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "description": "7 days free test drive"
+      }
+    }
+    </script>
+
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
     
     <style>
@@ -21,7 +43,6 @@
             --accent-yellow: #fff500;
             --accent-emerald: #00ffaa;
             --accent-error: #ff3366;
-            /* Свечение уменьшено на ~30% (с 0.22 до 0.15) */
             --neon-glow: rgba(0, 240, 255, 0.15);
         }
 
@@ -87,12 +108,10 @@
         h1 span { background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-blue) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .hero p { color: var(--text-muted); font-size: 0.8rem; max-width: 420px; margin: 0 auto 0.8rem auto; line-height: 1.3; }
 
-        /* Увеличены отступы для верхней кнопки (как внизу) */
         .hero .cta-container { margin-top: 1.5rem; margin-bottom: 1.5rem; }
         
         .cta-container { display: flex; flex-direction: column; align-items: center; width: 100%; }
         
-        /* Кнопкам добавлен 3D-объем (inset тени) и усилено внешнее свечение */
         .btn {
             display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem;
             background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-blue) 100%); 
@@ -206,16 +225,16 @@
     <header>
         <div class="logo-block">
             <div class="logo">Lotify<span>bot</span></div>
-            <div class="official-tag">Официальный информационный хаб</div>
+            <div class="official-tag">Official Information Hub</div>
         </div>
         
-        <nav class="lang-container" aria-label="Языки">
+        <nav class="lang-container" aria-label="Languages">
             <a href="#" class="lang-item" data-lang="uk"><svg class="flag-svg" viewBox="0 0 3 2"><rect width="3" height="1" fill="#0057b7"/><rect y="1" width="3" height="1" fill="#ffd700"/></svg><span class="lang-text">UA</span></a>
-            <a href="#" class="lang-item" data-lang="en"><svg class="flag-svg" viewBox="0 0 60 30"><clipPath id="s"><path d="M0,0 v30 h60 v-30 z"/></clipPath><path d="M0,0 v30 h60 v-30 z" fill="#012169"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#C8102E" stroke-width="4"/><path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/><path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/></svg><span class="lang-text">EN</span></a>
+            <a href="#" class="lang-item active" data-lang="en"><svg class="flag-svg" viewBox="0 0 60 30"><clipPath id="s"><path d="M0,0 v30 h60 v-30 z"/></clipPath><path d="M0,0 v30 h60 v-30 z" fill="#012169"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#C8102E" stroke-width="4"/><path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/><path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/></svg><span class="lang-text">EN</span></a>
             <a href="#" class="lang-item" data-lang="pl"><svg class="flag-svg" viewBox="0 0 8 5"><rect width="8" height="2.5" fill="#fff"/><rect y="2.5" width="8" height="2.5" fill="#dc143c"/></svg><span class="lang-text">PL</span></a>
             <a href="#" class="lang-item" data-lang="de"><svg class="flag-svg" viewBox="0 0 5 3"><rect width="5" height="1" fill="#000"/><rect y="1" width="5" height="1" fill="#dd0000"/><rect y="2" width="5" height="1" fill="#ffce00"/></svg><span class="lang-text">DE</span></a>
             <a href="#" class="lang-item" data-lang="es"><svg class="flag-svg" viewBox="0 0 3 2"><rect width="3" height="2" fill="#c60b1e"/><rect y="0.5" width="3" height="1" fill="#ffc400"/></svg><span class="lang-text">ES</span></a>
-            <a href="#" class="lang-item active" data-lang="ru"><svg class="flag-svg" viewBox="0 0 9 6"><rect width="9" height="2" fill="#fff"/><rect y="2" width="9" height="2" fill="#0039a6"/><rect y="4" width="9" height="2" fill="#d52b1e"/></svg><span class="lang-text">RU</span></a>
+            <a href="#" class="lang-item" data-lang="ru"><svg class="flag-svg" viewBox="0 0 9 6"><rect width="9" height="2" fill="#fff"/><rect y="2" width="9" height="2" fill="#0039a6"/><rect y="4" width="9" height="2" fill="#d52b1e"/></svg><span class="lang-text">RU</span></a>
         </nav>
     </header>
 
@@ -223,31 +242,31 @@
         <div class="marquee-track">
             <div class="marquee-group">
                 <div class="marquee-el">🌐 OLX <span>(ua, kz, pl, ro, bg, pt, uz)</span></div>
-                <div class="marquee-el">🌐 eBay <span>(Глобальные рынки Европы и Америки)</span></div>
-                <div class="marquee-el">🇦🇹 Willhaben <span>(Австрия — все земли)</span></div>
-                <div class="marquee-el">🇺🇦 AUTO.RIA / DIM.RIA <span>(Мониторинг авто и недвижимости)</span></div>
-                <div class="marquee-el">🌐 Facebook Marketplace <span>(Глобальный скаутинг)</span></div>
+                <div class="marquee-el">🌐 eBay <span>(Global European and American markets)</span></div>
+                <div class="marquee-el">🇦🇹 Willhaben <span>(Austria — all states)</span></div>
+                <div class="marquee-el">🇺🇦 AUTO.RIA / DIM.RIA <span>(Auto and real estate monitoring)</span></div>
+                <div class="marquee-el">🌐 Facebook Marketplace <span>(Global scouting)</span></div>
             </div>
             <div class="marquee-group" aria-hidden="true">
                 <div class="marquee-el">🌐 OLX <span>(ua, kz, pl, ro, bg, pt, uz)</span></div>
-                <div class="marquee-el">🌐 eBay <span>(Глобальные рынки Европы и Америки)</span></div>
-                <div class="marquee-el">🇦🇹 Willhaben <span>(Австрия — все земли)</span></div>
-                <div class="marquee-el">🇺🇦 AUTO.RIA / DIM.RIA <span>(Мониторинг авто и недвижимости)</span></div>
-                <div class="marquee-el">🌐 Facebook Marketplace <span>(Глобальный скаутинг)</span></div>
+                <div class="marquee-el">🌐 eBay <span>(Global European and American markets)</span></div>
+                <div class="marquee-el">🇦🇹 Willhaben <span>(Austria — all states)</span></div>
+                <div class="marquee-el">🇺🇦 AUTO.RIA / DIM.RIA <span>(Auto and real estate monitoring)</span></div>
+                <div class="marquee-el">🌐 Facebook Marketplace <span>(Global scouting)</span></div>
             </div>
         </div>
     </div>
 
     <section class="hero">
-        <h1>Опережайте рынок <span>с нами!</span></h1>
-        <p>Парсинг пакетов данных и моментальный перехват новых объявлений до их попадания в поисковый кэш платформ. Будьте первым.</p>
+        <h1>Stay ahead of the market <span>with us!</span></h1>
+        <p>Data packet parsing and instant interception of new listings before they hit platform search caches. Be the first.</p>
         
         <div class="cta-container">
             <button onclick="window.location.href='contact.html'" class="btn">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
-                Запустить бота
+                Launch Bot
             </button>
-            <div class="btn-label">🎁 7 дней тест-драйва бесплатно</div>
+            <div class="btn-label">🎁 7 days test drive for free</div>
         </div>
 
         <div class="hero-video-container" id="videoWrapper">
@@ -258,94 +277,94 @@
     </section>
 
     <section id="utility">
-        <h2>Скорость как <span>капитал</span></h2>
-        <p class="section-desc">Сравнение скорости обработки входящих потоков данных маркетплейсов.</p>
+        <h2>Speed as <span>capital</span></h2>
+        <p class="section-desc">Comparison of marketplace incoming data stream processing speeds.</p>
         <div class="timeline-grid">
             <div class="time-card neon-card bad">
-                <h3>🚫 Ручной мониторинг листинга</h3>
-                <p>Бесконечное обновление страниц. Задержка кэширования маркетплейсов составляет от 2 до 15 минут. Ликвидные позиции уходят перекупщикам.</p>
-                <div class="badge">Статус: Потеря прибыли</div>
+                <h3>🚫 Manual listing monitoring</h3>
+                <p>Endless page refreshing. Marketplace caching delay is 2 to 15 minutes. Liquid assets go to resellers.</p>
+                <div class="badge">Status: Profit loss</div>
             </div>
             <div class="time-card neon-card good">
-                <h3>⚡ Поток Lotifybot</h3>
-                <p>Прямой перехват метаданных в момент публикации. Доставка целевого уведомления в ваш Telegram за доли секунды.</p>
-                <div class="badge">Статус: Сделка закрыта первой</div>
+                <h3>⚡ Lotifybot Stream</h3>
+                <p>Direct metadata interception upon publication. Targeted notification delivery to your Telegram in fractions of a second.</p>
+                <div class="badge">Status: Deal closed first</div>
             </div>
         </div>
     </section>
 
     <section id="scale">
-        <h2>Масштабирование <span>трафика</span></h2>
-        <p class="section-desc">Архитектурные решения для распределения информационных потоков и мгновенной синхронизации.</p>
+        <h2>Traffic <span>Scaling</span></h2>
+        <p class="section-desc">Architectural solutions for data stream distribution and instant synchronization.</p>
         <div class="scale-grid">
             <div class="scale-card neon-card">
-                <h3><span>01.</span> TG Каналы</h3>
-                <p>Потоковое вещание отфильтрованных категорий для построения массового комьюнити и генерации целевого трафика.</p>
+                <h3><span>01.</span> TG Channels</h3>
+                <p>Stream broadcasting of filtered categories to build mass communities and generate targeted traffic.</p>
             </div>
             <div class="scale-card neon-card">
-                <h3><span>02.</span> Приватные Боты</h3>
-                <p>Персональные коммерческие сессии, тонкие фильтры и монопольный перехват алертов без конкуренции.</p>
+                <h3><span>02.</span> Private Bots</h3>
+                <p>Personal commercial sessions, fine filters, and monopoly interception of alerts without competition.</p>
             </div>
             <div class="scale-card neon-card">
-                <h3><span>03.</span> Вебхуки (Webhooks)</h3>
-                <p>Мгновенная ретрансляция данных на сторонние сетевые сервера и в приложения заказчика без задержек.</p>
+                <h3><span>03.</span> Webhooks</h3>
+                <p>Instant data retransmission to third-party network servers and customer applications without delays.</p>
             </div>
             <div class="scale-card neon-card">
-                <h3><span>04.</span> Интеграция в БД</h3>
-                <p>Прямое подключение потоков к локальным базам данных клиента и кастомным учетным CRM-системам.</p>
+                <h3><span>04.</span> DB Integration</h3>
+                <p>Direct stream connection to client local databases and custom accounting CRM systems.</p>
             </div>
         </div>
     </section>
 
     <section id="core">
-        <h2>Технические <span>возможности</span></h2>
-        <p class="section-desc">Архитектурные параметры платформы и системные стандарты обработки потоков данных.</p>
+        <h2>Technical <span>Capabilities</span></h2>
+        <p class="section-desc">Architectural parameters of the platform and system standards for data stream processing.</p>
         
         <div class="bento-stack">
             <div class="bento-card neon-card">
-                <h3>📊 Скорость и Фильтрация</h3>
-                <p class="main-text">Бот моментально отсекает дубликаты, очищает цифровой шум и выдает чистый поток лотов.</p>
-                <p class="detail-text">Парсер осуществляет непрерывный анализ структуры объявлений. Система вычисляет аномалии стоимости и сверяет геолокационные паттерны.</p>
+                <h3>📊 Speed and Filtering</h3>
+                <p class="main-text">The bot instantly cuts off duplicates, clears digital noise, and outputs a clean stream of lots.</p>
+                <p class="detail-text">The parser continuously analyzes listing structures. The system calculates value anomalies and verifies geolocation patterns.</p>
             </div>
             
             <div class="bento-card neon-card">
-                <h3>🌍 Глобальное покрытие</h3>
-                <p class="main-text">Полная поддержка рынков Европы, Америки и СНГ в рамках единой инфраструктуры.</p>
-                <p class="detail-text">Интерфейсные ноды адаптированы под мультиязычные рынки. Архитектура объединяет крупнейшие площадки: OLX, eBay, Willhaben, Facebook Marketplace, AUTO.RIA.</p>
+                <h3>🌍 Global Coverage</h3>
+                <p class="main-text">Full support for European, American, and CIS markets within a single infrastructure.</p>
+                <p class="detail-text">Interface nodes are adapted for multilingual markets. The architecture unites the largest platforms: OLX, eBay, Willhaben, Facebook Marketplace, AUTO.RIA.</p>
             </div>
 
             <div class="bento-card neon-card">
-                <h3>🛡️ Безопасность и Ссылки</h3>
-                <p class="main-text">Прямая переадресация на оригинальные лоты и работа внутри защищенных экосистем.</p>
-                <p class="detail-text">Lotifybot не обрабатывает коммерческие транзакции и не собирает платежные данные. Продукт поставляет сжатую точную инфо-ссылку на официальный лот маркетплейса.</p>
+                <h3>🛡️ Security and Links</h3>
+                <p class="main-text">Direct redirection to original lots and operation within secure ecosystems.</p>
+                <p class="detail-text">Lotifybot does not process commercial transactions or collect payment data. The product delivers a compact, accurate info-link to the official marketplace listing.</p>
             </div>
             
             <div class="bento-card neon-card">
-                <h3>🔌 Интеграции и Базы данных</h3>
-                <p class="main-text">Индивидуальные решения, разработка выделенных парсеров и прямая выгрузка через API.</p>
-                <p class="detail-text">Поддерживается прямая интеграция потоков данных через Вебхуки (Webhooks) в сторонкие CRM, кастомные базы данных заказчика и предоставление выделенных API-эндпоинтов.</p>
+                <h3>🔌 Integrations and Databases</h3>
+                <p class="main-text">Custom solutions, development of dedicated parsers, and direct export via API.</p>
+                <p class="detail-text">Direct data stream integration via Webhooks into third-party CRMs, customer custom databases, and provision of dedicated API endpoints is supported.</p>
             </div>
         </div>
     </section>
 
     <section id="startup">
-        <h2>Программа <span>StartUP Support</span></h2>
-        <p class="section-desc">Мы поддерживаем инициативу и помогаем снизить финансовые барьеры на самом старте.</p>
+        <h2>StartUP Support <span>Program</span></h2>
+        <p class="section-desc">We support initiative and help lower financial barriers at the very start.</p>
         <div class="grant-box neon-card">
-            <h3>🚀 Грант на скорость: 14 дней полного доступа</h3>
-            <p>Если вы планируете открыть свое дело но у вас пока нет свободного бюджета на софт — мы активируем бесплатный тест-драйв.</p>
+            <h3>🚀 Speed Grant: 14 days of full access</h3>
+            <p>If you are planning to start your own business but do not yet have a free budget for software, we will activate a free test drive.</p>
             <div class="grant-steps">
                 <div class="grant-step">
                     <span class="grant-num">1</span>
-                    <div>Напишите нам короткое текстовое сообщение с вашей конкретной бизнес-целью.</div>
+                    <div>Write us a short text message with your specific business goal.</div>
                 </div>
                 <div class="grant-step">
                     <span class="grant-num">2</span>
-                    <div>Формат запроса: «Запускаю продажи винтажной мебели в Германии, необходим мониторинг объявлений».</div>
+                    <div>Request format: "Launching vintage furniture sales in Germany, need listing monitoring".</div>
                 </div>
                 <div class="grant-step">
                     <span class="grant-num">3</span>
-                    <div>Наша команда одобрит заявку и предоставит 14 дней приватного доступа вместо стандартных 7.</div>
+                    <div>Our team will approve the application and provide 14 days of private access instead of the standard 7.</div>
                 </div>
             </div>
         </div>
@@ -355,9 +374,9 @@
         <div class="cta-container">
             <button onclick="window.location.href='contact.html'" class="btn">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
-                Подключить Lotifybot
+                Connect Lotifybot
             </button>
-            <div class="btn-label">🎁 7 дней тест-драйва бесплатно</div>
+            <div class="btn-label">🎁 7 days test drive for free</div>
         </div>
     </div>
 
@@ -369,32 +388,17 @@
                 <a href="https://www.tiktok.com/@ceschess" rel="me"><span>TikTok Profile:</span> @ceschess</a>
                 <a href="mailto:ssershils@gmail.com"><span>Email:</span> ssershils@gmail.com</a>
             </div>
-            <p class="copyright">&copy; 2026 Lotifybot Infrastructure. Все права защищены.</p>
+            <p class="copyright">&copy; 2026 Lotifybot Infrastructure. All rights reserved.</p>
         </div>
     </footer>
 
-    <script>
-        // Скрипт автоматического роутинга и переключения языков
+<script>
         document.addEventListener("DOMContentLoaded", () => {
-            const supportedLangs = ["uk", "en", "pl", "de", "es", "ru"];
-            const defaultLang = "ru";
-            
-            function getBrowserLang() {
-                const navLang = navigator.language || navigator.userLanguage;
-                if (!navLang) return defaultLang;
-                const shortLang = navLang.split("-")[0].toLowerCase();
-                return supportedLangs.includes(shortLang) ? shortLang : defaultLang;
-            }
-
             function initLanguage() {
-                let savedLang = localStorage.getItem("lotify_lang");
-                if (!savedLang) {
-                    savedLang = getBrowserLang();
-                    localStorage.setItem("lotify_lang", savedLang);
-                }
+                const currentLang = document.documentElement.lang || "en";
                 
                 document.querySelectorAll(".lang-item").forEach(item => {
-                    if(item.getAttribute("data-lang") === savedLang) {
+                    if(item.getAttribute("data-lang") === currentLang) {
                         item.classList.add("active");
                     } else {
                         item.classList.remove("active");
@@ -406,7 +410,11 @@
                 button.addEventListener("click", (e) => {
                     e.preventDefault();
                     const selectedLang = button.getAttribute("data-lang");
-                    localStorage.setItem("lotify_lang", selectedLang);                    
+                    const currentLang = document.documentElement.lang || "en";
+                    
+                    if (selectedLang === currentLang) return;
+                    
+                    localStorage.setItem("lotify_lang", selectedLang);
                     window.location.href = `../${selectedLang}/index.html`;
                 });
             });
