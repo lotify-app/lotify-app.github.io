@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Lotifybot — Fastest Ad Parser & Aggregator</title>
-    
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
-    
     <style>
         :root {
             --bg: #121216; 
@@ -50,6 +48,7 @@
         .logo span { color: var(--accent-cyan); }
         .official-tag { font-size: 0.55rem; color: var(--accent-yellow); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-top: 1px; }
         
+        /* [ВРЕМЕННЫЙ РЕЗЕРВНЫЙ НАВИГАЦИОННЫЙ БЛОК ДЛЯ МУЛЬТИЯЗЫЧНЫХ СТРАНИЦ] */
         .lang-container { display: flex; gap: 0.65rem; }
         .lang-item { display: flex; flex-direction: column; align-items: center; cursor: pointer; opacity: 0.4; text-decoration: none; }
         .lang-item.active { opacity: 1; }
@@ -106,16 +105,15 @@
         }
         .hero-inline-video { width: 100%; display: block; object-fit: cover; cursor: pointer; }
 
-        .video-controls-container {
-            position: absolute; bottom: 10px; right: 10px;
-            display: flex; gap: 8px; z-index: 5;
-        }
         .video-overlay-btn {
-            background: rgba(0, 0, 0, 0.7); border: 1px solid rgba(255,255,255,0.2);
-            backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
-            color: #fff; padding: 10px 14px; border-radius: 25px; font-size: 0.8rem;
-            font-weight: 700; display: flex; align-items: center; gap: 6px; cursor: pointer;
+            position: absolute; background: rgba(0, 0, 0, 0.75); border: 1px solid rgba(255,255,255,0.25);
+            backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+            color: #fff; padding: 12px 18px; border-radius: 30px; font-size: 1.2rem;
+            font-weight: 700; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; z-index: 10;
         }
+        .audio-control { bottom: 15px; left: 15px; }
+        .fullscreen-control { bottom: 15px; right: 15px; }
+        .video-overlay-btn:active { transform: scale(0.92); }
 
         section { padding: 3.5rem 1.2rem; width: 100%; max-width: 1100px; margin: 0 auto; position: relative; }
         h2 { font-size: 1.6rem; font-weight: 900; letter-spacing: -0.03em; text-align: center; margin-bottom: 0.5rem; }
@@ -132,6 +130,7 @@
             border-radius: 12px; 
             box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
             position: relative; overflow: hidden;
+            transition: border-color 0.2s;
         }
         .bento-card:active { border-color: var(--accent-cyan); }
         .bento-card h3 { font-size: 1.1rem; color: var(--accent-cyan); margin-bottom: 0.6rem; display: flex; align-items: center; gap: 0.4rem; }
@@ -142,7 +141,9 @@
         .time-card, .scale-card { 
             background: var(--surface-glass); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
             border: 1px solid var(--border-subtle); padding: 1.2rem; border-radius: 8px; 
+            transition: border-color 0.2s;
         }
+        .time-card:active, .scale-card:active { border-color: var(--accent-cyan); }
         .time-card.bad { border-left: 4px solid var(--accent-error); }
         .time-card.good { border-left: 4px solid var(--accent-emerald); }
         .time-card h3, .scale-card h3 { font-size: 1rem; margin-bottom: 0.4rem; }
@@ -159,8 +160,16 @@
         .grant-step { display: flex; gap: 0.4rem; }
         .grant-num { background: rgba(250, 204, 21, 0.08); color: var(--accent-yellow); font-weight: 700; width: 16px; height: 16px; display: inline-flex; align-items: center; justify-content: center; border-radius: 3px; flex-shrink: 0; font-size: 0.65rem; }
 
-        footer { text-align: center; padding: 3rem 1rem; background: #09090c; border-top: 1px solid var(--border-subtle); }
-        .copyright { font-size: 0.65rem; color: #4b5563; margin-top: 1.5rem; }
+        footer { padding: 3.5rem 1.2rem; background: #09090c; border-top: 1px solid var(--border-subtle); }
+        .footer-content { max-width: 1100px; margin: 0 auto; display: flex; flex-direction: column; gap: 2rem; }
+        
+        .partner-section { background: rgba(255, 255, 255, 0.02); border: 1px solid var(--border-subtle); padding: 1.5rem; border-radius: 12px; text-align: left; }
+        .partner-section h2 { font-size: 1.1rem; text-align: left; margin-bottom: 1rem; color: var(--text-main); font-weight: 700; }
+        .partner-links { display: flex; flex-direction: column; gap: 0.75rem; }
+        .partner-links a { color: var(--accent-cyan); font-size: 0.85rem; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; width: max-content; }
+        .partner-links a:active { opacity: 0.7; }
+
+        .copyright { font-size: 0.65rem; color: #4b5563; text-align: center; border-top: 1px solid rgba(255,255,255,0.03); padding-top: 1.5rem; }
 
         @media (min-width: 768px) {
             h2 { font-size: 2.2rem; }
@@ -170,6 +179,8 @@
             .timeline-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
             .scale-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
             .bento-stack { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+            .footer-content { flex-direction: row; justify-content: space-between; align-items: flex-start; }
+            .partner-section { min-width: 350px; }
         }
     </style>
 </head>
@@ -217,7 +228,7 @@
         <p>Парсинг пакетов данных и моментальный перехват новых объявлений до их попадания в поисковый кэш платформ. Будьте первым.</p>
         
         <div class="cta-container">
-            <button onclick="window.location.href='https://t.me/lotify_bot'" class="btn">
+            <button onclick="window.location.href='contact.html'" class="btn">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
                 Запустить бота
             </button>
@@ -225,10 +236,8 @@
         </div>
 
         <div class="hero-video-container">
-            <div class="video-controls-container">
-                <button class="video-overlay-btn" id="audioBtn">🔇</button>
-                <button class="video-overlay-btn" id="fullscreenBtn">⛶</button>
-            </div>
+            <button class="video-overlay-btn audio-control" id="audioBtn">🔇</button>
+            <button class="video-overlay-btn fullscreen-control" id="fullscreenBtn">⛶</button>
             
             <video class="hero-inline-video" autoplay muted loop playsinline id="mainVideo">
                 <source src="https://github.com/user-attachments/assets/369e129b-9e05-446a-bf6d-62d65d63448b" type="video/mp4">
@@ -328,3 +337,61 @@
                 </div>
             </div>
         </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="cta-container" style="margin-bottom: 0;">
+                <button onclick="window.location.href='contact.html'" class="btn">Подключить Lotifybot</button>
+                <div class="btn-label">🎁 7 дней тест-драйва бесплатно</div>
+            </div>
+            
+            <div class="partner-section">
+                <h2>Authorized Partner Socials & Support</h2>
+                <div class="partner-links">
+                    <a href="https://t.me/AItradeout" rel="me">Authorized Partner Telegram Support</a>
+                    <a href="https://www.tiktok.com/@ceschess" rel="me">Authorized Partner TikTok Profile</a>
+                    <a href="mailto:ssershils@gmail.com">Authorized Partner Email</a>
+                </div>
+            </div>
+        </div>
+        <p class="copyright">&copy; 2026 Lotifybot Infrastructure. Все права защищены.</p>
+    </footer>
+
+    <script>
+        const video = document.getElementById('mainVideo');
+        const audioBtn = document.getElementById('audioBtn');
+        const fullscreenBtn = document.getElementById('fullscreenBtn');
+
+        video.addEventListener('click', function() {
+            if (video.paused) {
+                video.play();
+            } else {
+                video.pause();
+            }
+        });
+
+        audioBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            if (video.muted) {
+                video.muted = false;
+                audioBtn.innerHTML = '🔊';
+            } else {
+                video.muted = true;
+                audioBtn.innerHTML = '🔇';
+            }
+        });
+
+        fullscreenBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            if (video.requestFullscreen) {
+                video.requestFullscreen();
+            } else if (video.webkitRequestFullscreen) {
+                video.webkitRequestFullscreen();
+            } else if (video.msRequestFullscreen) {
+                video.msRequestFullscreen();
+            }
+        });
+    </script>
+</body>
+</html>
