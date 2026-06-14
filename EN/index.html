@@ -21,7 +21,8 @@
             --accent-yellow: #fff500;
             --accent-emerald: #00ffaa;
             --accent-error: #ff3366;
-            --neon-glow: rgba(0, 240, 255, 0.12);
+            /* Свечение уменьшено на ~30% (с 0.22 до 0.15) */
+            --neon-glow: rgba(0, 240, 255, 0.15);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; -webkit-tap-highlight-color: transparent; }
@@ -31,7 +32,7 @@
             color: var(--text-main); 
             overflow-x: hidden; 
             line-height: 1.4;
-            padding-top: 3.2rem; /* Уменьшен отступ под шапку */
+            padding-top: 3.2rem;
         }
 
         .aurora-blur {
@@ -74,7 +75,6 @@
             100% { transform: translate3d(-50%, 0, 0); }
         }
 
-        /* Убрано принудительное центрирование, жесткая компоновка для мобилок */
         .hero { 
             display: flex; flex-direction: column; align-items: center;
             text-align: center; padding: 1.5rem 1rem 0 1rem; position: relative; z-index: 1;
@@ -87,31 +87,35 @@
         h1 span { background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-blue) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .hero p { color: var(--text-muted); font-size: 0.8rem; max-width: 420px; margin: 0 auto 0.8rem auto; line-height: 1.3; }
 
-        .cta-container { display: flex; flex-direction: column; align-items: center; width: 100%; margin-bottom: 0.8rem; }
+        /* Увеличены отступы для верхней кнопки (как внизу) */
+        .hero .cta-container { margin-top: 1.5rem; margin-bottom: 1.5rem; }
+        
+        .cta-container { display: flex; flex-direction: column; align-items: center; width: 100%; }
+        
+        /* Кнопкам добавлен 3D-объем (inset тени) и усилено внешнее свечение */
         .btn {
             display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem;
-            background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-blue) 100%); color: #000; font-weight: 900; font-size: 0.9rem;
+            background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-blue) 100%); 
+            color: #000; font-weight: 900; font-size: 0.9rem;
             padding: 0.7rem 2rem; border-radius: 10px; text-decoration: none; width: 100%; max-width: 290px;
-            cursor: pointer; border: none; box-shadow: 0 0 25px rgba(0, 240, 255, 0.35);
-            transition: transform 0.1s;
+            cursor: pointer; border: none; 
+            box-shadow: 0 0 35px rgba(0, 240, 255, 0.45), inset 0 2px 4px rgba(255, 255, 255, 0.4), inset 0 -2px 4px rgba(0, 0, 0, 0.2);
+            transition: transform 0.1s, box-shadow 0.1s;
         }
-        .btn:active { transform: scale(0.96); }
-        .btn-label { font-size: 0.6rem; color: var(--accent-yellow); font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; margin-top: 0.3rem; }
+        .btn:active { 
+            transform: scale(0.96); 
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.3), inset 0 2px 6px rgba(0, 0, 0, 0.3);
+        }
+        .btn-label { font-size: 0.6rem; color: var(--accent-yellow); font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; margin-top: 0.5rem; }
 
-        /* Контейнер видео с соблюдением коэффициента 1.4, без обрезки по высоте */
         .hero-video-container { 
-            width: 100%; 
-            max-width: 260px; /* Ограничение ширины для мобильных */
-            aspect-ratio: 1 / 1.4; /* Жесткая пропорция */
+            width: 100%; max-width: 260px; aspect-ratio: 1 / 1.4;
             border: 1px solid var(--border-glow); border-radius: 14px; overflow: hidden; 
             background: #000; box-shadow: 0 15px 40px rgba(0, 0, 0, 0.9);
             position: relative; display: flex;
         }
-        
-        /* Видео вписано без обрезки (contain), возвращены нативные контролы */
         .hero-inline-video { width: 100%; height: 100%; display: block; object-fit: contain; }
 
-        /* Нативный фуллскрин без искажений */
         .hero-video-container:fullscreen { max-width: 100vw; width: 100vw; height: 100vh; border: none; border-radius: 0; }
         .hero-video-container:-webkit-full-screen { max-width: 100vw; width: 100vw; height: 100vh; border: none; border-radius: 0; }
         .hero-video-container:fullscreen .hero-inline-video { object-fit: contain; }
@@ -122,7 +126,6 @@
         h2 span { background: linear-gradient(135deg, var(--accent-yellow) 0%, #ffaa00 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .section-desc { text-align: center; color: var(--text-muted); font-size: 0.8rem; max-width: 440px; margin: 0 auto 2rem auto; }
 
-        /* ВАУ НЕОНОВЫЙ ДИЗАЙН: Свечение со смещением вправо и вниз */
         .neon-card {
             background: var(--card-glass); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
             border: 1px solid var(--border-subtle); padding: 1.5rem; border-radius: 14px; 
@@ -184,7 +187,7 @@
             .hero { max-width: 1000px; padding: 3rem 1rem; }
             .hero h1 { font-size: 3.2rem; margin-bottom: 1rem; }
             .hero p { font-size: 1rem; max-width: 540px; margin-bottom: 2rem; }
-            .cta-container { margin-bottom: 2rem; }
+            .hero .cta-container { margin-bottom: 3rem; }
             .hero-video-container { max-width: 320px; }
             .timeline-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
             .scale-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
@@ -371,13 +374,7 @@
     </footer>
 
     <script>
-        /*
-        // Скрипты для кастомных кнопок видео удалены за ненадобностью (работает native controls).
-        // Ниже остается закомментированный код для смены языков по твоему требованию.
-
-        // ==========================================================================
-        // ВРЕМЕННО ОТКЛЮЧЕННЫЙ СКРИПТ АВТОМАТИЧЕСКОГО МУЛЬТИЯЗЫЧНОГО РОУТИНГА (i18n)
-        // ==========================================================================
+        // Скрипт автоматического роутинга и переключения языков
         document.addEventListener("DOMContentLoaded", () => {
             const supportedLangs = ["uk", "en", "pl", "de", "es", "ru"];
             const defaultLang = "ru";
@@ -410,13 +407,15 @@
                     e.preventDefault();
                     const selectedLang = button.getAttribute("data-lang");
                     localStorage.setItem("lotify_lang", selectedLang);
-                    location.reload();
+                    
+                    // Логика перехода: поднимаемся на уровень выше и заходим в папку выбранного языка
+                    // Например, находясь в /ru/index.html, при клике на 'en', перейдем в ../en/index.html
+                    window.location.href = `../${selectedLang}/index.html`;
                 });
             });
 
             initLanguage();
         });
-        */
     </script>
 </body>
 </html>
