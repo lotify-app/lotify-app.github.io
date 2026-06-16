@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Lotifybot — Найшвидший парсер оголошень на OLX, eBay, Willhaben та Facebook</title>
+    <meta name="description" content="Lotifybot: миттєвий парсер оголошень для OLX, eBay, Willhaben, AUTO.RIA та Facebook Marketplace. Перехоплення нових лотів до появи в загальному пошуку. Безкоштовний тест 7 днів.">
+    <meta name="keywords" content="парсер оголошень, моніторинг маркетплейсів, OLX бот, eBay моніторинг, фліппінг, інструмент для перепродажу, пошук житла без посередників, антикваріат, колекціонери, Lotifybot, Lotify Bot, Lotify app">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Lotifybot — Найшвидший парсер оголошень на OLX, eBay, Willhaben та Facebook">
+    <meta property="og:description" content="Миттєве перехоплення нових оголошень до появи в пошукових кешах платформ. Будьте першими.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://lotify-app.github.io/images/Lotify_Logo.webp">
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Lotifybot",
+      "alternateName": ["Lotify Bot", "Lotify app", "Lotify"],
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Any",
+      "description": "Миттєвий парсер оголошень для OLX, eBay, Willhaben, Facebook Marketplace та AUTO.RIA. Перехоплення нових лотів до появи в загальному пошуку.",
+      "featureList": "Перехоплення оголошень на етапі модерації, Webhook інтеграція, сповіщення в Telegram, підтримка OLX, eBay, Willhaben, Facebook Marketplace, AUTO.RIA, 7 днів безкоштовного тесту, програма підтримки стартапів",
+      "keywords": "парсер оголошень, моніторинг маркетплейсів, OLX бот, eBay моніторинг, фліппінг, інструмент для перепродажу, пошук житла без посередників, антикваріат, колекціонери",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "description": "7 днів безкоштовного тест-драйву",
+        "availability": "https://schema.org/OnlineOnly"
+      },
+      "author": {
+        "@type": "Organization",
+        "name": "Lotifybot Infrastructure",
+        "url": "https://lotify-app.github.io"
+      },
+      "potentialAction": {
+        "@type": "CommunicateAction",
+        "name": "Отримати безкоштовний доступ",
+        "target": "https://t.me/lotifybot?start=1088875712"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "ratingCount": "127"
+      },
+      "sameAs": [
+        "https://t.me/lotifybot",
+        "https://www.youtube.com/@lotifybot",
+        "https://www.tiktok.com/@ceschess"
+      ]
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg: #030305; 
+            --surface-glass: rgba(13, 13, 18, 0.7);
+            --card-glass: rgba(18, 18, 26, 0.8);
+            --border-glow: rgba(0, 240, 255, 0.35);
+            --border-subtle: rgba(255, 255, 255, 0.05);
+            --text-main: #f3f4f6;
+            --text-muted: #7e8c9f;
+            --accent-cyan: #00f0ff;
+            --accent-blue: #0077ff;
+            --accent-yellow: #fff500;
+            --accent-emerald: #00ffaa;
+            --accent-error: #ff3366;
+            --neon-glow: rgba(0, 240, 255, 0.15);
+            --safety-border: rgba(0, 255, 170, 0.3);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', system-ui, sans-serif; -webkit-tap-highlight-color: transparent; }
+        
+        body { 
+            background-color: var(--bg); 
+            color: var(--text-main); 
+            overflow-x: hidden; 
+            line-height: 1.4;
+            padding-top: 3.2rem;
+        }
+
+        /* ===== Фонові ефекти ===== */
+        .aurora-blur {
+            position: absolute; width: 60vw; height: 60vw; max-width: 500px; max-height: 500px;
+            background: radial-gradient(circle, rgba(0, 240, 255, 0.07) 0%, rgba(0,0,0,0) 70%);
+            top: -10%; left: 50%; transform: translate(-50%, 0);
+            z-index: 0; pointer-events: none; filter: blur(80px);
+            animation: auroraPulse 8s ease-in-out infinite alternate;
+        }
+        @keyframes auroraPulse {
+            0% { opacity: 0.6; transform: translate(-50%, 0) scale(1); }
+            100% { opacity: 1; transform: translate(-50%, 5%) scale(1.1); }
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 0.4rem 1rem; position: fixed; width: 100%; top: 0; left: 0;
+            background: rgba(3, 3, 5, 0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            z-index: 100; border-bottom: 1px solid var(--border-subtle);
+            height: 3.2rem;
+        }
+        .logo-block { display: flex; align-items: center; gap: 0.5rem; }
+        .logo-img { 
+            width: 1.8rem; height: 1.8rem; border-radius: 50%; 
+            object-fit: cover; flex-shrink: 0;
+            border: 1px solid var(--border-glow);
+        }
+        .logo-text { display: flex; flex-direction: column; justify-content: center; }
+        .logo { font-size: 1.15rem; font-weight: 900; letter-spacing: -0.03em; line-height: 1; }
+        .logo span { color: var(--accent-cyan); text-shadow: 0 0 15px rgba(0, 240, 255, 0.3); }
+        .official-tag { font-size: 0.5rem; color: var(--accent-yellow); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-top: 1px; }
+        
+        .lang-container { display: flex; gap: 0.5rem; align-items: center; }
+        .lang-item { display: flex; flex-direction: column; align-items: center; cursor: pointer; opacity: 0.3; text-decoration: none; }
+        .lang-item.active { opacity: 1; }
+        .flag-svg { width: 16px; height: 11px; border-radius: 1px; object-fit: cover; }
+        .lang-text { font-size: 0.5rem; font-weight: 700; text-transform: uppercase; margin-top: 2px; color: var(--text-main); }
+
+        /* ===== MARQUEE ===== */
+        .top-marquee {
+            background: #010102; width: 100%; overflow: hidden; display: flex;
+            border-bottom: 1px solid var(--border-subtle); height: 2rem; align-items: center;
+            position: relative; z-index: 2;
+        }
+        .marquee-track { display: flex; width: max-content; animation: runMarquee 32s linear infinite; will-change: transform; }
+        .marquee-group { display: flex; align-items: center; flex-shrink: 0; }
+        .marquee-el { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.7rem; font-weight: 800; color: var(--text-muted); padding: 0 1.5rem; white-space: nowrap; }
+        .marquee-el span { color: var(--accent-cyan); font-weight: 400; }
+
+        @keyframes runMarquee {
+            0% { transform: translate3d(0, 0, 0); }
+            100% { transform: translate3d(-50%, 0, 0); }
+        }
+
+        /* ===== HERO ===== */
+        .hero { 
+            display: flex; flex-direction: column; align-items: center;
+            text-align: center; padding: 1.2rem 1rem 0 1rem; position: relative; z-index: 1;
+            width: 100%; max-width: 600px; margin: 0 auto;
+        }
+        h1 { 
+            font-size: 1.7rem; font-weight: 900; letter-spacing: -0.04em; line-height: 1.1; margin-bottom: 0.4rem;
+            background: linear-gradient(135deg, #ffffff 40%, #a3b3cc 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        h1 span { background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-blue) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero p { color: var(--text-muted); font-size: 0.8rem; max-width: 420px; margin: 0 auto 0.6rem auto; line-height: 1.3; }
+
+        .hero .cta-container { margin-top: 1rem; margin-bottom: 1rem; }
+        
+        .cta-container { display: flex; flex-direction: column; align-items: center; width: 100%; }
+        
+        .btn {
+            display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem;
+            background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-blue) 100%); 
+            color: #000; font-weight: 900; font-size: 0.9rem;
+            padding: 0.7rem 2rem; border-radius: 10px; text-decoration: none; width: 100%; max-width: 290px;
+            cursor: pointer; border: none; 
+            box-shadow: 0 0 35px rgba(0, 240, 255, 0.45), inset 0 2px 4px rgba(255, 255, 255, 0.4), inset 0 -2px 4px rgba(0, 0, 0, 0.2);
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
+        }
+        .btn:hover { transform: scale(1.02); box-shadow: 0 0 50px rgba(0, 240, 255, 0.6), inset 0 2px 4px rgba(255, 255, 255, 0.5); }
+        .btn:active { transform: scale(0.96); box-shadow: 0 0 15px rgba(0, 240, 255, 0.3), inset 0 2px 6px rgba(0, 0, 0, 0.3); }
+        .btn:focus-visible { outline: 2px solid var(--accent-yellow); outline-offset: 2px; }
+        .btn-label { font-size: 0.6rem; color: var(--accent-yellow); font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; margin-top: 0.4rem; }
+
+        .hero-video-container { 
+            width: 100%; max-width: 260px; aspect-ratio: 1 / 1.4;
+            border: 1px solid var(--border-glow); border-radius: 14px; overflow: hidden; 
+            background: #000; box-shadow: 0 15px 40px rgba(0, 0, 0, 0.9);
+            position: relative; display: flex;
+        }
+        .hero-inline-video { width: 100%; height: 100%; display: block; object-fit: contain; }
+
+        .video-controls {
+            display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem;
+            margin-top: 0.6rem; width: 100%;
+        }
+        .video-controls .btn-video {
+            background: rgba(255,255,255,0.06);
+            border: 1px solid var(--border-subtle);
+            color: var(--text-main);
+            padding: 0.4rem 0.8rem;
+            border-radius: 8px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+        .video-controls .btn-video:hover { background: rgba(255,255,255,0.12); }
+        .video-controls .btn-video:focus-visible { outline: 2px solid var(--accent-yellow); outline-offset: 2px; }
+
+        .video-transcript {
+            width: 100%;
+            margin-top: 0.4rem;
+            text-align: left;
+        }
+        .video-transcript summary {
+            color: var(--accent-cyan);
+            font-weight: 600;
+            font-size: 0.75rem;
+            cursor: pointer;
+            padding: 0.3rem 0;
+            border-bottom: 1px dashed rgba(0, 240, 255, 0.15);
+        }
+        .video-transcript summary:hover { color: #fff; }
+        .video-transcript .transcript-text {
+            background: rgba(0, 240, 255, 0.04);
+            border-left: 2px solid var(--accent-cyan);
+            padding: 0.8rem;
+            border-radius: 0 8px 8px 0;
+            margin-top: 0.4rem;
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* ===== SAFETY BRIEF (під відео) ===== */
+        .safety-brief {
+            background: rgba(0, 255, 170, 0.05);
+            border: 1px solid var(--safety-border);
+            border-radius: 12px;
+            padding: 0.7rem 1rem;
+            margin-top: 0.8rem;
+            width: 100%;
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            text-align: left;
+            line-height: 1.5;
+        }
+        .safety-brief strong { color: var(--accent-emerald); }
+
+        /* ===== ЗАГАЛЬНІ СТИЛІ ===== */
+        section { padding: 2.5rem 1rem; width: 100%; max-width: 1100px; margin: 0 auto; position: relative; }
+        h2 { font-size: 1.5rem; font-weight: 900; letter-spacing: -0.03em; text-align: center; margin-bottom: 0.4rem; background: linear-gradient(135deg, #fff 40%, #7e8c9f 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        h2 span { background: linear-gradient(135deg, var(--accent-yellow) 0%, #ffaa00 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .section-desc { text-align: center; color: var(--text-muted); font-size: 0.8rem; max-width: 440px; margin: 0 auto 1.5rem auto; }
+
+        .neon-card {
+            background: var(--card-glass); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--border-subtle); padding: 1.2rem; border-radius: 14px; 
+            box-shadow: 14px 14px 30px -4px var(--neon-glow); 
+            position: relative; overflow: hidden;
+            transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s;
+            opacity: 0; transform: translateY(30px);
+            animation: cardFadeIn 0.6s ease forwards;
+        }
+        .neon-card:nth-child(1) { animation-delay: 0.05s; }
+        .neon-card:nth-child(2) { animation-delay: 0.1s; }
+        .neon-card:nth-child(3) { animation-delay: 0.15s; }
+        .neon-card:nth-child(4) { animation-delay: 0.2s; }
+        .neon-card:nth-child(5) { animation-delay: 0.25s; }
+        .neon-card:nth-child(6) { animation-delay: 0.3s; }
+        .neon-card:nth-child(7) { animation-delay: 0.35s; }
+        .neon-card:nth-child(8) { animation-delay: 0.4s; }
+        .neon-card:nth-child(9) { animation-delay: 0.45s; }
+        .neon-card:nth-child(10) { animation-delay: 0.5s; }
+
+        @keyframes cardFadeIn {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .neon-card:hover { 
+            border-color: var(--border-glow);
+            box-shadow: 20px 20px 40px -4px var(--neon-glow);
+            transform: translateY(-2px);
+        }
+
+        .bento-stack { display: flex; flex-direction: column; gap: 1.2rem; }
+        .bento-card h3 { font-size: 1rem; color: var(--accent-cyan); margin-bottom: 0.4rem; display: flex; align-items: center; gap: 0.4rem; }
+        .bento-card p.main-text { color: var(--text-main); font-size: 0.85rem; font-weight: 600; margin-bottom: 0.4rem; }
+        .bento-card p.detail-text { color: var(--text-muted); font-size: 0.75rem; line-height: 1.45; border-top: 1px solid rgba(255,255,255,0.03); padding-top: 0.4rem; }
+
+        .timeline-grid, .scale-grid, .usecase-grid { display: flex; flex-direction: column; gap: 1.2rem; }
+        .time-card.bad { border-left: 3px solid var(--accent-error); }
+        .time-card.good { border-left: 3px solid var(--accent-emerald); }
+        .time-card h3, .scale-card h3, .usecase-card h3 { font-size: 0.95rem; margin-bottom: 0.3rem; }
+        .time-card p, .scale-card p, .usecase-card p { color: var(--text-muted); font-size: 0.75rem; line-height: 1.45; }
+        .badge { display: inline-block; font-size: 0.55rem; font-weight: 800; text-transform: uppercase; padding: 0.15rem 0.4rem; border-radius: 4px; margin-top: 0.4rem; }
+        .bad .badge { background: rgba(255, 51, 102, 0.08); color: var(--accent-error); }
+        .good .badge { background: rgba(0, 255, 170, 0.08); color: var(--accent-emerald); }
+        .scale-card h3 span, .usecase-card h3 span { color: var(--accent-cyan); }
+
+        /* ===== WHO USES ===== */
+        .who-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; }
+        .who-item { 
+            background: var(--card-glass); backdrop-filter: blur(10px);
+            border: 1px solid var(--border-subtle); border-radius: 12px;
+            padding: 0.8rem; text-align: center;
+            transition: border-color 0.2s;
+        }
+        .who-item:hover { border-color: var(--border-glow); }
+        .who-item .who-icon { font-size: 1.8rem; display: block; margin-bottom: 0.2rem; }
+        .who-item .who-name { font-size: 0.75rem; font-weight: 700; color: var(--text-main); }
+        .who-item .who-desc { font-size: 0.6rem; color: var(--text-muted); line-height: 1.3; }
+
+        /* ===== HOW IT WORKS ===== */
+        .steps-list { display: flex; flex-direction: column; gap: 1rem; }
+        .step-item {
+            display: flex; gap: 0.8rem; align-items: flex-start;
+            background: var(--card-glass); backdrop-filter: blur(10px);
+            border: 1px solid var(--border-subtle); border-radius: 12px;
+            padding: 1rem;
+        }
+        .step-num { 
+            font-size: 1.2rem; font-weight: 900; color: var(--accent-cyan);
+            flex-shrink: 0; width: 2rem; text-align: center;
+        }
+        .step-item .step-text { font-size: 0.78rem; color: var(--text-muted); line-height: 1.4; }
+        .step-item .step-text strong { color: var(--text-main); }
+        .step-highlight .step-text { color: var(--text-main); }
+        .step-highlight .step-text strong { color: var(--accent-yellow); }
+
+        /* ===== GRANT ===== */
+        .grant-box h3 { font-size: 1.1rem; color: var(--accent-yellow); margin-bottom: 0.4rem; }
+        .grant-box p { color: var(--text-muted); font-size: 0.78rem; margin-bottom: 0.8rem; }
+        .grant-steps { display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.75rem; }
+        .grant-step { display: flex; gap: 0.5rem; color: var(--text-muted); }
+        .grant-num { background: rgba(255, 245, 0, 0.08); color: var(--accent-yellow); font-weight: 800; width: 18px; height: 18px; display: inline-flex; align-items: center; justify-content: center; border-radius: 4px; flex-shrink: 0; font-size: 0.6rem; }
+
+        /* ===== PRICE NOTE ===== */
+        .price-note { 
+            font-size: 0.7rem; color: var(--text-muted); 
+            margin-top: 0.6rem; letter-spacing: 0.03em;
+        }
+
+        /* ===== PRE-FOOTER ===== */
+        .pre-footer-cta { padding: 1.5rem 1rem 3rem 1rem; text-align: center; position: relative; z-index: 5; }
+
+        /* ===== FOOTER ===== */
+        footer { background: #010102; border-top: 1px solid var(--border-subtle); padding: 2.5rem 1rem 1.5rem 1rem; }
+        .footer-container { max-width: 1000px; margin: 0 auto; width: 100%; text-align: center; }
+        .footer-container h2 { font-size: 1rem; font-weight: 800; color: var(--text-main); letter-spacing: 0.02em; margin-bottom: 1.5rem; text-align: center; background: none; -webkit-text-fill-color: initial; }
+        
+        .partner-links-spread { 
+            display: flex; justify-content: space-between; align-items: center; 
+            gap: 1rem; width: 100%; margin-bottom: 1.5rem; flex-wrap: wrap; 
+        }
+        .partner-links-spread a { 
+            color: var(--accent-cyan); text-decoration: none; font-size: 0.8rem; 
+            font-weight: 700; display: inline-flex; align-items: center; gap: 0.3rem; 
+            border-bottom: 1px dashed rgba(0, 240, 255, 0.15); padding-bottom: 2px;
+        }
+        .partner-links-spread a span { color: var(--text-muted); font-weight: 400; }
+        .partner-links-spread a:hover { color: #fff; }
+
+        .footer-legal { 
+            display: flex; justify-content: center; gap: 1.5rem; 
+            flex-wrap: wrap; margin: 1rem 0;
+            font-size: 0.7rem;
+        }
+        .footer-legal a { 
+            color: var(--text-muted); text-decoration: none; 
+            border-bottom: 1px dashed rgba(255,255,255,0.05);
+        }
+        .footer-legal a:hover { color: var(--text-main); }
+
+        .footer-fop { 
+            font-size: 0.6rem; color: var(--text-muted); 
+            margin-top: 0.8rem; opacity: 0.6;
+        }
+        .copyright { font-size: 0.6rem; color: #323947; border-top: 1px solid rgba(255,255,255,0.01); padding-top: 1rem; margin-top: 0.5rem; }
+
+        /* ===== АДАПТИВ ===== */
+        @media (min-width: 768px) {
+            body { padding-top: 4.5rem; }
+            header { height: 4.5rem; padding: 0.5rem 2rem; }
+            .logo-img { width: 2.4rem; height: 2.4rem; }
+            .logo { font-size: 1.6rem; }
+            .official-tag { font-size: 0.55rem; }
+            h2 { font-size: 2.2rem; }
+            .hero { max-width: 1000px; padding: 2.5rem 2rem; }
+            .hero h1 { font-size: 3rem; margin-bottom: 0.8rem; }
+            .hero p { font-size: 1rem; max-width: 540px; margin-bottom: 1.5rem; }
+            .hero .cta-container { margin-bottom: 2rem; }
+            .hero-video-container { max-width: 320px; }
+            .timeline-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+            .scale-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+            .usecase-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.5rem; }
+            .bento-stack { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+            .who-grid { grid-template-columns: repeat(5, 1fr); }
+            .steps-list { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+            .partner-links-spread { flex-direction: row; justify-content: space-between; }
+            .safety-brief { font-size: 0.8rem; padding: 0.8rem 1.2rem; }
+            .video-controls .btn-video { font-size: 0.8rem; padding: 0.5rem 1.2rem; }
+            .video-transcript summary { font-size: 0.85rem; }
+        }
+        @media (max-width: 767px) {
+            .partner-links-spread { flex-direction: column; align-items: center; gap: 1rem; text-align: center; }
+            .who-grid { grid-template-columns: 1fr 1fr; }
+            .steps-list { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 420px) {
+            .who-grid { grid-template-columns: 1fr 1fr; gap: 0.5rem; }
+            .who-item { padding: 0.6rem; }
+            .who-item .who-icon { font-size: 1.4rem; }
+            .who-item .who-name { font-size: 0.65rem; }
+            .who-item .who-desc { font-size: 0.55rem; }
+        }
+        @media (min-width: 768px) and (max-width: 1024px) {
+            .usecase-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="aurora-blur"></div>
+
+    <!-- ===== HEADER ===== -->
+    <header>
+        <div class="logo-block">
+            <img src="/images/Lotify_Logo.webp" alt="Lotifybot Logo" class="logo-img" width="36" height="36" loading="lazy">
+            <div class="logo-text">
+                <div class="logo">Lotify<span>bot</span></div>
+                <div class="official-tag">Офіційний інформаційний хаб</div>
+            </div>
+        </div>
+        
+        <nav class="lang-container" aria-label="Мови">
+            <a href="#" class="lang-item" data-lang="uk" aria-label="Українська"><svg class="flag-svg" viewBox="0 0 3 2"><rect width="3" height="1" fill="#0057b7"/><rect y="1" width="3" height="1" fill="#ffd700"/></svg><span class="lang-text">UA</span></a>
+            <a href="#" class="lang-item" data-lang="en" aria-label="English"><svg class="flag-svg" viewBox="0 0 60 30"><clipPath id="s"><path d="M0,0 v30 h60 v-30 z"/></clipPath><path d="M0,0 v30 h60 v-30 z" fill="#012169"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#C8102E" stroke-width="4"/><path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/><path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/></svg><span class="lang-text">EN</span></a>
+            <a href="#" class="lang-item" data-lang="pl" aria-label="Polski"><svg class="flag-svg" viewBox="0 0 8 5"><rect width="8" height="2.5" fill="#fff"/><rect y="2.5" width="8" height="2.5" fill="#dc143c"/></svg><span class="lang-text">PL</span></a>
+            <a href="#" class="lang-item" data-lang="de" aria-label="Deutsch"><svg class="flag-svg" viewBox="0 0 5 3"><rect width="5" height="1" fill="#000"/><rect y="1" width="5" height="1" fill="#dd0000"/><rect y="2" width="5" height="1" fill="#ffce00"/></svg><span class="lang-text">DE</span></a>
+            <a href="#" class="lang-item" data-lang="es" aria-label="Español"><svg class="flag-svg" viewBox="0 0 3 2"><rect width="3" height="2" fill="#c60b1e"/><rect y="0.5" width="3" height="1" fill="#ffc400"/></svg><span class="lang-text">ES</span></a>
+            <a href="#" class="lang-item" data-lang="ru" aria-label="Русский"><svg class="flag-svg" viewBox="0 0 9 6"><rect width="9" height="2" fill="#fff"/><rect y="2" width="9" height="2" fill="#0039a6"/><rect y="4" width="9" height="2" fill="#d52b1e"/></svg><span class="lang-text">RU</span></a>
+        </nav>
+    </header>
+
+    <!-- ===== MARQUEE ===== -->
+    <div class="top-marquee">
+        <div class="marquee-track">
+            <div class="marquee-group">
+                <div class="marquee-el">🌐 OLX <span>(ua, kz, pl, ro, bg, pt, uz)</span></div>
+                <div class="marquee-el">🌐 eBay <span>(Глобальні європейські та американські ринки)</span></div>
+                <div class="marquee-el">🇦🇹 Willhaben <span>(Австрія — всі штати)</span></div>
+                <div class="marquee-el">🇺🇦 AUTO.RIA / DIM.RIA <span>(Авто та нерухомість)</span></div>
+                <div class="marquee-el">🌐 Facebook Marketplace <span>(Глобальний скаутинг)</span></div>
+            </div>
+            <div class="marquee-group" aria-hidden="true">
+                <div class="marquee-el">🌐 OLX <span>(ua, kz, pl, ro, bg, pt, uz)</span></div>
+                <div class="marquee-el">🌐 eBay <span>(Глобальні європейські та американські ринки)</span></div>
+                <div class="marquee-el">🇦🇹 Willhaben <span>(Австрія — всі штати)</span></div>
+                <div class="marquee-el">🇺🇦 AUTO.RIA / DIM.RIA <span>(Авто та нерухомість)</span></div>
+                <div class="marquee-el">🌐 Facebook Marketplace <span>(Глобальний скаутинг)</span></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero">
+        <h1>Lotifybot — Найшвидший парсер оголошень на <span>OLX, eBay, Willhaben та Facebook</span></h1>
+        <p>Миттєве перехоплення нових оголошень до появи в пошукових кешах платформ. Будьте першими.</p>
+        
+        <div class="cta-container">
+            <a href="https://t.me/lotifybot?start=1088875712" class="btn" target="_blank" rel="noopener noreferrer">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+                Запустити бота безкоштовно
+            </a>
+            <div class="btn-label">🎁 7 днів тест-драйву безкоштовно</div>
+        </div>
+
+        <div class="hero-video-container" id="videoWrapper">
+            <video class="hero-inline-video" controls autoplay muted loop playsinline id="mainVideo" loading="lazy">
+                <source src="https://github.com/user-attachments/assets/369e129b-9e05-446a-bf6d-62d65d63448b" type="video/mp4">
+            </video>
+        </div>
+
+        <div class="video-controls">
+            <a href="https://www.youtube.com/shorts/UekLmkkqbQI" class="btn-video" target="_blank" rel="noopener noreferrer">
+                ▶ Дивитись на YouTube
+            </a>
+            <button class="btn-video" onclick="document.getElementById('transcript').open = !document.getElementById('transcript').open;" aria-expanded="false">
+                📄 Показати текст
+            </button>
+        </div>
+
+        <details class="video-transcript" id="transcript">
+            <summary>Текст відео</summary>
+            <div class="transcript-text">
+                <p>«Чи замислювались ви, чому не можете знайти вигідну пропозицію на eBay? Тому що 95% користувачів купують товари за завищеними цінами. Але як стати частиною тих 5%, які завжди виграють? Істина проста. Вони використовують Lotify — хмарний інструмент, який сповіщає вас у момент появи нового оголошення. Не пропустіть свій шанс. Будьте першими. Будьте швидкими. Будьте з Lotify!»</p>
+            </div>
+        </details>
+
+        <!-- ===== SAFETY BRIEF ===== -->
+        <div class="safety-brief">
+            <strong>🔒 Безпечно для вашого акаунта:</strong> Lotifybot не авторизується на платформах, не залишає слідів, не порушує закон про публічні дані. Ваш IP та логін не використовуються. <strong>0 блокувань за 2 роки.</strong>
+        </div>
+    </section>
+
+    <!-- ===== ЯК ЦЕ ПРАЦЮЄ ===== -->
+    <section id="how-it-works">
+        <h2>Як це <span>працює</span></h2>
+        <div class="steps-list">
+            <div class="step-item step-highlight">
+                <div class="step-num">🚫</div>
+                <div class="step-text"><strong>Не вимагає реєстрації на жодній платформі!</strong> Ви обираєте місто, категорію та інші фільтри для точного налаштування (наприклад, «вази XIX століття, Відень», тільки нові оголошення, діапазон цін та ін.).</div>
+            </div>
+            <div class="step-item">
+                <div class="step-num">🤖</div>
+                <div class="step-text"><strong>Бот ловить оголошення</strong> в момент публікації або на етапі модерації на платформі.</div>
+            </div>
+            <div class="step-item">
+                <div class="step-num">📲</div>
+                <div class="step-text"><strong>Вам приходить посилання в Telegram</strong> — ви перший.</div>
+            </div>
+            <div class="step-item">
+                <div class="step-num">⚡</div>
+                <div class="step-text"><strong>Отримуєте сповіщення</strong> за частки секунди.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ХТО ВИКОРИСТОВУЄ ===== -->
+    <section id="who-uses">
+        <h2>Хто <span>використовує</span> Lotifybot</h2>
+        <div class="who-grid">
+            <div class="who-item"><span class="who-icon">🏠</span><div class="who-name">Ріелторські мережі</div><div class="who-desc">Моніторинг нових об'єктів від власників</div></div>
+            <div class="who-item"><span class="who-icon">🏺</span><div class="who-name">Антикварні клуби</div><div class="who-desc">Перехоплення рідкісних лотів до конкурентів</div></div>
+            <div class="who-item"><span class="who-icon">🎮</span><div class="who-name">Спільноти колекціонерів</div><div class="who-desc">Пошук ігрових приставок, вінілу, монет, марок</div></div>
+            <div class="who-item"><span class="who-icon">🚛</span><div class="who-name">Служби автовикупу</div><div class="who-desc">Миттєві оповіщення про нові авто на AUTO.RIA</div></div>
+            <div class="who-item"><span class="who-icon">🎓</span><div class="who-name">Студенти та мандрівники</div><div class="who-desc">Пошук житла без посередників та комісій</div></div>
+        </div>
+    </section>
+
+    <!-- ===== USE CASES (КОМУ ЦЕ ПОТРІБНО) ===== -->
+    <section id="usecases">
+        <h2>Кому це <span>потрібно</span></h2>
+        <p class="section-desc">Готові сценарії використання для різних цілей</p>
+        <div class="usecase-grid">
+            <div class="usecase-card neon-card">
+                <h3><span>🏺</span> Антиквари та колекціонери</h3>
+                <p>Знаходьте рідкісні лоти раніше за конкурентів <span style="color:var(--accent-cyan);font-size:0.65rem;display:block;margin-top:0.2rem;">"real price before scalpers"</span></p>
+            </div>
+            <div class="usecase-card neon-card">
+                <h3><span>🏠</span> Ріелтори та оренда</h3>
+                <p>Знімайте житло без посередників <span style="color:var(--accent-cyan);font-size:0.65rem;display:block;margin-top:0.2rem;">"find rental by owner without agency fees"</span></p>
+            </div>
+            <div class="usecase-card neon-card">
+                <h3><span>📦</span> Перекупники (фліппінг)</h3>
+                <p>Автоматичний моніторинг вигідних позицій <span style="color:var(--accent-cyan);font-size:0.65rem;display:block;margin-top:0.2rem;">"flipping items with 30-50% discount"</span></p>
+            </div>
+            <div class="usecase-card neon-card">
+                <h3><span>🚀</span> Стартапери</h3>
+                <p>Запустіть свій мікробізнес з нуля <span style="color:var(--accent-cyan);font-size:0.65rem;display:block;margin-top:0.2rem;">"zero-latency market data for reselling"</span></p>
+            </div>
+            <div class="usecase-card neon-card">
+                <h3><span>🎓</span> Соціальний кейс</h3>
+                <p>Студентам та малозабезпеченим — допомога в пошуку дешевого житла та товарів <span style="color:var(--accent-cyan);font-size:0.65rem;display:block;margin-top:0.2rem;">"social support for basic needs"</span></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ШВИДКІСТЬ ===== -->
+    <section id="utility">
+        <h2>Швидкість як <span>капітал</span></h2>
+        <p class="section-desc">Порівняння швидкості обробки вхідних потоків даних маркетплейсів.</p>
+        <div class="timeline-grid">
+            <div class="time-card neon-card bad">
+                <h3>🚫 Ручний моніторинг оголошень</h3>
+                <p>Нескінченне оновлення сторінок. Затримка кешування маркетплейсу — від 2 до 15 хвилин. Ліквідні активи йдуть до перекупників.</p>
+                <div class="badge">Статус: Втрата прибутку</div>
+            </div>
+            <div class="time-card neon-card good">
+                <h3>⚡ Потік Lotifybot</h3>
+                <p>Пряме перехоплення метаданих у момент публікації. Цільова доставка сповіщень у Telegram за частки секунди.</p>
+                <div class="badge">Статус: Угоду укладено першим</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== МАСШТАБУВАННЯ ТРАФІКУ ===== -->
+    <section id="scale">
+        <h2>Масштабування <span>трафіку</span></h2>
+        <p class="section-desc">Архітектурні рішення для розподілу потоків даних та миттєвої синхронізації.</p>
+        <div class="scale-grid">
+            <div class="scale-card neon-card">
+                <h3><span>01.</span> TG Канали</h3>
+                <p>Потокове транслювання відфільтрованих категорій для створення масових спільнот та генерації цільового трафіку.</p>
+            </div>
+            <div class="scale-card neon-card">
+                <h3><span>02.</span> Приватні боти</h3>
+                <p>Персональні комерційні сесії, тонкі фільтри та монопольне перехоплення сповіщень без конкуренції.</p>
+            </div>
+            <div class="scale-card neon-card">
+                <h3><span>03.</span> Webhooks</h3>
+                <p>Миттєва ретрансляція даних на сторонні сервери та клієнтські додатки без затримок.</p>
+            </div>
+            <div class="scale-card neon-card">
+                <h3><span>04.</span> Інтеграція з БД</h3>
+                <p>Пряме підключення потоку до локальних баз даних клієнтів та CRM-систем обліку.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ТЕХНІЧНІ МОЖЛИВОСТІ ===== -->
+    <section id="core">
+        <h2>Технічні <span>можливості</span></h2>
+        <p class="section-desc">Архітектурні параметри платформи та системні стандарти обробки потоків даних.</p>
+        
+        <div class="bento-stack">
+            <div class="bento-card neon-card">
+                <h3>📊 Швидкість та фільтрація</h3>
+                <p class="main-text">Бот миттєво відсікає дублікати, очищує цифровий шум та видає чистий потік лотів.</p>
+                <p class="detail-text">Парсер безперервно аналізує структури оголошень. Система обчислює аномалії цін та перевіряє геолокаційні патерни.</p>
+            </div>
+            
+            <div class="bento-card neon-card">
+                <h3>🌍 Глобальне покриття</h3>
+                <p class="main-text">Повна підтримка європейських, американських та ринків СНД в єдиній інфраструктурі.</p>
+                <p class="detail-text">Інтерфейсні вузли адаптовані для багатомовних ринків. Архітектура об'єднує найбільші платформи: OLX, eBay, Willhaben, Facebook Marketplace, AUTO.RIA.</p>
+            </div>
+
+            <div class="bento-card neon-card">
+                <h3>🛡️ Безпека та посилання</h3>
+                <p class="main-text">Пряме перенаправлення на оригінальні лоти та робота в безпечних екосистемах.</p>
+                <p class="detail-text">Lotifybot не обробляє комерційні транзакції та не збирає платіжні дані. Продукт доставляє компактне, точне інфо-посилання на офіційний лот маркетплейсу.</p>
+            </div>
+            
+            <div class="bento-card neon-card">
+                <h3>🔌 Інтеграції та бази даних</h3>
+                <p class="main-text">Індивідуальні рішення, розробка спеціалізованих парсерів та прямий експорт через API.</p>
+                <p class="detail-text">Підтримується пряма інтеграція потоку даних через Webhooks у сторонні CRM, користувацькі бази даних та надання виділених API-ендпоїнтів.</p>
+            </div>
+
+            <!-- ===== FULL SAFETY CARD (5-та картка) ===== -->
+            <div class="bento-card neon-card" style="grid-column: 1 / -1; border-color: var(--safety-border);">
+                <h3>🔒 Безпечно для вашого акаунта</h3>
+                <p class="main-text" style="color: var(--accent-emerald);">Ми гарантуємо повну безпеку вашого профілю</p>
+                <p class="detail-text" style="border-top-color: rgba(0,255,170,0.1);">
+                    • Ми НЕ авторизуємось на OLX, eBay, Facebook.<br>
+                    • Ваш IP та логін не використовуються.<br>
+                    • Бот збирає тільки публічні дані, як звичайний користувач.<br>
+                    • За 2 роки роботи — <strong style="color:var(--accent-emerald);">0 блокувань</strong> у наших клієнтів.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== STARTUP SUPPORT ===== -->
+    <section id="startup">
+        <h2>Програма підтримки <span>StartUP</span></h2>
+        <p class="section-desc">Ми підтримуємо ініціативу та допомагаємо знизити фінансові бар'єри на самому старті.</p>
+        <div class="grant-box neon-card">
+            <h3>🚀 Грант "Швидкість": 14 днів повного доступу</h3>
+            <p>Якщо ви плануєте розпочати власну справу, але ще не маєте вільного бюджету на програмне забезпечення, ми активуємо безкоштовний тест-драйв.</p>
+            <div class="grant-steps">
+                <div class="grant-step">
+                    <span class="grant-num">1</span>
+                    <div>Напишіть нам коротке текстове повідомлення з вашою конкретною бізнес-ціллю.</div>
+                </div>
+                <div class="grant-step">
+                    <span class="grant-num">2</span>
+                    <div>Формат запиту: "Запуск продажу вінтажних меблів у Німеччині, потрібен моніторинг оголошень".</div>
+                </div>
+                <div class="grant-step">
+                    <span class="grant-num">3</span>
+                    <div>Наша команда схвалить заявку та надасть 14 днів приватного доступу замість стандартних 7.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PRE-FOOTER ===== -->
+    <div class="pre-footer-cta">
+        <div class="cta-container">
+            <a href="https://t.me/lotifybot?start=1088875712" class="btn" target="_blank" rel="noopener noreferrer">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+                Запустити бота безкоштовно
+            </a>
+            <div class="btn-label">🎁 7 днів тест-драйву безкоштовно</div>
+            <div class="price-note">$19.99 /міс. → без прихованих платежів</div>
+        </div>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="footer-container">
+            <h2>Офіційний партнер. Соцмережі та підтримка</h2>
+            <div class="partner-links-spread">
+                <a href="https://t.me/AItradeout" rel="me"><span>Telegram Support:</span> @AItradeout</a>
+                <a href="https://www.tiktok.com/@ceschess" rel="me"><span>TikTok Profile:</span> @ceschess</a>
+                <a href="mailto:ssershils@gmail.com"><span>Email:</span> ssershils@gmail.com</a>
+            </div>
+            <div class="footer-legal">
+                <a href="/privacy.html">Політика конфіденційності</a>
+                <a href="/terms.html">Умови використання</a>
+            </div>
+            <div class="footer-fop">Індивідуальний підприємець згідно з законодавством України</div>
+            <p class="copyright">&copy; 2026 Lotifybot Infrastructure. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const supported = ["uk", "en", "pl", "de", "es", "ru"];
+            
+            function getLang() {
+                const saved = localStorage.getItem("lotify_lang");
+                if (saved && supported.includes(saved)) return saved;
+                const browser = (navigator.language || navigator.userLanguage).split("-")[0].toLowerCase();
+                return supported.includes(browser) ? browser : "uk";
+            }
+
+            const target = getLang();
+            if (target !== "uk") {
+                window.location.replace(`./${target}/index.html`);
+            }
+
+            document.querySelectorAll(".lang-item").forEach(button => {
+                button.addEventListener("click", (e) => {
+                    e.preventDefault();
+                    const lang = button.getAttribute("data-lang");
+                    localStorage.setItem("lotify_lang", lang);
+                    window.location.href = (lang === "uk") ? "./index.html" : `./${lang}/index.html`;
+                });
+            });
+
+            // Transcript toggle ARIA
+            const transcript = document.getElementById('transcript');
+            const toggleBtn = document.querySelector('.btn-video[onclick*="transcript"]');
+            if (transcript && toggleBtn) {
+                transcript.addEventListener('toggle', () => {
+                    toggleBtn.setAttribute('aria-expanded', transcript.open ? 'true' : 'false');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
