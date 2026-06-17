@@ -73,6 +73,7 @@
             --accent-error: #ff3366;
             --neon-glow: rgba(0, 240, 255, 0.15);
             --safety-border: rgba(0, 255, 170, 0.3);
+            --arrow-glow: rgba(0, 240, 255, 0.3);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', system-ui, sans-serif; -webkit-tap-highlight-color: transparent; }
@@ -126,7 +127,12 @@
             border-bottom: 1px solid var(--border-subtle); height: 2rem; align-items: center;
             position: relative; z-index: 2;
         }
-        .marquee-track { display: flex; width: max-content; animation: runMarquee 45s linear infinite; will-change: transform; }
+        .marquee-track {
+            display: flex;
+            width: max-content;
+            animation: runMarquee 50s linear infinite;
+            will-change: transform;
+        }
         .marquee-group { display: flex; align-items: center; flex-shrink: 0; }
         .marquee-el { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.7rem; font-weight: 800; color: var(--text-muted); padding: 0 2rem; white-space: nowrap; }
         .marquee-el span { color: var(--accent-cyan); font-weight: 400; }
@@ -152,14 +158,16 @@
         .cta-container { display: flex; flex-direction: column; align-items: center; width: 100%; }
         
         .btn {
-            display: flex; align-items: center; justify-content: center;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            padding: 0.7rem 3rem 0.7rem 0.1rem;
             background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-blue) 100%); 
             color: #000; font-weight: 900; font-size: 0.9rem;
-            padding: 0.7rem 2rem; border-radius: 10px; text-decoration: none; width: 100%; max-width: 290px;
+            border-radius: 10px; text-decoration: none; width: 100%; max-width: 290px;
             cursor: pointer; border: none; 
             box-shadow: 0 0 35px rgba(0, 240, 255, 0.45), inset 0 2px 4px rgba(255, 255, 255, 0.4), inset 0 -2px 4px rgba(0, 0, 0, 0.2);
             transition: transform 0.15s ease, box-shadow 0.15s ease;
-            gap: 0.8rem;
         }
         .btn:hover { transform: scale(1.02); box-shadow: 0 0 50px rgba(0, 240, 255, 0.6), inset 0 2px 4px rgba(255, 255, 255, 0.5); }
         .btn:active { transform: scale(0.96); box-shadow: 0 0 15px rgba(0, 240, 255, 0.3), inset 0 2px 6px rgba(0, 0, 0, 0.3); }
@@ -251,12 +259,17 @@
             box-shadow: 14px 14px 30px -4px var(--neon-glow); 
             position: relative; overflow: hidden;
             transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s;
-            opacity: 0; transform: translateY(30px);
+            opacity: 0;
+            transform: translateY(30px);
             transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.2s, border-color 0.2s;
         }
         .neon-card.visible {
             opacity: 1;
             transform: translateY(0);
+        }
+        .neon-card.hidden-up {
+            opacity: 0;
+            transform: translateY(-30px);
         }
         .neon-card:hover { 
             border-color: var(--border-glow);
@@ -322,13 +335,17 @@
             transform: translateX(-50%);
             width: 2rem;
             height: 2rem;
-            color: var(--accent-cyan);
-            opacity: 0.4;
             fill: none;
             stroke: var(--accent-cyan);
-            stroke-width: 2;
+            stroke-width: 2.5;
             stroke-linecap: round;
             stroke-linejoin: round;
+            filter: drop-shadow(0 0 8px var(--arrow-glow));
+            animation: arrowPulse 1.8s ease-in-out infinite alternate;
+        }
+        @keyframes arrowPulse {
+            0% { opacity: 0.4; transform: translateX(-50%) scale(0.95); }
+            100% { opacity: 1; transform: translateX(-50%) scale(1.05); }
         }
         .step-item:last-child .step-arrow { display: none; }
         .step-num { 
@@ -439,20 +456,20 @@
             display: flex; justify-content: center; gap: 1.5rem;
             margin-top: 0.5rem;
         }
-        .payment-icons .pay-icon {
-            height: 1.8rem;
-            width: auto;
-            opacity: 0.6;
-            transition: opacity 0.2s;
+        .payment-icons .pay-text {
+            color: var(--text-muted);
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
         }
-        .payment-icons .pay-icon:hover { opacity: 1; }
 
         .pre-footer-cta { padding: 1.5rem 1rem 3rem 1rem; text-align: center; position: relative; z-index: 5; }
 
         footer { background: #010102; border-top: 1px solid var(--border-subtle); padding: 2.5rem 1rem 1.5rem 1rem; }
         .footer-container { max-width: 1000px; margin: 0 auto; width: 100%; text-align: center; }
         .footer-container h2 { 
-            font-size: 0.9rem; font-weight: 800; color: var(--text-main); 
+            font-size: 0.9rem; font-weight: 800; 
+            color: var(--accent-yellow); 
             letter-spacing: 0.02em; margin-bottom: 1.5rem; 
             text-align: center; background: none; -webkit-text-fill-color: initial; 
             line-height: 1.3;
@@ -513,7 +530,7 @@
             .safety-brief { font-size: 0.8rem; padding: 0.8rem 1.2rem; }
             .video-controls .btn-video { font-size: 0.8rem; padding: 0.5rem 1.2rem; }
             .video-transcript summary { font-size: 0.85rem; }
-            .payment-icons .pay-icon { height: 2rem; }
+            .payment-icons .pay-text { font-size: 0.8rem; }
             .partner-links-grid { max-width: 800px; gap: 3rem; }
             .partner-links-grid a { font-size: 0.9rem; }
             .step-item .step-arrow { width: 2.4rem; height: 2.4rem; bottom: -2rem; }
@@ -528,7 +545,7 @@
             .step-item .step-arrow { width: 1.6rem; height: 1.6rem; bottom: -1.4rem; }
             .usecase-grid { max-width: 100%; }
             .usecase-card p { padding-left: 0; }
-            .payment-icons .pay-icon { height: 1.4rem; }
+            .payment-icons .pay-text { font-size: 0.6rem; }
         }
         @media (max-width: 420px) {
             .who-grid { grid-template-columns: 1fr 1fr; gap: 0.5rem; }
@@ -571,6 +588,13 @@
     <div class="top-marquee">
         <div class="marquee-track">
             <div class="marquee-group">
+                <div class="marquee-el">🌐 OLX <span>(ua, kz, pl, ro, bg, pt, uz)</span></div>
+                <div class="marquee-el">🌐 eBay <span>(Глобальні європейські та американські ринки)</span></div>
+                <div class="marquee-el">🇦🇹 Willhaben <span>(Австрія — всі штати)</span></div>
+                <div class="marquee-el">🇺🇦 AUTO.RIA / DIM.RIA <span>(Авто та нерухомість)</span></div>
+                <div class="marquee-el">🌐 Facebook Marketplace <span>(Глобальний скаутинг)</span></div>
+            </div>
+            <div class="marquee-group" aria-hidden="true">
                 <div class="marquee-el">🌐 OLX <span>(ua, kz, pl, ro, bg, pt, uz)</span></div>
                 <div class="marquee-el">🌐 eBay <span>(Глобальні європейські та американські ринки)</span></div>
                 <div class="marquee-el">🇦🇹 Willhaben <span>(Австрія — всі штати)</span></div>
@@ -651,32 +675,32 @@
     <section id="how-it-works">
         <h2>Як це <span>працює</span></h2>
         <div class="steps-list">
-            <div class="step-item step-highlight">
-                <svg class="step-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+            <div class="step-item step-highlight neon-card">
+                <svg class="step-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
                 <div class="step-num">🚀</div>
                 <div class="step-text"><strong>Запуск бота</strong><br><span class="step-desc">Не вимагає реєстрації на жодній платформі!</span></div>
             </div>
-            <div class="step-item">
-                <svg class="step-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+            <div class="step-item neon-card">
+                <svg class="step-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
                 <div class="step-num">⚙️</div>
                 <div class="step-text"><strong>Налаштування</strong><br><span class="step-desc">Ви обираєте місто, категорію та інші фільтри для точного налаштування (наприклад, «вази XIX століття, Відень», тільки нові оголошення, діапазон цін та ін.).</span></div>
             </div>
-            <div class="step-item">
-                <svg class="step-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+            <div class="step-item neon-card">
+                <svg class="step-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
                 <div class="step-num">☁️</div>
                 <div class="step-text"><strong>Парсинг</strong><br><span class="step-desc">Бот працює у хмарі та постійно моніторить оголошення за певними критеріями, перевіряючи їх раз на секунду (в залежності від тарифного плану).</span></div>
             </div>
-            <div class="step-item">
-                <svg class="step-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+            <div class="step-item neon-card">
+                <svg class="step-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
                 <div class="step-num">🎯</div>
                 <div class="step-text"><strong>Таргетинг</strong><br><span class="step-desc">Бот ловить оголошення в момент публікації або на етапі модерації на платформі.</span></div>
             </div>
-            <div class="step-item">
-                <svg class="step-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+            <div class="step-item neon-card">
+                <svg class="step-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
                 <div class="step-num">📲</div>
                 <div class="step-text"><strong>Отримання сповіщення</strong><br><span class="step-desc">Вам приходить посилання в бота та в Telegram за частки секунди.</span></div>
             </div>
-            <div class="step-item">
+            <div class="step-item neon-card">
                 <div class="step-num">🏆</div>
                 <div class="step-text"><strong class="step-result">Результат</strong><br><span class="step-desc">Ви перший!</span></div>
             </div>
@@ -686,12 +710,12 @@
     <section id="who-uses">
         <h2>Хто вже <span>використовує</span> Lotifybot</h2>
         <div class="who-grid">
-            <div class="who-item"><span class="who-icon">🏠</span><div class="who-name">Ріелторські мережі</div><div class="who-desc">Моніторинг нових об'єктів від власників</div></div>
-            <div class="who-item"><span class="who-icon">🏺</span><div class="who-name">Антикварні клуби</div><div class="who-desc">Перехоплення рідкісних лотів до конкурентів</div></div>
-            <div class="who-item"><span class="who-icon">🎮</span><div class="who-name">Колекціонери</div><div class="who-desc">Пошук ігрових приставок, вінілу, монет, марок</div></div>
-            <div class="who-item"><span class="who-icon">🚛</span><div class="who-name">Служби автовикупу</div><div class="who-desc">Миттєві оповіщення про нові оголошення з продажу авто на всіх платформах</div></div>
-            <div class="who-item"><span class="who-icon">🎓</span><div class="who-name">Студенти</div><div class="who-desc">Пошук житла без посередників та комісій</div></div>
-            <div class="who-item"><span class="who-icon">🏢</span><div class="who-name">Малий бізнес</div><div class="who-desc">Скупка нішевих товарів за заданими критеріями</div></div>
+            <div class="who-item neon-card"><span class="who-icon">🏠</span><div class="who-name">Ріелторські мережі</div><div class="who-desc">Моніторинг нових об'єктів від власників</div></div>
+            <div class="who-item neon-card"><span class="who-icon">🏺</span><div class="who-name">Антикварні клуби</div><div class="who-desc">Перехоплення рідкісних лотів до конкурентів</div></div>
+            <div class="who-item neon-card"><span class="who-icon">🎮</span><div class="who-name">Колекціонери</div><div class="who-desc">Пошук ігрових приставок, вінілу, монет, марок</div></div>
+            <div class="who-item neon-card"><span class="who-icon">🚛</span><div class="who-name">Служби автовикупу</div><div class="who-desc">Миттєві оповіщення про нові оголошення з продажу авто на всіх платформах</div></div>
+            <div class="who-item neon-card"><span class="who-icon">🎓</span><div class="who-name">Студенти</div><div class="who-desc">Пошук житла без посередників та комісій</div></div>
+            <div class="who-item neon-card"><span class="who-icon">🏢</span><div class="who-name">Малий бізнес</div><div class="who-desc">Скупка нішевих товарів за заданими критеріями</div></div>
         </div>
     </section>
 
@@ -824,16 +848,16 @@
             <div class="btn-label">🎁 7 днів тест-драйву безкоштовно</div>
             <div class="price-note">Після тріалу — від $19.99 /міс. без прихованих платежів</div>
             <div class="payment-icons">
-                <svg class="pay-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor"/><path d="M6 10h4v4H6z" fill="currentColor"/></svg>
-                <svg class="pay-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10" stroke="currentColor"/><path d="M8 12l3 3 5-6" stroke="currentColor" stroke-width="2"/></svg>
-                <svg class="pay-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor"/><path d="M6 10h12M6 14h8" stroke="currentColor" stroke-width="1.5"/></svg>
+                <span class="pay-text">MonoBank</span>
+                <span class="pay-text">Apple Pay</span>
+                <span class="pay-text">Google Pay</span>
             </div>
         </div>
     </div>
 
     <footer>
         <div class="footer-container">
-            <h2>Офіційний партнер.<br>Соцмережі та підтримка</h2>
+            <h2>Офіційний партнер<br>Соцмережі та підтримка</h2>
             <div class="partner-links-grid">
                 <a href="https://www.tiktok.com/@ceschess" rel="me"><span>TikTok:</span> @ceschess</a>
                 <a href="mailto:ssershils@gmail.com"><span>Email:</span> ssershils@gmail.com</a>
@@ -886,9 +910,16 @@
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
+                        entry.target.classList.remove('hidden-up');
                         entry.target.classList.add('visible');
                     } else {
-                        entry.target.classList.remove('visible');
+                        const rect = entry.target.getBoundingClientRect();
+                        if (rect.top < 0) {
+                            entry.target.classList.remove('visible');
+                            entry.target.classList.add('hidden-up');
+                        } else {
+                            entry.target.classList.remove('visible', 'hidden-up');
+                        }
                     }
                 });
             }, { threshold: 0.1 });
