@@ -130,7 +130,7 @@
         .marquee-track {
             display: flex;
             width: max-content;
-            animation: runMarquee 50s linear infinite;
+            animation: runMarquee 60s linear infinite;
             will-change: transform;
         }
         .marquee-group { display: flex; align-items: center; flex-shrink: 0; }
@@ -330,7 +330,7 @@
         }
         .step-item .step-arrow {
             position: absolute;
-            bottom: -1.8rem;
+            bottom: -1.4rem;
             left: 50%;
             transform: translateX(-50%);
             width: 2rem;
@@ -342,6 +342,7 @@
             stroke-linejoin: round;
             filter: drop-shadow(0 0 8px var(--arrow-glow));
             animation: arrowPulse 1.8s ease-in-out infinite alternate;
+            z-index: 5;
         }
         @keyframes arrowPulse {
             0% { opacity: 0.4; transform: translateX(-50%) scale(0.95); }
@@ -456,22 +457,30 @@
             display: flex; justify-content: center; gap: 1.5rem;
             margin-top: 0.5rem;
         }
-        .payment-icons .pay-text {
-            color: var(--text-muted);
-            font-size: 0.65rem;
-            font-weight: 600;
-            letter-spacing: 0.02em;
+        .payment-icons .pay-icon {
+            height: 1.8rem;
+            width: auto;
+            opacity: 0.7;
+            transition: opacity 0.2s;
         }
+        .payment-icons .pay-icon:hover { opacity: 1; }
 
         .pre-footer-cta { padding: 1.5rem 1rem 3rem 1rem; text-align: center; position: relative; z-index: 5; }
 
         footer { background: #010102; border-top: 1px solid var(--border-subtle); padding: 2.5rem 1rem 1.5rem 1rem; }
         .footer-container { max-width: 1000px; margin: 0 auto; width: 100%; text-align: center; }
-        .footer-container h2 { 
+        .footer-container .footer-title { 
             font-size: 0.9rem; font-weight: 800; 
             color: var(--accent-yellow); 
-            letter-spacing: 0.02em; margin-bottom: 1.5rem; 
+            letter-spacing: 0.02em; margin-bottom: 0.2rem; 
             text-align: center; background: none; -webkit-text-fill-color: initial; 
+            line-height: 1.3;
+        }
+        .footer-container .footer-subtitle {
+            font-size: 0.9rem; font-weight: 800;
+            color: var(--text-main);
+            letter-spacing: 0.02em; margin-bottom: 1.5rem;
+            text-align: center; background: none; -webkit-text-fill-color: initial;
             line-height: 1.3;
         }
         
@@ -530,10 +539,10 @@
             .safety-brief { font-size: 0.8rem; padding: 0.8rem 1.2rem; }
             .video-controls .btn-video { font-size: 0.8rem; padding: 0.5rem 1.2rem; }
             .video-transcript summary { font-size: 0.85rem; }
-            .payment-icons .pay-text { font-size: 0.8rem; }
+            .payment-icons .pay-icon { height: 2rem; }
             .partner-links-grid { max-width: 800px; gap: 3rem; }
             .partner-links-grid a { font-size: 0.9rem; }
-            .step-item .step-arrow { width: 2.4rem; height: 2.4rem; bottom: -2rem; }
+            .step-item .step-arrow { width: 2.4rem; height: 2.4rem; bottom: -1.6rem; }
         }
         @media (max-width: 767px) {
             .partner-links-grid { flex-wrap: wrap; gap: 0.8rem; max-width: 100%; }
@@ -542,10 +551,10 @@
             .btn-icon svg { width: 24px; height: 24px; }
             .btn-text .btn-main { font-size: 0.8rem; }
             .btn-text .btn-free { font-size: 0.8rem; }
-            .step-item .step-arrow { width: 1.6rem; height: 1.6rem; bottom: -1.4rem; }
+            .step-item .step-arrow { width: 1.6rem; height: 1.6rem; bottom: -1.2rem; }
             .usecase-grid { max-width: 100%; }
             .usecase-card p { padding-left: 0; }
-            .payment-icons .pay-text { font-size: 0.6rem; }
+            .payment-icons .pay-icon { height: 1.4rem; }
         }
         @media (max-width: 420px) {
             .who-grid { grid-template-columns: 1fr 1fr; gap: 0.5rem; }
@@ -848,16 +857,17 @@
             <div class="btn-label">🎁 7 днів тест-драйву безкоштовно</div>
             <div class="price-note">Після тріалу — від $19.99 /міс. без прихованих платежів</div>
             <div class="payment-icons">
-                <span class="pay-text">MonoBank</span>
-                <span class="pay-text">Apple Pay</span>
-                <span class="pay-text">Google Pay</span>
+                <svg class="pay-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor"/><path d="M6 10h4v4H6z" fill="currentColor"/></svg>
+                <svg class="pay-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10" stroke="currentColor"/><path d="M8 12l3 3 5-6" stroke="currentColor" stroke-width="2"/></svg>
+                <svg class="pay-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor"/><path d="M6 10h12M6 14h8" stroke="currentColor" stroke-width="1.5"/></svg>
             </div>
         </div>
     </div>
 
     <footer>
         <div class="footer-container">
-            <h2>Офіційний партнер<br>Соцмережі та підтримка</h2>
+            <div class="footer-title">Офіційний партнер</div>
+            <div class="footer-subtitle">Соцмережі та підтримка</div>
             <div class="partner-links-grid">
                 <a href="https://www.tiktok.com/@ceschess" rel="me"><span>TikTok:</span> @ceschess</a>
                 <a href="mailto:ssershils@gmail.com"><span>Email:</span> ssershils@gmail.com</a>
