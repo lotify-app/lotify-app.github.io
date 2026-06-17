@@ -152,18 +152,21 @@
         .cta-container { display: flex; flex-direction: column; align-items: center; width: 100%; }
         
         .btn {
-            display: inline-flex; align-items: center; justify-content: center; gap: 0.8rem;
+            display: inline-flex; flex-direction: column; align-items: center; justify-content: center;
             background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-blue) 100%); 
             color: #000; font-weight: 900; font-size: 0.9rem;
             padding: 0.7rem 2rem; border-radius: 10px; text-decoration: none; width: 100%; max-width: 290px;
             cursor: pointer; border: none; 
             box-shadow: 0 0 35px rgba(0, 240, 255, 0.45), inset 0 2px 4px rgba(255, 255, 255, 0.4), inset 0 -2px 4px rgba(0, 0, 0, 0.2);
             transition: transform 0.15s ease, box-shadow 0.15s ease;
+            gap: 0.2rem;
         }
         .btn:hover { transform: scale(1.02); box-shadow: 0 0 50px rgba(0, 240, 255, 0.6), inset 0 2px 4px rgba(255, 255, 255, 0.5); }
         .btn:active { transform: scale(0.96); box-shadow: 0 0 15px rgba(0, 240, 255, 0.3), inset 0 2px 6px rgba(0, 0, 0, 0.3); }
         .btn:focus-visible { outline: 2px solid var(--accent-yellow); outline-offset: 2px; }
+        .btn .btn-top { display: flex; align-items: center; gap: 0.8rem; }
         .btn svg { width: 24px; height: 24px; flex-shrink: 0; }
+        .btn .btn-free { font-size: 0.75rem; font-weight: 900; color: #000; margin-top: 0.1rem; }
         .btn-label { font-size: 0.65rem; color: var(--accent-yellow); font-weight: 900; letter-spacing: 0.06em; text-transform: uppercase; margin-top: 0.4rem; }
 
         .hero-video-container { 
@@ -260,7 +263,8 @@
         }
 
         .bento-stack { display: flex; flex-direction: column; gap: 1.2rem; }
-        .bento-card h3 { font-size: 1rem; color: var(--accent-cyan); margin-bottom: 0.4rem; display: flex; align-items: center; gap: 0.4rem; }
+        .bento-card { text-align: center; }
+        .bento-card h3 { font-size: 1rem; color: var(--accent-cyan); margin-bottom: 0.4rem; display: flex; align-items: center; justify-content: center; gap: 0.4rem; }
         .bento-card p.main-text { color: var(--text-main); font-size: 0.85rem; font-weight: 600; margin-bottom: 0.4rem; }
         .bento-card p.detail-text { color: var(--text-muted); font-size: 0.75rem; line-height: 1.45; border-top: 1px solid rgba(255,255,255,0.03); padding-top: 0.4rem; }
 
@@ -292,15 +296,16 @@
         .who-item { 
             background: var(--card-glass); backdrop-filter: blur(10px);
             border: 1px solid var(--border-subtle); border-radius: 12px;
-            padding: 0.8rem; text-align: center;
+            padding: 1rem 0.8rem;
+            text-align: center;
             transition: border-color 0.2s;
         }
         .who-item:hover { border-color: var(--border-glow); }
         .who-item .who-icon { font-size: 2rem; display: block; margin-bottom: 0.2rem; }
-        .who-item .who-name { font-size: 0.9rem; font-weight: 700; color: var(--text-main); }
+        .who-item .who-name { font-size: 0.9rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.2rem; }
         .who-item .who-desc { font-size: 0.75rem; color: var(--text-muted); line-height: 1.3; }
 
-        .steps-list { display: flex; flex-direction: column; gap: 1.5rem; position: relative; }
+        .steps-list { display: flex; flex-direction: column; gap: 2rem; position: relative; }
         .step-item {
             display: flex; gap: 1rem; align-items: flex-start;
             background: var(--card-glass); backdrop-filter: blur(10px);
@@ -311,14 +316,14 @@
         .step-item::after {
             content: '↓';
             position: absolute;
-            bottom: -1.3rem;
+            bottom: -1.6rem;
             left: 50%;
             transform: translateX(-50%);
             color: var(--accent-cyan);
-            font-size: 1.2rem;
-            font-weight: 900;
-            opacity: 0.5;
-            text-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
+            font-size: 1.8rem;
+            font-weight: 100;
+            opacity: 0.4;
+            text-shadow: 0 0 15px rgba(0, 240, 255, 0.2);
         }
         .step-item:last-child::after { display: none; }
         .step-num { 
@@ -329,6 +334,7 @@
         .step-item .step-text strong { color: var(--text-main); }
         .step-highlight .step-text strong { color: var(--accent-yellow); }
         .step-item .step-desc { color: var(--text-muted); font-size: 0.85rem; line-height: 1.4; }
+        .step-item .step-result { color: var(--accent-emerald); }
 
         .scale-grid { display: flex; flex-direction: column; gap: 1.2rem; }
         .scale-card h3 { 
@@ -477,23 +483,24 @@
             .scale-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
             .usecase-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.5rem; }
             .bento-stack { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
-            .bento-card:last-child { grid-column: 1 / -1; text-align: center; }
+            .bento-card:last-child { grid-column: 1 / -1; }
             .who-grid { grid-template-columns: repeat(3, 1fr); }
             .steps-list { display: flex; flex-direction: column; gap: 2rem; }
-            .safety-brief { font-size: 0.8rem; padding: 0.8rem 1.2rem; }
+            .safety-brief { font-size: 0.8rem; padding: 0.8rem 1.2rem; text-align: center; }
             .video-controls .btn-video { font-size: 0.8rem; padding: 0.5rem 1.2rem; }
             .video-transcript summary { font-size: 0.85rem; }
             .payment-icons .pay-icon { height: 1.8rem; }
             .partner-links-grid { max-width: 100%; gap: 2.5rem; }
             .partner-links-grid a { font-size: 0.9rem; }
-            .safety-brief { text-align: center; }
+            .step-item::after { font-size: 2.2rem; bottom: -1.8rem; }
         }
         @media (max-width: 767px) {
             .partner-links-grid { gap: 0.8rem; max-width: 100%; }
             .partner-links-grid a { font-size: 0.9rem; }
             .who-grid { grid-template-columns: 1fr 1fr; }
             .btn svg { width: 20px; height: 20px; }
-            .step-item::after { font-size: 1rem; bottom: -1.1rem; }
+            .step-item::after { font-size: 1.4rem; bottom: -1.2rem; }
+            .btn .btn-free { font-size: 0.65rem; }
         }
         @media (max-width: 420px) {
             .who-grid { grid-template-columns: 1fr 1fr; gap: 0.5rem; }
@@ -557,8 +564,11 @@
         
         <div class="cta-container">
             <a href="https://t.me/lotifybot?start=1088875712" class="btn" target="_blank" rel="noopener noreferrer">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
-                Запустити бота <strong>безкоштовно</strong>
+                <span class="btn-top">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+                    Запустити бота
+                </span>
+                <span class="btn-free">безкоштовно</span>
             </a>
             <div class="btn-label">🎁 7 днів тест-драйву безкоштовно</div>
         </div>
@@ -632,7 +642,7 @@
             </div>
             <div class="step-item">
                 <div class="step-num">🏆</div>
-                <div class="step-text"><strong>Результат</strong><br><span class="step-desc">Ви перший!</span></div>
+                <div class="step-text"><strong class="step-result">Результат</strong><br><span class="step-desc">Ви перший!</span></div>
             </div>
         </div>
     </section>
@@ -767,8 +777,11 @@
     <div class="pre-footer-cta">
         <div class="cta-container">
             <a href="https://t.me/lotifybot?start=1088875712" class="btn" target="_blank" rel="noopener noreferrer">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
-                Запустити бота <strong>безкоштовно</strong>
+                <span class="btn-top">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+                    Запустити бота
+                </span>
+                <span class="btn-free">безкоштовно</span>
             </a>
             <div class="btn-label">🎁 7 днів тест-драйву безкоштовно</div>
             <div class="price-note">Після тріалу — $19.99 /міс. без прихованих платежів</div>
