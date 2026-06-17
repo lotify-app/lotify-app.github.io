@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="uk">
+<html lang="ua">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Lotifybot — Найшвидший парсер оголошень на OLX, eBay, Willhaben та Facebook</title>
-    <meta name="description" content="Lotifybot: миттєвий парсер оголошень для OLX, eBay, Willhaben, AUTO.RIA та Facebook Marketplace. Перехоплення нових лотів до появи в загальному пошуку. Безкоштовний тест 7 днів.">
-    <meta name="keywords" content="парсер оголошень, моніторинг маркетплейсів, OLX бот, eBay моніторинг, фліппінг, інструмент для перепродажу, пошук житла без посередників, антикваріат, колекціонери, Lotifybot, Lotify Bot, Lotify app">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+    <title>Lotifybot — Найшвидший парсер оголошень на OLX, eBay, Willhaben, DIM.RIA та Facebook</title>
+    <meta name="description" content="Lotifybot: миттєвий парсер оголошень для OLX, eBay, Willhaben, DIM.RIA, AUTO.RIA та Facebook Marketplace. Перехоплення нових лотів до появи в загальному пошуку. Безкоштовний тест 7 днів.">
+    <meta name="keywords" content="парсер оголошень, моніторинг маркетплейсів, OLX бот, eBay моніторинг, інструмент для перепродажу, пошук житла без посередників, антикваріат, колекціонери, Lotifybot, Lotify Bot, Lotify app, DIM.RIA, AUTO.RIA">
     <meta name="robots" content="index, follow">
-    <meta property="og:title" content="Lotifybot — Найшвидший парсер оголошень на OLX, eBay, Willhaben та Facebook">
+    <meta property="og:title" content="Lotifybot — Найшвидший парсер оголошень на OLX, eBay, Willhaben, DIM.RIA та Facebook">
     <meta property="og:description" content="Миттєве перехоплення нових оголошень до появи в пошукових кешах платформ. Будьте першими.">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://lotify-app.github.io/images/Lotify_Logo.webp">
@@ -20,9 +20,9 @@
       "alternateName": ["Lotify Bot", "Lotify app", "Lotify"],
       "applicationCategory": "BusinessApplication",
       "operatingSystem": "Any",
-      "description": "Миттєвий парсер оголошень для OLX, eBay, Willhaben, Facebook Marketplace та AUTO.RIA. Перехоплення нових лотів до появи в загальному пошуку.",
-      "featureList": "Перехоплення оголошень на етапі модерації, Webhook інтеграція, сповіщення в Telegram, підтримка OLX, eBay, Willhaben, Facebook Marketplace, AUTO.RIA, 7 днів безкоштовного тесту, програма підтримки стартапів",
-      "keywords": "парсер оголошень, моніторинг маркетплейсів, OLX бот, eBay моніторинг, фліппінг, інструмент для перепродажу, пошук житла без посередників, антикваріат, колекціонери",
+      "description": "Миттєвий парсер оголошень для OLX, eBay, Willhaben, Facebook Marketplace, DIM.RIA та AUTO.RIA. Перехоплення нових лотів до появи в загальному пошуку.",
+      "featureList": "Перехоплення оголошень на етапі модерації, Webhook інтеграція, сповіщення в Telegram, підтримка OLX, eBay, Willhaben, Facebook Marketplace, DIM.RIA, AUTO.RIA, 7 днів безкоштовного тесту, програма підтримки стартапів",
+      "keywords": "парсер оголошень, моніторинг маркетплейсів, OLX бот, eBay моніторинг, інструмент для перепродажу, пошук житла без посередників, антикваріат, колекціонери",
       "offers": {
         "@type": "Offer",
         "price": "0",
@@ -47,7 +47,7 @@
       },
       "sameAs": [
         "https://t.me/lotifybot",
-        "https://www.youtube.com/@lotifybot",
+        "https://www.youtube.com/@lotifyme",
         "https://www.tiktok.com/@ceschess"
       ]
     }
@@ -157,7 +157,7 @@
         .cta-container { display: flex; flex-direction: column; align-items: center; width: 100%; }
         
         .btn {
-            display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem;
+            display: inline-flex; align-items: center; justify-content: center; gap: 0.8rem;
             background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-blue) 100%); 
             color: #000; font-weight: 900; font-size: 0.9rem;
             padding: 0.7rem 2rem; border-radius: 10px; text-decoration: none; width: 100%; max-width: 290px;
@@ -168,7 +168,8 @@
         .btn:hover { transform: scale(1.02); box-shadow: 0 0 50px rgba(0, 240, 255, 0.6), inset 0 2px 4px rgba(255, 255, 255, 0.5); }
         .btn:active { transform: scale(0.96); box-shadow: 0 0 15px rgba(0, 240, 255, 0.3), inset 0 2px 6px rgba(0, 0, 0, 0.3); }
         .btn:focus-visible { outline: 2px solid var(--accent-yellow); outline-offset: 2px; }
-        .btn-label { font-size: 0.6rem; color: var(--accent-yellow); font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; margin-top: 0.4rem; }
+        .btn svg { width: 24px; height: 24px; flex-shrink: 0; }
+        .btn-label { font-size: 0.65rem; color: var(--accent-yellow); font-weight: 900; letter-spacing: 0.06em; text-transform: uppercase; margin-top: 0.4rem; }
 
         .hero-video-container { 
             width: 100%; max-width: 260px; aspect-ratio: 1 / 1.4;
@@ -253,23 +254,12 @@
             position: relative; overflow: hidden;
             transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s;
             opacity: 0; transform: translateY(30px);
-            animation: cardFadeIn 0.6s ease forwards;
+            transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.2s, border-color 0.2s;
         }
-        .neon-card:nth-child(1) { animation-delay: 0.05s; }
-        .neon-card:nth-child(2) { animation-delay: 0.1s; }
-        .neon-card:nth-child(3) { animation-delay: 0.15s; }
-        .neon-card:nth-child(4) { animation-delay: 0.2s; }
-        .neon-card:nth-child(5) { animation-delay: 0.25s; }
-        .neon-card:nth-child(6) { animation-delay: 0.3s; }
-        .neon-card:nth-child(7) { animation-delay: 0.35s; }
-        .neon-card:nth-child(8) { animation-delay: 0.4s; }
-        .neon-card:nth-child(9) { animation-delay: 0.45s; }
-        .neon-card:nth-child(10) { animation-delay: 0.5s; }
-
-        @keyframes cardFadeIn {
-            to { opacity: 1; transform: translateY(0); }
+        .neon-card.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
-
         .neon-card:hover { 
             border-color: var(--border-glow);
             box-shadow: 20px 20px 40px -4px var(--neon-glow);
@@ -284,8 +274,8 @@
         .timeline-grid, .scale-grid, .usecase-grid { display: flex; flex-direction: column; gap: 1.2rem; }
         .time-card.bad { border-left: 3px solid var(--accent-error); }
         .time-card.good { border-left: 3px solid var(--accent-emerald); }
-        .time-card h3, .scale-card h3, .usecase-card h3 { font-size: 0.95rem; margin-bottom: 0.3rem; }
-        .time-card p, .scale-card p, .usecase-card p { color: var(--text-muted); font-size: 0.75rem; line-height: 1.45; }
+        .time-card h3, .scale-card h3, .usecase-card h3 { font-size: 1.1rem; margin-bottom: 0.3rem; }
+        .time-card p, .scale-card p, .usecase-card p { color: var(--text-muted); font-size: 0.9rem; line-height: 1.45; }
         .badge { display: inline-block; font-size: 0.55rem; font-weight: 800; text-transform: uppercase; padding: 0.15rem 0.4rem; border-radius: 4px; margin-top: 0.4rem; }
         .bad .badge { background: rgba(255, 51, 102, 0.08); color: var(--accent-error); }
         .good .badge { background: rgba(0, 255, 170, 0.08); color: var(--accent-emerald); }
@@ -300,9 +290,9 @@
             transition: border-color 0.2s;
         }
         .who-item:hover { border-color: var(--border-glow); }
-        .who-item .who-icon { font-size: 1.8rem; display: block; margin-bottom: 0.2rem; }
-        .who-item .who-name { font-size: 0.75rem; font-weight: 700; color: var(--text-main); }
-        .who-item .who-desc { font-size: 0.6rem; color: var(--text-muted); line-height: 1.3; }
+        .who-item .who-icon { font-size: 2rem; display: block; margin-bottom: 0.2rem; }
+        .who-item .who-name { font-size: 0.9rem; font-weight: 700; color: var(--text-main); }
+        .who-item .who-desc { font-size: 0.75rem; color: var(--text-muted); line-height: 1.3; }
 
         /* ===== HOW IT WORKS ===== */
         .steps-list { display: flex; flex-direction: column; gap: 1rem; }
@@ -318,8 +308,8 @@
         }
         .step-item .step-text { font-size: 0.78rem; color: var(--text-muted); line-height: 1.4; }
         .step-item .step-text strong { color: var(--text-main); }
-        .step-highlight .step-text { color: var(--text-main); }
         .step-highlight .step-text strong { color: var(--accent-yellow); }
+        .step-item .step-desc { color: var(--text-muted); font-size: 0.78rem; line-height: 1.4; }
 
         /* ===== GRANT ===== */
         .grant-box h3 { font-size: 1.1rem; color: var(--accent-yellow); margin-bottom: 0.4rem; }
@@ -331,8 +321,18 @@
         /* ===== PRICE NOTE ===== */
         .price-note { 
             font-size: 0.7rem; color: var(--text-muted); 
-            margin-top: 0.6rem; letter-spacing: 0.03em;
+            margin-top: 0.2rem; letter-spacing: 0.03em;
         }
+        .payment-icons {
+            display: flex; justify-content: center; gap: 1.5rem;
+            margin-top: 0.5rem;
+        }
+        .payment-icons img {
+            height: 1.2rem; width: auto; opacity: 0.6;
+            filter: grayscale(100%) brightness(2);
+            transition: opacity 0.2s;
+        }
+        .payment-icons img:hover { opacity: 1; }
 
         /* ===== PRE-FOOTER ===== */
         .pre-footer-cta { padding: 1.5rem 1rem 3rem 1rem; text-align: center; position: relative; z-index: 5; }
@@ -340,24 +340,25 @@
         /* ===== FOOTER ===== */
         footer { background: #010102; border-top: 1px solid var(--border-subtle); padding: 2.5rem 1rem 1.5rem 1rem; }
         .footer-container { max-width: 1000px; margin: 0 auto; width: 100%; text-align: center; }
-        .footer-container h2 { font-size: 1rem; font-weight: 800; color: var(--text-main); letter-spacing: 0.02em; margin-bottom: 1.5rem; text-align: center; background: none; -webkit-text-fill-color: initial; }
+        .footer-container h2 { font-size: 0.9rem; font-weight: 800; color: var(--text-main); letter-spacing: 0.02em; margin-bottom: 1.5rem; text-align: center; background: none; -webkit-text-fill-color: initial; }
         
-        .partner-links-spread { 
-            display: flex; justify-content: space-between; align-items: center; 
-            gap: 1rem; width: 100%; margin-bottom: 1.5rem; flex-wrap: wrap; 
+        .partner-links-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem;
+            max-width: 400px; margin: 0 auto 1.5rem auto;
         }
-        .partner-links-spread a { 
-            color: var(--accent-cyan); text-decoration: none; font-size: 0.8rem; 
-            font-weight: 700; display: inline-flex; align-items: center; gap: 0.3rem; 
+        .partner-links-grid a {
+            color: var(--accent-cyan); text-decoration: none; font-size: 0.65rem;
+            font-weight: 700; display: flex; align-items: center; justify-content: center; gap: 0.3rem;
             border-bottom: 1px dashed rgba(0, 240, 255, 0.15); padding-bottom: 2px;
+            text-align: center;
         }
-        .partner-links-spread a span { color: var(--text-muted); font-weight: 400; }
-        .partner-links-spread a:hover { color: #fff; }
+        .partner-links-grid a span { color: var(--text-muted); font-weight: 400; }
+        .partner-links-grid a:hover { color: #fff; }
 
         .footer-legal { 
             display: flex; justify-content: center; gap: 1.5rem; 
             flex-wrap: wrap; margin: 1rem 0;
-            font-size: 0.7rem;
+            font-size: 0.65rem;
         }
         .footer-legal a { 
             color: var(--text-muted); text-decoration: none; 
@@ -366,10 +367,10 @@
         .footer-legal a:hover { color: var(--text-main); }
 
         .footer-fop { 
-            font-size: 0.6rem; color: var(--text-muted); 
+            font-size: 0.55rem; color: var(--text-muted); 
             margin-top: 0.8rem; opacity: 0.6;
         }
-        .copyright { font-size: 0.6rem; color: #323947; border-top: 1px solid rgba(255,255,255,0.01); padding-top: 1rem; margin-top: 0.5rem; }
+        .copyright { font-size: 0.55rem; color: #323947; border-top: 1px solid rgba(255,255,255,0.01); padding-top: 1rem; margin-top: 0.5rem; }
 
         /* ===== АДАПТИВ ===== */
         @media (min-width: 768px) {
@@ -388,27 +389,33 @@
             .scale-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
             .usecase-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.5rem; }
             .bento-stack { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
-            .who-grid { grid-template-columns: repeat(5, 1fr); }
+            .who-grid { grid-template-columns: repeat(3, 1fr); }
             .steps-list { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
-            .partner-links-spread { flex-direction: row; justify-content: space-between; }
             .safety-brief { font-size: 0.8rem; padding: 0.8rem 1.2rem; }
             .video-controls .btn-video { font-size: 0.8rem; padding: 0.5rem 1.2rem; }
             .video-transcript summary { font-size: 0.85rem; }
+            .payment-icons img { height: 1.5rem; }
+            .partner-links-grid { max-width: 500px; gap: 1rem; }
+            .partner-links-grid a { font-size: 0.8rem; }
         }
         @media (max-width: 767px) {
-            .partner-links-spread { flex-direction: column; align-items: center; gap: 1rem; text-align: center; }
+            .partner-links-grid { max-width: 100%; gap: 0.5rem; }
+            .partner-links-grid a { font-size: 0.55rem; }
             .who-grid { grid-template-columns: 1fr 1fr; }
             .steps-list { grid-template-columns: 1fr; }
+            .btn svg { width: 20px; height: 20px; }
         }
         @media (max-width: 420px) {
             .who-grid { grid-template-columns: 1fr 1fr; gap: 0.5rem; }
             .who-item { padding: 0.6rem; }
-            .who-item .who-icon { font-size: 1.4rem; }
-            .who-item .who-name { font-size: 0.65rem; }
-            .who-item .who-desc { font-size: 0.55rem; }
+            .who-item .who-icon { font-size: 1.6rem; }
+            .who-item .who-name { font-size: 0.8rem; }
+            .who-item .who-desc { font-size: 0.65rem; }
+            .partner-links-grid a { font-size: 0.5rem; }
         }
         @media (min-width: 768px) and (max-width: 1024px) {
             .usecase-grid { grid-template-columns: repeat(3, 1fr); }
+            .who-grid { grid-template-columns: repeat(3, 1fr); }
         }
     </style>
 </head>
@@ -427,7 +434,7 @@
         </div>
         
         <nav class="lang-container" aria-label="Мови">
-            <a href="#" class="lang-item" data-lang="uk" aria-label="Українська"><svg class="flag-svg" viewBox="0 0 3 2"><rect width="3" height="1" fill="#0057b7"/><rect y="1" width="3" height="1" fill="#ffd700"/></svg><span class="lang-text">UA</span></a>
+            <a href="#" class="lang-item active" data-lang="ua" aria-label="Українська"><svg class="flag-svg" viewBox="0 0 3 2"><rect width="3" height="1" fill="#0057b7"/><rect y="1" width="3" height="1" fill="#ffd700"/></svg><span class="lang-text">UA</span></a>
             <a href="#" class="lang-item" data-lang="en" aria-label="English"><svg class="flag-svg" viewBox="0 0 60 30"><clipPath id="s"><path d="M0,0 v30 h60 v-30 z"/></clipPath><path d="M0,0 v30 h60 v-30 z" fill="#012169"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#C8102E" stroke-width="4"/><path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/><path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/></svg><span class="lang-text">EN</span></a>
             <a href="#" class="lang-item" data-lang="pl" aria-label="Polski"><svg class="flag-svg" viewBox="0 0 8 5"><rect width="8" height="2.5" fill="#fff"/><rect y="2.5" width="8" height="2.5" fill="#dc143c"/></svg><span class="lang-text">PL</span></a>
             <a href="#" class="lang-item" data-lang="de" aria-label="Deutsch"><svg class="flag-svg" viewBox="0 0 5 3"><rect width="5" height="1" fill="#000"/><rect y="1" width="5" height="1" fill="#dd0000"/><rect y="2" width="5" height="1" fill="#ffce00"/></svg><span class="lang-text">DE</span></a>
@@ -458,13 +465,13 @@
 
     <!-- ===== HERO ===== -->
     <section class="hero">
-        <h1>Lotifybot — Найшвидший парсер оголошень на <span>OLX, eBay, Willhaben та Facebook</span></h1>
+        <h1>Lotifybot — Найшвидший парсер оголошень на <span>OLX, eBay, Willhaben, DIM.RIA та Facebook</span></h1>
         <p>Миттєве перехоплення нових оголошень до появи в пошукових кешах платформ. Будьте першими.</p>
         
         <div class="cta-container">
             <a href="https://t.me/lotifybot?start=1088875712" class="btn" target="_blank" rel="noopener noreferrer">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
-                Запустити бота безкоштовно
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+                Запустити бота <strong>безкоштовно</strong>
             </a>
             <div class="btn-label">🎁 7 днів тест-драйву безкоштовно</div>
         </div>
@@ -497,38 +504,57 @@
         </div>
     </section>
 
+    <!-- ===== ШВИДКІСТЬ ЯК КАПІТАЛ ===== -->
+    <section id="utility">
+        <h2>Швидкість як <span>капітал</span></h2>
+        <p class="section-desc">Порівняння швидкості обробки вхідних потоків даних маркетплейсів.</p>
+        <div class="timeline-grid">
+            <div class="time-card neon-card">
+                <h3>🚫 Ручний моніторинг оголошень</h3>
+                <p>Нескінченне оновлення сторінок. Затримка кешування маркетплейсу — від 2 до 15 хвилин. Ліквідні активи йдуть до перекупників.</p>
+                <div class="badge">Статус: Втрата прибутку</div>
+            </div>
+            <div class="time-card neon-card good">
+                <h3>⚡ Потік Lotifybot</h3>
+                <p>Пряме перехоплення метаданих у момент публікації. Цільова доставка сповіщень у Telegram за частки секунди.</p>
+                <div class="badge">Статус: Угоду укладено першим</div>
+            </div>
+        </div>
+    </section>
+
     <!-- ===== ЯК ЦЕ ПРАЦЮЄ ===== -->
     <section id="how-it-works">
         <h2>Як це <span>працює</span></h2>
         <div class="steps-list">
             <div class="step-item step-highlight">
                 <div class="step-num">🚫</div>
-                <div class="step-text"><strong>Не вимагає реєстрації на жодній платформі!</strong> Ви обираєте місто, категорію та інші фільтри для точного налаштування (наприклад, «вази XIX століття, Відень», тільки нові оголошення, діапазон цін та ін.).</div>
+                <div class="step-text"><strong>Не вимагає реєстрації на жодній платформі!</strong><br><span class="step-desc">Ви обираєте місто, категорію та інші фільтри для точного налаштування (наприклад, «вази XIX століття, Відень», тільки нові оголошення, діапазон цін та ін.).</span></div>
             </div>
             <div class="step-item">
                 <div class="step-num">🤖</div>
-                <div class="step-text"><strong>Бот ловить оголошення</strong> в момент публікації або на етапі модерації на платформі.</div>
+                <div class="step-text"><strong>Бот ловить оголошення</strong><br><span class="step-desc">в момент публікації або на етапі модерації на платформі.</span></div>
             </div>
             <div class="step-item">
                 <div class="step-num">📲</div>
-                <div class="step-text"><strong>Вам приходить посилання в Telegram</strong> — ви перший.</div>
+                <div class="step-text"><strong>Вам приходить посилання в Telegram</strong><br><span class="step-desc">ви перший.</span></div>
             </div>
             <div class="step-item">
                 <div class="step-num">⚡</div>
-                <div class="step-text"><strong>Отримуєте сповіщення</strong> за частки секунди.</div>
+                <div class="step-text"><strong>Отримуєте сповіщення</strong><br><span class="step-desc">за частки секунди.</span></div>
             </div>
         </div>
     </section>
 
-    <!-- ===== ХТО ВИКОРИСТОВУЄ ===== -->
+    <!-- ===== ХТО ВЖЕ ВИКОРИСТОВУЄ ===== -->
     <section id="who-uses">
-        <h2>Хто <span>використовує</span> Lotifybot</h2>
+        <h2>Хто вже <span>використовує</span> Lotifybot</h2>
         <div class="who-grid">
             <div class="who-item"><span class="who-icon">🏠</span><div class="who-name">Ріелторські мережі</div><div class="who-desc">Моніторинг нових об'єктів від власників</div></div>
             <div class="who-item"><span class="who-icon">🏺</span><div class="who-name">Антикварні клуби</div><div class="who-desc">Перехоплення рідкісних лотів до конкурентів</div></div>
             <div class="who-item"><span class="who-icon">🎮</span><div class="who-name">Спільноти колекціонерів</div><div class="who-desc">Пошук ігрових приставок, вінілу, монет, марок</div></div>
-            <div class="who-item"><span class="who-icon">🚛</span><div class="who-name">Служби автовикупу</div><div class="who-desc">Миттєві оповіщення про нові авто на AUTO.RIA</div></div>
+            <div class="who-item"><span class="who-icon">🚛</span><div class="who-name">Служби автовикупу</div><div class="who-desc">Миттєві оповіщення про нові оголошення з продажу авто на всіх платформах</div></div>
             <div class="who-item"><span class="who-icon">🎓</span><div class="who-name">Студенти та мандрівники</div><div class="who-desc">Пошук житла без посередників та комісій</div></div>
+            <div class="who-item"><span class="who-icon">🏢</span><div class="who-name">Малий бізнес</div><div class="who-desc">Скупка нішевих товарів за заданими критеріями</div></div>
         </div>
     </section>
 
@@ -539,41 +565,28 @@
         <div class="usecase-grid">
             <div class="usecase-card neon-card">
                 <h3><span>🏺</span> Антиквари та колекціонери</h3>
-                <p>Знаходьте рідкісні лоти раніше за конкурентів <span style="color:var(--accent-cyan);font-size:0.65rem;display:block;margin-top:0.2rem;">"real price before scalpers"</span></p>
+                <p>Знаходьте рідкісні лоти раніше за конкурентів</p>
+                <span style="color:var(--accent-cyan);font-size:0.65rem;display:block;margin-top:0.2rem;">"real price before scalpers"</span>
             </div>
             <div class="usecase-card neon-card">
                 <h3><span>🏠</span> Ріелтори та оренда</h3>
-                <p>Знімайте житло без посередників <span style="color:var(--accent-cyan);font-size:0.65rem;display:block;margin-top:0.2rem;">"find rental by owner without agency fees"</span></p>
+                <p>Знімайте житло без посередників</p>
+                <span style="color:var(--accent-cyan);font-size:0.65rem;display:block;margin-top:0.2rem;">"find rental by owner without agency fees"</span>
             </div>
             <div class="usecase-card neon-card">
-                <h3><span>📦</span> Перекупники (фліппінг)</h3>
-                <p>Автоматичний моніторинг вигідних позицій <span style="color:var(--accent-cyan);font-size:0.65rem;display:block;margin-top:0.2rem;">"flipping items with 30-50% discount"</span></p>
+                <h3><span>🚀</span> Підприємці</h3>
+                <p>Отримуйте ринкові дані миттєво для прийняття рішень</p>
+                <span style="color:var(--accent-cyan);font-size:0.65rem;display:block;margin-top:0.2rem;">"real-time market data for smart purchasing"</span>
             </div>
             <div class="usecase-card neon-card">
                 <h3><span>🚀</span> Стартапери</h3>
-                <p>Запустіть свій мікробізнес з нуля <span style="color:var(--accent-cyan);font-size:0.65rem;display:block;margin-top:0.2rem;">"zero-latency market data for reselling"</span></p>
+                <p>Запустіть свій мікробізнес з нуля</p>
+                <span style="color:var(--accent-cyan);font-size:0.65rem;display:block;margin-top:0.2rem;">"zero-latency market data for reselling"</span>
             </div>
             <div class="usecase-card neon-card">
                 <h3><span>🎓</span> Соціальний кейс</h3>
-                <p>Студентам та малозабезпеченим — допомога в пошуку дешевого житла та товарів <span style="color:var(--accent-cyan);font-size:0.65rem;display:block;margin-top:0.2rem;">"social support for basic needs"</span></p>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== ШВИДКІСТЬ ===== -->
-    <section id="utility">
-        <h2>Швидкість як <span>капітал</span></h2>
-        <p class="section-desc">Порівняння швидкості обробки вхідних потоків даних маркетплейсів.</p>
-        <div class="timeline-grid">
-            <div class="time-card neon-card bad">
-                <h3>🚫 Ручний моніторинг оголошень</h3>
-                <p>Нескінченне оновлення сторінок. Затримка кешування маркетплейсу — від 2 до 15 хвилин. Ліквідні активи йдуть до перекупників.</p>
-                <div class="badge">Статус: Втрата прибутку</div>
-            </div>
-            <div class="time-card neon-card good">
-                <h3>⚡ Потік Lotifybot</h3>
-                <p>Пряме перехоплення метаданих у момент публікації. Цільова доставка сповіщень у Telegram за частки секунди.</p>
-                <div class="badge">Статус: Угоду укладено першим</div>
+                <p>Студентам та малозабезпеченим — допомога в пошуку дешевого житла та товарів</p>
+                <span style="color:var(--accent-cyan);font-size:0.65rem;display:block;margin-top:0.2rem;">"social support for basic needs"</span>
             </div>
         </div>
     </section>
@@ -611,13 +624,13 @@
             <div class="bento-card neon-card">
                 <h3>📊 Швидкість та фільтрація</h3>
                 <p class="main-text">Бот миттєво відсікає дублікати, очищує цифровий шум та видає чистий потік лотів.</p>
-                <p class="detail-text">Парсер безперервно аналізує структури оголошень. Система обчислює аномалії цін та перевіряє геолокаційні патерни.</p>
+                <p class="detail-text">Парсер безперервно аналізує структури оголошень. Система моніторить зміни цін та перевіряє геолокаційні патерни.</p>
             </div>
             
             <div class="bento-card neon-card">
                 <h3>🌍 Глобальне покриття</h3>
                 <p class="main-text">Повна підтримка європейських, американських та ринків СНД в єдиній інфраструктурі.</p>
-                <p class="detail-text">Інтерфейсні вузли адаптовані для багатомовних ринків. Архітектура об'єднує найбільші платформи: OLX, eBay, Willhaben, Facebook Marketplace, AUTO.RIA.</p>
+                <p class="detail-text">Інтерфейсні вузли адаптовані для багатомовних ринків. Архітектура об'єднує найбільші платформи: OLX, eBay, Willhaben, Facebook Marketplace, DIM.RIA, AUTO.RIA.</p>
             </div>
 
             <div class="bento-card neon-card">
@@ -656,11 +669,11 @@
             <div class="grant-steps">
                 <div class="grant-step">
                     <span class="grant-num">1</span>
-                    <div>Напишіть нам коротке текстове повідомлення з вашою конкретною бізнес-ціллю.</div>
+                    <div>Напишіть нам коротке текстове повідомлення з вашою конкретною бізнес-ціллю та <strong>айді бота з шапки самого бота</strong>.</div>
                 </div>
                 <div class="grant-step">
                     <span class="grant-num">2</span>
-                    <div>Формат запиту: "Запуск продажу вінтажних меблів у Німеччині, потрібен моніторинг оголошень".</div>
+                    <div>Формат запиту: "Запуск продажу вінтажних меблів у Німеччині, потрібен моніторинг оголошень".<br>ID: 10888XXXXX</div>
                 </div>
                 <div class="grant-step">
                     <span class="grant-num">3</span>
@@ -674,11 +687,16 @@
     <div class="pre-footer-cta">
         <div class="cta-container">
             <a href="https://t.me/lotifybot?start=1088875712" class="btn" target="_blank" rel="noopener noreferrer">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
-                Запустити бота безкоштовно
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+                Запустити бота <strong>безкоштовно</strong>
             </a>
             <div class="btn-label">🎁 7 днів тест-драйву безкоштовно</div>
-            <div class="price-note">$19.99 /міс. → без прихованих платежів</div>
+            <div class="price-note">Після триалу — $19.99 /міс. → без прихованих платежів</div>
+            <div class="payment-icons">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%237e8c9f'%3E%3Crect x='2' y='4' width='20' height='16' rx='2' stroke='%237e8c9f' stroke-width='1.5' fill='none'/%3E%3Cpath d='M6 10h4v4H6z' fill='%237e8c9f'/%3E%3C/svg%3E" alt="MonoBank" style="height:1.2rem; width:auto; opacity:0.6;">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%237e8c9f'%3E%3Ccircle cx='12' cy='12' r='10' stroke='%237e8c9f' stroke-width='1.5' fill='none'/%3E%3Cpath d='M8 12l3 3 5-6' stroke='%237e8c9f' stroke-width='2' fill='none'/%3E%3C/svg%3E" alt="Apple Pay" style="height:1.2rem; width:auto; opacity:0.6;">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%237e8c9f'%3E%3Crect x='2' y='4' width='20' height='16' rx='2' stroke='%237e8c9f' stroke-width='1.5' fill='none'/%3E%3Cpath d='M6 10h12M6 14h8' stroke='%237e8c9f' stroke-width='1.5'/%3E%3C/svg%3E" alt="Google Pay" style="height:1.2rem; width:auto; opacity:0.6;">
+            </div>
         </div>
     </div>
 
@@ -686,10 +704,11 @@
     <footer>
         <div class="footer-container">
             <h2>Офіційний партнер. Соцмережі та підтримка</h2>
-            <div class="partner-links-spread">
-                <a href="https://t.me/AItradeout" rel="me"><span>Telegram Support:</span> @AItradeout</a>
-                <a href="https://www.tiktok.com/@ceschess" rel="me"><span>TikTok Profile:</span> @ceschess</a>
+            <div class="partner-links-grid">
+                <a href="https://www.tiktok.com/@ceschess" rel="me"><span>TikTok:</span> @ceschess</a>
+                <a href="https://www.youtube.com/@lotifyme" rel="me"><span>YouTube:</span> @lotifyme</a>
                 <a href="mailto:ssershils@gmail.com"><span>Email:</span> ssershils@gmail.com</a>
+                <a href="https://t.me/AItradeout" rel="me"><span>Telegram:</span> @AItradeout</a>
             </div>
             <div class="footer-legal">
                 <a href="/privacy.html">Політика конфіденційності</a>
@@ -702,17 +721,18 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            const supported = ["uk", "en", "pl", "de", "es", "ru"];
+            // ===== LANGUAGE SWITCHER =====
+            const supported = ["ua", "en", "pl", "de", "es", "ru"];
             
             function getLang() {
                 const saved = localStorage.getItem("lotify_lang");
                 if (saved && supported.includes(saved)) return saved;
                 const browser = (navigator.language || navigator.userLanguage).split("-")[0].toLowerCase();
-                return supported.includes(browser) ? browser : "uk";
+                return supported.includes(browser) ? browser : "ua";
             }
 
             const target = getLang();
-            if (target !== "uk") {
+            if (target !== "ua") {
                 window.location.replace(`./${target}/index.html`);
             }
 
@@ -721,11 +741,11 @@
                     e.preventDefault();
                     const lang = button.getAttribute("data-lang");
                     localStorage.setItem("lotify_lang", lang);
-                    window.location.href = (lang === "uk") ? "./index.html" : `./${lang}/index.html`;
+                    window.location.href = (lang === "ua") ? "./index.html" : `./${lang}/index.html`;
                 });
             });
 
-            // Transcript toggle ARIA
+            // ===== TRANSCRIPT TOGGLE ARIA =====
             const transcript = document.getElementById('transcript');
             const toggleBtn = document.querySelector('.btn-video[onclick*="transcript"]');
             if (transcript && toggleBtn) {
@@ -733,6 +753,18 @@
                     toggleBtn.setAttribute('aria-expanded', transcript.open ? 'true' : 'false');
                 });
             }
+
+            // ===== INTERSECTION OBSERVER FOR ANIMATIONS =====
+            const cards = document.querySelectorAll('.neon-card');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            cards.forEach(card => observer.observe(card));
         });
     </script>
 </body>
