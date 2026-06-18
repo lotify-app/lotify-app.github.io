@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+    <title>Datenschutzerklärung — Lotifybot</title>
+    <meta name="description" content="Datenschutzerklärung des Lotifybot-Dienstes. Wie wir Ihre persönlichen Daten sammeln, verwenden, speichern und schützen. Entspricht der DSGVO und dem Recht der Ukraine.">
+    <meta name="robots" content="noindex, follow">
+    <meta property="og:title" content="Datenschutzerklärung — Lotifybot">
+    <meta property="og:description" content="Datenschutzerklärung des Lotifybot-Dienstes. Wie wir Ihre persönlichen Daten sammeln, verwenden, speichern und schützen.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://lotify-app.github.io/images/Lotify_Logo.webp">
+    
+    <link rel="alternate" href="https://lotify-app.github.io/de/privacy.html" hreflang="de" />
+    <link rel="alternate" href="https://lotify-app.github.io/ua/privacy.html" hreflang="uk" />
+    <link rel="alternate" href="https://lotify-app.github.io/en/privacy.html" hreflang="en" />
+    <link rel="alternate" href="https://lotify-app.github.io/pl/privacy.html" hreflang="pl" />
+    <link rel="alternate" href="https://lotify-app.github.io/es/privacy.html" hreflang="es" />
+    <link rel="alternate" href="https://lotify-app.github.io/ru/privacy.html" hreflang="ru" />
+    <link rel="alternate" href="https://lotify-app.github.io/privacy.html" hreflang="x-default" />
+    
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LegalDocument",
+  "name": "Datenschutzerklärung des Lotifybot-Dienstes",
+  "inLanguage": "de",
+  "jurisdiction": "Ukraine",
+  "applicableCountry": "UA",
+  "datePublished": "2026-06-18",
+  "dateModified": "2026-06-18",
+  "author": {
+    "@type": "Organization",
+    "name": "Natürliche Person-Unternehmer (FOP)",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Chreschtschatyk-Straße, 22",
+      "postalCode": "01001",
+      "addressLocality": "Kiew",
+      "addressCountry": "UA"
+    },
+    "contactPoint": [
+      {
+        "@type": "ContactPoint",
+        "email": "info@lotify.me",
+        "contactType": "customer support"
+      },
+      {
+        "@type": "ContactPoint",
+        "telephone": "+380632288080",
+        "contactType": "customer support"
+      }
+    ]
+  }
+}
+</script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg: #030305;
+            --surface-glass: rgba(13, 13, 18, 0.7);
+            --card-glass: rgba(18, 18, 26, 0.8);
+            --border-glow: rgba(0, 240, 255, 0.35);
+            --border-subtle: rgba(255, 255, 255, 0.05);
+            --text-main: #f3f4f6;
+            --text-muted: #7e8c9f;
+            --accent-cyan: #00f0ff;
+            --accent-blue: #0077ff;
+            --accent-yellow: #fff500;
+            --accent-emerald: #00ffaa;
+            --accent-error: #ff3366;
+            --neon-glow: rgba(0, 240, 255, 0.15);
+            --safety-border: rgba(0, 255, 170, 0.3);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', system-ui, sans-serif; -webkit-tap-highlight-color: transparent; }
+        
+        body { 
+            background-color: var(--bg); 
+            color: var(--text-main); 
+            overflow-x: hidden; 
+            line-height: 1.6;
+            padding-top: 3.2rem;
+        }
+
+        .aurora-blur {
+            position: absolute; width: 60vw; height: 60vw; max-width: 500px; max-height: 500px;
+            background: radial-gradient(circle, rgba(0, 240, 255, 0.07) 0%, rgba(0,0,0,0) 70%);
+            top: -10%; left: 50%; transform: translate(-50%, 0);
+            z-index: 0; pointer-events: none; filter: blur(80px);
+            animation: auroraPulse 8s ease-in-out infinite alternate;
+        }
+        @keyframes auroraPulse {
+            0% { opacity: 0.6; transform: translate(-50%, 0) scale(1); }
+            100% { opacity: 1; transform: translate(-50%, 5%) scale(1.1); }
+        }
+
+        header {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 0.4rem 1rem; position: fixed; width: 100%; top: 0; left: 0;
+            background: rgba(3, 3, 5, 0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            z-index: 100; border-bottom: 1px solid var(--border-subtle);
+            height: 3.2rem;
+        }
+        .logo-block { display: flex; align-items: center; gap: 0.5rem; }
+        .logo-img { 
+            width: 1.8rem; height: 1.8rem; border-radius: 50%; 
+            object-fit: cover; flex-shrink: 0;
+            border: 1px solid var(--border-glow);
+        }
+        .logo-text { display: flex; flex-direction: column; justify-content: center; }
+        .logo { font-size: 1.15rem; font-weight: 900; letter-spacing: -0.03em; line-height: 1; }
+        .logo span { color: var(--accent-cyan); text-shadow: 0 0 15px rgba(0, 240, 255, 0.3); }
+        .official-tag { font-size: 0.5rem; color: var(--accent-yellow); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-top: 1px; }
+        
+        .lang-container { display: flex; gap: 0.5rem; align-items: center; }
+        .lang-item { 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            cursor: pointer; 
+            text-decoration: none; 
+            transition: transform 0.2s ease;
+            transform-origin: center;
+        }
+        .flag-svg {
+            width: 16px;
+            height: 11px;
+            border-radius: 1px;
+            object-fit: cover;
+            opacity: 0.3;
+            transition: opacity 0.2s ease;
+        }
+        .lang-item.active .flag-svg {
+            opacity: 1;
+        }
+        .lang-text {
+            font-size: 0.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-top: 2px;
+            color: var(--text-main);
+            opacity: 1;
+            transition: color 0.2s ease;
+        }
+        .lang-item.active .lang-text {
+            color: var(--accent-yellow);
+        }
+        .lang-item.active {
+            transform: scale(1.2);
+        }
+
+        .back-btn-wrapper {
+            padding: 0.8rem 1rem 0 1rem;
+            max-width: 1100px;
+            margin: 0 auto;
+            text-align: left;
+        }
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: var(--accent-cyan);
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            background: rgba(0,0,0,0.4);
+            padding: 0.3rem 0.8rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-subtle);
+            transition: background 0.2s, transform 0.2s;
+        }
+        .back-btn:hover {
+            background: rgba(0,240,255,0.1);
+            transform: scale(1.05);
+        }
+        .back-btn svg {
+            width: 1.2rem;
+            height: 1.2rem;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        section { padding: 1rem 1rem 2.5rem 1rem; width: 100%; max-width: 1100px; margin: 0 auto; position: relative; }
+        h1 { 
+            font-size: 1.7rem; font-weight: 900; letter-spacing: -0.04em; text-align: center; margin-bottom: 0.8rem;
+            background: linear-gradient(135deg, #ffffff 40%, #a3b3cc 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        h2 { 
+            font-size: 1.3rem; font-weight: 800; letter-spacing: -0.03em; text-align: left; margin: 1.5rem 0 0.8rem 0;
+            background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-blue) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        h2:first-of-type { margin-top: 0; }
+        h3 {
+            font-size: 1rem; font-weight: 700; color: var(--text-main); margin: 1rem 0 0.4rem 0;
+        }
+        .section-desc { text-align: center; color: var(--text-muted); font-size: 0.9rem; max-width: 600px; margin: 0 auto 2rem auto; }
+        .legal-date { text-align: center; color: var(--text-muted); font-size: 0.8rem; margin-bottom: 2rem; }
+
+        .neon-card {
+            background: var(--card-glass); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--border-subtle); padding: 1.5rem; border-radius: 14px; 
+            box-shadow: 14px 14px 30px -4px var(--neon-glow); 
+            position: relative; overflow: hidden;
+            transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s;
+            margin-bottom: 1.2rem;
+        }
+        .neon-card:last-child { margin-bottom: 0; }
+        .neon-card p { color: var(--text-muted); font-size: 0.85rem; line-height: 1.6; margin-bottom: 0.6rem; }
+        .neon-card p:last-child { margin-bottom: 0; }
+        .neon-card ul { padding-left: 1.5rem; margin: 0.5rem 0 0.8rem 0; }
+        .neon-card ul li { color: var(--text-muted); font-size: 0.85rem; line-height: 1.6; margin-bottom: 0.3rem; }
+        .neon-card strong { color: var(--text-main); }
+        .neon-card .highlight { color: var(--accent-emerald); }
+        .neon-card .warning { color: var(--accent-error); }
+
+        .legal-footer { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border-subtle); text-align: center; }
+        .legal-footer ul { list-style: none; padding-left: 0; }
+
+        .contact-divider {
+            border: none;
+            border-top: 1px solid var(--border-subtle);
+            margin: 1.5rem 0;
+        }
+
+        footer { background: #010102; border-top: 1px solid var(--border-subtle); padding: 2.5rem 1rem 1.5rem 1rem; }
+        .footer-container { max-width: 1000px; margin: 0 auto; width: 100%; text-align: center; }
+        .footer-container .footer-title { 
+            font-size: 0.9rem; font-weight: 800; 
+            color: var(--accent-yellow); 
+            letter-spacing: 0.02em; margin-bottom: 0.2rem; 
+            text-align: center; background: none; -webkit-text-fill-color: initial; 
+            line-height: 1.3;
+        }
+        .footer-container .footer-subtitle {
+            font-size: 0.9rem; font-weight: 800;
+            color: var(--text-main);
+            letter-spacing: 0.02em; margin-bottom: 1.5rem;
+            text-align: center; background: none; -webkit-text-fill-color: initial;
+            line-height: 1.3;
+        }
+        
+        .partner-links-grid {
+            display: flex; flex-wrap: nowrap; justify-content: center; gap: 2.5rem;
+            margin: 0 auto 1.5rem auto;
+            max-width: 700px;
+        }
+        .partner-links-grid a {
+            color: var(--accent-cyan); text-decoration: none; 
+            font-size: 0.75rem; font-weight: 700;
+            display: inline-flex; align-items: center; gap: 0.3rem;
+            transition: color 0.2s;
+            border: none;
+            white-space: nowrap;
+        }
+        .partner-links-grid a span { color: var(--text-muted); font-weight: 400; }
+        .partner-links-grid a:hover { color: #fff; }
+
+        .footer-legal { 
+            display: flex; justify-content: center; gap: 1.5rem; 
+            flex-wrap: wrap; margin: 1rem 0;
+            font-size: 0.65rem;
+        }
+        .footer-legal a { 
+            color: var(--text-muted); text-decoration: none; 
+            border-bottom: 1px dashed rgba(255,255,255,0.05);
+        }
+        .footer-legal a:hover { color: var(--text-main); }
+
+        .footer-fop { 
+            font-size: 0.55rem; color: var(--text-muted); 
+            margin-top: 0.8rem; opacity: 0.6;
+        }
+        .copyright { font-size: 0.55rem; color: #323947; border-top: 1px solid rgba(255,255,255,0.01); padding-top: 1rem; margin-top: 0.5rem; }
+
+        @media (min-width: 768px) {
+            body { padding-top: 4.5rem; }
+            header { height: 4.5rem; padding: 0.5rem 2rem; }
+            .logo-img { width: 2.4rem; height: 2.4rem; }
+            .logo { font-size: 1.6rem; }
+            .official-tag { font-size: 0.55rem; }
+            .back-btn-wrapper { padding: 1rem 2rem 0 2rem; }
+            .back-btn { font-size: 1.1rem; padding: 0.4rem 1rem; }
+            h1 { font-size: 2.8rem; }
+            h2 { font-size: 1.8rem; }
+            section { padding: 1.5rem 2rem 3.5rem 2rem; }
+            .neon-card { padding: 2rem; margin-bottom: 1.5rem; }
+            .partner-links-grid { max-width: 800px; gap: 3rem; }
+            .partner-links-grid a { font-size: 0.9rem; }
+        }
+        @media (max-width: 767px) {
+            .partner-links-grid { flex-wrap: wrap; gap: 0.8rem; max-width: 100%; }
+            .partner-links-grid a { font-size: 0.8rem; }
+        }
+        @media (max-width: 420px) {
+            .partner-links-grid a { font-size: 0.7rem; }
+            .partner-links-grid { gap: 0.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="aurora-blur"></div>
+
+    <header>
+        <div class="logo-block">
+            <img src="/images/Lotify_Logo.webp" alt="Lotifybot Logo" class="logo-img" width="36" height="36" loading="lazy">
+            <div class="logo-text">
+                <div class="logo">Lotify<span>bot</span></div>
+                <div class="official-tag">Offizielles Informationszentrum</div>
+            </div>
+        </div>
+        
+        <nav class="lang-container" aria-label="Sprachen">
+            <!-- FIXED ORDER: UA, EN, PL, DE, ES, RU -->
+            <a href="/ua/privacy.html" class="lang-item" data-lang="ua" aria-label="Українська"><svg class="flag-svg" viewBox="0 0 3 2"><rect width="3" height="1" fill="#0057b7"/><rect y="1" width="3" height="1" fill="#ffd700"/></svg><span class="lang-text">UA</span></a>
+            <a href="/en/privacy.html" class="lang-item" data-lang="en" aria-label="English"><svg class="flag-svg" viewBox="0 0 60 30"><clipPath id="s"><path d="M0,0 v30 h60 v-30 z"/></clipPath><path d="M0,0 v30 h60 v-30 z" fill="#012169"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#C8102E" stroke-width="4"/><path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/><path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/></svg><span class="lang-text">EN</span></a>
+            <a href="/pl/privacy.html" class="lang-item" data-lang="pl" aria-label="Polski"><svg class="flag-svg" viewBox="0 0 8 5"><rect width="8" height="2.5" fill="#fff"/><rect y="2.5" width="8" height="2.5" fill="#dc143c"/></svg><span class="lang-text">PL</span></a>
+            <a href="/de/privacy.html" class="lang-item active" data-lang="de" aria-label="Deutsch"><svg class="flag-svg" viewBox="0 0 5 3"><rect width="5" height="1" fill="#000"/><rect y="1" width="5" height="1" fill="#dd0000"/><rect y="2" width="5" height="1" fill="#ffce00"/></svg><span class="lang-text">DE</span></a>
+            <a href="/es/privacy.html" class="lang-item" data-lang="es" aria-label="Español"><svg class="flag-svg" viewBox="0 0 3 2"><rect width="3" height="2" fill="#c60b1e"/><rect y="0.5" width="3" height="1" fill="#ffc400"/></svg><span class="lang-text">ES</span></a>
+            <a href="/ru/privacy.html" class="lang-item" data-lang="ru" aria-label="Русский"><svg class="flag-svg" viewBox="0 0 9 6"><rect width="9" height="2" fill="#fff"/><rect y="2" width="9" height="2" fill="#0039a6"/><rect y="4" width="9" height="2" fill="#d52b1e"/></svg><span class="lang-text">RU</span></a>
+        </nav>
+    </header>
+
+    <!-- Back button -->
+    <div class="back-btn-wrapper">
+        <a href="/de/" class="back-btn" aria-label="Zurück zur Hauptseite">
+            <svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            Zurück
+        </a>
+    </div>
+
+    <section>
+        <h1>Datenschutzerklärung von Lotifybot</h1>
+        <p class="legal-date"><strong>Datum des Inkrafttretens:</strong> 18. Juni 2026</p>
+        <p class="section-desc">Diese Datenschutzerklärung erklärt, welche personenbezogenen Daten wir sammeln, wie wir sie verwenden, speichern und schützen. Wir respektieren Ihre Privatsphäre und halten uns an die Anforderungen der Datenschutz-Grundverordnung (DSGVO) (EU) 2016/679 sowie an das Recht der Ukraine.</p>
+
+        <div class="neon-card">
+            <h2>1. Allgemeine Bestimmungen</h2>
+            <p><strong>1.1.</strong> Diese Datenschutzerklärung (im Folgenden – „Erklärung“) regelt das Verfahren zur Erhebung, Verarbeitung, Speicherung und zum Schutz personenbezogener Daten von Nutzern des Lotifybot-Dienstes (Bot und Website). Durch die Nutzung unseres Dienstes erklären Sie sich mit den Bedingungen dieser Erklärung einverstanden.</p>
+            <p><strong>1.2.</strong> Durch die Nutzung unseres Dienstes erteilen Sie Ihre freiwillige Zustimmung zur Verarbeitung Ihrer personenbezogenen Daten gemäß dieser Erklärung.</p>
+            <p><strong>1.3.</strong> Wir erheben und verarbeiten keine personenbezogenen Daten von Personen unter 16 Jahren ohne Zustimmung der Eltern oder Erziehungsberechtigten.</p>
+        </div>
+
+        <div class="neon-card">
+            <h2>2. Welche Daten wir sammeln</h2>
+            <p>Wir sammeln nur die Daten, die für den Betrieb des Dienstes erforderlich sind:</p>
+            <ul>
+                <li><strong>Identifikation:</strong> Ihre eindeutige Telegram-ID – zur Identifizierung des Nutzers im System, zur Gewährung des Zugangs zum Bot und zur Einrichtung von Targeting.</li>
+                <li><strong>Einstellungen:</strong> Filter, die Sie festlegen (Schlüsselwörter, Preis, Region, Kategorien) – zur Durchführung der Anzeigenüberwachung und zum Senden entsprechender Benachrichtigungen an Sie.</li>
+                <li><strong>Technische Daten:</strong> Daten über die Interaktion mit dem Bot (Anfragezeiten, Aktionsarten) – zur Verbesserung des Dienstes, Fehlerdiagnose und Analyse.</li>
+                <li><strong>Zahlungsdaten:</strong> Wir <span class="warning">erheben und verarbeiten KEINE</span> Zahlungsdaten (Kartennummern, Bankkonten). Alle Zahlungen werden über externe Zahlungssysteme (MonoBank, Apple Pay, Google Pay usw.) abgewickelt, die über eigene Datenschutzrichtlinien verfügen.</li>
+            </ul>
+        </div>
+
+        <div class="neon-card">
+            <h2>3. Wie wir Ihre Daten verwenden</h2>
+            <p><strong>3.1.</strong> Ihre Daten werden ausschließlich verwendet für:</p>
+            <ul>
+                <li>die Bereitstellung des Zugangs zum Dienst und seinen Funktionen;</li>
+                <li>das Senden von Benachrichtigungen gemäß Ihren festgelegten Kriterien;</li>
+                <li>die Verbesserung des Bot-Betriebs (Analyse, technischer Support);</li>
+                <li>die Gewährleistung der Systemsicherheit und die Verhinderung von Missbrauch.</li>
+            </ul>
+            <p><strong>3.2.</strong> Wir <span class="highlight">geben Ihre Daten nicht</span> an Dritte weiter, außer in gesetzlich vorgesehenen Fällen oder zur Gewährleistung des Betriebs des Dienstes (z. B. Hosting-Anbieter, die die technische Infrastruktur bereitstellen). Alle Partner garantieren die Vertraulichkeit der Daten.</p>
+            <p><strong>3.3.</strong> Wir speichern Ihre Daten so lange, wie es für den Betrieb des Dienstes erforderlich ist, oder bis Sie die Löschung beantragen. Die maximale Speicherdauer beträgt 12 Monate nach der letzten Aktivität. Danach werden die Daten anonymisiert oder gelöscht.</p>
+        </div>
+
+        <div class="neon-card">
+            <h2>4. Wo wir Ihre Daten speichern</h2>
+            <ul>
+                <li>Ihre Einstellungen und Ihre Kennung werden in einer gesicherten Cloud-Infrastruktur (in der EU oder in Ländern, die ein angemessenes Datenschutzniveau gewährleisten) gespeichert.</li>
+                <li>Wir speichern keinen Nachrichtenverlauf oder Korrespondenz im Bot.</li>
+                <li>Alle Daten werden nur so lange gespeichert, wie es für die Ausführung der Funktionen des Dienstes erforderlich ist.</li>
+            </ul>
+        </div>
+
+        <div class="neon-card">
+            <h2>5. Ihre Rechte als betroffene Person (DSGVO)</h2>
+            <p>Gemäß der DSGVO haben Sie das Recht auf:</p>
+            <ul>
+                <li><strong>Auskunft:</strong> Informationen darüber zu erhalten, welche Daten wir über Sie speichern.</li>
+                <li><strong>Berichtigung:</strong> unrichtige Daten zu korrigieren.</li>
+                <li><strong>Löschung:</strong> die Löschung Ihrer Daten zu verlangen („Recht auf Vergessenwerden“).</li>
+                <li><strong>Einschränkung der Verarbeitung:</strong> die Verarbeitung Ihrer Daten einzuschränken.</li>
+                <li><strong>Datenübertragbarkeit:</strong> eine Kopie Ihrer Daten in einem maschinenlesbaren Format zu erhalten.</li>
+                <li><strong>Widerspruch:</strong> der Verarbeitung Ihrer Daten für Marketingzwecke zu widersprechen.</li>
+            </ul>
+            <p>Um eines dieser Rechte auszuüben, kontaktieren Sie uns bitte über die in Abschnitt 9 angegebenen Kontaktdaten.</p>
+        </div>
+
+        <div class="neon-card">
+            <h2>6. Datenschutz</h2>
+            <p>Wir implementieren technische und organisatorische Maßnahmen zum Schutz Ihrer Daten vor unbefugtem Zugriff, Verlust, Veränderung oder Zerstörung:</p>
+            <ul>
+                <li>Verschlüsselung von Daten während der Übertragung (SSL/TLS);</li>
+                <li>eingeschränkter Zugang zu Daten nur für autorisiertes Personal;</li>
+                <li>regelmäßige Überwachung und Aktualisierung der Sicherheitssysteme;</li>
+                <li>Verwendung zuverlässiger Cloud-Dienste mit ISO-27001-Zertifizierung.</li>
+            </ul>
+        </div>
+
+        <div class="neon-card">
+            <h2>7. Cookies und ähnliche Technologien</h2>
+            <p>Unsere Website verwendet eine minimale Anzahl von Cookies ausschließlich für:</p>
+            <ul>
+                <li>die Gewährleistung der Funktionalität der Website (Speicherung der Sprachauswahl);</li>
+                <li>Analyse (Google Analytics) – wenn Sie zugestimmt haben.</li>
+            </ul>
+            <p>Wir verwenden nur technische Cookies, um die Sprachauswahl zu speichern. Analyse-Cookies (Google Analytics) werden nur mit Ihrer Zustimmung verwendet. Sie können Cookies in den Einstellungen Ihres Browsers verwalten.</p>
+        </div>
+
+        <div class="neon-card">
+            <h2>8. Links zu externen Websites</h2>
+            <p>Unser Dienst enthält Links zu externen Plattformen (OLX, eBay, Willhaben usw.). Wir sind nicht für deren Datenschutzrichtlinien verantwortlich. Wir empfehlen, diese separat zu lesen.</p>
+        </div>
+
+        <div class="neon-card">
+            <h2>9. Kontaktinformationen</h2>
+            <p>Wenn Sie Fragen zu dieser Erklärung haben oder Ihre Rechte ausüben möchten, kontaktieren Sie uns bitte:</p>
+            <ul>
+                <li><strong>Email:</strong> <a href="mailto:info@lotify.me" style="color:var(--accent-cyan);">info@lotify.me</a></li>
+                <li><strong>Telefon:</strong> <a href="tel:+380632288080" style="color:var(--accent-cyan);">+380 (63) 228 80 80</a></li>
+                <li><strong>Rechtliche Adresse:</strong> Ukraine, 01001, Kiew, Chreschtschatyk-Straße 22</li>
+            </ul>
+        </div>
+
+        <div class="neon-card">
+            <h2>10. Änderungen der Erklärung</h2>
+            <p>Wir können diese Erklärung aktualisieren. Über wesentliche Änderungen informieren wir Sie über die Website oder den Bot. Die aktuelle Version ist immer unter <a href="/de/privacy.html" style="color:var(--accent-cyan);">/privacy.html</a> (oder der entsprechenden Sprachversion) verfügbar.</p>
+        </div>
+
+        <div class="neon-card">
+            <h2>11. Gerichtsbarkeit</h2>
+            <p>Diese Erklärung unterliegt dem Recht der Ukraine. Streitigkeiten im Zusammenhang mit dieser Erklärung werden vor Gericht in der Ukraine entschieden.</p>
+        </div>
+
+        <div class="legal-footer neon-card" style="border-color: var(--safety-border);">
+            <p style="font-size: 0.8rem; color: var(--text-muted);"><strong>Letzte Aktualisierung:</strong> 18. Juni 2026</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-title">Offizieller Partner</div>
+            <div class="footer-subtitle">Soziale Netzwerke & Support</div>
+            <div class="partner-links-grid">
+                <a href="https://www.tiktok.com/@ceschess" rel="me"><span>TikTok:</span> @ceschess</a>
+                <a href="mailto:ssershils@gmail.com"><span>Email:</span> ssershils@gmail.com</a>
+                <a href="https://www.youtube.com/@lotifyme" rel="me"><span>YouTube:</span> @lotifyme</a>
+                <a href="https://t.me/AItradeout" rel="me"><span>Telegram:</span> @AItradeout</a>
+            </div>
+            <div class="footer-legal">
+                <a href="/de/privacy.html">Datenschutzerklärung</a>
+                <a href="/de/terms.html">Nutzungsbedingungen</a>
+            </div>
+            <div class="footer-fop">Einzelunternehmer gemäß der Gesetzgebung der Ukraine</div>
+            <p class="copyright">&copy; 2026 Lotifybot Infrastructure. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            document.querySelectorAll(".lang-item").forEach(button => {
+                button.addEventListener("click", (e) => {
+                    e.preventDefault();
+                    const lang = button.getAttribute("data-lang");
+                    localStorage.setItem("lotify_lang", lang);
+                    window.location.href = `/${lang}/privacy.html`;
+                });
+            });
+        });
+    </script>
+</body>
+</html>
