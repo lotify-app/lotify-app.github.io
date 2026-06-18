@@ -5,12 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, user-scalable=yes">
     <title>Lotifybot — Найшвидший парсер оголошень на OLX, eBay, Willhaben, DIM.RIA та Facebook</title>
     <meta name="description" content="Lotifybot: миттєвий парсер оголошень для OLX, eBay, Willhaben, DIM.RIA, AUTO.RIA та Facebook Marketplace. Перехоплення нових лотів до появи в загальному пошуку. Безкоштовний тест 7 днів.">
-    <meta name="keywords" content="парсер оголошень, моніторинг маркетплейсів, OLX бот, eBay моніторинг, інструмент для перепродажу, пошук житла без посередників, антикваріат, колекціонери, Lotifybot, Lotify Bot, Lotify app, DIM.RIA, AUTO.RIA">
+    <meta name="keywords" content="парсер оголошень, моніторинг маркетплейсів, OLX бот, eBay моніторинг, Willhaben, Facebook Marketplace, DIM.RIA, AUTO.RIA, інструмент для перепродажу, пошук житла без посередників, антикваріат, колекціонери, стартапи">
     <meta name="robots" content="index, follow">
     <meta property="og:title" content="Lotifybot — Найшвидший парсер оголошень на OLX, eBay, Willhaben, DIM.RIA та Facebook">
     <meta property="og:description" content="Миттєве перехоплення нових оголошень до появи в пошукових кешах платформ. Будьте першими.">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://lotify-app.github.io/images/Lotify_Logo.webp">
+    
+    <link rel="alternate" href="https://lotify-app.github.io/ua/index.html" hreflang="uk" />
+    <link rel="alternate" href="https://lotify-app.github.io/en/index.html" hreflang="en" />
+    <link rel="alternate" href="https://lotify-app.github.io/pl/index.html" hreflang="pl" />
+    <link rel="alternate" href="https://lotify-app.github.io/de/index.html" hreflang="de" />
+    <link rel="alternate" href="https://lotify-app.github.io/es/index.html" hreflang="es" />
+    <link rel="alternate" href="https://lotify-app.github.io/ru/index.html" hreflang="ru" />
+    <link rel="alternate" href="https://lotify-app.github.io/" hreflang="x-default" />
     
     <script type="application/ld+json">
     {
@@ -19,21 +27,37 @@
       "name": "Lotifybot",
       "alternateName": ["Lotify Bot", "Lotify app", "Lotify"],
       "applicationCategory": "BusinessApplication",
+      "applicationSubCategory": "Marketplace Monitoring",
       "operatingSystem": "Any",
-      "description": "Миттєвий парсер оголошень для OLX, eBay, Willhaben, Facebook Marketplace, DIM.RIA та AUTO.RIA. Перехоплення нових лотів до появи в загальному пошуку.",
-      "featureList": "Перехоплення оголошень на етапі модерації, Webhook інтеграція, сповіщення в Telegram, підтримка OLX, eBay, Willhaben, Facebook Marketplace, DIM.RIA, AUTO.RIA, 7 днів безкоштовного тесту, програма підтримки стартапів",
-      "keywords": "парсер оголошень, моніторинг маркетплейсів, OLX бот, eBay моніторинг, інструмент для перепродажу, пошук житла без посередників, антикваріат, колекціонери",
+      "softwareVersion": "2.0",
+      "description": "Миттєвий парсер оголошень для OLX, eBay, Willhaben, Facebook Marketplace, DIM.RIA та AUTO.RIA. Перехоплення нових лотів до появи в загальному пошуку. Допомагає знаходити житло без посередників, рідкісні лоти для колекціонерів та вигідні пропозиції для бізнесу.",
+      "featureList": "Перехоплення оголошень на етапі модерації, Webhook інтеграція, сповіщення в Telegram, підтримка OLX, eBay, Willhaben, Facebook Marketplace, DIM.RIA, AUTO.RIA, 7 днів безкоштовного тесту, програма підтримки стартапів (14 днів)",
+      "keywords": "парсер оголошень, моніторинг маркетплейсів, OLX бот, eBay моніторинг, Willhaben, Facebook Marketplace, DIM.RIA, AUTO.RIA, інструмент для перепродажу, пошук житла без посередників, антикваріат, колекціонери, стартапи",
       "offers": {
         "@type": "Offer",
         "price": "0",
         "priceCurrency": "USD",
-        "description": "7 днів безкоштовного тест-драйву",
+        "description": "7 днів безкоштовного тест-драйву + 14 днів за програмою підтримки стартапів для тих, хто починає свій бізнес",
         "availability": "https://schema.org/OnlineOnly"
       },
       "author": {
         "@type": "Organization",
         "name": "Lotifybot Infrastructure",
-        "url": "https://lotify-app.github.io"
+        "url": "https://lotify-app.github.io",
+        "contactPoint": [
+          {
+            "@type": "ContactPoint",
+            "email": "ssershils@gmail.com",
+            "contactType": "customer support",
+            "availableLanguage": ["Ukrainian", "English", "Russian", "Polish", "German", "Spanish"]
+          },
+          {
+            "@type": "ContactPoint",
+            "url": "https://t.me/AItradeout",
+            "contactType": "customer support",
+            "availableLanguage": ["Ukrainian", "English", "Russian", "Polish", "German", "Spanish"]
+          }
+        ]
       },
       "potentialAction": {
         "@type": "CommunicateAction",
@@ -327,35 +351,37 @@
             border: 1px solid var(--border-subtle); border-radius: 12px;
             padding: 1rem;
             position: relative;
+            overflow: visible;
         }
-        .step-item::after {
-            content: '';
-            position: absolute;
-            bottom: -2rem;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 2rem;
-            height: 2rem;
-            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2300f0ff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 5v14M5 12l7 7 7-7'/%3E%3C/svg%3E") no-repeat center;
-            background-size: contain;
-            filter: drop-shadow(0 0 8px rgba(0, 240, 255, 0.3));
-            animation: arrowPulse 1.8s ease-in-out infinite alternate;
-            z-index: 5;
-        }
-        @keyframes arrowPulse {
-            0% { opacity: 0.4; transform: translateX(-50%) scale(0.95); }
-            100% { opacity: 1; transform: translateX(-50%) scale(1.05); }
-        }
-        .step-item:last-child::after { display: none; }
-        .step-num { 
-            font-size: 1.2rem; font-weight: 900; color: var(--accent-cyan);
-            flex-shrink: 0; width: 2rem; text-align: center;
-        }
-        .step-item .step-text { font-size: 0.85rem; color: var(--text-muted); line-height: 1.4; }
         .step-item .step-text strong { color: var(--text-main); }
         .step-highlight .step-text strong { color: var(--accent-yellow); }
+        .step-item .step-text .step-result { color: var(--accent-emerald); }
         .step-item .step-desc { color: var(--text-muted); font-size: 0.85rem; line-height: 1.4; }
-        .step-item .step-result { color: var(--accent-emerald); }
+
+        .step-arrow {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 2rem;
+            width: 100%;
+            position: relative;
+            z-index: 5;
+        }
+        .step-arrow svg {
+            width: 2rem;
+            height: 2rem;
+            fill: none;
+            stroke: var(--accent-cyan);
+            stroke-width: 2.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            filter: drop-shadow(0 0 8px var(--arrow-glow));
+            animation: arrowPulse 1.8s ease-in-out infinite alternate;
+        }
+        @keyframes arrowPulse {
+            0% { opacity: 0.4; transform: scale(0.95); }
+            100% { opacity: 1; transform: scale(1.05); }
+        }
 
         .scale-grid { display: flex; flex-direction: column; gap: 1.2rem; }
         .scale-card h3 { 
@@ -533,13 +559,14 @@
             .bento-card:last-child { grid-column: 1 / -1; }
             .who-grid { grid-template-columns: repeat(3, 1fr); }
             .steps-list { display: flex; flex-direction: column; gap: 2rem; }
+            .step-arrow { height: 2.4rem; }
+            .step-arrow svg { width: 2.4rem; height: 2.4rem; }
             .safety-brief { font-size: 0.8rem; padding: 0.8rem 1.2rem; }
             .video-controls .btn-video { font-size: 0.8rem; padding: 0.5rem 1.2rem; }
             .video-transcript summary { font-size: 0.85rem; }
             .payment-icons .pay-text { font-size: 0.8rem; }
             .partner-links-grid { max-width: 800px; gap: 3rem; }
             .partner-links-grid a { font-size: 0.9rem; }
-            .step-item::after { width: 2.4rem; height: 2.4rem; bottom: -2rem; }
         }
         @media (max-width: 767px) {
             .partner-links-grid { flex-wrap: wrap; gap: 0.8rem; max-width: 100%; }
@@ -548,7 +575,8 @@
             .btn-icon svg { width: 24px; height: 24px; }
             .btn-text .btn-main { font-size: 0.8rem; }
             .btn-text .btn-free { font-size: 0.75rem; }
-            .step-item::after { width: 1.6rem; height: 1.6rem; bottom: -1.4rem; }
+            .step-arrow { height: 1.6rem; }
+            .step-arrow svg { width: 1.6rem; height: 1.6rem; }
             .usecase-grid { max-width: 100%; }
             .usecase-card p { padding-left: 0; }
             .payment-icons .pay-text { font-size: 0.6rem; }
@@ -685,21 +713,36 @@
                 <div class="step-num">🚀</div>
                 <div class="step-text"><strong>Запуск бота</strong><br><span class="step-desc">Не вимагає реєстрації на жодній платформі!</span></div>
             </div>
+            <div class="step-arrow">
+                <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+            </div>
             <div class="step-item neon-card">
                 <div class="step-num">⚙️</div>
                 <div class="step-text"><strong>Налаштування</strong><br><span class="step-desc">Ви обираєте місто, категорію та інші фільтри для точного налаштування (наприклад, «вази XIX століття, Відень», тільки нові оголошення, діапазон цін та ін.).</span></div>
+            </div>
+            <div class="step-arrow">
+                <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
             </div>
             <div class="step-item neon-card">
                 <div class="step-num">☁️</div>
                 <div class="step-text"><strong>Парсинг</strong><br><span class="step-desc">Бот працює у хмарі та постійно моніторить оголошення за певними критеріями, перевіряючи їх раз на секунду (в залежності від тарифного плану).</span></div>
             </div>
+            <div class="step-arrow">
+                <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+            </div>
             <div class="step-item neon-card">
                 <div class="step-num">🎯</div>
                 <div class="step-text"><strong>Таргетинг</strong><br><span class="step-desc">Бот ловить оголошення в момент публікації або на етапі модерації на платформі.</span></div>
             </div>
+            <div class="step-arrow">
+                <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+            </div>
             <div class="step-item neon-card">
                 <div class="step-num">📲</div>
                 <div class="step-text"><strong>Отримання сповіщення</strong><br><span class="step-desc">Вам приходить посилання в бота та в Telegram за частки секунди.</span></div>
+            </div>
+            <div class="step-arrow">
+                <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
             </div>
             <div class="step-item neon-card">
                 <div class="step-num">🏆</div>
@@ -877,26 +920,12 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            const supported = ["ua", "en", "pl", "de", "es", "ru"];
-            
-            function getLang() {
-                const saved = localStorage.getItem("lotify_lang");
-                if (saved && supported.includes(saved)) return saved;
-                const browser = (navigator.language || navigator.userLanguage).split("-")[0].toLowerCase();
-                return supported.includes(browser) ? browser : "ua";
-            }
-
-            const target = getLang();
-            if (target !== "ua") {
-                window.location.replace(`/${target}/index.html`);
-            }
-
             document.querySelectorAll(".lang-item").forEach(button => {
                 button.addEventListener("click", (e) => {
                     e.preventDefault();
                     const lang = button.getAttribute("data-lang");
                     localStorage.setItem("lotify_lang", lang);
-                    window.location.href = (lang === "ua") ? "/index.html" : `/${lang}/index.html`;
+                    window.location.href = (lang === "en") ? "/index.html" : `/${lang}/index.html`;
                 });
             });
 
