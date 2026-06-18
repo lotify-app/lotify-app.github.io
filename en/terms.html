@@ -166,32 +166,34 @@
             transform: scale(1.2);
         }
 
-        /* Back button */
+        /* Back button — static, not fixed */
+        .back-btn-wrapper {
+            padding: 0.8rem 1rem 0 1rem;
+            max-width: 1100px;
+            margin: 0 auto;
+            text-align: left;
+        }
         .back-btn {
-            position: fixed;
-            top: 4.2rem;
-            left: 1rem;
-            z-index: 99;
-            color: var(--accent-cyan);
-            font-size: 1.4rem;
-            text-decoration: none;
-            background: rgba(0,0,0,0.5);
-            padding: 0.4rem 0.8rem;
-            border-radius: 8px;
-            border: 1px solid var(--border-subtle);
-            transition: background 0.2s, transform 0.2s;
             display: inline-flex;
             align-items: center;
             gap: 0.4rem;
+            color: var(--accent-cyan);
+            font-size: 1rem;
             font-weight: 600;
+            text-decoration: none;
+            background: rgba(0,0,0,0.4);
+            padding: 0.3rem 0.8rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-subtle);
+            transition: background 0.2s, transform 0.2s;
         }
         .back-btn:hover {
             background: rgba(0,240,255,0.1);
             transform: scale(1.05);
         }
         .back-btn svg {
-            width: 1.4rem;
-            height: 1.4rem;
+            width: 1.2rem;
+            height: 1.2rem;
             fill: none;
             stroke: currentColor;
             stroke-width: 2.5;
@@ -199,7 +201,7 @@
             stroke-linejoin: round;
         }
 
-        section { padding: 2.5rem 1rem; width: 100%; max-width: 1100px; margin: 0 auto; position: relative; }
+        section { padding: 1rem 1rem 2.5rem 1rem; width: 100%; max-width: 1100px; margin: 0 auto; position: relative; }
         h1 { 
             font-size: 1.7rem; font-weight: 900; letter-spacing: -0.04em; text-align: center; margin-bottom: 0.8rem;
             background: linear-gradient(135deg, #ffffff 40%, #a3b3cc 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
@@ -221,7 +223,7 @@
             box-shadow: 14px 14px 30px -4px var(--neon-glow); 
             position: relative; overflow: hidden;
             transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s;
-            margin-bottom: 1.2rem; /* <-- Доданий відступ між блоками */
+            margin-bottom: 1.2rem;
         }
         .neon-card:last-child { margin-bottom: 0; }
         .neon-card p { color: var(--text-muted); font-size: 0.85rem; line-height: 1.6; margin-bottom: 0.6rem; }
@@ -232,21 +234,8 @@
         .neon-card .highlight { color: var(--accent-emerald); }
         .neon-card .warning { color: var(--accent-error); }
 
-        .grant-box { text-align: center; }
-        .grant-box .grant-sub {
-            color: var(--text-main);
-            font-weight: 600;
-            font-size: 0.9rem;
-            margin-bottom: 0.8rem;
-        }
-        .grant-box p { 
-            color: var(--text-muted); 
-            font-size: 0.78rem; 
-            margin-bottom: 0.8rem; 
-        }
-
         .legal-footer { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border-subtle); text-align: center; }
-        .legal-footer p { color: var(--text-muted); font-size: 0.7rem; line-height: 1.6; }
+        .legal-footer ul { list-style: none; padding-left: 0; }
 
         .contact-divider {
             border: none;
@@ -310,10 +299,11 @@
             .logo-img { width: 2.4rem; height: 2.4rem; }
             .logo { font-size: 1.6rem; }
             .official-tag { font-size: 0.55rem; }
-            .back-btn { top: 5.2rem; left: 2rem; font-size: 1.2rem; padding: 0.4rem 1rem; }
+            .back-btn-wrapper { padding: 1rem 2rem 0 2rem; }
+            .back-btn { font-size: 1.1rem; padding: 0.4rem 1rem; }
             h1 { font-size: 2.8rem; }
             h2 { font-size: 1.8rem; }
-            section { padding: 3.5rem 2rem; }
+            section { padding: 1.5rem 2rem 3.5rem 2rem; }
             .neon-card { padding: 2rem; margin-bottom: 1.5rem; }
             .partner-links-grid { max-width: 800px; gap: 3rem; }
             .partner-links-grid a { font-size: 0.9rem; }
@@ -342,6 +332,7 @@
         </div>
         
         <nav class="lang-container" aria-label="Languages">
+            <!-- FIXED ORDER: UA, EN, PL, DE, ES, RU -->
             <a href="/ua/terms.html" class="lang-item" data-lang="ua" aria-label="Українська"><svg class="flag-svg" viewBox="0 0 3 2"><rect width="3" height="1" fill="#0057b7"/><rect y="1" width="3" height="1" fill="#ffd700"/></svg><span class="lang-text">UA</span></a>
             <a href="/en/terms.html" class="lang-item active" data-lang="en" aria-label="English"><svg class="flag-svg" viewBox="0 0 60 30"><clipPath id="s"><path d="M0,0 v30 h60 v-30 z"/></clipPath><path d="M0,0 v30 h60 v-30 z" fill="#012169"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#C8102E" stroke-width="4"/><path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/><path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/></svg><span class="lang-text">EN</span></a>
             <a href="/pl/terms.html" class="lang-item" data-lang="pl" aria-label="Polski"><svg class="flag-svg" viewBox="0 0 8 5"><rect width="8" height="2.5" fill="#fff"/><rect y="2.5" width="8" height="2.5" fill="#dc143c"/></svg><span class="lang-text">PL</span></a>
@@ -351,11 +342,13 @@
         </nav>
     </header>
 
-    <!-- Back button -->
-    <a href="/en/" class="back-btn" aria-label="Back to main page">
-        <svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-        Back
-    </a>
+    <!-- Back button wrapper – static, before section -->
+    <div class="back-btn-wrapper">
+        <a href="/en/" class="back-btn" aria-label="Back to main page">
+            <svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            Back
+        </a>
+    </div>
 
     <section>
         <h1>Terms of Service for Lotifybot</h1>
@@ -482,7 +475,7 @@
 
         <div class="legal-footer neon-card" style="border-color: var(--safety-border);">
             <h3 style="color: var(--accent-yellow); text-align: center; margin-top: 0;">Important Notes for the User</h3>
-            <ul style="list-style: none; padding-left: 0;">
+            <ul>
                 <li>✔ This document has legal force and is binding on both parties.</li>
                 <li>✔ By using the Service, you confirm that you have reached the age of majority under the laws of your country and have the right to enter into such agreements.</li>
                 <li>✔ If you use the Service on behalf of a legal entity, you guarantee that you have all necessary authority to enter into this agreement.</li>
