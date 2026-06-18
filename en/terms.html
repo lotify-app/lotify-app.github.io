@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+    <title>Terms of Service — Lotifybot</title>
+    <meta name="description" content="Terms of Service for Lotifybot. Official agreement between the user and the administration. Complies with GDPR and Ukrainian legislation.">
+    <meta name="robots" content="noindex, follow">
+    <meta property="og:title" content="Terms of Service — Lotifybot">
+    <meta property="og:description" content="Terms of Service for Lotifybot. Official agreement between the user and the administration.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://lotify-app.github.io/images/Lotify_Logo.webp">
+    
+    <link rel="alternate" href="https://lotify-app.github.io/en/terms.html" hreflang="en" />
+    <link rel="alternate" href="https://lotify-app.github.io/ua/terms.html" hreflang="uk" />
+    <link rel="alternate" href="https://lotify-app.github.io/pl/terms.html" hreflang="pl" />
+    <link rel="alternate" href="https://lotify-app.github.io/de/terms.html" hreflang="de" />
+    <link rel="alternate" href="https://lotify-app.github.io/es/terms.html" hreflang="es" />
+    <link rel="alternate" href="https://lotify-app.github.io/ru/terms.html" hreflang="ru" />
+    <link rel="alternate" href="https://lotify-app.github.io/terms.html" hreflang="x-default" />
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LegalDocument",
+      "name": "Terms of Service of Lotifybot",
+      "inLanguage": "en",
+      "jurisdiction": "Ukraine",
+      "applicableCountry": "UA",
+      "datePublished": "2026-06-18",
+      "dateModified": "2026-06-18",
+      "potentialAction": {
+        "@type": "CommunicateAction",
+        "name": "Start using Lotifybot",
+        "target": "https://t.me/lotifybot?start=1088875712"
+      },
+      "author": {
+        "@type": "Organization",
+        "name": "Sole Proprietor (FOP)",
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "UA"
+        },
+        "contactPoint": [
+          {
+            "@type": "ContactPoint",
+            "email": "ssershils@gmail.com",
+            "contactType": "technical support"
+          },
+          {
+            "@type": "ContactPoint",
+            "url": "https://t.me/AItradeout",
+            "contactType": "technical support"
+          },
+          {
+            "@type": "ContactPoint",
+            "email": "support@lotify.me",
+            "contactType": "legal support"
+          },
+          {
+            "@type": "ContactPoint",
+            "url": "https://t.me/lotifysupport",
+            "contactType": "legal support"
+          }
+        ]
+      }
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg: #030305;
+            --surface-glass: rgba(13, 13, 18, 0.7);
+            --card-glass: rgba(18, 18, 26, 0.8);
+            --border-glow: rgba(0, 240, 255, 0.35);
+            --border-subtle: rgba(255, 255, 255, 0.05);
+            --text-main: #f3f4f6;
+            --text-muted: #7e8c9f;
+            --accent-cyan: #00f0ff;
+            --accent-blue: #0077ff;
+            --accent-yellow: #fff500;
+            --accent-emerald: #00ffaa;
+            --accent-error: #ff3366;
+            --neon-glow: rgba(0, 240, 255, 0.15);
+            --safety-border: rgba(0, 255, 170, 0.3);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', system-ui, sans-serif; -webkit-tap-highlight-color: transparent; }
+        
+        body { 
+            background-color: var(--bg); 
+            color: var(--text-main); 
+            overflow-x: hidden; 
+            line-height: 1.6;
+            padding-top: 3.2rem;
+        }
+
+        .aurora-blur {
+            position: absolute; width: 60vw; height: 60vw; max-width: 500px; max-height: 500px;
+            background: radial-gradient(circle, rgba(0, 240, 255, 0.07) 0%, rgba(0,0,0,0) 70%);
+            top: -10%; left: 50%; transform: translate(-50%, 0);
+            z-index: 0; pointer-events: none; filter: blur(80px);
+            animation: auroraPulse 8s ease-in-out infinite alternate;
+        }
+        @keyframes auroraPulse {
+            0% { opacity: 0.6; transform: translate(-50%, 0) scale(1); }
+            100% { opacity: 1; transform: translate(-50%, 5%) scale(1.1); }
+        }
+
+        header {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 0.4rem 1rem; position: fixed; width: 100%; top: 0; left: 0;
+            background: rgba(3, 3, 5, 0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            z-index: 100; border-bottom: 1px solid var(--border-subtle);
+            height: 3.2rem;
+        }
+        .logo-block { display: flex; align-items: center; gap: 0.5rem; }
+        .logo-img { 
+            width: 1.8rem; height: 1.8rem; border-radius: 50%; 
+            object-fit: cover; flex-shrink: 0;
+            border: 1px solid var(--border-glow);
+        }
+        .logo-text { display: flex; flex-direction: column; justify-content: center; }
+        .logo { font-size: 1.15rem; font-weight: 900; letter-spacing: -0.03em; line-height: 1; }
+        .logo span { color: var(--accent-cyan); text-shadow: 0 0 15px rgba(0, 240, 255, 0.3); }
+        .official-tag { font-size: 0.5rem; color: var(--accent-yellow); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-top: 1px; }
+        
+        .lang-container { display: flex; gap: 0.5rem; align-items: center; }
+        .lang-item { 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            cursor: pointer; 
+            text-decoration: none; 
+            transition: transform 0.2s ease;
+            transform-origin: center;
+        }
+        .flag-svg {
+            width: 16px;
+            height: 11px;
+            border-radius: 1px;
+            object-fit: cover;
+            opacity: 0.3;
+            transition: opacity 0.2s ease;
+        }
+        .lang-item.active .flag-svg {
+            opacity: 1;
+        }
+        .lang-text {
+            font-size: 0.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-top: 2px;
+            color: var(--text-main);
+            opacity: 1;
+            transition: color 0.2s ease;
+        }
+        .lang-item.active .lang-text {
+            color: var(--accent-yellow);
+        }
+        .lang-item.active {
+            transform: scale(1.2);
+        }
+
+        /* Back button */
+        .back-btn {
+            position: fixed;
+            top: 4.2rem;
+            left: 1rem;
+            z-index: 99;
+            color: var(--accent-cyan);
+            font-size: 1.4rem;
+            text-decoration: none;
+            background: rgba(0,0,0,0.5);
+            padding: 0.4rem 0.8rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-subtle);
+            transition: background 0.2s, transform 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-weight: 600;
+        }
+        .back-btn:hover {
+            background: rgba(0,240,255,0.1);
+            transform: scale(1.05);
+        }
+        .back-btn svg {
+            width: 1.4rem;
+            height: 1.4rem;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        section { padding: 2.5rem 1rem; width: 100%; max-width: 1100px; margin: 0 auto; position: relative; }
+        h1 { 
+            font-size: 1.7rem; font-weight: 900; letter-spacing: -0.04em; text-align: center; margin-bottom: 0.8rem;
+            background: linear-gradient(135deg, #ffffff 40%, #a3b3cc 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        h2 { 
+            font-size: 1.3rem; font-weight: 800; letter-spacing: -0.03em; text-align: left; margin: 1.5rem 0 0.8rem 0;
+            background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-blue) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        h2:first-of-type { margin-top: 0; }
+        h3 {
+            font-size: 1rem; font-weight: 700; color: var(--text-main); margin: 1rem 0 0.4rem 0;
+        }
+        .section-desc { text-align: center; color: var(--text-muted); font-size: 0.9rem; max-width: 600px; margin: 0 auto 2rem auto; }
+        .legal-date { text-align: center; color: var(--text-muted); font-size: 0.8rem; margin-bottom: 2rem; }
+
+        .neon-card {
+            background: var(--card-glass); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--border-subtle); padding: 1.5rem; border-radius: 14px; 
+            box-shadow: 14px 14px 30px -4px var(--neon-glow); 
+            position: relative; overflow: hidden;
+            transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s;
+            margin-bottom: 1.2rem; /* <-- Доданий відступ між блоками */
+        }
+        .neon-card:last-child { margin-bottom: 0; }
+        .neon-card p { color: var(--text-muted); font-size: 0.85rem; line-height: 1.6; margin-bottom: 0.6rem; }
+        .neon-card p:last-child { margin-bottom: 0; }
+        .neon-card ul { padding-left: 1.5rem; margin: 0.5rem 0 0.8rem 0; }
+        .neon-card ul li { color: var(--text-muted); font-size: 0.85rem; line-height: 1.6; margin-bottom: 0.3rem; }
+        .neon-card strong { color: var(--text-main); }
+        .neon-card .highlight { color: var(--accent-emerald); }
+        .neon-card .warning { color: var(--accent-error); }
+
+        .grant-box { text-align: center; }
+        .grant-box .grant-sub {
+            color: var(--text-main);
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 0.8rem;
+        }
+        .grant-box p { 
+            color: var(--text-muted); 
+            font-size: 0.78rem; 
+            margin-bottom: 0.8rem; 
+        }
+
+        .legal-footer { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border-subtle); text-align: center; }
+        .legal-footer p { color: var(--text-muted); font-size: 0.7rem; line-height: 1.6; }
+
+        .contact-divider {
+            border: none;
+            border-top: 1px solid var(--border-subtle);
+            margin: 1.5rem 0;
+        }
+
+        footer { background: #010102; border-top: 1px solid var(--border-subtle); padding: 2.5rem 1rem 1.5rem 1rem; }
+        .footer-container { max-width: 1000px; margin: 0 auto; width: 100%; text-align: center; }
+        .footer-container .footer-title { 
+            font-size: 0.9rem; font-weight: 800; 
+            color: var(--accent-yellow); 
+            letter-spacing: 0.02em; margin-bottom: 0.2rem; 
+            text-align: center; background: none; -webkit-text-fill-color: initial; 
+            line-height: 1.3;
+        }
+        .footer-container .footer-subtitle {
+            font-size: 0.9rem; font-weight: 800;
+            color: var(--text-main);
+            letter-spacing: 0.02em; margin-bottom: 1.5rem;
+            text-align: center; background: none; -webkit-text-fill-color: initial;
+            line-height: 1.3;
+        }
+        
+        .partner-links-grid {
+            display: flex; flex-wrap: nowrap; justify-content: center; gap: 2.5rem;
+            margin: 0 auto 1.5rem auto;
+            max-width: 700px;
+        }
+        .partner-links-grid a {
+            color: var(--accent-cyan); text-decoration: none; 
+            font-size: 0.75rem; font-weight: 700;
+            display: inline-flex; align-items: center; gap: 0.3rem;
+            transition: color 0.2s;
+            border: none;
+            white-space: nowrap;
+        }
+        .partner-links-grid a span { color: var(--text-muted); font-weight: 400; }
+        .partner-links-grid a:hover { color: #fff; }
+
+        .footer-legal { 
+            display: flex; justify-content: center; gap: 1.5rem; 
+            flex-wrap: wrap; margin: 1rem 0;
+            font-size: 0.65rem;
+        }
+        .footer-legal a { 
+            color: var(--text-muted); text-decoration: none; 
+            border-bottom: 1px dashed rgba(255,255,255,0.05);
+        }
+        .footer-legal a:hover { color: var(--text-main); }
+
+        .footer-fop { 
+            font-size: 0.55rem; color: var(--text-muted); 
+            margin-top: 0.8rem; opacity: 0.6;
+        }
+        .copyright { font-size: 0.55rem; color: #323947; border-top: 1px solid rgba(255,255,255,0.01); padding-top: 1rem; margin-top: 0.5rem; }
+
+        @media (min-width: 768px) {
+            body { padding-top: 4.5rem; }
+            header { height: 4.5rem; padding: 0.5rem 2rem; }
+            .logo-img { width: 2.4rem; height: 2.4rem; }
+            .logo { font-size: 1.6rem; }
+            .official-tag { font-size: 0.55rem; }
+            .back-btn { top: 5.2rem; left: 2rem; font-size: 1.2rem; padding: 0.4rem 1rem; }
+            h1 { font-size: 2.8rem; }
+            h2 { font-size: 1.8rem; }
+            section { padding: 3.5rem 2rem; }
+            .neon-card { padding: 2rem; margin-bottom: 1.5rem; }
+            .partner-links-grid { max-width: 800px; gap: 3rem; }
+            .partner-links-grid a { font-size: 0.9rem; }
+        }
+        @media (max-width: 767px) {
+            .partner-links-grid { flex-wrap: wrap; gap: 0.8rem; max-width: 100%; }
+            .partner-links-grid a { font-size: 0.8rem; }
+        }
+        @media (max-width: 420px) {
+            .partner-links-grid a { font-size: 0.7rem; }
+            .partner-links-grid { gap: 0.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="aurora-blur"></div>
+
+    <header>
+        <div class="logo-block">
+            <img src="/images/Lotify_Logo.webp" alt="Lotifybot Logo" class="logo-img" width="36" height="36" loading="lazy">
+            <div class="logo-text">
+                <div class="logo">Lotify<span>bot</span></div>
+                <div class="official-tag">Official Information Hub</div>
+            </div>
+        </div>
+        
+        <nav class="lang-container" aria-label="Languages">
+            <a href="/ua/terms.html" class="lang-item" data-lang="ua" aria-label="Українська"><svg class="flag-svg" viewBox="0 0 3 2"><rect width="3" height="1" fill="#0057b7"/><rect y="1" width="3" height="1" fill="#ffd700"/></svg><span class="lang-text">UA</span></a>
+            <a href="/en/terms.html" class="lang-item active" data-lang="en" aria-label="English"><svg class="flag-svg" viewBox="0 0 60 30"><clipPath id="s"><path d="M0,0 v30 h60 v-30 z"/></clipPath><path d="M0,0 v30 h60 v-30 z" fill="#012169"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#C8102E" stroke-width="4"/><path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/><path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/></svg><span class="lang-text">EN</span></a>
+            <a href="/pl/terms.html" class="lang-item" data-lang="pl" aria-label="Polski"><svg class="flag-svg" viewBox="0 0 8 5"><rect width="8" height="2.5" fill="#fff"/><rect y="2.5" width="8" height="2.5" fill="#dc143c"/></svg><span class="lang-text">PL</span></a>
+            <a href="/de/terms.html" class="lang-item" data-lang="de" aria-label="Deutsch"><svg class="flag-svg" viewBox="0 0 5 3"><rect width="5" height="1" fill="#000"/><rect y="1" width="5" height="1" fill="#dd0000"/><rect y="2" width="5" height="1" fill="#ffce00"/></svg><span class="lang-text">DE</span></a>
+            <a href="/es/terms.html" class="lang-item" data-lang="es" aria-label="Español"><svg class="flag-svg" viewBox="0 0 3 2"><rect width="3" height="2" fill="#c60b1e"/><rect y="0.5" width="3" height="1" fill="#ffc400"/></svg><span class="lang-text">ES</span></a>
+            <a href="/ru/terms.html" class="lang-item" data-lang="ru" aria-label="Русский"><svg class="flag-svg" viewBox="0 0 9 6"><rect width="9" height="2" fill="#fff"/><rect y="2" width="9" height="2" fill="#0039a6"/><rect y="4" width="9" height="2" fill="#d52b1e"/></svg><span class="lang-text">RU</span></a>
+        </nav>
+    </header>
+
+    <!-- Back button -->
+    <a href="/en/" class="back-btn" aria-label="Back to main page">
+        <svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        Back
+    </a>
+
+    <section>
+        <h1>Terms of Service for Lotifybot</h1>
+        <p class="legal-date"><strong>Effective Date:</strong> June 18, 2026</p>
+        <p class="section-desc">This document is the official agreement between You ("User") and the Sole Proprietor ("Administration", "We", "Our"), which owns and operates the Lotifybot service. By using the Service, you agree to the terms of this agreement.</p>
+
+        <div class="neon-card">
+            <h2>1. General Provisions</h2>
+            <p><strong>1.1.</strong> These Terms of Service govern the relationship between the Administration and the User regarding the use of the Lotifybot Service, which provides information services in the form of notifications about new publications on third-party trading platforms (OLX, eBay, Willhaben, Facebook Marketplace, AUTO.RIA, DIM.RIA, and others).</p>
+            <p><strong>1.2.</strong> The Service is provided as an informational and analytical tool and is not a trading platform, payment agent, or participant in purchase and sale transactions.</p>
+            <p><strong>1.3.</strong> All legal relations arising from these Terms are governed by the laws of Ukraine. Disputes that cannot be resolved through negotiations are subject to consideration by the courts of Ukraine at the location of the Administration.</p>
+            <p><strong>1.4.</strong> These Terms are developed in accordance with the requirements of the General Data Protection Regulation (GDPR) (EU) 2016/679 and other applicable international legal norms in the field of personal data protection.</p>
+        </div>
+
+        <div class="neon-card">
+            <h2>2. Subject of the Agreement. Description of Services</h2>
+            <p><strong>2.1.</strong> The Administration provides the User with access to the Service, which allows:</p>
+            <ul>
+                <li>receiving notifications about new listings on external platforms (OLX, eBay, Willhaben, Facebook Marketplace, AUTO.RIA, DIM.RIA, etc.) based on criteria set by the User (keywords, price, region, category, etc.);</li>
+                <li>following the link to the original listing on the source site;</li>
+                <li>using additional features provided by the tariff plan (webhooks, database integration, private channels, etc.).</li>
+            </ul>
+            <p><strong>2.2.</strong> The User is identified in the Service solely by a unique Telegram identifier (Telegram ID). Registration on the website is not required. An account is created automatically upon the first contact with the Telegram bot.</p>
+            <p><strong>2.3.</strong> <span class="warning">The Service does not process payments directly.</span> All financial transactions are carried out through the Telegram bot using third-party payment services (MonoBank, Apple Pay, Google Pay, etc.). The Administration does not store or process the User's payment information.</p>
+            <p><strong>2.4.</strong> The Service provides only links to the original listings and does not participate in the conclusion, execution, or security of any transactions between the User and third parties. The User is solely responsible for all actions related to the purchase of goods or services through links obtained via the Service.</p>
+        </div>
+
+        <div class="neon-card">
+            <h2>3. Rights and Obligations of the Parties</h2>
+            <h3>3.1. The Administration undertakes to:</h3>
+            <ul>
+                <li>provide the User with access to the Service in accordance with the selected tariff plan;</li>
+                <li>provide technical support to Users through communication channels specified on the website (Telegram, email);</li>
+                <li>process the User's personal data exclusively in accordance with the <a href="/en/privacy.html" style="color:var(--accent-cyan);">Privacy Policy</a>, in compliance with GDPR requirements;</li>
+                <li>inform the User about significant changes in the operation of the Service or in these Terms.</li>
+            </ul>
+
+            <h3>3.2. The Administration has the right to:</h3>
+            <ul>
+                <li>change the functionality of the Service, tariff plans, and service prices with prior notice to Users;</li>
+                <li>suspend or restrict access to the Service in case of violations of these Terms or threats to system security;</li>
+                <li>delete or block User accounts that violate these Terms or use the Service for illegal purposes.</li>
+            </ul>
+
+            <h3>3.3. The User undertakes to:</h3>
+            <ul>
+                <li>use the Service exclusively for lawful purposes, without violating the rights of third parties or applicable law;</li>
+                <li>independently verify the accuracy of information about the seller, product, or service on external platforms before entering into a transaction;</li>
+                <li>not take actions aimed at disrupting the Service, hacking, overloading, or unauthorized access to the system;</li>
+                <li>not use the Service for mass spam distribution, harassment, fraud, or other illegal activities;</li>
+                <li>read these Terms and the Privacy Policy before starting to use the Service.</li>
+            </ul>
+
+            <h3>3.4. The User has the right to:</h3>
+            <ul>
+                <li>receive notifications according to the configured criteria;</li>
+                <li>change or cancel the subscription at any time via the Telegram bot;</li>
+                <li>contact the support service to resolve technical issues or questions related to the operation of the Service;</li>
+                <li>refuse to use the Service at any time by stopping using the bot and deleting the settings.</li>
+            </ul>
+        </div>
+
+        <div class="neon-card">
+            <h2>4. Payment and Tariffs</h2>
+            <p><strong>4.1.</strong> The Service is provided on a paid subscription basis with the possibility of a free trial period (usually 7–14 days). The specific conditions, cost, and duration of the trial period are determined on the tariff page in the Telegram bot.</p>
+            <p><strong>4.2.</strong> Payment is made via the Telegram bot using third-party payment systems (MonoBank, Apple Pay, Google Pay, etc.). The Administration does not have access to the User's payment information, such as bank card numbers or account details.</p>
+            <p><strong>4.3.</strong> The subscription is automatically renewed for the next billing period unless the User cancels it before the end of the current period. Subscription cancellation is carried out via the Telegram bot.</p>
+            <p><strong>4.4.</strong> The Administration has the right to change the subscription price by notifying Users of the changes at least 14 days before the new tariffs come into effect.</p>
+        </div>
+
+        <div class="neon-card">
+            <h2>5. Liability of the Parties and Limitation of Liability</h2>
+            <p><strong>5.1.</strong> The Service is provided to the User "as is" (AS-IS) without any express or implied warranties, including but not limited to warranties of accuracy, completeness, timeliness, security, or uninterrupted operation.</p>
+            <p><strong>5.2.</strong> The Administration makes all reasonable efforts to ensure the stable operation of the Service but does not guarantee that the Service will be error-free or continuously available. Technical failures, scheduled maintenance, third-party actions, or force majeure may affect the operation of the Service.</p>
+            <p><strong>5.3.</strong> <span class="warning">The Administration is not liable for:</span></p>
+            <ul>
+                <li>any damages (direct, indirect, incidental, special, or punitive) incurred by the User in connection with the use or inability to use the Service, including but not limited to loss of profits, data, or business reputation;</li>
+                <li>the quality, accuracy, relevance, or safety of goods or services purchased by the User on external platforms via links obtained through the Service;</li>
+                <li>any actions or omissions of sellers or buyers on external platforms, including fraudulent actions;</li>
+                <li>technical failures on external platforms that may affect the operation of the Service or the availability of listings.</li>
+            </ul>
+            <p><strong>5.4.</strong> The total liability of the Administration to the User for any claims related to these Terms or the use of the Service is limited to the cost of the subscription paid by the User for one month in which the basis for liability arose.</p>
+            <p><strong>5.5.</strong> The User bears full responsibility for the use of the Service and for all actions performed using their account (Telegram ID). The User is obliged to ensure the security of access to their Telegram account and not to transfer it to third parties.</p>
+        </div>
+
+        <div class="neon-card">
+            <h2>6. Intellectual Property</h2>
+            <p><strong>6.1.</strong> All materials posted on the website and in the Lotifybot Telegram bot, including but not limited to texts, logos, graphics, design, service name, and source code, are the property of the Administration or are used on a legal basis.</p>
+            <p><strong>6.2.</strong> The User is not entitled to copy, reproduce, distribute, modify, or use any materials of the Service without the prior written consent of the Administration, except as expressly provided by law.</p>
+            <p><strong>6.3.</strong> Trademarks, logos, and other designations belonging to third parties (names of platforms OLX, eBay, Willhaben, Facebook, AUTO.RIA, DIM.RIA, etc.) are the property of the respective copyright holders and are used solely to identify the platforms with which the Service interacts.</p>
+        </div>
+
+        <div class="neon-card">
+            <h2>7. Suspension and Termination</h2>
+            <p><strong>7.1.</strong> The Administration reserves the right to suspend or completely block the User's access to the Service in case of violation of any of the provisions of these Terms, as well as in cases provided for by the current legislation of Ukraine or international norms.</p>
+            <p><strong>7.2.</strong> The User has the right to stop using the Service and cancel the subscription at any time via the Telegram bot. Funds for the unused subscription period are not refunded, except in cases provided for by applicable law.</p>
+            <p><strong>7.3.</strong> Termination of these Terms does not release the parties from fulfilling obligations that arose before the termination, including but not limited to obligations regarding payment and compensation for damages.</p>
+        </div>
+
+        <div class="neon-card">
+            <h2>8. Dispute Resolution</h2>
+            <p><strong>8.1.</strong> All disputes arising in connection with the execution of these Terms shall be attempted to be resolved by the parties through negotiations. To this end, the User should contact the support service indicated on the website.</p>
+            <p><strong>8.2.</strong> If the dispute cannot be resolved through negotiations within 30 (thirty) calendar days from the date of receipt by one of the parties of a written claim, it shall be subject to consideration by the courts of Ukraine at the location of the Administration in accordance with the current legislation of Ukraine.</p>
+            <p><strong>8.3.</strong> Relations not regulated by these Terms shall be governed by the legislation of Ukraine, including the rules of private international law.</p>
+        </div>
+
+        <div class="neon-card">
+            <h2>9. Amendment of Terms</h2>
+            <p><strong>9.1.</strong> The Administration has the right to amend these Terms at any time. Users will be notified of material changes via the website or the Telegram bot no later than 14 days before the new version comes into effect.</p>
+            <p><strong>9.2.</strong> Continued use of the Service after the new version of the Terms comes into effect means the User's full and unconditional acceptance of the new terms. If the User does not agree to the changes, they must stop using the Service and cancel the subscription.</p>
+            <p><strong>9.3.</strong> The current version of the Terms is always available on the website at <a href="/en/terms.html" style="color:var(--accent-cyan);">/terms.html</a> (or the corresponding language version).</p>
+        </div>
+
+        <div class="neon-card">
+            <h2>10. Contact Information</h2>
+            
+            <h3 style="color: var(--accent-cyan);">Legal Matters and Additional Support</h3>
+            <ul>
+                <li><strong>Phone:</strong> <a href="tel:+380632288080" style="color:var(--accent-cyan);">+380 (63) 228 80 80</a></li>
+                <li><strong>Email:</strong> <a href="mailto:support@lotify.me" style="color:var(--accent-cyan);">support@lotify.me</a></li>
+            </ul>
+            <p style="font-size: 0.8rem; color: var(--text-muted);">These contacts are intended for resolving legal, financial, and other official matters related to the operation of the bot.</p>
+        </div>
+
+        <div class="legal-footer neon-card" style="border-color: var(--safety-border);">
+            <h3 style="color: var(--accent-yellow); text-align: center; margin-top: 0;">Important Notes for the User</h3>
+            <ul style="list-style: none; padding-left: 0;">
+                <li>✔ This document has legal force and is binding on both parties.</li>
+                <li>✔ By using the Service, you confirm that you have reached the age of majority under the laws of your country and have the right to enter into such agreements.</li>
+                <li>✔ If you use the Service on behalf of a legal entity, you guarantee that you have all necessary authority to enter into this agreement.</li>
+                <li>✔ We respect your privacy. All issues regarding the processing of personal data are governed by a separate document – the <a href="/en/privacy.html" style="color:var(--accent-cyan);">Privacy Policy</a>, which is an integral part of these Terms.</li>
+            </ul>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-title">Official Partner</div>
+            <div class="footer-subtitle">Socials & Support</div>
+            <div class="partner-links-grid">
+                <a href="https://www.tiktok.com/@ceschess" rel="me"><span>TikTok:</span> @ceschess</a>
+                <a href="mailto:ssershils@gmail.com"><span>Email:</span> ssershils@gmail.com</a>
+                <a href="https://www.youtube.com/@lotifyme" rel="me"><span>YouTube:</span> @lotifyme</a>
+                <a href="https://t.me/AItradeout" rel="me"><span>Telegram:</span> @AItradeout</a>
+            </div>
+            <div class="footer-legal">
+                <a href="/en/privacy.html">Privacy Policy</a>
+                <a href="/en/terms.html">Terms of Service</a>
+            </div>
+            <div class="footer-fop">Sole Proprietor under the legislation of Ukraine</div>
+            <p class="copyright">&copy; 2026 Lotifybot Infrastructure. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            document.querySelectorAll(".lang-item").forEach(button => {
+                button.addEventListener("click", (e) => {
+                    e.preventDefault();
+                    const lang = button.getAttribute("data-lang");
+                    localStorage.setItem("lotify_lang", lang);
+                    window.location.href = `/${lang}/terms.html`;
+                });
+            });
+        });
+    </script>
+</body>
+</html>
