@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+    <title>Lotifybot — El parser de anuncios más rápido para OLX, eBay, Willhaben, DIM.RIA y Facebook</title>
+    <meta name="description" content="Lotifybot: parser de anuncios ultrarrápido para OLX, eBay, Willhaben, DIM.RIA, AUTO.RIA y Facebook Marketplace. Intercepta nuevos anuncios instantáneamente antes de que aparezcan en la búsqueda general. Prueba gratuita de 7 días.">
+    <meta name="keywords" content="parser de anuncios, monitoreo de marketplaces, bot OLX, monitoreo eBay, Willhaben, Facebook Marketplace, DIM.RIA, AUTO.RIA, herramienta de reventa, buscar vivienda sin agentes, antigüedades, coleccionistas, startups">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Lotifybot — El parser de anuncios más rápido para OLX, eBay, Willhaben, DIM.RIA y Facebook">
+    <meta property="og:description" content="Intercepta nuevos anuncios instantáneamente antes de que aparezcan en la caché de búsqueda de las plataformas. Sé el primero.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://lotify-app.github.io/images/Lotify_Logo.webp">
+    
+    <link rel="alternate" href="https://lotify-app.github.io/ua/index.html" hreflang="uk" />
+    <link rel="alternate" href="https://lotify-app.github.io/en/index.html" hreflang="en" />
+    <link rel="alternate" href="https://lotify-app.github.io/pl/index.html" hreflang="pl" />
+    <link rel="alternate" href="https://lotify-app.github.io/de/index.html" hreflang="de" />
+    <link rel="alternate" href="https://lotify-app.github.io/es/index.html" hreflang="es" />
+    <link rel="alternate" href="https://lotify-app.github.io/ru/index.html" hreflang="ru" />
+    <link rel="alternate" href="https://lotify-app.github.io/" hreflang="x-default" />
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Lotifybot",
+      "alternateName": ["Lotify Bot", "Lotify app", "Lotify"],
+      "applicationCategory": "BusinessApplication",
+      "applicationSubCategory": "Marketplace Monitoring",
+      "operatingSystem": "Any",
+      "softwareVersion": "2.0",
+      "description": "Parser de anuncios instantáneo para OLX, eBay, Willhaben, Facebook Marketplace, DIM.RIA y AUTO.RIA. Intercepta nuevos anuncios antes de que aparezcan en la búsqueda general. Ayuda a encontrar vivienda sin agentes, artículos raros para coleccionistas y ofertas rentables para negocios.",
+      "featureList": "Intercepta anuncios en la etapa de moderación, integración con Webhooks, notificaciones por Telegram, soporte para OLX, eBay, Willhaben, Facebook Marketplace, DIM.RIA, AUTO.RIA, prueba gratuita de 7 días, programa de apoyo a startups (14 días)",
+      "keywords": "parser de anuncios, monitoreo de marketplaces, bot OLX, monitoreo eBay, Willhaben, Facebook Marketplace, DIM.RIA, AUTO.RIA, herramienta de reventa, buscar vivienda sin agentes, antigüedades, coleccionistas, startups",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "description": "Prueba gratuita de 7 días + 14 días bajo el programa de apoyo a startups para quienes inician su negocio",
+        "availability": "https://schema.org/OnlineOnly"
+      },
+      "author": {
+        "@type": "Organization",
+        "name": "Lotifybot Infrastructure",
+        "url": "https://lotify-app.github.io",
+        "contactPoint": [
+          {
+            "@type": "ContactPoint",
+            "email": "ssershils@gmail.com",
+            "contactType": "customer support",
+            "availableLanguage": ["Spanish", "Ukrainian", "English", "Polish", "German", "Russian"]
+          },
+          {
+            "@type": "ContactPoint",
+            "url": "https://t.me/AItradeout",
+            "contactType": "customer support",
+            "availableLanguage": ["Spanish", "Ukrainian", "English", "Polish", "German", "Russian"]
+          }
+        ]
+      },
+      "potentialAction": {
+        "@type": "CommunicateAction",
+        "name": "Obtener acceso gratuito",
+        "target": "https://t.me/lotifybot?start=1088875712"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "ratingCount": "127"
+      },
+      "sameAs": [
+        "https://t.me/lotifybot",
+        "https://www.youtube.com/@lotifyme",
+        "https://www.tiktok.com/@ceschess"
+      ]
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg: #030305;
+            --surface-glass: rgba(13, 13, 18, 0.7);
+            --card-glass: rgba(18, 18, 26, 0.8);
+            --border-glow: rgba(0, 240, 255, 0.35);
+            --border-subtle: rgba(255, 255, 255, 0.05);
+            --text-main: #f3f4f6;
+            --text-muted: #7e8c9f;
+            --accent-cyan: #00f0ff;
+            --accent-blue: #0077ff;
+            --accent-yellow: #fff500;
+            --accent-emerald: #00ffaa;
+            --accent-error: #ff3366;
+            --neon-glow: rgba(0, 240, 255, 0.15);
+            --safety-border: rgba(0, 255, 170, 0.3);
+            --arrow-glow: rgba(0, 240, 255, 0.3);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', system-ui, sans-serif; -webkit-tap-highlight-color: transparent; }
+        
+        body { 
+            background-color: var(--bg); 
+            color: var(--text-main); 
+            overflow-x: hidden; 
+            line-height: 1.4;
+            padding-top: 3.2rem;
+        }
+
+        .aurora-blur {
+            position: absolute; width: 60vw; height: 60vw; max-width: 500px; max-height: 500px;
+            background: radial-gradient(circle, rgba(0, 240, 255, 0.07) 0%, rgba(0,0,0,0) 70%);
+            top: -10%; left: 50%; transform: translate(-50%, 0);
+            z-index: 0; pointer-events: none; filter: blur(80px);
+            animation: auroraPulse 8s ease-in-out infinite alternate;
+        }
+        @keyframes auroraPulse {
+            0% { opacity: 0.6; transform: translate(-50%, 0) scale(1); }
+            100% { opacity: 1; transform: translate(-50%, 5%) scale(1.1); }
+        }
+
+        header {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 0.4rem 1rem; position: fixed; width: 100%; top: 0; left: 0;
+            background: rgba(3, 3, 5, 0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            z-index: 100; border-bottom: 1px solid var(--border-subtle);
+            height: 3.2rem;
+        }
+        .logo-block { display: flex; align-items: center; gap: 0.5rem; }
+        .logo-img { 
+            width: 1.8rem; height: 1.8rem; border-radius: 50%; 
+            object-fit: cover; flex-shrink: 0;
+            border: 1px solid var(--border-glow);
+        }
+        .logo-text { display: flex; flex-direction: column; justify-content: center; }
+        .logo { font-size: 1.15rem; font-weight: 900; letter-spacing: -0.03em; line-height: 1; }
+        .logo span { color: var(--accent-cyan); text-shadow: 0 0 15px rgba(0, 240, 255, 0.3); }
+        .official-tag { font-size: 0.5rem; color: var(--accent-yellow); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-top: 1px; }
+        
+        .lang-container { display: flex; gap: 0.5rem; align-items: center; }
+        .lang-item { display: flex; flex-direction: column; align-items: center; cursor: pointer; opacity: 0.3; text-decoration: none; }
+        .lang-item.active { opacity: 1; }
+        .flag-svg { width: 16px; height: 11px; border-radius: 1px; object-fit: cover; }
+        .lang-text { font-size: 0.5rem; font-weight: 700; text-transform: uppercase; margin-top: 2px; color: var(--text-main); }
+
+        .top-marquee {
+            background: #010102; width: 100%; overflow: hidden; display: flex;
+            border-bottom: 1px solid var(--border-subtle); height: 2rem; align-items: center;
+            position: relative; z-index: 2;
+        }
+        .marquee-track {
+            display: flex;
+            width: max-content;
+            animation: runMarquee 60s linear infinite;
+            will-change: transform;
+        }
+        .marquee-group { display: flex; align-items: center; flex-shrink: 0; }
+        .marquee-el { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.7rem; font-weight: 800; color: var(--text-muted); padding: 0 2rem; white-space: nowrap; }
+        .marquee-el span { color: var(--accent-cyan); font-weight: 400; }
+
+        @keyframes runMarquee {
+            0% { transform: translate3d(0, 0, 0); }
+            100% { transform: translate3d(-50%, 0, 0); }
+        }
+
+        .hero { 
+            display: flex; flex-direction: column; align-items: center;
+            text-align: center; padding: 1.2rem 1rem 0 1rem; position: relative; z-index: 1;
+            width: 100%; max-width: 600px; margin: 0 auto;
+        }
+        h1 { 
+            font-size: 1.7rem; font-weight: 900; letter-spacing: -0.04em; line-height: 1.1; margin-bottom: 0.4rem;
+            background: linear-gradient(135deg, #ffffff 40%, #a3b3cc 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        h1 span { background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-blue) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero p { color: var(--text-muted); font-size: 0.8rem; max-width: 420px; margin: 0 auto 0.6rem auto; line-height: 1.3; }
+
+        .hero .cta-container { margin-top: 1rem; margin-bottom: 1.5rem; }
+        .cta-container { display: flex; flex-direction: column; align-items: center; width: 100%; }
+        
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            padding: 0.7rem 3rem 0.7rem 0.1rem;
+            background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-blue) 100%); 
+            color: #000; font-weight: 900; font-size: 0.9rem;
+            border-radius: 10px; text-decoration: none; width: 100%; max-width: 290px;
+            cursor: pointer; border: none; 
+            box-shadow: 0 0 35px rgba(0, 240, 255, 0.45), inset 0 2px 4px rgba(255, 255, 255, 0.4), inset 0 -2px 4px rgba(0, 0, 0, 0.2);
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
+        }
+        .btn:hover { transform: scale(1.02); box-shadow: 0 0 50px rgba(0, 240, 255, 0.6), inset 0 2px 4px rgba(255, 255, 255, 0.5); }
+        .btn:active { transform: scale(0.96); box-shadow: 0 0 15px rgba(0, 240, 255, 0.3), inset 0 2px 6px rgba(0, 0, 0, 0.3); }
+        .btn:focus-visible { outline: 2px solid var(--accent-yellow); outline-offset: 2px; }
+        .btn-icon { flex-shrink: 0; line-height: 0; display: flex; align-items: center; }
+        .btn-icon svg { width: 28px; height: 28px; }
+        .btn-text { display: flex; flex-direction: column; align-items: center; line-height: 1.2; }
+        .btn-text .btn-main { font-size: 0.9rem; font-weight: 900; }
+        .btn-text .btn-free { font-size: 0.85rem; font-weight: 900; text-transform: uppercase; }
+        .btn-label { font-size: 0.65rem; color: var(--accent-yellow); font-weight: 900; letter-spacing: 0.06em; text-transform: uppercase; margin-top: 0.4rem; }
+
+        .hero-video-container { 
+            width: 100%; max-width: 260px; aspect-ratio: 1 / 1.4;
+            border: 1px solid var(--border-glow); border-radius: 14px; overflow: hidden; 
+            background: #000; box-shadow: 0 15px 40px rgba(0, 0, 0, 0.9);
+            position: relative; display: flex;
+        }
+        .hero-inline-video { width: 100%; height: 100%; display: block; object-fit: contain; }
+
+        .video-controls {
+            display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem;
+            margin-top: 0.6rem; width: 100%;
+        }
+        .video-controls .btn-video {
+            background: rgba(255,255,255,0.06);
+            border: 1px solid var(--border-subtle);
+            color: var(--text-main);
+            padding: 0.4rem 0.8rem;
+            border-radius: 8px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+        .video-controls .btn-video:hover { background: rgba(255,255,255,0.12); }
+        .video-controls .btn-video:focus-visible { outline: 2px solid var(--accent-yellow); outline-offset: 2px; }
+
+        .video-transcript {
+            width: 100%;
+            margin-top: 0.4rem;
+            text-align: left;
+        }
+        .video-transcript summary {
+            color: var(--accent-cyan);
+            font-weight: 600;
+            font-size: 0.75rem;
+            cursor: pointer;
+            padding: 0.3rem 0;
+            border-bottom: 1px dashed rgba(0, 240, 255, 0.15);
+        }
+        .video-transcript summary:hover { color: #fff; }
+        .video-transcript .transcript-text {
+            background: rgba(0, 240, 255, 0.04);
+            border-left: 2px solid var(--accent-cyan);
+            padding: 0.8rem;
+            border-radius: 0 8px 8px 0;
+            margin-top: 0.4rem;
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        .safety-brief {
+            background: rgba(0, 255, 170, 0.05);
+            border: 1px solid var(--safety-border);
+            border-radius: 12px;
+            padding: 0.7rem 1rem;
+            margin-top: 0.8rem;
+            width: 100%;
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            text-align: center;
+            line-height: 1.5;
+        }
+        .safety-brief strong { color: var(--accent-emerald); }
+
+        section { padding: 2.5rem 1rem; width: 100%; max-width: 1100px; margin: 0 auto; position: relative; }
+        h2 { font-size: 1.5rem; font-weight: 900; letter-spacing: -0.03em; text-align: center; margin-bottom: 0.4rem; background: linear-gradient(135deg, #fff 40%, #7e8c9f 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        h2 span { background: linear-gradient(135deg, var(--accent-yellow) 0%, #ffaa00 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .section-desc { text-align: center; color: var(--text-muted); font-size: 0.8rem; max-width: 440px; margin: 0 auto 1.5rem auto; }
+
+        .neon-card {
+            background: var(--card-glass); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--border-subtle); padding: 1.2rem; border-radius: 14px; 
+            box-shadow: 14px 14px 30px -4px var(--neon-glow); 
+            position: relative; overflow: hidden;
+            transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.2s, border-color 0.2s;
+        }
+        .neon-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .neon-card.hidden-up {
+            opacity: 0;
+            transform: translateY(-30px);
+        }
+        .neon-card:hover { 
+            border-color: var(--border-glow);
+            box-shadow: 20px 20px 40px -4px var(--neon-glow);
+            transform: translateY(-2px);
+        }
+
+        .bento-stack { display: flex; flex-direction: column; gap: 1.2rem; }
+        .bento-card { text-align: center; }
+        .bento-card h3 { font-size: 1rem; color: var(--accent-cyan); margin-bottom: 0.4rem; display: flex; align-items: center; justify-content: center; gap: 0.4rem; }
+        .bento-card p.main-text { color: var(--text-main); font-size: 0.85rem; font-weight: 600; margin-bottom: 0.4rem; }
+        .bento-card p.detail-text { color: var(--text-muted); font-size: 0.75rem; line-height: 1.45; border-top: 1px solid rgba(255,255,255,0.03); padding-top: 0.4rem; }
+
+        .timeline-grid { display: flex; flex-direction: column; gap: 1.2rem; }
+        .time-card {
+            border-left: 3px solid transparent;
+        }
+        .time-card.bad { border-left-color: var(--accent-error); }
+        .time-card.good { border-left-color: var(--accent-emerald); }
+        .time-card h3 { 
+            font-size: 1.1rem; 
+            margin-bottom: 0.5rem; 
+            color: var(--text-main);
+        }
+        .time-card p { 
+            color: var(--text-muted); 
+            font-size: 0.9rem; 
+            line-height: 1.45; 
+            margin: 0;
+        }
+        .badge { 
+            display: inline-block; font-size: 0.55rem; font-weight: 800; text-transform: uppercase; 
+            padding: 0.15rem 0.4rem; border-radius: 4px; margin-top: 0.5rem; 
+        }
+        .bad .badge { background: rgba(255, 51, 102, 0.08); color: var(--accent-error); }
+        .good .badge { background: rgba(0, 255, 170, 0.08); color: var(--accent-emerald); }
+
+        .who-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; }
+        .who-item { 
+            background: var(--card-glass); backdrop-filter: blur(10px);
+            border: 1px solid var(--border-subtle); border-radius: 12px;
+            padding: 1rem 0.8rem;
+            text-align: center;
+            transition: border-color 0.2s;
+        }
+        .who-item:hover { border-color: var(--border-glow); }
+        .who-item .who-icon { font-size: 2rem; display: block; margin-bottom: 0.2rem; }
+        .who-item .who-name { font-size: 0.9rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.2rem; }
+        .who-item .who-desc { font-size: 0.75rem; color: var(--text-muted); line-height: 1.3; }
+
+        .steps-list { display: flex; flex-direction: column; position: relative; }
+        .step-item {
+            display: flex; gap: 1rem; align-items: flex-start;
+            background: var(--card-glass); backdrop-filter: blur(10px);
+            border: 1px solid var(--border-subtle); border-radius: 12px;
+            padding: 1rem;
+            position: relative;
+            overflow: visible;
+        }
+        .step-item .step-text strong { color: var(--text-main); }
+        .step-highlight .step-text strong { color: var(--accent-yellow); }
+        .step-item .step-text .step-result { color: var(--accent-emerald); }
+        .step-item .step-desc { color: var(--text-muted); font-size: 0.85rem; line-height: 1.4; }
+
+        .step-arrow {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 2rem;
+            width: 100%;
+            position: relative;
+            z-index: 5;
+        }
+        .step-arrow svg {
+            width: 2rem;
+            height: 2rem;
+            fill: none;
+            stroke: var(--accent-cyan);
+            stroke-width: 2.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            filter: drop-shadow(0 0 8px var(--arrow-glow));
+            animation: arrowPulse 1.8s ease-in-out infinite alternate;
+        }
+        @keyframes arrowPulse {
+            0% { opacity: 0.4; transform: scale(0.95); }
+            100% { opacity: 1; transform: scale(1.05); }
+        }
+
+        .scale-grid { display: flex; flex-direction: column; gap: 1.2rem; }
+        .scale-card h3 { 
+            font-size: 1.1rem; 
+            margin-bottom: 0.5rem; 
+            color: var(--text-main);
+        }
+        .scale-card h3 span { color: var(--accent-cyan); }
+        .scale-card p { 
+            color: var(--text-muted); 
+            font-size: 0.9rem; 
+            line-height: 1.45; 
+            margin: 0;
+        }
+
+        .usecase-grid { display: flex; flex-direction: column; gap: 1.2rem; max-width: 600px; margin: 0 auto; }
+        .usecase-card h3 { 
+            font-size: 1.1rem; 
+            margin-bottom: 0.5rem; 
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .usecase-card h3 .usecase-icon {
+            width: 1.6rem;
+            height: 1.6rem;
+            flex-shrink: 0;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .usecase-card h3 .usecase-icon svg {
+            width: 100%;
+            height: 100%;
+            fill: var(--accent-cyan);
+        }
+        .usecase-card p { 
+            color: var(--text-muted); 
+            font-size: 0.9rem; 
+            line-height: 1.45; 
+            margin: 0;
+            padding-left: 2.1rem;
+        }
+
+        .grant-box { text-align: center; }
+        .grant-box h3 { 
+            font-size: 1.1rem; 
+            color: var(--accent-yellow); 
+            margin-bottom: 0.4rem; 
+            text-align: center;
+        }
+        .grant-box .grant-sub {
+            color: var(--text-main);
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 0.8rem;
+        }
+        .grant-box p { 
+            color: var(--text-muted); 
+            font-size: 0.78rem; 
+            margin-bottom: 0.8rem; 
+        }
+        .grant-steps { 
+            display: flex; flex-direction: column; gap: 0.5rem; 
+            font-size: 0.75rem; text-align: left;
+            padding-left: 1.5rem;
+        }
+        .grant-step { 
+            display: flex; gap: 0.5rem; 
+            color: var(--text-muted); 
+            align-items: baseline;
+        }
+        .grant-num { 
+            background: rgba(255, 245, 0, 0.08); 
+            color: var(--accent-yellow); 
+            font-weight: 800; 
+            width: 18px; height: 18px; 
+            display: inline-flex; align-items: center; justify-content: center; 
+            border-radius: 4px; flex-shrink: 0; 
+            font-size: 0.6rem;
+        }
+        .grant-step .bot-id {
+            font-family: monospace;
+            color: var(--accent-cyan);
+            font-weight: 400;
+        }
+        .grant-step .inline-id {
+            display: inline;
+        }
+
+        .price-note { 
+            font-size: 0.7rem; color: var(--text-muted); 
+            margin-top: 1rem; letter-spacing: 0.03em;
+        }
+        .payment-icons {
+            display: flex; justify-content: center; gap: 1.5rem;
+            margin-top: 0.5rem;
+        }
+        .payment-icons .pay-text {
+            color: var(--text-muted);
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+        }
+
+        .pre-footer-cta { padding: 1.5rem 1rem 3rem 1rem; text-align: center; position: relative; z-index: 5; }
+
+        footer { background: #010102; border-top: 1px solid var(--border-subtle); padding: 2.5rem 1rem 1.5rem 1rem; }
+        .footer-container { max-width: 1000px; margin: 0 auto; width: 100%; text-align: center; }
+        .footer-container .footer-title { 
+            font-size: 0.9rem; font-weight: 800; 
+            color: var(--accent-yellow); 
+            letter-spacing: 0.02em; margin-bottom: 0.2rem; 
+            text-align: center; background: none; -webkit-text-fill-color: initial; 
+            line-height: 1.3;
+        }
+        .footer-container .footer-subtitle {
+            font-size: 0.9rem; font-weight: 800;
+            color: var(--text-main);
+            letter-spacing: 0.02em; margin-bottom: 1.5rem;
+            text-align: center; background: none; -webkit-text-fill-color: initial;
+            line-height: 1.3;
+        }
+        
+        .partner-links-grid {
+            display: flex; flex-wrap: nowrap; justify-content: center; gap: 2.5rem;
+            margin: 0 auto 1.5rem auto;
+            max-width: 700px;
+        }
+        .partner-links-grid a {
+            color: var(--accent-cyan); text-decoration: none; 
+            font-size: 0.75rem; font-weight: 700;
+            display: inline-flex; align-items: center; gap: 0.3rem;
+            transition: color 0.2s;
+            border: none;
+            white-space: nowrap;
+        }
+        .partner-links-grid a span { color: var(--text-muted); font-weight: 400; }
+        .partner-links-grid a:hover { color: #fff; }
+
+        .footer-legal { 
+            display: flex; justify-content: center; gap: 1.5rem; 
+            flex-wrap: wrap; margin: 1rem 0;
+            font-size: 0.65rem;
+        }
+        .footer-legal a { 
+            color: var(--text-muted); text-decoration: none; 
+            border-bottom: 1px dashed rgba(255,255,255,0.05);
+        }
+        .footer-legal a:hover { color: var(--text-main); }
+
+        .footer-fop { 
+            font-size: 0.55rem; color: var(--text-muted); 
+            margin-top: 0.8rem; opacity: 0.6;
+        }
+        .copyright { font-size: 0.55rem; color: #323947; border-top: 1px solid rgba(255,255,255,0.01); padding-top: 1rem; margin-top: 0.5rem; }
+
+        @media (min-width: 768px) {
+            body { padding-top: 4.5rem; }
+            header { height: 4.5rem; padding: 0.5rem 2rem; }
+            .logo-img { width: 2.4rem; height: 2.4rem; }
+            .logo { font-size: 1.6rem; }
+            .official-tag { font-size: 0.55rem; }
+            h2 { font-size: 2.2rem; }
+            .hero { max-width: 1000px; padding: 2.5rem 2rem; }
+            .hero h1 { font-size: 3rem; margin-bottom: 0.8rem; }
+            .hero p { font-size: 1rem; max-width: 540px; margin-bottom: 1.5rem; }
+            .hero .cta-container { margin-bottom: 2rem; }
+            .hero-video-container { max-width: 320px; }
+            .timeline-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+            .scale-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+            .usecase-grid { max-width: 700px; }
+            .bento-stack { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+            .bento-card:last-child { grid-column: 1 / -1; }
+            .who-grid { grid-template-columns: repeat(3, 1fr); }
+            .steps-list { display: flex; flex-direction: column; }
+            .step-arrow { height: 2.4rem; }
+            .step-arrow svg { width: 2.4rem; height: 2.4rem; }
+            .safety-brief { font-size: 0.8rem; padding: 0.8rem 1.2rem; }
+            .video-controls .btn-video { font-size: 0.8rem; padding: 0.5rem 1.2rem; }
+            .video-transcript summary { font-size: 0.85rem; }
+            .payment-icons .pay-text { font-size: 0.8rem; }
+            .partner-links-grid { max-width: 800px; gap: 3rem; }
+            .partner-links-grid a { font-size: 0.9rem; }
+        }
+        @media (max-width: 767px) {
+            .partner-links-grid { flex-wrap: wrap; gap: 0.8rem; max-width: 100%; }
+            .partner-links-grid a { font-size: 0.8rem; }
+            .who-grid { grid-template-columns: 1fr 1fr; }
+            .btn-icon svg { width: 24px; height: 24px; }
+            .btn-text .btn-main { font-size: 0.8rem; }
+            .btn-text .btn-free { font-size: 0.75rem; }
+            .step-arrow { height: 1.6rem; }
+            .step-arrow svg { width: 1.6rem; height: 1.6rem; }
+            .usecase-grid { max-width: 100%; }
+            .usecase-card p { padding-left: 0; }
+            .payment-icons .pay-text { font-size: 0.6rem; }
+        }
+        @media (max-width: 420px) {
+            .who-grid { grid-template-columns: 1fr 1fr; gap: 0.5rem; }
+            .who-item { padding: 0.6rem; }
+            .who-item .who-icon { font-size: 1.6rem; }
+            .who-item .who-name { font-size: 0.8rem; }
+            .who-item .who-desc { font-size: 0.65rem; }
+            .partner-links-grid a { font-size: 0.7rem; }
+            .partner-links-grid { gap: 0.5rem; }
+        }
+        @media (min-width: 768px) and (max-width: 1024px) {
+            .usecase-grid { max-width: 600px; }
+            .who-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="aurora-blur"></div>
+
+    <header>
+        <div class="logo-block">
+            <img src="/images/Lotify_Logo.webp" alt="Lotifybot Logo" class="logo-img" width="36" height="36" loading="lazy">
+            <div class="logo-text">
+                <div class="logo">Lotify<span>bot</span></div>
+                <div class="official-tag">Centro de información oficial</div>
+            </div>
+        </div>
+        
+        <nav class="lang-container" aria-label="Idiomas">
+            <a href="#" class="lang-item" data-lang="ua" aria-label="Українська"><svg class="flag-svg" viewBox="0 0 3 2"><rect width="3" height="1" fill="#0057b7"/><rect y="1" width="3" height="1" fill="#ffd700"/></svg><span class="lang-text">UA</span></a>
+            <a href="#" class="lang-item" data-lang="en" aria-label="English"><svg class="flag-svg" viewBox="0 0 60 30"><clipPath id="s"><path d="M0,0 v30 h60 v-30 z"/></clipPath><path d="M0,0 v30 h60 v-30 z" fill="#012169"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#C8102E" stroke-width="4"/><path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/><path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/></svg><span class="lang-text">EN</span></a>
+            <a href="#" class="lang-item" data-lang="pl" aria-label="Polski"><svg class="flag-svg" viewBox="0 0 8 5"><rect width="8" height="2.5" fill="#fff"/><rect y="2.5" width="8" height="2.5" fill="#dc143c"/></svg><span class="lang-text">PL</span></a>
+            <a href="#" class="lang-item" data-lang="de" aria-label="Deutsch"><svg class="flag-svg" viewBox="0 0 5 3"><rect width="5" height="1" fill="#000"/><rect y="1" width="5" height="1" fill="#dd0000"/><rect y="2" width="5" height="1" fill="#ffce00"/></svg><span class="lang-text">DE</span></a>
+            <a href="#" class="lang-item active" data-lang="es" aria-label="Español"><svg class="flag-svg" viewBox="0 0 3 2"><rect width="3" height="2" fill="#c60b1e"/><rect y="0.5" width="3" height="1" fill="#ffc400"/></svg><span class="lang-text">ES</span></a>
+            <a href="#" class="lang-item" data-lang="ru" aria-label="Русский"><svg class="flag-svg" viewBox="0 0 9 6"><rect width="9" height="2" fill="#fff"/><rect y="2" width="9" height="2" fill="#0039a6"/><rect y="4" width="9" height="2" fill="#d52b1e"/></svg><span class="lang-text">RU</span></a>
+        </nav>
+    </header>
+
+    <div class="top-marquee">
+        <div class="marquee-track">
+            <div class="marquee-group">
+                <div class="marquee-el">🌐 OLX <span>(ua, kz, pl, ro, bg, pt, uz)</span></div>
+                <div class="marquee-el">🌐 eBay <span>(Mercados globales, europeos y americanos)</span></div>
+                <div class="marquee-el">🇦🇹 Willhaben <span>(Austria — todos los estados)</span></div>
+                <div class="marquee-el">🇺🇦 AUTO.RIA / DIM.RIA <span>(Monitoreo de autos y bienes raíces)</span></div>
+                <div class="marquee-el">🌐 Facebook Marketplace <span>(Scouting global)</span></div>
+            </div>
+            <div class="marquee-group" aria-hidden="true">
+                <div class="marquee-el">🌐 OLX <span>(ua, kz, pl, ro, bg, pt, uz)</span></div>
+                <div class="marquee-el">🌐 eBay <span>(Mercados globales, europeos y americanos)</span></div>
+                <div class="marquee-el">🇦🇹 Willhaben <span>(Austria — todos los estados)</span></div>
+                <div class="marquee-el">🇺🇦 AUTO.RIA / DIM.RIA <span>(Monitoreo de autos y bienes raíces)</span></div>
+                <div class="marquee-el">🌐 Facebook Marketplace <span>(Scouting global)</span></div>
+            </div>
+            <div class="marquee-group" aria-hidden="true">
+                <div class="marquee-el">🌐 OLX <span>(ua, kz, pl, ro, bg, pt, uz)</span></div>
+                <div class="marquee-el">🌐 eBay <span>(Mercados globales, europeos y americanos)</span></div>
+                <div class="marquee-el">🇦🇹 Willhaben <span>(Austria — todos los estados)</span></div>
+                <div class="marquee-el">🇺🇦 AUTO.RIA / DIM.RIA <span>(Monitoreo de autos y bienes raíces)</span></div>
+                <div class="marquee-el">🌐 Facebook Marketplace <span>(Scouting global)</span></div>
+            </div>
+        </div>
+    </div>
+
+    <section class="hero">
+        <h1>Lotifybot — El parser de anuncios más rápido para <span>OLX, eBay, Willhaben, DIM.RIA y Facebook</span></h1>
+        <p>Intercepta nuevos anuncios instantáneamente antes de que aparezcan en la caché de búsqueda de las plataformas. Sé el primero.</p>
+        
+        <div class="cta-container">
+            <a href="https://t.me/lotifybot?start=1088875712" class="btn" target="_blank" rel="noopener noreferrer">
+                <span class="btn-icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+                </span>
+                <span class="btn-text">
+                    <span class="btn-main">Lanzar bot</span>
+                    <span class="btn-free">gratis</span>
+                </span>
+            </a>
+            <div class="btn-label">🎁 7 días de prueba gratuita</div>
+        </div>
+
+        <div class="hero-video-container" id="videoWrapper">
+            <video class="hero-inline-video" controls autoplay muted loop playsinline id="mainVideo" loading="lazy">
+                <source src="https://github.com/user-attachments/assets/369e129b-9e05-446a-bf6d-62d65d63448b" type="video/mp4">
+            </video>
+        </div>
+
+        <div class="video-controls">
+            <a href="https://www.youtube.com/shorts/UekLmkkqbQI" class="btn-video" target="_blank" rel="noopener noreferrer">
+                ▶ Ver en YouTube
+            </a>
+            <button class="btn-video" onclick="document.getElementById('transcript').open = !document.getElementById('transcript').open;" aria-expanded="false">
+                📄 Mostrar transcripción
+            </button>
+        </div>
+
+        <details class="video-transcript" id="transcript">
+            <summary>Transcripción del video</summary>
+            <div class="transcript-text">
+                <p>¿Alguna vez te has preguntado por qué no puedes conseguir una buena oferta en eBay? Porque el 95% de los usuarios terminan comprando artículos sobrevalorados. Pero, ¿cómo te conviertes en parte del 5% que siempre gana? La verdad es simple: usan Lotify, una herramienta basada en la nube que te notifica en el momento en que se publica un nuevo artículo. No pierdas tu oportunidad. Sé el primero. Sé rápido. ¡Sé con Lotify!</p>
+            </div>
+        </details>
+
+        <div class="safety-brief">
+            <strong>🔒 Seguro para tu cuenta:</strong> Lotifybot nunca se autentica en las plataformas, no deja rastros, no viola las leyes de datos públicos. Tu IP y login no se utilizan. <strong>0 bloqueos en 2 años.</strong>
+        </div>
+    </section>
+
+    <section id="utility">
+        <h2>La velocidad como <span>capital</span></h2>
+        <p class="section-desc">Comparación de la velocidad de procesamiento de los flujos de datos entrantes del marketplace.</p>
+        <div class="timeline-grid">
+            <div class="time-card neon-card bad">
+                <h3>🚫 Monitoreo manual de anuncios</h3>
+                <p>Actualización interminable de páginas. La demora de la caché del marketplace es de 2 a 15 minutos. Los activos líquidos se van a los revendedores.</p>
+                <div class="badge">Estado: Pérdida de ganancias</div>
+            </div>
+            <div class="time-card neon-card good">
+                <h3>⚡ Flujo de Lotifybot</h3>
+                <p>Interceptación directa de metadatos en el momento de la publicación. Entrega de notificaciones dirigidas a tu Telegram en fracciones de segundo.</p>
+                <div class="badge">Estado: Trato cerrado primero</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="how-it-works">
+        <h2>Cómo <span>funciona</span></h2>
+        <div class="steps-list">
+            <div class="step-item step-highlight neon-card">
+                <div class="step-num">🚀</div>
+                <div class="step-text"><strong>Iniciar el bot</strong><br><span class="step-desc">¡No requiere registro en ninguna plataforma!</span></div>
+            </div>
+            <div class="step-arrow">
+                <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+            </div>
+            <div class="step-item neon-card">
+                <div class="step-num">⚙️</div>
+                <div class="step-text"><strong>Configuración</strong><br><span class="step-desc">Eliges la ciudad, la categoría y otros filtros para un ajuste preciso (por ejemplo, "jarrones del siglo XIX, Viena", solo anuncios nuevos, rango de precios, etc.).</span></div>
+            </div>
+            <div class="step-arrow">
+                <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+            </div>
+            <div class="step-item neon-card">
+                <div class="step-num">☁️</div>
+                <div class="step-text"><strong>Análisis</strong><br><span class="step-desc">El bot funciona en la nube y monitorea constantemente los anuncios según los criterios especificados, verificándolos cada segundo (según el plan tarifario).</span></div>
+            </div>
+            <div class="step-arrow">
+                <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+            </div>
+            <div class="step-item neon-card">
+                <div class="step-num">🎯</div>
+                <div class="step-text"><strong>Segmentación</strong><br><span class="step-desc">El bot detecta el anuncio en el momento de la publicación o durante la moderación en la plataforma.</span></div>
+            </div>
+            <div class="step-arrow">
+                <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+            </div>
+            <div class="step-item neon-card">
+                <div class="step-num">📲</div>
+                <div class="step-text"><strong>Recibir notificación</strong><br><span class="step-desc">Recibes un enlace en el bot y en Telegram en fracciones de segundo.</span></div>
+            </div>
+            <div class="step-arrow">
+                <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+            </div>
+            <div class="step-item neon-card">
+                <div class="step-num">🏆</div>
+                <div class="step-text"><strong class="step-result">Resultado</strong><br><span class="step-desc">¡Eres el primero!</span></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="who-uses">
+        <h2>Quién ya <span>usa</span> Lotifybot</h2>
+        <div class="who-grid">
+            <div class="who-item neon-card"><span class="who-icon">🏠</span><div class="who-name">Redes inmobiliarias</div><div class="who-desc">Monitoreo de nuevas propiedades de propietarios</div></div>
+            <div class="who-item neon-card"><span class="who-icon">🏺</span><div class="who-name">Clubs de antigüedades</div><div class="who-desc">Interceptación de lotes raros antes que los competidores</div></div>
+            <div class="who-item neon-card"><span class="who-icon">🎮</span><div class="who-name">Coleccionistas</div><div class="who-desc">Búsqueda de consolas, vinilos, monedas, sellos</div></div>
+            <div class="who-item neon-card"><span class="who-icon">🚛</span><div class="who-name">Servicios de compra de autos</div><div class="who-desc">Alertas instantáneas sobre nuevos anuncios de autos en todas las plataformas</div></div>
+            <div class="who-item neon-card"><span class="who-icon">🎓</span><div class="who-name">Estudiantes</div><div class="who-desc">Búsqueda de vivienda sin intermediarios ni comisiones</div></div>
+            <div class="who-item neon-card"><span class="who-icon">🏢</span><div class="who-name">Pequeñas empresas</div><div class="who-desc">Compra de productos nicho según criterios específicos</div></div>
+        </div>
+    </section>
+
+    <section id="usecases">
+        <h2>Quién <span>necesita</span> esto</h2>
+        <p class="section-desc">Escenarios listos para usar para diferentes propósitos</p>
+        <div class="usecase-grid">
+            <div class="usecase-card neon-card">
+                <h3><span class="usecase-icon">🏺</span> Antigüedades y coleccionistas</h3>
+                <p>Encuentra lotes raros antes que los competidores</p>
+            </div>
+            <div class="usecase-card neon-card">
+                <h3><span class="usecase-icon">🏠</span> Bienes raíces y alquiler</h3>
+                <p>Alquila y compra vivienda sin intermediarios</p>
+            </div>
+            <div class="usecase-card neon-card">
+                <h3><span class="usecase-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span> Emprendedores</h3>
+                <p>Obtén datos del mercado al instante para tomar decisiones</p>
+            </div>
+            <div class="usecase-card neon-card">
+                <h3><span class="usecase-icon">🚀</span> Startups</h3>
+                <p>Lanza tu microempresa desde cero</p>
+            </div>
+            <div class="usecase-card neon-card">
+                <h3><span class="usecase-icon">🎓</span> Caso social</h3>
+                <p>Ayudar a estudiantes y personas de bajos ingresos a encontrar vivienda y bienes asequibles</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="scale">
+        <h2>Escalado de <span>tráfico</span></h2>
+        <p class="section-desc">Soluciones arquitectónicas para la distribución de flujos de datos y sincronización instantánea.</p>
+        <div class="scale-grid">
+            <div class="scale-card neon-card">
+                <h3><span>01.</span> Canales TG</h3>
+                <p>Transmisión en flujo de categorías filtradas para crear comunidades masivas y generar tráfico dirigido.</p>
+            </div>
+            <div class="scale-card neon-card">
+                <h3><span>02.</span> Bots privados</h3>
+                <p>Sesiones comerciales personales, filtros finos y interceptación monopolística de alertas sin competencia.</p>
+            </div>
+            <div class="scale-card neon-card">
+                <h3><span>03.</span> Webhooks</h3>
+                <p>Retransmisión instantánea de datos a servidores de terceros y aplicaciones cliente sin demoras.</p>
+            </div>
+            <div class="scale-card neon-card">
+                <h3><span>04.</span> Integración con BD</h3>
+                <p>Conexión directa del flujo a bases de datos locales de clientes y sistemas CRM personalizados.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="core">
+        <h2>Capacidades <span>técnicas</span></h2>
+        <p class="section-desc">Parámetros arquitectónicos de la plataforma y estándares del sistema para el procesamiento de flujos de datos.</p>
+        
+        <div class="bento-stack">
+            <div class="bento-card neon-card">
+                <h3>📊 Velocidad y filtrado</h3>
+                <p class="main-text">El bot elimina instantáneamente duplicados, limpia el ruido digital y genera un flujo limpio de lotes.</p>
+                <p class="detail-text">El analizador analiza continuamente las estructuras de los anuncios. El sistema monitorea los cambios de precios y verifica los patrones de geolocalización.</p>
+            </div>
+            
+            <div class="bento-card neon-card">
+                <h3>🌍 Cobertura global</h3>
+                <p class="main-text">Soporte completo para los mercados europeos, americanos y de la CEI dentro de una única infraestructura.</p>
+                <p class="detail-text">Los nodos de interfaz están adaptados para mercados multilingües. La arquitectura une las plataformas más grandes: OLX, eBay, Willhaben, Facebook Marketplace, DIM.RIA, AUTO.RIA.</p>
+            </div>
+
+            <div class="bento-card neon-card">
+                <h3>🛡️ Seguridad y enlaces</h3>
+                <p class="main-text">Redirección directa a lotes originales y operación dentro de ecosistemas seguros.</p>
+                <p class="detail-text">Lotifybot no procesa transacciones comerciales ni recopila datos de pago. El producto entrega un enlace de información compacto y preciso al anuncio oficial del marketplace.</p>
+            </div>
+            
+            <div class="bento-card neon-card">
+                <h3>🔌 Integraciones y bases de datos</h3>
+                <p class="main-text">Soluciones personalizadas, desarrollo de analizadores dedicados y exportación directa a través de API.</p>
+                <p class="detail-text">Se admite la integración directa del flujo de datos a través de Webhooks con CRMs de terceros, bases de datos personalizadas y la provisión de endpoints API dedicados.</p>
+            </div>
+
+            <div class="bento-card neon-card" style="border-color: var(--safety-border);">
+                <h3>🔒 Seguro para tu cuenta</h3>
+                <p class="main-text" style="color: var(--accent-emerald);">Garantizamos la seguridad completa de tu perfil</p>
+                <p class="detail-text" style="border-top-color: rgba(0,255,170,0.1);">
+                    • NO nos autenticamos en OLX, eBay, Facebook.<br>
+                    • Tu IP y login no se utilizan.<br>
+                    • El bot recopila solo datos públicos, como un usuario normal.<br>
+                    • En 2 años de operación — <strong style="color:var(--accent-emerald);">0 bloqueos</strong> para nuestros clientes.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="startup">
+        <h2>Programa de apoyo <span>StartUP</span></h2>
+        <p class="section-desc">Apoyamos la iniciativa y ayudamos a reducir las barreras financieras desde el principio.</p>
+        <div class="grant-box neon-card">
+            <h3>🚀 Beca "Velocidad": 14 días de acceso completo</h3>
+            <p class="grant-sub">Si planeas iniciar tu propio negocio pero aún no tienes presupuesto para el software, activaremos una prueba gratuita.</p>
+            <div class="grant-steps">
+                <div class="grant-step">
+                    <span class="grant-num">1</span>
+                    <div>Escríbenos un mensaje breve con tu objetivo comercial específico y el ID del bot desde el encabezado del bot.</div>
+                </div>
+                <div class="grant-step">
+                    <span class="grant-num">2</span>
+                    <div>Formato de solicitud: "Lanzar ventas de muebles vintage en Alemania, necesito monitoreo de anuncios". <span class="bot-id inline-id">ID: 10888XXXXX</span></div>
+                </div>
+                <div class="grant-step">
+                    <span class="grant-num">3</span>
+                    <div>Nuestro equipo aprobará la solicitud y proporcionará 14 días de acceso privado en lugar de los 7 estándar.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="pre-footer-cta">
+        <div class="cta-container">
+            <a href="https://t.me/lotifybot?start=1088875712" class="btn" target="_blank" rel="noopener noreferrer">
+                <span class="btn-icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+                </span>
+                <span class="btn-text">
+                    <span class="btn-main">Lanzar bot</span>
+                    <span class="btn-free">gratis</span>
+                </span>
+            </a>
+            <div class="btn-label">🎁 7 días de prueba gratuita</div>
+            <div class="price-note">Después de la prueba — desde $19.99 /mes. Sin cargos ocultos</div>
+            <div class="payment-icons">
+                <span class="pay-text">Apple Pay</span>
+                <span class="pay-text">Google Pay</span>
+                <span class="pay-text">MonoBank</span>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-title">Socio oficial</div>
+            <div class="footer-subtitle">Redes sociales y soporte</div>
+            <div class="partner-links-grid">
+                <a href="https://www.tiktok.com/@ceschess" rel="me"><span>TikTok:</span> @ceschess</a>
+                <a href="mailto:ssershils@gmail.com"><span>Email:</span> ssershils@gmail.com</a>
+                <a href="https://www.youtube.com/@lotifyme" rel="me"><span>YouTube:</span> @lotifyme</a>
+                <a href="https://t.me/AItradeout" rel="me"><span>Telegram:</span> @AItradeout</a>
+            </div>
+            <div class="footer-legal">
+                <a href="/privacy.html">Política de privacidad</a>
+                <a href="/terms.html">Términos de uso</a>
+            </div>
+            <div class="footer-fop">Empresario individual según la legislación de Ucrania</div>
+            <p class="copyright">&copy; 2026 Lotifybot Infrastructure. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            document.querySelectorAll(".lang-item").forEach(button => {
+                button.addEventListener("click", (e) => {
+                    e.preventDefault();
+                    const lang = button.getAttribute("data-lang");
+                    localStorage.setItem("lotify_lang", lang);
+                    window.location.href = `/${lang}/`;
+                });
+            });
+
+            const transcript = document.getElementById('transcript');
+            const toggleBtn = document.querySelector('.btn-video[onclick*="transcript"]');
+            if (transcript && toggleBtn) {
+                transcript.addEventListener('toggle', () => {
+                    toggleBtn.setAttribute('aria-expanded', transcript.open ? 'true' : 'false');
+                });
+            }
+
+            const cards = document.querySelectorAll('.neon-card');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.remove('hidden-up');
+                        entry.target.classList.add('visible');
+                    } else {
+                        const rect = entry.target.getBoundingClientRect();
+                        if (rect.top < 0) {
+                            entry.target.classList.remove('visible');
+                            entry.target.classList.add('hidden-up');
+                        } else {
+                            entry.target.classList.remove('visible', 'hidden-up');
+                        }
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            cards.forEach(card => observer.observe(card));
+        });
+    </script>
+</body>
+</html>
