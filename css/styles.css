@@ -1,12 +1,12 @@
 html {
     overflow-y: scroll;
-    scrollbar-gutter: stable;
+    width: 100vw;
 }
 
 body {
     overflow-x: hidden;
+    width: 100%;
 }
-
 
 
 
