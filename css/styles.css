@@ -1124,17 +1124,6 @@ footer {
         gap: 1.5rem;
     }
 
-    .usecase-grid {
-        max-width: 700px;
-        display: grid;
-        grid-template-columns: repeat(5, 1fr);
-        gap: 1.5rem;
-    }
-
-    .usecase-card p {
-        padding-left: 0;
-    }
-
     .bento-stack {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -1309,13 +1298,6 @@ footer {
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
-    .usecase-grid {
-        max-width: 600px;
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 1.5rem;
-    }
-
     .who-grid {
         grid-template-columns: repeat(3, 1fr);
     }
