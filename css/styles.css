@@ -1020,23 +1020,78 @@ footer {
 
 /*experiments*/
 
-/* ВРЕМЕННОЕ ОТКЛЮЧЕНИЕ БЛОКОВ ДЛЯ ПОИСКА ВИНОВНИКА ПРЫЖКА */
-.top-marquee {
-    display: none !important;
+html {
+    font-size: 100%;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
 }
 
-.video-controls {
-    display: none !important;
+body {
+    font-size: 1rem;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-.partner-links-grid {
-    display: none !important;
+* {
+    font-family: inherit;
 }
 
-.lang-container {
-    display: none !important;
+h1, h2, h3, p, .btn, .btn-text {
+    font-family: inherit;
 }
 
-.aurora-blur {
-    display: none !important;
+.hero {
+    min-height: 100vh;
+    min-height: 100dvh;
+}
+
+.hero h1 {
+    font-size: 2rem;
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+}
+
+.hero p {
+    font-size: 1rem;
+    line-height: 1.4;
+    margin-bottom: 0.8rem;
+}
+
+.cta-container {
+    min-height: 80px;
+}
+
+.hero-video-container {
+    width: 100%;
+    max-width: 320px;
+    aspect-ratio: 1 / 1.4;
+    min-height: 200px;
+    margin: 0 auto;
+}
+
+@media (max-width: 767px) {
+    .hero {
+        min-height: 100vh;
+        min-height: 100dvh;
+        padding: 1.2rem 1rem 0 1rem;
+    }
+
+    .hero h1 {
+        font-size: 1.7rem;
+        line-height: 1.1;
+    }
+
+    .hero p {
+        font-size: 0.8rem;
+        line-height: 1.3;
+    }
+
+    .hero-video-container {
+        min-height: 180px;
+    }
+
+    .cta-container {
+        min-height: 70px;
+    }
 }
