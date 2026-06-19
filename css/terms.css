@@ -1,0 +1,192 @@
+body.terms-page .back-btn-wrapper {
+    padding: 0.8rem 1rem 0 1rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+body.terms-page .back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: var(--accent-cyan);
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 0.3rem 0.8rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-subtle);
+    transition: background 0.2s, transform 0.2s;
+}
+
+body.terms-page .back-btn:hover {
+    background: rgba(0, 240, 255, 0.1);
+    transform: scale(1.05);
+}
+
+body.terms-page .back-btn svg {
+    width: 1.2rem;
+    height: 1.2rem;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+body.terms-page h1 {
+    font-size: 1.7rem;
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    text-align: center;
+    margin-bottom: 0.8rem;
+    background: linear-gradient(135deg, #ffffff 40%, #a3b3cc 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+body.terms-page .legal-date {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    margin-bottom: 2rem;
+}
+
+body.terms-page .section-desc {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    max-width: 600px;
+    margin: 0 auto 2rem auto;
+}
+
+body.terms-page h2 {
+    font-size: 1.3rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    text-align: left;
+    margin: 1.5rem 0 0.8rem 0;
+    background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-blue) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+body.terms-page h2:first-of-type {
+    margin-top: 0;
+}
+
+body.terms-page h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin: 1rem 0 0.4rem 0;
+}
+
+body.terms-page .neon-card {
+    background: var(--card-glass);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--border-subtle);
+    padding: 1.5rem;
+    border-radius: 14px;
+    box-shadow: 14px 14px 30px -4px var(--neon-glow);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s;
+    margin-bottom: 1.2rem;
+    opacity: 1 !important;
+    transform: none !important;
+}
+
+body.terms-page .neon-card:last-child {
+    margin-bottom: 0;
+}
+
+body.terms-page .neon-card p {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    line-height: 1.6;
+    margin-bottom: 0.6rem;
+}
+
+body.terms-page .neon-card p:last-child {
+    margin-bottom: 0;
+}
+
+body.terms-page .neon-card ul {
+    padding-left: 1.5rem;
+    margin: 0.5rem 0 0.8rem 0;
+}
+
+body.terms-page .neon-card ul li {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    line-height: 1.6;
+    margin-bottom: 0.3rem;
+}
+
+body.terms-page .neon-card strong {
+    color: var(--text-main);
+}
+
+body.terms-page .neon-card .highlight {
+    color: var(--accent-emerald);
+}
+
+body.terms-page .neon-card .warning {
+    color: var(--accent-error);
+}
+
+body.terms-page .legal-footer {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-subtle);
+    text-align: center;
+}
+
+body.terms-page .legal-footer ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+body.terms-page .contact-divider {
+    border: none;
+    border-top: 1px solid var(--border-subtle);
+    margin: 1.5rem 0;
+}
+
+body.terms-page section {
+    padding: 1rem 1rem 2.5rem 1rem;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* Медиа-запросы для terms */
+@media (min-width: 768px) {
+    body.terms-page .back-btn-wrapper {
+        padding: 1rem 2rem 0 2rem;
+    }
+    body.terms-page .back-btn {
+        font-size: 1.1rem;
+        padding: 0.4rem 1rem;
+    }
+    body.terms-page h1 {
+        font-size: 2.8rem;
+    }
+    body.terms-page h2 {
+        font-size: 1.8rem;
+    }
+    body.terms-page section {
+        padding: 1.5rem 2rem 3.5rem 2rem;
+    }
+    body.terms-page .neon-card {
+        padding: 2rem;
+        margin-bottom: 1.5rem;
+    }
+    body.terms-page .legal-date {
+        font-size: 0.9rem;
+    }
+}
