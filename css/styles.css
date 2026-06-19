@@ -1,6 +1,7 @@
 /* ============================================================
-   Базові скидання та змінні
+   styles.css — спільні стилі для всього сайту Lotifybot
    ============================================================ */
+
 :root {
     --bg: #030305;
     --surface-glass: rgba(13, 13, 18, 0.7);
@@ -216,7 +217,7 @@ h2 span { background: linear-gradient(135deg, var(--accent-yellow) 0%, #ffaa00 1
 .section-desc { text-align: center; color: var(--text-muted); font-size: 0.8rem; max-width: 440px; margin: 0 auto 1.5rem auto; }
 
 /* ============================================================
-   Картки (neon-card)
+   Картки (neon-card) — універсальний стиль
    ============================================================ */
 .neon-card {
     background: var(--card-glass); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
@@ -280,7 +281,154 @@ h2 span { background: linear-gradient(135deg, var(--accent-yellow) 0%, #ffaa00 1
 }
 
 /* ============================================================
-   Грант
+   Секція "Як це працює" (стрілки та картки)
+   ============================================================ */
+.steps-list { display: flex; flex-direction: column; gap: 2rem; position: relative; }
+.step-item {
+    display: flex; gap: 1rem; align-items: flex-start;
+    background: var(--card-glass); backdrop-filter: blur(10px);
+    border: 1px solid var(--border-subtle); border-radius: 12px;
+    padding: 1rem;
+    position: relative;
+    overflow: visible;
+}
+.step-item .step-text strong { color: var(--text-main); }
+.step-highlight .step-text strong { color: var(--accent-yellow); }
+.step-item .step-text .step-result { color: var(--accent-emerald); }
+.step-item .step-desc { color: var(--text-muted); font-size: 0.85rem; line-height: 1.4; }
+
+.step-arrow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 2rem;
+    width: 100%;
+    position: relative;
+    z-index: 5;
+}
+.step-arrow svg {
+    width: 2rem;
+    height: 2rem;
+    fill: none;
+    stroke: var(--accent-cyan);
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    filter: drop-shadow(0 0 8px var(--arrow-glow));
+    animation: arrowPulse 1.8s ease-in-out infinite alternate;
+}
+@keyframes arrowPulse {
+    0% { opacity: 0.4; transform: scale(0.95); }
+    100% { opacity: 1; transform: scale(1.05); }
+}
+
+/* ============================================================
+   Сітка масштабування (Traffic Scaling)
+   ============================================================ */
+.scale-grid { display: flex; flex-direction: column; gap: 1.2rem; }
+.scale-card { padding: 1.2rem; }
+.scale-card h3 { 
+    font-size: 1.1rem; 
+    margin-bottom: 0.5rem; 
+    color: var(--text-main);
+}
+.scale-card h3 span { color: var(--accent-cyan); }
+.scale-card p { 
+    color: var(--text-muted); 
+    font-size: 0.9rem; 
+    line-height: 1.45; 
+    margin: 0;
+}
+
+/* ============================================================
+   Use Cases (Кому це потрібно)
+   ============================================================ */
+.usecase-grid { display: flex; flex-direction: column; gap: 1.2rem; max-width: 600px; margin: 0 auto; }
+.usecase-card { padding: 1.2rem; }
+.usecase-card h3 { 
+    font-size: 1.1rem; 
+    margin-bottom: 0.5rem; 
+    color: var(--text-main);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.usecase-card h3 .usecase-icon {
+    width: 1.6rem;
+    height: 1.6rem;
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+.usecase-card h3 .usecase-icon svg {
+    width: 100%;
+    height: 100%;
+    fill: var(--accent-cyan);
+}
+.usecase-card p { 
+    color: var(--text-muted); 
+    font-size: 0.9rem; 
+    line-height: 1.45; 
+    margin: 0;
+    padding-left: 2.1rem;
+}
+
+/* ============================================================
+   Timeline (Швидкість як капітал)
+   ============================================================ */
+.timeline-grid { display: flex; flex-direction: column; gap: 1.2rem; }
+.time-card {
+    border-left: 3px solid transparent;
+    padding: 1.2rem;
+}
+.time-card.bad { border-left-color: var(--accent-error); }
+.time-card.good { border-left-color: var(--accent-emerald); }
+.time-card h3 { 
+    font-size: 1.1rem; 
+    margin-bottom: 0.5rem; 
+    color: var(--text-main);
+}
+.time-card p { 
+    color: var(--text-muted); 
+    font-size: 0.9rem; 
+    line-height: 1.45; 
+    margin: 0;
+}
+.badge { 
+    display: inline-block; font-size: 0.55rem; font-weight: 800; text-transform: uppercase; 
+    padding: 0.15rem 0.4rem; border-radius: 4px; margin-top: 0.5rem; 
+}
+.bad .badge { background: rgba(255, 51, 102, 0.08); color: var(--accent-error); }
+.good .badge { background: rgba(0, 255, 170, 0.08); color: var(--accent-emerald); }
+
+/* ============================================================
+   Bento Stack (Технічні можливості)
+   ============================================================ */
+.bento-stack { display: flex; flex-direction: column; gap: 1.2rem; }
+.bento-card { padding: 1.2rem; text-align: center; }
+.bento-card h3 { font-size: 1rem; color: var(--accent-cyan); margin-bottom: 0.4rem; display: flex; align-items: center; justify-content: center; gap: 0.4rem; }
+.bento-card p.main-text { color: var(--text-main); font-size: 0.85rem; font-weight: 600; margin-bottom: 0.4rem; }
+.bento-card p.detail-text { color: var(--text-muted); font-size: 0.75rem; line-height: 1.45; border-top: 1px solid rgba(255,255,255,0.03); padding-top: 0.4rem; }
+
+/* ============================================================
+   Хто використовує (Who Uses)
+   ============================================================ */
+.who-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; }
+.who-item { 
+    background: var(--card-glass); backdrop-filter: blur(10px);
+    border: 1px solid var(--border-subtle); border-radius: 12px;
+    padding: 1rem 0.8rem;
+    text-align: center;
+    transition: border-color 0.2s;
+}
+.who-item:hover { border-color: var(--border-glow); }
+.who-item .who-icon { font-size: 2rem; display: block; margin-bottom: 0.2rem; }
+.who-item .who-name { font-size: 0.9rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.2rem; }
+.who-item .who-desc { font-size: 0.75rem; color: var(--text-muted); line-height: 1.3; }
+
+/* ============================================================
+   Грант (StartUP Support)
    ============================================================ */
 .grant-box { text-align: center; }
 .grant-box h3 { 
@@ -322,6 +470,29 @@ h2 span { background: linear-gradient(135deg, var(--accent-yellow) 0%, #ffaa00 1
 .grant-step .inline-id { display: inline; }
 
 /* ============================================================
+   Ціна та платіжні іконки
+   ============================================================ */
+.price-note { 
+    font-size: 0.7rem; color: var(--text-muted); 
+    margin-top: 1rem; letter-spacing: 0.03em;
+}
+.payment-icons {
+    display: flex; justify-content: center; gap: 1.5rem;
+    margin-top: 0.5rem;
+}
+.payment-icons .pay-text {
+    color: var(--text-muted);
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+}
+
+/* ============================================================
+   Pre-footer CTA
+   ============================================================ */
+.pre-footer-cta { padding: 1.5rem 1rem 3rem 1rem; text-align: center; position: relative; z-index: 5; }
+
+/* ============================================================
    Футер
    ============================================================ */
 footer { background: #010102; border-top: 1px solid var(--border-subtle); padding: 2.5rem 1rem 1.5rem 1rem; }
@@ -341,7 +512,7 @@ footer { background: #010102; border-top: 1px solid var(--border-subtle); paddin
     line-height: 1.3;
 }
 .partner-links-grid {
-    display: flex; flex-wrap: nowrap; justify-content: center; gap: 2.5rem;
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 2.5rem;
     margin: 0 auto 1.5rem auto;
     max-width: 700px;
 }
@@ -351,7 +522,6 @@ footer { background: #010102; border-top: 1px solid var(--border-subtle); paddin
     display: inline-flex; align-items: center; gap: 0.3rem;
     transition: color 0.2s;
     border: none;
-    white-space: nowrap;
 }
 .partner-links-grid a span { color: var(--text-muted); font-weight: 400; }
 .partner-links-grid a:hover { color: #fff; }
@@ -374,8 +544,9 @@ footer { background: #010102; border-top: 1px solid var(--border-subtle); paddin
 .copyright { font-size: 0.55rem; color: #323947; border-top: 1px solid rgba(255,255,255,0.01); padding-top: 1rem; margin-top: 0.5rem; }
 
 /* ============================================================
-   Адаптивність (Mobile First)
+   Медіа-запити (Mobile First)
    ============================================================ */
+
 @media (min-width: 768px) {
     body { padding-top: 4.5rem; }
     header { height: 4.5rem; padding: 0.5rem 2rem; }
@@ -396,22 +567,46 @@ footer { background: #010102; border-top: 1px solid var(--border-subtle); paddin
     .partner-links-grid { max-width: 800px; gap: 3rem; }
     .partner-links-grid a { font-size: 0.9rem; }
     .neon-card { padding: 1.5rem; }
+
+    .timeline-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .scale-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+    .usecase-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.5rem; max-width: 700px; }
+    .usecase-card p { padding-left: 0; }
+    .bento-stack { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+    .bento-card:last-child { grid-column: 1 / -1; }
+    .who-grid { grid-template-columns: repeat(3, 1fr); }
+    .steps-list { gap: 2rem; }
+    .step-arrow { height: 2.4rem; }
+    .step-arrow svg { width: 2.4rem; height: 2.4rem; }
+    .payment-icons .pay-text { font-size: 0.8rem; }
 }
 
 @media (max-width: 767px) {
-    .partner-links-grid { flex-wrap: wrap; gap: 0.8rem; max-width: 100%; }
+    .partner-links-grid { gap: 0.8rem; }
     .partner-links-grid a { font-size: 0.8rem; }
+    .who-grid { grid-template-columns: 1fr 1fr; }
     .btn-icon svg { width: 24px; height: 24px; }
     .btn-text .btn-main { font-size: 0.8rem; }
     .btn-text .btn-free { font-size: 0.75rem; }
     .step-arrow { height: 1.6rem; }
     .step-arrow svg { width: 1.6rem; height: 1.6rem; }
-    .usecase-grid { max-width: 100%; }
+    .usecase-grid { max-width: 100%; display: flex; flex-direction: column; gap: 1.2rem; }
     .usecase-card p { padding-left: 0; }
     .payment-icons .pay-text { font-size: 0.6rem; }
+    .bento-stack { display: flex; flex-direction: column; gap: 1.2rem; }
 }
 
 @media (max-width: 420px) {
+    .who-grid { grid-template-columns: 1fr 1fr; gap: 0.5rem; }
+    .who-item { padding: 0.6rem; }
+    .who-item .who-icon { font-size: 1.6rem; }
+    .who-item .who-name { font-size: 0.8rem; }
+    .who-item .who-desc { font-size: 0.65rem; }
     .partner-links-grid a { font-size: 0.7rem; }
     .partner-links-grid { gap: 0.5rem; }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .usecase-grid { max-width: 600px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .who-grid { grid-template-columns: repeat(3, 1fr); }
 }
