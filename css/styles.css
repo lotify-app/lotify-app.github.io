@@ -1061,6 +1061,50 @@ footer {
     margin-top: 0.5rem;
 }
 
+/* === ПЕРЕОПРЕДЕЛЕНИЯ ДЛЯ ЮРИДИЧЕСКИХ СТРАНИЦ (ПОЛНАЯ ИДЕНТИЧНОСТЬ ИСХОДНЫМ ФАЙЛАМ) === */
+body.privacy-page h2,
+body.terms-page h2 {
+    font-size: 1.3rem;
+}
+
+body.privacy-page .section-desc,
+body.terms-page .section-desc {
+    font-size: 0.9rem;
+}
+
+body.privacy-page .neon-card,
+body.terms-page .neon-card {
+    padding: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    body.privacy-page h1,
+    body.terms-page h1 {
+        font-size: 2.8rem;
+    }
+
+    body.privacy-page h2,
+    body.terms-page h2 {
+        font-size: 1.8rem;
+    }
+
+    body.privacy-page .neon-card,
+    body.terms-page .neon-card {
+        padding: 2rem;
+    }
+
+    body.privacy-page .back-btn,
+    body.terms-page .back-btn {
+        font-size: 1.1rem;
+        padding: 0.4rem 1rem;
+    }
+
+    body.privacy-page .legal-date,
+    body.terms-page .legal-date {
+        font-size: 0.9rem;
+    }
+}
+
 @media (min-width: 768px) {
     body {
         padding-top: 4.5rem;
@@ -1082,10 +1126,6 @@ footer {
 
     .official-tag {
         font-size: 0.55rem;
-    }
-
-    h2 {
-        font-size: 2.2rem;
     }
 
     .hero {
@@ -1180,21 +1220,8 @@ footer {
         font-size: 0.9rem;
     }
 
-    .neon-card {
-        padding: 1.5rem;
-    }
-
     .back-btn-wrapper {
         padding: 1rem 2rem 0 2rem;
-    }
-
-    .back-btn {
-        font-size: 1.1rem;
-        padding: 0.4rem 1rem;
-    }
-
-    .legal-date {
-        font-size: 0.9rem;
     }
 }
 
