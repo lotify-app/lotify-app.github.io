@@ -39,24 +39,7 @@ body {
 }
 
 .aurora-blur {
-    position: absolute;
-    width: 60vw;
-    height: 60vw;
-    max-width: 500px;
-    max-height: 500px;
-    background: radial-gradient(circle, rgba(0, 240, 255, 0.07) 0%, rgba(0, 0, 0, 0) 70%);
-    top: -10%;
-    left: 50%;
-    transform: translate(-50%, 0);
-    z-index: 0;
-    pointer-events: none;
-    filter: blur(80px);
-    animation: auroraPulse 8s ease-in-out infinite alternate;
-}
-
-@keyframes auroraPulse {
-    0% { opacity: 0.6; transform: translate(-50%, 0) scale(1); }
-    100% { opacity: 1; transform: translate(-50%, 5%) scale(1.1); }
+    display: none !important;
 }
 
 header {
@@ -216,7 +199,7 @@ header {
 }
 
 h1 {
-font-size: 1.7rem;
+    font-size: 1.7rem;
     font-weight: 900;
     letter-spacing: -0.04em;
     line-height: 1.1;
@@ -229,12 +212,6 @@ font-size: 1.7rem;
         font-size: 3rem;
         margin-bottom: 0.8rem;
     }
-}
-
-h1 span {
-    /* background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-blue) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; */
 }
 
 .hero p {
@@ -588,8 +565,7 @@ h2 span {
 }
 
 .who-item {
-    background: var(--card-glass);
-    backdrop-filter: blur(10px);
+    background: rgba(18, 18, 26, 0.9);
     border: 1px solid var(--border-subtle);
     border-radius: 12px;
     padding: 1rem 0.8rem;
@@ -984,7 +960,6 @@ footer {
     .payment-icons .pay-text { font-size: 0.6rem; }
     .bento-stack { display: flex; flex-direction: column; gap: 1.2rem; }
 
-    /* ОПТИМИЗАЦИЯ ДЛЯ МОБИЛЬНЫХ: отключаем тяжёлые эффекты */
     header {
         backdrop-filter: none !important;
         -webkit-backdrop-filter: none !important;
@@ -992,16 +967,10 @@ footer {
     }
 
     .neon-card,
-    .who-item,
     .step-item {
         backdrop-filter: none !important;
         -webkit-backdrop-filter: none !important;
         background: rgba(18, 18, 26, 0.95) !important;
-    }
-
-    .aurora-blur {
-        filter: blur(40px) !important;
-        animation-duration: 12s !important;
     }
 
     .btn {
@@ -1027,16 +996,7 @@ footer {
     .who-grid { grid-template-columns: repeat(3, 1fr); }
 }
 
-/* ===== АППАРАТНОЕ УСКОРЕНИЕ ДЛЯ ТЯЖЁЛЫХ ЭЛЕМЕНТОВ ===== */
-header,
-.aurora-blur,
-.neon-card,
-.hero-video-container {
-    transform: translateZ(0);
-    will-change: transform;
-}
-
-/* ===== ГЛОБАЛЬНАЯ ФИКСАЦИЯ ШИРИНЫ (чтобы не было горизонтального скролла) ===== */
+/* ===== ГЛОБАЛЬНАЯ ФИКСАЦИЯ ШИРИНЫ ===== */
 html {
     overflow-x: hidden;
     scrollbar-gutter: stable;
