@@ -345,9 +345,8 @@ h1 span {
     object-fit: contain;
 }
 
-.hero-video-container,
-.hero-video-container * {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif !important;
+.hero {
+    contain: layout style;
 }
 
 .video-controls {
