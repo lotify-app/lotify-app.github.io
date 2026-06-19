@@ -1020,10 +1020,15 @@ footer {
 
 /*experiments*/
 
-.aurora-blur {
+/* ВРЕМЕННОЕ ОТКЛЮЧЕНИЕ БЛОКОВ ДЛЯ ДИАГНОСТИКИ */
+.top-marquee {
     display: none !important;
 }
 
-.hero-video-container video {
-    preload: none;
+.video-controls {
+    display: none !important;
+}
+
+.partner-links-grid {
+    display: none !important;
 }
