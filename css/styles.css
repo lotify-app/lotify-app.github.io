@@ -1,3 +1,4 @@
+/* ===== ОБЩИЕ ПЕРЕМЕННЫЕ ===== */
 :root {
     --bg: #030305;
     --surface-glass: rgba(13, 13, 18, 0.7);
@@ -16,6 +17,7 @@
     --arrow-glow: rgba(0, 240, 255, 0.3);
 }
 
+/* ===== СБРОС И БАЗА ===== */
 * {
     margin: 0;
     padding: 0;
@@ -49,16 +51,11 @@ body {
 }
 
 @keyframes auroraPulse {
-    0% {
-        opacity: 0.6;
-        transform: translate(-50%, 0) scale(1);
-    }
-    100% {
-        opacity: 1;
-        transform: translate(-50%, 5%) scale(1.1);
-    }
+    0% { opacity: 0.6; transform: translate(-50%, 0) scale(1); }
+    100% { opacity: 1; transform: translate(-50%, 5%) scale(1.1); }
 }
 
+/* ===== ШАПКА ===== */
 header {
     display: flex;
     justify-content: space-between;
@@ -132,10 +129,7 @@ header {
     text-decoration: none;
 }
 
-.lang-item.active {
-    opacity: 1;
-}
-
+.lang-item.active { opacity: 1; }
 .flag-svg {
     width: 16px;
     height: 11px;
@@ -144,11 +138,7 @@ header {
     opacity: 0.4;
     transition: opacity 0.2s;
 }
-
-.lang-item.active .flag-svg {
-    opacity: 1;
-}
-
+.lang-item.active .flag-svg { opacity: 1; }
 .lang-text {
     font-size: 0.5rem;
     font-weight: 700;
@@ -157,16 +147,13 @@ header {
     color: var(--text-main);
     opacity: 1;
 }
-
-.lang-item.active .lang-text {
-    color: var(--accent-yellow);
-}
-
+.lang-item.active .lang-text { color: var(--accent-yellow); }
 .lang-item.active {
     transform: scale(1.2);
     transition: transform 0.2s ease;
 }
 
+/* ===== БЕГУЩАЯ СТРОКА ===== */
 .top-marquee {
     background: #010102;
     width: 100%;
@@ -209,14 +196,11 @@ header {
 }
 
 @keyframes runMarquee {
-    0% {
-        transform: translate3d(0, 0, 0);
-    }
-    100% {
-        transform: translate3d(-50%, 0, 0);
-    }
+    0% { transform: translate3d(0, 0, 0); }
+    100% { transform: translate3d(-50%, 0, 0); }
 }
 
+/* ===== ГЛАВНАЯ СТРАНИЦА (стили из первого файла) ===== */
 .hero {
     display: flex;
     flex-direction: column;
@@ -505,110 +489,6 @@ h2 span {
     transform: translateY(-2px);
 }
 
-body.privacy-page .neon-card,
-body.terms-page .neon-card {
-    opacity: 1 !important;
-    transform: none !important;
-    transition: box-shadow 0.2s, border-color 0.2s;
-}
-
-.neon-card p {
-    color: var(--text-muted);
-    font-size: 0.85rem;
-    line-height: 1.6;
-    margin-bottom: 0.6rem;
-}
-
-.neon-card p:last-child {
-    margin-bottom: 0;
-}
-
-.neon-card ul {
-    padding-left: 1.5rem;
-    margin: 0.5rem 0 0.8rem 0;
-}
-
-.neon-card ul li {
-    color: var(--text-muted);
-    font-size: 0.85rem;
-    line-height: 1.6;
-    margin-bottom: 0.3rem;
-}
-
-.neon-card strong {
-    color: var(--text-main);
-}
-
-.neon-card .highlight {
-    color: var(--accent-emerald);
-}
-
-.neon-card .warning {
-    color: var(--accent-error);
-}
-
-.legal-footer {
-    margin-top: 2rem;
-    padding-top: 1.5rem;
-    border-top: 1px solid var(--border-subtle);
-    text-align: center;
-}
-
-.legal-footer ul {
-    list-style: none;
-    padding-left: 0;
-}
-
-.contact-divider {
-    border: none;
-    border-top: 1px solid var(--border-subtle);
-    margin: 1.5rem 0;
-}
-
-.legal-date {
-    text-align: center;
-    color: var(--text-muted);
-    font-size: 0.8rem;
-    margin-bottom: 2rem;
-}
-
-.back-btn-wrapper {
-    padding: 0.8rem 1rem 0 1rem;
-    max-width: 1100px;
-    margin: 0 auto;
-    text-align: left;
-}
-
-.back-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-    color: var(--accent-cyan);
-    font-size: 1rem;
-    font-weight: 600;
-    text-decoration: none;
-    background: rgba(0, 0, 0, 0.4);
-    padding: 0.3rem 0.8rem;
-    border-radius: 8px;
-    border: 1px solid var(--border-subtle);
-    transition: background 0.2s, transform 0.2s;
-}
-
-.back-btn:hover {
-    background: rgba(0, 240, 255, 0.1);
-    transform: scale(1.05);
-}
-
-.back-btn svg {
-    width: 1.2rem;
-    height: 1.2rem;
-    fill: none;
-    stroke: currentColor;
-    stroke-width: 2.5;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-}
-
 .bento-stack {
     display: flex;
     flex-direction: column;
@@ -794,14 +674,8 @@ body.terms-page .neon-card {
 }
 
 @keyframes arrowPulse {
-    0% {
-        opacity: 0.4;
-        transform: scale(0.95);
-    }
-    100% {
-        opacity: 1;
-        transform: scale(1.05);
-    }
+    0% { opacity: 0.4; transform: scale(0.95); }
+    100% { opacity: 1; transform: scale(1.05); }
 }
 
 .scale-grid {
@@ -1061,271 +935,453 @@ footer {
     margin-top: 0.5rem;
 }
 
-/* === ПЕРЕОПРЕДЕЛЕНИЯ ДЛЯ ЮРИДИЧЕСКИХ СТРАНИЦ (ПОЛНАЯ ИДЕНТИЧНОСТЬ ИСХОДНЫМ ФАЙЛАМ) === */
-body.privacy-page h2,
-body.terms-page h2 {
-    font-size: 1.3rem;
-}
-
-body.privacy-page .section-desc,
-body.terms-page .section-desc {
-    font-size: 0.9rem;
-}
-
-body.privacy-page .neon-card,
-body.terms-page .neon-card {
-    padding: 1.5rem;
-}
-
+/* ===== МЕДИА-ЗАПРОСЫ ДЛЯ ГЛАВНОЙ ===== */
 @media (min-width: 768px) {
-    body.privacy-page h1,
-    body.terms-page h1 {
+    body { padding-top: 4.5rem; }
+    header { height: 4.5rem; padding: 0.5rem 2rem; }
+    .logo-img { width: 2.4rem; height: 2.4rem; }
+    .logo { font-size: 1.6rem; }
+    .official-tag { font-size: 0.55rem; }
+    h2 { font-size: 2.2rem; }
+    .hero { max-width: 1000px; padding: 2.5rem 2rem; }
+    .hero h1 { font-size: 3rem; margin-bottom: 0.8rem; }
+    .hero p { font-size: 1rem; max-width: 540px; margin-bottom: 1.5rem; }
+    .hero .cta-container { margin-bottom: 2rem; }
+    .hero-video-container { max-width: 320px; }
+    .timeline-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .scale-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+    .bento-stack { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+    .bento-card:last-child { grid-column: 1 / -1; }
+    .who-grid { grid-template-columns: repeat(3, 1fr); }
+    .steps-list { display: flex; flex-direction: column; position: relative; }
+    .step-arrow { height: 2.4rem; }
+    .step-arrow svg { width: 2.4rem; height: 2.4rem; }
+    .safety-brief { font-size: 0.8rem; padding: 0.8rem 1.2rem; }
+    .video-controls .btn-video { font-size: 0.8rem; padding: 0.5rem 1.2rem; }
+    .video-transcript summary { font-size: 0.85rem; }
+    .payment-icons .pay-text { font-size: 0.8rem; }
+    .partner-links-grid { max-width: 800px; gap: 3rem; }
+    .partner-links-grid a { font-size: 0.9rem; }
+    .neon-card { padding: 1.5rem; }
+}
+
+@media (max-width: 767px) {
+    .partner-links-grid { flex-wrap: wrap; gap: 0.8rem; max-width: 100%; }
+    .partner-links-grid a { font-size: 0.8rem; }
+    .who-grid { grid-template-columns: 1fr 1fr; }
+    .btn-icon svg { width: 24px; height: 24px; }
+    .btn-text .btn-main { font-size: 0.8rem; }
+    .btn-text .btn-free { font-size: 0.75rem; }
+    .step-arrow { height: 1.6rem; }
+    .step-arrow svg { width: 1.6rem; height: 1.6rem; }
+    .usecase-grid { max-width: 100%; display: flex; flex-direction: column; gap: 1.2rem; }
+    .usecase-card p { padding-left: 0; }
+    .payment-icons .pay-text { font-size: 0.6rem; }
+    .bento-stack { display: flex; flex-direction: column; gap: 1.2rem; }
+}
+
+@media (max-width: 420px) {
+    .who-grid { grid-template-columns: 1fr 1fr; gap: 0.5rem; }
+    .who-item { padding: 0.6rem; }
+    .who-item .who-icon { font-size: 1.6rem; }
+    .who-item .who-name { font-size: 0.8rem; }
+    .who-item .who-desc { font-size: 0.65rem; }
+    .partner-links-grid a { font-size: 0.7rem; }
+    .partner-links-grid { gap: 0.5rem; }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .who-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* ================================================================ */
+/* ===== СТРАНИЦА PRIVACY (ПОЛНОСТЬЮ ИЗ ФАЙЛА privacy.html) ===== */
+/* ================================================================ */
+body.privacy-page .back-btn-wrapper {
+    padding: 0.8rem 1rem 0 1rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+body.privacy-page .back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: var(--accent-cyan);
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 0.3rem 0.8rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-subtle);
+    transition: background 0.2s, transform 0.2s;
+}
+
+body.privacy-page .back-btn:hover {
+    background: rgba(0, 240, 255, 0.1);
+    transform: scale(1.05);
+}
+
+body.privacy-page .back-btn svg {
+    width: 1.2rem;
+    height: 1.2rem;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+body.privacy-page h1 {
+    font-size: 1.7rem;
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    text-align: center;
+    margin-bottom: 0.8rem;
+    background: linear-gradient(135deg, #ffffff 40%, #a3b3cc 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+body.privacy-page .legal-date {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    margin-bottom: 2rem;
+}
+
+body.privacy-page .section-desc {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    max-width: 600px;
+    margin: 0 auto 2rem auto;
+}
+
+body.privacy-page h2 {
+    font-size: 1.3rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    text-align: left;
+    margin: 1.5rem 0 0.8rem 0;
+    background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-blue) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+body.privacy-page h2:first-of-type {
+    margin-top: 0;
+}
+
+body.privacy-page h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin: 1rem 0 0.4rem 0;
+}
+
+body.privacy-page .neon-card {
+    background: var(--card-glass);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--border-subtle);
+    padding: 1.5rem;
+    border-radius: 14px;
+    box-shadow: 14px 14px 30px -4px var(--neon-glow);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s;
+    margin-bottom: 1.2rem;
+    opacity: 1 !important;
+    transform: none !important;
+}
+
+body.privacy-page .neon-card:last-child {
+    margin-bottom: 0;
+}
+
+body.privacy-page .neon-card p {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    line-height: 1.6;
+    margin-bottom: 0.6rem;
+}
+
+body.privacy-page .neon-card p:last-child {
+    margin-bottom: 0;
+}
+
+body.privacy-page .neon-card ul {
+    padding-left: 1.5rem;
+    margin: 0.5rem 0 0.8rem 0;
+}
+
+body.privacy-page .neon-card ul li {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    line-height: 1.6;
+    margin-bottom: 0.3rem;
+}
+
+body.privacy-page .neon-card strong {
+    color: var(--text-main);
+}
+
+body.privacy-page .neon-card .highlight {
+    color: var(--accent-emerald);
+}
+
+body.privacy-page .neon-card .warning {
+    color: var(--accent-error);
+}
+
+body.privacy-page .legal-footer {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-subtle);
+    text-align: center;
+}
+
+body.privacy-page .legal-footer ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+body.privacy-page .contact-divider {
+    border: none;
+    border-top: 1px solid var(--border-subtle);
+    margin: 1.5rem 0;
+}
+
+body.privacy-page section {
+    padding: 1rem 1rem 2.5rem 1rem;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* Медиа-запросы для privacy */
+@media (min-width: 768px) {
+    body.privacy-page .back-btn-wrapper {
+        padding: 1rem 2rem 0 2rem;
+    }
+    body.privacy-page .back-btn {
+        font-size: 1.1rem;
+        padding: 0.4rem 1rem;
+    }
+    body.privacy-page h1 {
         font-size: 2.8rem;
     }
-
-    body.privacy-page h2,
-    body.terms-page h2 {
+    body.privacy-page h2 {
         font-size: 1.8rem;
     }
-
-    body.privacy-page .neon-card,
-    body.terms-page .neon-card {
-        padding: 2rem;
+    body.privacy-page section {
+        padding: 1.5rem 2rem 3.5rem 2rem;
     }
+    body.privacy-page .neon-card {
+        padding: 2rem;
+        margin-bottom: 1.5rem;
+    }
+    body.privacy-page .legal-date {
+        font-size: 0.9rem;
+    }
+}
 
-    body.privacy-page .back-btn,
+/* ================================================================ */
+/* ===== СТРАНИЦА TERMS (ПОЛНОСТЬЮ ИЗ ФАЙЛА terms.html) ===== */
+/* ================================================================ */
+body.terms-page .back-btn-wrapper {
+    padding: 0.8rem 1rem 0 1rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+body.terms-page .back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: var(--accent-cyan);
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 0.3rem 0.8rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-subtle);
+    transition: background 0.2s, transform 0.2s;
+}
+
+body.terms-page .back-btn:hover {
+    background: rgba(0, 240, 255, 0.1);
+    transform: scale(1.05);
+}
+
+body.terms-page .back-btn svg {
+    width: 1.2rem;
+    height: 1.2rem;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+body.terms-page h1 {
+    font-size: 1.7rem;
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    text-align: center;
+    margin-bottom: 0.8rem;
+    background: linear-gradient(135deg, #ffffff 40%, #a3b3cc 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+body.terms-page .legal-date {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    margin-bottom: 2rem;
+}
+
+body.terms-page .section-desc {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    max-width: 600px;
+    margin: 0 auto 2rem auto;
+}
+
+body.terms-page h2 {
+    font-size: 1.3rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    text-align: left;
+    margin: 1.5rem 0 0.8rem 0;
+    background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-blue) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+body.terms-page h2:first-of-type {
+    margin-top: 0;
+}
+
+body.terms-page h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin: 1rem 0 0.4rem 0;
+}
+
+body.terms-page .neon-card {
+    background: var(--card-glass);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--border-subtle);
+    padding: 1.5rem;
+    border-radius: 14px;
+    box-shadow: 14px 14px 30px -4px var(--neon-glow);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s;
+    margin-bottom: 1.2rem;
+    opacity: 1 !important;
+    transform: none !important;
+}
+
+body.terms-page .neon-card:last-child {
+    margin-bottom: 0;
+}
+
+body.terms-page .neon-card p {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    line-height: 1.6;
+    margin-bottom: 0.6rem;
+}
+
+body.terms-page .neon-card p:last-child {
+    margin-bottom: 0;
+}
+
+body.terms-page .neon-card ul {
+    padding-left: 1.5rem;
+    margin: 0.5rem 0 0.8rem 0;
+}
+
+body.terms-page .neon-card ul li {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    line-height: 1.6;
+    margin-bottom: 0.3rem;
+}
+
+body.terms-page .neon-card strong {
+    color: var(--text-main);
+}
+
+body.terms-page .neon-card .highlight {
+    color: var(--accent-emerald);
+}
+
+body.terms-page .neon-card .warning {
+    color: var(--accent-error);
+}
+
+body.terms-page .legal-footer {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-subtle);
+    text-align: center;
+}
+
+body.terms-page .legal-footer ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+body.terms-page .contact-divider {
+    border: none;
+    border-top: 1px solid var(--border-subtle);
+    margin: 1.5rem 0;
+}
+
+body.terms-page section {
+    padding: 1rem 1rem 2.5rem 1rem;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* Медиа-запросы для terms */
+@media (min-width: 768px) {
+    body.terms-page .back-btn-wrapper {
+        padding: 1rem 2rem 0 2rem;
+    }
     body.terms-page .back-btn {
         font-size: 1.1rem;
         padding: 0.4rem 1rem;
     }
-
-    body.privacy-page .legal-date,
-    body.terms-page .legal-date {
-        font-size: 0.9rem;
+    body.terms-page h1 {
+        font-size: 2.8rem;
     }
-}
-
-@media (min-width: 768px) {
-    body {
-        padding-top: 4.5rem;
+    body.terms-page h2 {
+        font-size: 1.8rem;
     }
-
-    header {
-        height: 4.5rem;
-        padding: 0.5rem 2rem;
+    body.terms-page section {
+        padding: 1.5rem 2rem 3.5rem 2rem;
     }
-
-    .logo-img {
-        width: 2.4rem;
-        height: 2.4rem;
-    }
-
-    .logo {
-        font-size: 1.6rem;
-    }
-
-    .official-tag {
-        font-size: 0.55rem;
-    }
-
-    .hero {
-        max-width: 1000px;
-        padding: 2.5rem 2rem;
-    }
-
-    .hero h1 {
-        font-size: 3rem;
-        margin-bottom: 0.8rem;
-    }
-
-    .hero p {
-        font-size: 1rem;
-        max-width: 540px;
+    body.terms-page .neon-card {
+        padding: 2rem;
         margin-bottom: 1.5rem;
     }
-
-    .hero .cta-container {
-        margin-bottom: 2rem;
-    }
-
-    .hero-video-container {
-        max-width: 320px;
-    }
-
-    .timeline-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 2rem;
-    }
-
-    .scale-grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 1.5rem;
-    }
-
-    .bento-stack {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1.5rem;
-    }
-
-    .bento-card:last-child {
-        grid-column: 1 / -1;
-    }
-
-    .who-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-
-    .steps-list {
-        display: flex;
-        flex-direction: column;
-        position: relative;
-    }
-
-    .step-arrow {
-        height: 2.4rem;
-    }
-
-    .step-arrow svg {
-        width: 2.4rem;
-        height: 2.4rem;
-    }
-
-    .safety-brief {
-        font-size: 0.8rem;
-        padding: 0.8rem 1.2rem;
-    }
-
-    .video-controls .btn-video {
-        font-size: 0.8rem;
-        padding: 0.5rem 1.2rem;
-    }
-
-    .video-transcript summary {
-        font-size: 0.85rem;
-    }
-
-    .payment-icons .pay-text {
-        font-size: 0.8rem;
-    }
-
-    .partner-links-grid {
-        max-width: 800px;
-        gap: 3rem;
-    }
-
-    .partner-links-grid a {
+    body.terms-page .legal-date {
         font-size: 0.9rem;
-    }
-
-    .back-btn-wrapper {
-        padding: 1rem 2rem 0 2rem;
-    }
-}
-
-@media (max-width: 767px) {
-    .partner-links-grid {
-        flex-wrap: wrap;
-        gap: 0.8rem;
-        max-width: 100%;
-    }
-
-    .partner-links-grid a {
-        font-size: 0.8rem;
-    }
-
-    .who-grid {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .btn-icon svg {
-        width: 24px;
-        height: 24px;
-    }
-
-    .btn-text .btn-main {
-        font-size: 0.8rem;
-    }
-
-    .btn-text .btn-free {
-        font-size: 0.75rem;
-    }
-
-    .step-arrow {
-        height: 1.6rem;
-    }
-
-    .step-arrow svg {
-        width: 1.6rem;
-        height: 1.6rem;
-    }
-
-    .usecase-grid {
-        max-width: 100%;
-        display: flex;
-        flex-direction: column;
-        gap: 1.2rem;
-    }
-
-    .usecase-card p {
-        padding-left: 0;
-    }
-
-    .payment-icons .pay-text {
-        font-size: 0.6rem;
-    }
-
-    .bento-stack {
-        display: flex;
-        flex-direction: column;
-        gap: 1.2rem;
-    }
-
-    .back-btn-wrapper {
-        padding: 0.8rem 1rem 0 1rem;
-    }
-
-    .back-btn {
-        font-size: 1rem;
-        padding: 0.3rem 0.8rem;
-    }
-}
-
-@media (max-width: 420px) {
-    .who-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 0.5rem;
-    }
-
-    .who-item {
-        padding: 0.6rem;
-    }
-
-    .who-item .who-icon {
-        font-size: 1.6rem;
-    }
-
-    .who-item .who-name {
-        font-size: 0.8rem;
-    }
-
-    .who-item .who-desc {
-        font-size: 0.65rem;
-    }
-
-    .partner-links-grid a {
-        font-size: 0.7rem;
-    }
-
-    .partner-links-grid {
-        gap: 0.5rem;
-    }
-}
-
-@media (min-width: 768px) and (max-width: 1024px) {
-    .who-grid {
-        grid-template-columns: repeat(3, 1fr);
     }
 }
