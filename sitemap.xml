@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+    <url>
+        <loc>https://lotify-app.github.io/</loc>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://lotify-app.github.io/"/>
+        <xhtml:link rel="alternate" hreflang="uk" href="https://lotify-app.github.io/ua/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://lotify-app.github.io/en/"/>
+        <xhtml:link rel="alternate" hreflang="pl" href="https://lotify-app.github.io/pl/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://lotify-app.github.io/de/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://lotify-app.github.io/es/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://lotify-app.github.io/ru/"/>
+        <priority>0.9</priority>
+        <changefreq>weekly</changefreq>
+    </url>
+    <url>
+        <loc>https://lotify-app.github.io/ua/</loc>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://lotify-app.github.io/"/>
+        <xhtml:link rel="alternate" hreflang="uk" href="https://lotify-app.github.io/ua/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://lotify-app.github.io/en/"/>
+        <xhtml:link rel="alternate" hreflang="pl" href="https://lotify-app.github.io/pl/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://lotify-app.github.io/de/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://lotify-app.github.io/es/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://lotify-app.github.io/ru/"/>
+        <priority>0.9</priority>
+        <changefreq>weekly</changefreq>
+    </url>
+    <url>
+        <loc>https://lotify-app.github.io/en/</loc>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://lotify-app.github.io/"/>
+        <xhtml:link rel="alternate" hreflang="uk" href="https://lotify-app.github.io/ua/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://lotify-app.github.io/en/"/>
+        <xhtml:link rel="alternate" hreflang="pl" href="https://lotify-app.github.io/pl/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://lotify-app.github.io/de/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://lotify-app.github.io/es/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://lotify-app.github.io/ru/"/>
+        <priority>0.9</priority>
+        <changefreq>weekly</changefreq>
+    </url>
+    <url>
+        <loc>https://lotify-app.github.io/pl/</loc>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://lotify-app.github.io/"/>
+        <xhtml:link rel="alternate" hreflang="uk" href="https://lotify-app.github.io/ua/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://lotify-app.github.io/en/"/>
+        <xhtml:link rel="alternate" hreflang="pl" href="https://lotify-app.github.io/pl/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://lotify-app.github.io/de/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://lotify-app.github.io/es/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://lotify-app.github.io/ru/"/>
+        <priority>0.9</priority>
+        <changefreq>weekly</changefreq>
+    </url>
+    <url>
+        <loc>https://lotify-app.github.io/de/</loc>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://lotify-app.github.io/"/>
+        <xhtml:link rel="alternate" hreflang="uk" href="https://lotify-app.github.io/ua/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://lotify-app.github.io/en/"/>
+        <xhtml:link rel="alternate" hreflang="pl" href="https://lotify-app.github.io/pl/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://lotify-app.github.io/de/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://lotify-app.github.io/es/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://lotify-app.github.io/ru/"/>
+        <priority>0.9</priority>
+        <changefreq>weekly</changefreq>
+    </url>
+    <url>
+        <loc>https://lotify-app.github.io/es/</loc>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://lotify-app.github.io/"/>
+        <xhtml:link rel="alternate" hreflang="uk" href="https://lotify-app.github.io/ua/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://lotify-app.github.io/en/"/>
+        <xhtml:link rel="alternate" hreflang="pl" href="https://lotify-app.github.io/pl/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://lotify-app.github.io/de/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://lotify-app.github.io/es/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://lotify-app.github.io/ru/"/>
+        <priority>0.9</priority>
+        <changefreq>weekly</changefreq>
+    </url>
+    <url>
+        <loc>https://lotify-app.github.io/ru/</loc>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://lotify-app.github.io/"/>
+        <xhtml:link rel="alternate" hreflang="uk" href="https://lotify-app.github.io/ua/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://lotify-app.github.io/en/"/>
+        <xhtml:link rel="alternate" hreflang="pl" href="https://lotify-app.github.io/pl/"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://lotify-app.github.io/de/"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://lotify-app.github.io/es/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://lotify-app.github.io/ru/"/>
+        <priority>0.9</priority>
+        <changefreq>weekly</changefreq>
+    </url>
+    <url>
+        <loc>https://lotify-app.github.io/ua/privacy.html</loc>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://lotify-app.github.io/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="uk" href="https://lotify-app.github.io/ua/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://lotify-app.github.io/en/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="pl" href="https://lotify-app.github.io/pl/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://lotify-app.github.io/de/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://lotify-app.github.io/es/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://lotify-app.github.io/ru/privacy.html"/>
+        <priority>0.5</priority>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://lotify-app.github.io/en/privacy.html</loc>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://lotify-app.github.io/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="uk" href="https://lotify-app.github.io/ua/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://lotify-app.github.io/en/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="pl" href="https://lotify-app.github.io/pl/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://lotify-app.github.io/de/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://lotify-app.github.io/es/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://lotify-app.github.io/ru/privacy.html"/>
+        <priority>0.5</priority>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://lotify-app.github.io/pl/privacy.html</loc>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://lotify-app.github.io/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="uk" href="https://lotify-app.github.io/ua/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://lotify-app.github.io/en/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="pl" href="https://lotify-app.github.io/pl/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://lotify-app.github.io/de/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://lotify-app.github.io/es/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://lotify-app.github.io/ru/privacy.html"/>
+        <priority>0.5</priority>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://lotify-app.github.io/de/privacy.html</loc>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://lotify-app.github.io/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="uk" href="https://lotify-app.github.io/ua/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://lotify-app.github.io/en/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="pl" href="https://lotify-app.github.io/pl/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://lotify-app.github.io/de/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://lotify-app.github.io/es/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://lotify-app.github.io/ru/privacy.html"/>
+        <priority>0.5</priority>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://lotify-app.github.io/es/privacy.html</loc>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://lotify-app.github.io/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="uk" href="https://lotify-app.github.io/ua/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://lotify-app.github.io/en/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="pl" href="https://lotify-app.github.io/pl/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://lotify-app.github.io/de/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://lotify-app.github.io/es/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://lotify-app.github.io/ru/privacy.html"/>
+        <priority>0.5</priority>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://lotify-app.github.io/ru/privacy.html</loc>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://lotify-app.github.io/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="uk" href="https://lotify-app.github.io/ua/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://lotify-app.github.io/en/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="pl" href="https://lotify-app.github.io/pl/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://lotify-app.github.io/de/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://lotify-app.github.io/es/privacy.html"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://lotify-app.github.io/ru/privacy.html"/>
+        <priority>0.5</priority>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://lotify-app.github.io/ua/terms.html</loc>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://lotify-app.github.io/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="uk" href="https://lotify-app.github.io/ua/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://lotify-app.github.io/en/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="pl" href="https://lotify-app.github.io/pl/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://lotify-app.github.io/de/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://lotify-app.github.io/es/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://lotify-app.github.io/ru/terms.html"/>
+        <priority>0.5</priority>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://lotify-app.github.io/en/terms.html</loc>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://lotify-app.github.io/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="uk" href="https://lotify-app.github.io/ua/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://lotify-app.github.io/en/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="pl" href="https://lotify-app.github.io/pl/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://lotify-app.github.io/de/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://lotify-app.github.io/es/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://lotify-app.github.io/ru/terms.html"/>
+        <priority>0.5</priority>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://lotify-app.github.io/pl/terms.html</loc>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://lotify-app.github.io/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="uk" href="https://lotify-app.github.io/ua/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://lotify-app.github.io/en/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="pl" href="https://lotify-app.github.io/pl/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://lotify-app.github.io/de/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://lotify-app.github.io/es/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://lotify-app.github.io/ru/terms.html"/>
+        <priority>0.5</priority>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://lotify-app.github.io/de/terms.html</loc>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://lotify-app.github.io/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="uk" href="https://lotify-app.github.io/ua/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://lotify-app.github.io/en/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="pl" href="https://lotify-app.github.io/pl/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://lotify-app.github.io/de/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://lotify-app.github.io/es/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://lotify-app.github.io/ru/terms.html"/>
+        <priority>0.5</priority>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://lotify-app.github.io/es/terms.html</loc>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://lotify-app.github.io/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="uk" href="https://lotify-app.github.io/ua/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://lotify-app.github.io/en/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="pl" href="https://lotify-app.github.io/pl/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://lotify-app.github.io/de/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://lotify-app.github.io/es/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://lotify-app.github.io/ru/terms.html"/>
+        <priority>0.5</priority>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://lotify-app.github.io/ru/terms.html</loc>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://lotify-app.github.io/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="uk" href="https://lotify-app.github.io/ua/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://lotify-app.github.io/en/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="pl" href="https://lotify-app.github.io/pl/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="de" href="https://lotify-app.github.io/de/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="es" href="https://lotify-app.github.io/es/terms.html"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://lotify-app.github.io/ru/terms.html"/>
+        <priority>0.5</priority>
+        <changefreq>monthly</changefreq>
+    </url>
+</urlset>
