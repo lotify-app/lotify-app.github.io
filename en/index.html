@@ -415,45 +415,50 @@
         </div>
     </footer>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            document.querySelectorAll(".lang-item").forEach(button => {
-                button.addEventListener("click", (e) => {
-                    e.preventDefault();
-                    const lang = button.getAttribute("data-lang");
-                    localStorage.setItem("lotify_lang", lang);
-                    window.location.href = `/${lang}/index.html`;
-                });
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+
+        document.querySelectorAll(".lang-item").forEach(function(button) {
+            button.addEventListener("click", function(e) {
+                e.preventDefault();
+                var lang = button.getAttribute("data-lang");
+                localStorage.setItem("lotify_lang", lang);
+                window.location.href = "/" + lang + "/index.html";
             });
+        });
 
-            const transcript = document.getElementById('transcript');
-            const toggleBtn = document.querySelector('.btn-video[onclick*="transcript"]');
-            if (transcript && toggleBtn) {
-                transcript.addEventListener('toggle', () => {
-                    toggleBtn.setAttribute('aria-expanded', transcript.open ? 'true' : 'false');
-                });
-            }
+        var transcript = document.getElementById("transcript");
+        var toggleBtn = document.querySelector('.btn-video[onclick*="transcript"]');
+        if (transcript && toggleBtn) {
+            transcript.addEventListener("toggle", function() {
+                toggleBtn.setAttribute("aria-expanded", transcript.open ? "true" : "false");
+            });
+        }
 
-            const cards = document.querySelectorAll('.neon-card');
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
+        var cards = document.querySelectorAll(".neon-card");
+        var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                requestAnimationFrame(function() {
                     if (entry.isIntersecting) {
-                        entry.target.classList.remove('hidden-up');
-                        entry.target.classList.add('visible');
+                        entry.target.classList.remove("hidden-up");
+                        entry.target.classList.add("visible");
                     } else {
-                        const rect = entry.target.getBoundingClientRect();
-                        if (rect.top < 0) {
-                            entry.target.classList.remove('visible');
-                            entry.target.classList.add('hidden-up');
+                        if (entry.boundingClientRect.top < 0) {
+                            entry.target.classList.remove("visible");
+                            entry.target.classList.add("hidden-up");
                         } else {
-                            entry.target.classList.remove('visible', 'hidden-up');
+                            entry.target.classList.remove("visible", "hidden-up");
                         }
                     }
                 });
-            }, { threshold: 0.1 });
+            });
+        }, { threshold: 0.1 });
 
-            cards.forEach(card => observer.observe(card));
+        cards.forEach(function(card) {
+            observer.observe(card);
         });
-    </script>
+
+    });
+</script>
 </body>
 </html>
