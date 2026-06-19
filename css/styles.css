@@ -245,6 +245,15 @@ h1 span {
     margin-bottom: 1.5rem;
 }
 
+.hero {
+    min-height: 520px; 
+
+@media (max-width: 767px) {
+    .hero {
+        min-height: 420px; 
+    }
+}
+
 .cta-container {
     display: flex;
     flex-direction: column;
