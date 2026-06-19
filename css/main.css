@@ -14,6 +14,12 @@
     --neon-glow: rgba(0, 240, 255, 0.15);
     --safety-border: rgba(0, 255, 170, 0.3);
     --arrow-glow: rgba(0, 240, 255, 0.3);
+    --color-olx: #00e6ff;
+    --color-ebay: #00daff;
+    --color-willhaben: #00c4ff;
+    --color-autoria: #00a5ff;
+    --color-and: #0395ff;
+    --color-facebook: #0284ff;
 }
 
 * {
@@ -216,6 +222,13 @@ font-size: 1.7rem;
     line-height: 1.1;
     margin-bottom: 0.4rem;
     color: #ffffff;
+}
+
+@media (min-width: 768px) {
+    h1 {
+        font-size: 3rem;
+        margin-bottom: 0.8rem;
+    }
 }
 
 h1 span {
