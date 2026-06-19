@@ -1020,7 +1020,7 @@ footer {
 
 /*experiments*/
 
-/* ВРЕМЕННОЕ ОТКЛЮЧЕНИЕ БЛОКОВ ДЛЯ ДИАГНОСТИКИ */
+/* ВРЕМЕННОЕ ОТКЛЮЧЕНИЕ БЛОКОВ ДЛЯ ПОИСКА ВИНОВНИКА ПРЫЖКА */
 .top-marquee {
     display: none !important;
 }
@@ -1030,5 +1030,13 @@ footer {
 }
 
 .partner-links-grid {
+    display: none !important;
+}
+
+.lang-container {
+    display: none !important;
+}
+
+.aurora-blur {
     display: none !important;
 }
