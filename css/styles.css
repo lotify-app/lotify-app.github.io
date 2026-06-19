@@ -1020,51 +1020,49 @@ footer {
 
 /*experiments*/
 
+/* Глобальное ограничение ширины */
 html,
 body {
-    width: 100%;
     overflow-x: hidden;
+    width: 100%;
     margin: 0;
     padding: 0;
 }
 
+* {
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+/* Мобильные фиксы */
 @media (max-width: 767px) {
-    body {
-        min-height: 100vh;
-        min-height: 100dvh;
-        transform: translateZ(0);
-    }
-
     .hero {
-        min-height: 100vh;
-        min-height: 100dvh;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
+        width: 100%;
+        max-width: 100%;
         padding: 1.2rem 1rem 0 1rem;
-        contain: none;
-        transform: translateZ(0);
+        box-sizing: border-box;
     }
-
     .hero-video-container {
-        min-height: 200px;
-        transform: translateZ(0);
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
     }
-
-    h1 {
-        font-size: 1.7rem;
-        line-height: 1.1;
-        margin-bottom: 0.4rem;
-    }
-
-    .hero p {
-        font-size: 0.8rem;
-        line-height: 1.3;
-        margin-bottom: 0.6rem;
-    }
-
     .cta-container {
-        margin-top: 1rem;
-        margin-bottom: 1.5rem;
+        width: 100%;
+        max-width: 100%;
+    }
+    .top-marquee {
+        width: 100%;
+        max-width: 100%;
+        overflow: hidden;
+    }
+    .partner-links-grid {
+        width: 100%;
+        max-width: 100%;
+        flex-wrap: wrap;
+    }
+    .lang-container {
+        flex-wrap: wrap;
+        justify-content: flex-end;
     }
 }
