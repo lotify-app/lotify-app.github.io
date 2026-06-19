@@ -505,7 +505,8 @@ h2 span {
     transform: translateY(-2px);
 }
 
-body.legal-page .neon-card {
+body.privacy-page .neon-card,
+body.terms-page .neon-card {
     opacity: 1 !important;
     transform: none !important;
     transition: box-shadow 0.2s, border-color 0.2s;
@@ -1151,7 +1152,7 @@ footer {
     .steps-list {
         display: flex;
         flex-direction: column;
-        gap: 2rem;
+        position: relative;
     }
 
     .step-arrow {
