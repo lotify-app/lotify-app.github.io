@@ -1020,4 +1020,10 @@ footer {
 
 /*experiments*/
 
+.aurora-blur {
+    display: none !important;
+}
 
+.hero-video-container video {
+    preload: none;
+}
