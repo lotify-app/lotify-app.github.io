@@ -42,32 +42,15 @@
       "description": "Sofortiger Anzeigen-Parser für OLX, eBay, Willhaben, Facebook Marketplace, DIM.RIA und AUTO.RIA. Fangt neue Anzeigen ab, bevor sie in der allgemeinen Suche erscheinen. Hilft bei der Wohnungssuche ohne Makler, beim Finden seltener Sammlerstücke und bei profitablen Geschäften.",
       "featureList": "Anzeigen in der Moderationsphase abfangen, Webhook-Integration, Telegram-Benachrichtigungen, Unterstützung für OLX, eBay, Willhaben, Facebook Marketplace, DIM.RIA, AUTO.RIA, 7-tägiger kostenloser Test, Startup-Förderprogramm (14 Tage)",
       "keywords": "Anzeigen-Parser, Marktplatz-Überwachung, OLX Bot, eBay Überwachung, Willhaben, Facebook Marketplace, DIM.RIA, AUTO.RIA, Wiederverkaufswerkzeug, Wohnungssuche ohne Makler, Antiquitäten, Sammler, Startups",
+      "url": "https://lotify-app.github.io/de/",
       "offers": {
         "@type": "Offer",
         "price": "0",
         "priceCurrency": "USD",
-        "description": "7-tägiger kostenloser Test + 14 Tage im Rahmen des Startup-Förderprogramms für Gründer",
+        "description": "Offizieller Lotifybot-Partner mit erweitertem 14-tägigen kostenlosen Zugang für Startups auf Anfrage. 7-tägiger Standard-Test für alle Nutzer.",
         "availability": "https://schema.org/OnlineOnly"
       },
-      "author": {
-        "@type": "Organization",
-        "name": "Lotifybot Infrastructure",
-        "url": "https://lotify-app.github.io",
-        "contactPoint": [
-          {
-            "@type": "ContactPoint",
-            "email": "ssershils@gmail.com",
-            "contactType": "customer support",
-            "availableLanguage": ["German", "Ukrainian", "English", "Polish", "Spanish", "Russian"]
-          },
-          {
-            "@type": "ContactPoint",
-            "url": "https://t.me/AItradeout",
-            "contactType": "customer support",
-            "availableLanguage": ["German", "Ukrainian", "English", "Polish", "Spanish", "Russian"]
-          }
-        ]
-      },
+      "author": { "@id": "https://lotify-app.github.io/#main-org" },
       "potentialAction": {
         "@type": "CommunicateAction",
         "name": "Kostenlosen Zugang erhalten",
@@ -78,13 +61,49 @@
         "ratingValue": "4.8",
         "ratingCount": "127"
       },
+      "sameAs": []
+    }
+</script>
+
+<script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "@id": "https://lotify-app.github.io/#main-org",
+      "name": "Lotifybot Infrastructure",
+      "url": "https://lotify-app.github.io"
+    }
+</script>
+
+<script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "@id": "https://lotify-app.github.io/#partner-org",
+      "name": "Lotifybot Official Promo Partner",
+      "url": "https://lotify-app.github.io/de/",
+      "description": "Offizieller Lotifybot-Partner mit exklusivem 14-tägigen kostenlosen Zugang für Startups auf dieser Seite.",
+      "parentOrganization": { "@id": "https://lotify-app.github.io/#main-org" },
       "sameAs": [
-        "https://t.me/lotifybot",
         "https://www.youtube.com/@lotifyme",
         "https://www.tiktok.com/@ceschess"
+      ],
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "email": "ssershils@gmail.com",
+          "contactType": "customer support",
+          "availableLanguage": ["German", "Ukrainian", "English", "Polish", "Spanish", "Russian"]
+        },
+        {
+          "@type": "ContactPoint",
+          "url": "https://t.me/AItradeout",
+          "contactType": "customer support",
+          "availableLanguage": ["German", "Ukrainian", "English", "Polish", "Spanish", "Russian"]
+        }
       ]
     }
-    </script>
+</script>
 
     <link rel="stylesheet" href="/css/main.css">
 </head>
