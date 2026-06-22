@@ -907,12 +907,14 @@ footer {
     font-size: 0.55rem;
     color: var(--text-muted);
     margin-top: 0.8rem;
-    opacity: 0.6;
+    opacity: 0.8;
 }
 
 .copyright {
     font-size: 0.55rem;
     /*color: #323947;*/
+    color: var(--text-muted);    
+    opacity: 0.8;
     border-top: 1px solid rgba(255, 255, 255, 0.01);
     padding-top: 1rem;
     margin-top: 0.5rem;
