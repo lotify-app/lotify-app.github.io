@@ -952,8 +952,8 @@ footer {
 }
 
 @media (max-width: 767px) {
-    .partner-links-grid { flex-wrap: wrap; gap: 0.8rem; max-width: 100%; }
-    .partner-links-grid a { font-size: 0.8rem; }
+    .partner-links-grid { flex-wrap: wrap; gap: 1rem; max-width: 100%; }
+    .partner-links-grid a { font-size: 0.8rem; padding: 1rem 0.8rem; }
     .who-grid { grid-template-columns: 1fr 1fr; }
     .btn-icon svg { width: 24px; height: 24px; }
     .btn-text .btn-main { font-size: 0.8rem; }
@@ -993,8 +993,8 @@ footer {
     .who-item .who-icon { font-size: 1.6rem; }
     .who-item .who-name { font-size: 0.8rem; }
     .who-item .who-desc { font-size: 0.65rem; }
-    .partner-links-grid a { font-size: 0.7rem; }
-    .partner-links-grid { gap: 0.5rem; }
+    .partner-links-grid a { font-size: 0.7rem; padding: 0.9rem 0.6rem; }
+    .partner-links-grid { gap: 0.8rem; }
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
