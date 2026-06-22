@@ -995,6 +995,11 @@ footer {
     .who-item .who-desc { font-size: 0.65rem; }
     .partner-links-grid a { font-size: 0.7rem; padding: 0.9rem 0.6rem; }
     .partner-links-grid { gap: 0.8rem; }
+    .logo { font-size: 1.15rem; }
+    html { font-size: 110%; }
+    main { --text-muted: #b0c0d0; }
+    h1 { font-size: 1.6rem; }
+    h2 { font-size: 1.4rem; }      
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
