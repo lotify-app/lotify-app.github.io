@@ -440,26 +440,40 @@
     </footer>
 
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
+   document.addEventListener("DOMContentLoaded", function() {
 
-        document.querySelectorAll(".lang-item").forEach(function(button) {
-            button.addEventListener("click", function(e) {
-                e.preventDefault();
-                var lang = button.getAttribute("data-lang");
-                localStorage.setItem("lotify_lang", lang);
-                window.location.href = "/" + lang + "/index.html";
-            });
+    document.querySelectorAll(".lang-item").forEach(function(button) {
+        button.addEventListener("click", function(e) {
+            e.preventDefault();
+            var lang = button.getAttribute("data-lang");
+            localStorage.setItem("lotify_lang", lang);
+            window.location.href = "/" + lang + "/index.html";
         });
+    });
 
-        var transcript = document.getElementById("transcript");
-        var toggleBtn = document.querySelector('.btn-video[onclick*="transcript"]');
-        if (transcript && toggleBtn) {
-            transcript.addEventListener("toggle", function() {
-                toggleBtn.setAttribute("aria-expanded", transcript.open ? "true" : "false");
-            });
-        }
+    var transcript = document.getElementById("transcript");
+    var toggleBtn = document.querySelector('.btn-video[onclick*="transcript"]');
+    if (transcript && toggleBtn) {
+        transcript.addEventListener("toggle", function() {
+            toggleBtn.setAttribute("aria-expanded", transcript.open ? "true" : "false");
+        });
+    }
 
+    setTimeout(function() {
         var cards = document.querySelectorAll(".neon-card");
+        var lastScrollY = window.scrollY;
+        var isScrollingDown = false;
+
+        window.addEventListener('scroll', function() {
+            var currentScrollY = window.scrollY;
+            if (currentScrollY > lastScrollY) {
+                isScrollingDown = true;
+            } else if (currentScrollY < lastScrollY) {
+                isScrollingDown = false;
+            }
+            lastScrollY = currentScrollY;
+        }, { passive: true });
+
         var observer = new IntersectionObserver(function(entries) {
             entries.forEach(function(entry) {
                 requestAnimationFrame(function() {
@@ -467,7 +481,7 @@
                         entry.target.classList.remove("hidden-up");
                         entry.target.classList.add("visible");
                     } else {
-                        if (entry.boundingClientRect.top < 0) {
+                        if (isScrollingDown) {
                             entry.target.classList.remove("visible");
                             entry.target.classList.add("hidden-up");
                         } else {
@@ -481,8 +495,9 @@
         cards.forEach(function(card) {
             observer.observe(card);
         });
+    }, 300);
 
-    });
+});
 </script>
 </body>
 </html>
