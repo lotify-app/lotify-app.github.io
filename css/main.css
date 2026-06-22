@@ -912,7 +912,7 @@ footer {
 
 .copyright {
     font-size: 0.55rem;
-    color: #323947;
+    /*color: #323947;*/
     border-top: 1px solid rgba(255, 255, 255, 0.01);
     padding-top: 1rem;
     margin-top: 0.5rem;
@@ -997,7 +997,6 @@ footer {
     .who-grid { grid-template-columns: repeat(3, 1fr); }
 }
 
-/* ===== ГЛОБАЛЬНАЯ ФИКСАЦИЯ ШИРИНЫ ===== */
 html {
     overflow-x: hidden;
     scrollbar-gutter: stable;
