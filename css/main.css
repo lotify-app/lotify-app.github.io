@@ -14,7 +14,7 @@
     --neon-glow: rgba(0, 240, 255, 0.15);
     --safety-border: rgba(0, 255, 170, 0.3);
     --arrow-glow: rgba(0, 240, 255, 0.3);
-    --color-bot: #ffffff;
+    --color-bot: #fff500;
     --color-olx: #00e6ff;
     --color-ebay: #00daff;
     --color-willhaben: #00c4ff;
@@ -323,7 +323,7 @@ h1 {
 
 .hero-inline-video {
     width: 100%;
-    height: 100%;
+    aspect-ratio: 1 / 1.4;
     display: block;
     object-fit: contain;
 }
