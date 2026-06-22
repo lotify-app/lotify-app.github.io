@@ -894,7 +894,7 @@ footer {
 }
 
 .footer-legal a {
-    color: var(--text-main);
+    color: var(--accent-cyan);
     text-decoration: none;
     border-bottom: 1px dashed rgba(255, 255, 255, 0.05);
     opacity: 0.7;
