@@ -318,11 +318,16 @@ h1 {
     background: #000;
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.9);
     position: relative;
-    display: flex;
+    /*display: flex;*/
 }
 
 .hero-inline-video {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
+    height: 100%;        
+    
     aspect-ratio: 1 / 1.4;
     display: block;
     object-fit: contain;
