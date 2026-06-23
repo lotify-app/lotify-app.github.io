@@ -969,27 +969,7 @@ footer {
     .payment-icons .pay-text { font-size: 0.6rem; }
     .bento-stack { display: flex; flex-direction: column; gap: 1.2rem; }
 
-    header {
-        backdrop-filter: none !important;
-        -webkit-backdrop-filter: none !important;
-        background: rgba(3, 3, 5, 0.95) !important;
-    }
 
-    .neon-card,
-    .step-item {
-        backdrop-filter: none !important;
-        -webkit-backdrop-filter: none !important;
-        background: rgba(18, 18, 26, 0.95) !important;
-    }
-
-    .btn {
-        box-shadow: 0 0 20px rgba(0, 240, 255, 0.3) !important;
-    }
-
-    .neon-card {
-        box-shadow: 10px 10px 20px -4px var(--neon-glow) !important;
-    }
-}
 
 @media (max-width: 420px) {
     .who-grid { grid-template-columns: 1fr 1fr; gap: 0.5rem; }
