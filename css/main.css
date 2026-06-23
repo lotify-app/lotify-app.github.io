@@ -993,7 +993,7 @@ footer {
     .who-item .who-icon { font-size: 1.6rem; }
     .who-item .who-name { font-size: 0.8rem; }
     .who-item .who-desc { font-size: 0.65rem; }
-    .partner-links-grid a { font-size: 0.7rem; padding: 0.9rem 0.6rem; }
+    .partner-links-grid a { font-size: 0.7rem; padding: 0.1rem 0.6rem; }
     .partner-links-grid { gap: 0.8rem; }
     .logo { font-size: 1.15rem; }
     html { font-size: 110%; }
