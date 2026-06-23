@@ -955,7 +955,7 @@ footer {
 
 @media (max-width: 767px) {
     .partner-links-grid { flex-wrap: wrap; gap: 1rem; max-width: 100%; }
-    .partner-links-grid a { font-size: 0.8rem; padding: 1rem 0.8rem; }
+    .partner-links-grid a { font-size: 0.8rem; padding: 0.5rem 0.8rem; }
     .who-grid { grid-template-columns: 1fr 1fr; }
     .btn-icon svg { width: 24px; height: 24px; }
     .btn-text .btn-main { font-size: 0.8rem; }
