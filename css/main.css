@@ -149,15 +149,15 @@ header {
     height: 2rem;
     align-items: center;
     position: relative;
-    z-index: 2;
+    z-index: 2;    
 }
 
 .marquee-track {
     display: flex;
     width: max-content;
     animation: runMarquee 60s linear infinite;
-    will-change: transform;    
-    transform: translate3d(0, 0, 0);
+    will-change: transform;
+    contain: layout style paint;
 }
 
 .marquee-group {
