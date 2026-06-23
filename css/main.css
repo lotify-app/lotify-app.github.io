@@ -156,7 +156,8 @@ header {
     display: flex;
     width: max-content;
     animation: runMarquee 60s linear infinite;
-    will-change: transform;
+    will-change: transform;    
+    transform: translate3d(0, 0, 0);
 }
 
 .marquee-group {
