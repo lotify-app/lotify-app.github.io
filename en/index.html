@@ -460,7 +460,7 @@
             toggleBtn.setAttribute("aria-expanded", transcript.open ? "true" : "false");
         });
     }
-    window.addEventListener('load', function() {
+    window.addEventListener('DOMContentLoaded', function() {
         var preloader = document.querySelector('.preloader');
         if (preloader) {
             preloader.classList.add('hide');
