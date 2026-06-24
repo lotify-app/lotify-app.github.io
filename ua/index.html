@@ -467,13 +467,12 @@
         });
     }
 
-    document.addEventListener('DOMContentLoaded', function() {
+    window.addEventListener('load', function() {
         var preloader = document.querySelector('.preloader');
         if (preloader) {
             preloader.classList.add('hide');
         }
     });
-
     setTimeout(function() {
         var cards = document.querySelectorAll(".neon-card");
         var lastScrollY = window.scrollY;
