@@ -460,6 +460,8 @@ h2 span {
     transform: translateY(30px);
     transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.2s, border-color 0.2s;
     contain: layout style paint;
+    content-visibility: auto;
+    contain-intrinsic-size: 350px;
 }
 
 .neon-card.visible {
