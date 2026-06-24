@@ -463,12 +463,18 @@
         });
     }
 
-    window.addEventListener('DOMContentLoaded', function() {
+    (function() {
         var preloader = document.querySelector('.preloader');
-        if (preloader) {
+        if (!preloader) return;
+        var hidePreloader = function() {
             preloader.classList.add('hide');
+        };
+        if (document.readyState === 'complete' || document.readyState === 'interactive') {
+        hidePreloader();
+        } else {
+            document.addEventListener('DOMContentLoaded', hidePreloader);
         }
-    });
+    })();
     setTimeout(function() {
         var cards = document.querySelectorAll(".neon-card");
         var lastScrollY = window.scrollY;
