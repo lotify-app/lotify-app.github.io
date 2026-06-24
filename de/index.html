@@ -483,17 +483,12 @@
             toggleBtn.setAttribute("aria-expanded", transcript.open ? "true" : "false");
         });
     }
-    (function() {
+    window.addEventListener('load', function() {
         var preloader = document.querySelector('.preloader');
-        if (!preloader) return;
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', function() {
-                preloader.classList.add('hide');
-            });
-        } else {
+        if (preloader) {
             preloader.classList.add('hide');
         }
-    })();
+    });
     setTimeout(function() {
         var cards = document.querySelectorAll(".neon-card");
         var lastScrollY = window.scrollY;
