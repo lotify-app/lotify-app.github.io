@@ -149,7 +149,8 @@ header {
     height: 2rem;
     align-items: center;
     position: relative;
-    z-index: 2;    
+    z-index: 2;  
+    contain: layout style paint;
 }
 
 .marquee-track {
