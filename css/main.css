@@ -173,13 +173,13 @@ header {
     gap: 0.4rem;
     font-size: 0.7rem;
     font-weight: 800;
-    color: var(--text-muted);
+    color: #7e8c9f;
     padding: 0 2rem;
     white-space: nowrap;
 }
 
 .marquee-el span {
-    color: var(--accent-cyan);
+    color: #00f0ff;
     font-weight: 400;
 }
 
