@@ -106,7 +106,10 @@
 
     <link rel="stylesheet" href="/css/main.css">
 </head>
-<body>
+<body style="background: #030305;">
+    <div class="preloader">
+        <div class="spinner"></div>
+    </div>
 
     <header>
         <div class="logo-block">
@@ -457,6 +460,12 @@
             toggleBtn.setAttribute("aria-expanded", transcript.open ? "true" : "false");
         });
     }
+    window.addEventListener('load', function() {
+        var preloader = document.querySelector('.preloader');
+        if (preloader) {
+            preloader.classList.add('hide');
+        }
+    });
 
     setTimeout(function() {
         var cards = document.querySelectorAll(".neon-card");
