@@ -32,7 +32,7 @@
 }
 
 body {
-    background: var(--bg) url("/images/tg-bg.svg") repeat;
+    background: var(--bg) url("../images/tg-bg.svg") repeat;
     background-size: 320px;
     /*background-color: var(--bg);*/
     color: var(--text-main);
