@@ -1047,15 +1047,10 @@ body {
     letter-spacing: -0.02em;
 }
 
-.faq-icon {
-    color: #fff500;
-    font-style: normal;
-}
-
 .faq-title {
     font-size: 1rem;
     font-weight: 700;
-    color: #fff;
+    color: #fff500;
 }
 
 .faq-content {
