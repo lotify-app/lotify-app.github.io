@@ -32,9 +32,10 @@
 }
 
 body {
-    background: var(--bg) url("../images/tg-bg.svg") repeat;    
+    background: #030305 url("../images/tg-bg.svg") repeat;
+    /*background: var(--bg) url("../images/tg-bg.svg") repeat;    
     background-color: var(--bg);
-    background-repeat: repeat;
+    background-repeat: repeat;*/
     background-size: 320px;
     color: var(--text-main);
     overflow-x: hidden;
