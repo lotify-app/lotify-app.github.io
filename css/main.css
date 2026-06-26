@@ -1006,7 +1006,7 @@ body {
 .faq-section {
     margin-top: 0.5rem;
     padding: 0 1rem;
-    max-width: 600px;
+    max-width: 700px;
     margin-left: auto;
     margin-right: auto;
     width: 100%;
@@ -1051,6 +1051,10 @@ body {
 .faq-title {
     font-size: 1rem;
     font-weight: 700;
+    color: #ffffff;
+}
+
+.faq-icon {
     color: #fff500;
 }
 
@@ -1063,14 +1067,14 @@ body {
 }
 
 .faq-item h4 {
-    font-size: 0.75rem;
-    font-weight: 700;
+    font-size: 0.85rem;
+    font-weight: 600;
     color: var(--accent-yellow);
     margin-bottom: 0.3rem;
 }
 
 .faq-item p {
-    font-size: 0.65rem;
+    font-size: 0.75rem;
     color: var(--text-muted);
     line-height: 1.5;
     white-space: pre-line;
