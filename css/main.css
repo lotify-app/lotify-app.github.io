@@ -570,6 +570,7 @@ h2 span {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 0.8rem;
+    margin-top:2rem;
 }
 
 .who-item {
@@ -619,6 +620,7 @@ h2 span {
     border: 1px solid var(--border-subtle);
     border-radius: 12px;
     padding: 1rem;
+    margin-top:2rem;
     position: relative;
     overflow: visible;
 }
@@ -933,7 +935,7 @@ footer {
     body { padding-top: 4.5rem; }
     header { height: 4.5rem; padding: 0.5rem 2rem; }
     .logo-img { width: 2.4rem; height: 2.4rem; }
-    .logo { font-size: 1.6rem; }
+    .logo { font-size.6rem; }
     .official-tag { font-size: 0.55rem; }
     h2 { font-size: 2.2rem; }
     .hero { max-width: 1000px; padding: 2.5rem 2rem; }
