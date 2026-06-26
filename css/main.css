@@ -1047,15 +1047,10 @@ body {
     letter-spacing: -0.02em;
 }
 
-.faq-icon {
-    color: #ff4d4d;
-    font-style: normal;
-}
-
-.faq-text {
-    color: #fff500;
+.faq-title {
     font-size: 1rem;
     font-weight: 700;
+    color: #fff500;
 }
 
 .faq-content {
@@ -1086,7 +1081,7 @@ body {
         height: 38px;
         font-size: 0.95rem;
     }
-    .faq-text {
+    .faq-title {
         font-size: 0.9rem;
     }
     .faq-item h4 {
