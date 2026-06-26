@@ -971,6 +971,7 @@ footer {
     .usecase-card p { padding-left: 0; }
     .payment-icons .pay-text { font-size: 0.6rem; }
     .bento-stack { display: flex; flex-direction: column; gap: 1.2rem; }
+}
 
 
 
