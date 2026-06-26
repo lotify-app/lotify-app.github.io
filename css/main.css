@@ -1023,7 +1023,7 @@ body {
     justify-content: center;
     gap: 0.8rem;
     cursor: pointer;
-    padding: 1rem;
+    padding: 0.5rem;
     list-style: none;
     text-align: center;
 }
@@ -1047,14 +1047,19 @@ body {
     letter-spacing: -0.02em;
 }
 
-.faq-title {
+.faq-icon {
+    color: #ff4d4d;
+    font-style: normal;
+}
+
+.faq-text {
+    color: #fff500;
     font-size: 1rem;
     font-weight: 700;
-    color: #fff500;
 }
 
 .faq-content {
-    padding: 0 1.2rem 1.5rem;
+    padding: 0.5rem 0.5rem 1rem;
 }
 
 .faq-item {
@@ -1069,27 +1074,10 @@ body {
 }
 
 .faq-item p {
-    font-size: 0.8rem;
+    font-size: 0.65rem;
     color: var(--text-muted);
     line-height: 1.5;
     white-space: pre-line;
-}
-
-.faq-collapse {
-    display: block;
-    margin: 1.2rem auto 0;
-    padding: 0.6rem 1.5rem;
-    background: transparent;
-    border: 1px solid rgba(255,255,255,0.15);
-    border-radius: 8px;
-    color: var(--text-muted);
-    font-size: 0.8rem;
-    cursor: pointer;
-    transition: background 0.2s;
-}
-
-.faq-collapse:hover {
-    background: rgba(255,255,255,0.05);
 }
 
 @media (max-width: 420px) {
@@ -1098,13 +1086,13 @@ body {
         height: 38px;
         font-size: 0.95rem;
     }
-    .faq-title {
+    .faq-text {
         font-size: 0.9rem;
     }
     .faq-item h4 {
         font-size: 0.8rem;
     }
     .faq-item p {
-        font-size: 0.75rem;
+        font-size: 0.6rem;
     }
 }
