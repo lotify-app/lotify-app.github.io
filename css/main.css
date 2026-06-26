@@ -1003,7 +1003,7 @@ body {
 }
 
 #faq {
-    margin-top: 2.5rem;
+    margin-top: 1.5rem;
     padding: 0 1rem;
     max-width: 600px;
     margin-left: auto;
@@ -1050,7 +1050,12 @@ body {
 .faq-title {
     font-size: 1rem;
     font-weight: 700;
-    color: #fff500;
+    color: #fff;              /* весь заголовок белый, кроме значка, если он обернут в .faq-icon */
+}
+
+.faq-icon {
+    color: #fff500;           /* жёлтый знак вопроса */
+    font-style: normal;
 }
 
 .faq-content {
@@ -1062,14 +1067,14 @@ body {
 }
 
 .faq-item h4 {
-    font-size: 0.85rem;
+    font-size: 0.75rem;      /* уменьшенный шрифт вопросов */
     font-weight: 700;
     color: var(--accent-yellow);
     margin-bottom: 0.3rem;
 }
 
 .faq-item p {
-    font-size: 0.65rem;
+    font-size: 0.65rem;      /* шрифт ответов */
     color: var(--text-muted);
     line-height: 1.5;
     white-space: pre-line;
@@ -1085,7 +1090,7 @@ body {
         font-size: 0.9rem;
     }
     .faq-item h4 {
-        font-size: 0.8rem;
+        font-size: 0.7rem;
     }
     .faq-item p {
         font-size: 0.6rem;
