@@ -1,5 +1,6 @@
 :root {
-    --bg: #030305;
+    /*--bg: #030305;*/
+    --bg: #1C1C1E;
     --surface-glass: rgba(13, 13, 18, 0.7);
     --card-glass: rgba(18, 18, 26, 0.8);
     --border-glow: rgba(0, 240, 255, 0.35);
