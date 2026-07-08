@@ -235,6 +235,7 @@ h1 {
     .hero p {
         font-size: 0.75rem;
         margin-bottom: 1rem;
+        line-height: 1;
     }
 }
 
