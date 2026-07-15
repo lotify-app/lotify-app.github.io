@@ -52,7 +52,7 @@ Sitemap: https://lotify-app.github.io/sitemap.xml
 # ФАЙЛ ДЛЯ LLM (штучного інтелекту)
 # ============================================================
 
-LLM: https://lotify-app.github.io/llm.txt
+LLM: https://lotify-app.github.io/llms.txt
 
 # ============================================================
 # ДОДАТКОВІ ВКАЗІВКИ ДЛЯ РОБОТІВ
