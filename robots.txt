@@ -5,11 +5,9 @@
 User-agent: *
 Allow: /
 
-# Заборонити індексацію службових файлів GitHub Pages
 Disallow: /.git/
 Disallow: /.nojekyll
 
-# Заборонити індексацію контактної сторінки (якщо вона є і містить тільки редирект)
 Disallow: /contact.html
 
 Allow: /ua/
