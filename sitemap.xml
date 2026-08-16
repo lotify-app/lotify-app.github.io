@@ -215,10 +215,5 @@
         <xhtml:link rel="alternate" hreflang="ru" href="https://lotify-app.github.io/ru/terms.html"/>
         <priority>0.5</priority>
         <changefreq>monthly</changefreq>
-    </url>
-    <url>
-        <loc>https://lotify-app.github.io/llms.txt</loc>
-        <changefreq>monthly</changefreq>
-        <priority>0.1</priority>
-    </url>
+    </url>   
 </urlset>
