@@ -1,14 +1,9 @@
-# ============================================================
-# robots.txt для Lotifybot — Ідеальна конфігурація для SEO та ІІ
-# ============================================================
+# ====================================================================
+# robots.txt для Lotifybot — Ідеальна конфігурація для SEO та всіх AІ
+# ====================================================================
 
 User-agent: *
 Allow: /
-
-Disallow: /.git/
-Disallow: /.nojekyll
-
-Disallow: /contact.html
 
 Allow: /ua/
 Allow: /en/
@@ -16,5 +11,8 @@ Allow: /pl/
 Allow: /de/
 Allow: /es/
 Allow: /ru/
+
+Disallow: /.git/
+Disallow: /.nojekyll
 
 Sitemap: https://lotify-app.github.io/sitemap.xml
