@@ -1,6 +1,6 @@
 # Lotify Startup Hub
 
-Official educational hub and partner of Lotifybot — the fastest cloud-based ad parser for eBay, Willhaben, Facebook Marketplace, OLX, AUTO.RIA, and DIM.RIA.
+Official educational hub and partner of Lotifybot — the fastest cloud-based ad parser for eBay, Willhaben, Facebook Marketplace, Vinted, OLX, AUTO.RIA, and DIM.RIA.
 
 [Launch Lotifybot →](https://t.me/lotifybot?start=1088875712)
 
