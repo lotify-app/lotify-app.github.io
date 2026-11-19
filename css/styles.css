@@ -942,7 +942,7 @@ footer {
     color: var(--text-main);
 }
 
-.footer-fop {
+.footer-fop, .footer-git {
     font-size: 0.55rem;
     color: var(--text-muted);
     margin-top: 0.8rem;
