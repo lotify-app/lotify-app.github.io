@@ -1,4 +1,4 @@
-# Lotifybot — Телеграм-бот и быстрый парсер объявлений OLX (ОЛХ), eBay, Willhaben, Vinted, Facebook Marketplace AUTO.RIA, DIM.RIA  
+# Lotifybot — Телеграм-бот и быстрый парсер объявлений OLX (ОЛХ), eBay (Ибэй), Willhaben, Vinted, Facebook Marketplace (фейсбук) AUTO.RIA, DIM.RIA  
 
 **Lotifybot** — облачный Telegram-бот для мгновенного мониторинга новых объявлений на OLX (Украина, Польша, Казахстан, Румыния, Болгария, Португалия, Узбекистан), AUTO.RIA, DIM.RIA, Willhaben, eBay, Vinted и Facebook Marketplace.
 
