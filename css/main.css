@@ -928,7 +928,7 @@ footer {
     color: var(--text-cyan);
 }
 
-.footer-fop {
+.footer-fop, footer-git {
     font-size: 0.55rem;
     color: var(--text-main);
     margin-top: 0.8rem;
