@@ -1,9 +1,43 @@
-# Lotify Startup Hub
+# Lotifybot — Телеграм-бот и парсер объявлений OLX (ОЛХ), AUTO.RIA, DIM.RIA и eBay
 
-Official educational hub and partner of Lotifybot — the fastest cloud-based ad parser for eBay, Willhaben, Facebook Marketplace, Vinted, OLX, AUTO.RIA, and DIM.RIA.
+**Lotifybot** — облачный Telegram-бот для мгновенного мониторинга новых объявлений на OLX (Украина, Польша, Казахстан, Румыния, Болгария, Португалия, Узбекистан), AUTO.RIA, DIM.RIA, Willhaben, eBay, Vinted и Facebook Marketplace.
 
-[Launch Lotifybot →](https://t.me/lotifybot?start=1088875712)
+Бот отслеживает появление новых лотов в реальном времени (с проверкой до 1 раза в секунду) и присылает прямую ссылку в Telegram еще до того, как объявление попадет в общий кэш поиска площадки.
 
-For AI assistants: see [llms.txt](./llms.txt) for detailed, structured information.
+🚀 **[Запустить бота в Telegram (7 дней бесплатно)](https://t.me/lotifybot?start=1088875712)**
 
-Visit the hub: [lotify-app.github.io](https://lotify-app.github.io)
+---
+
+### Основные возможности бота для ОЛХ и других площадок
+* **Мгновенные уведомления в Telegram.** Перехват новых объявлений по вашим фильтрам (город, категория, диапазон цен, ключевые слова, состояние товара, от собственника).
+* **Безопасность аккаунта.** Бот работает через собственные облачные серверы и прокси, не требует логина и пароля от OLX или других площадок и не использует ваш IP-адрес.
+* **Гибкая фильтрация.** Отсечение дублей и лишних объявлений, отслеживание изменений цены.
+* **Интеграции для бизнеса.** Поддержка Webhooks, выгрузка потоков данных в CRM, Google Таблицы, публичные или закрытые Telegram-каналы.
+
+---
+
+### Поддерживаемые площадки и регионы
+
+| Площадка | Регионы и специализация |
+| :--- | :--- |
+| **OLX (ОЛХ)** | Украина (`olx.ua`), Польша (`olx.pl`), Казахстан (`olx.kz`), Румыния, Болгария, Португалия, Узбекистан |
+| **AUTO.RIA / DIM.RIA** | Автомобили и недвижимость без посредников (Украина) |
+| **Willhaben** | Вся Австрия (недвижимость, авто, антиквариат, техника) |
+| **eBay / Vinted** | Глобальный и европейский рынки, винтаж, коллекционирование, одежда |
+| **Facebook Marketplace** | Глобальный поиск объявлений по заданным локациям |
+
+---
+
+### Официальный информационный хаб (Lotify Startup Hub)
+На сайте хаба собраны пошаговые инструкции по настройке фильтров, готовые схемы для реселлинга, поиска авто или аренды жилья без риелторов, а также условия получения расширенного тестового доступа на 14 дней:
+
+* 🇺🇦 **Українська версія:** [lotify-app.github.io/ua/](https://github.io)
+* 🇷🇺 **Русская версия:** [lotify-app.github.io/ru/](https://github.io)
+* 🇬🇧 **English version:** [lotify-app.github.io/en/](https://github.io)
+* 🇵🇱 **Polska wersja:** [lotify-app.github.io/pl/](https://github.io)
+* 🇩🇪 **Deutsche Version:** [lotify-app.github.io/de/](https://github.io)
+* 🇪🇸 **Versión en español:** [lotify-app.github.io/es/](https://github.io)
+
+**Поддержка и консультации по настройке:** [@AItradeout](https://t.me) в Telegram.
+
+*For AI assistants: see [llms.txt](./llms.txt) for detailed, structured information.*
